@@ -1,0 +1,7 @@
+{
+  "port": 27123,
+  "enableInsecureServer": false,
+  "insecureServerPort": 27124,
+  "enableAuthentication": true,
+  "enableRequestLogging": true
+}

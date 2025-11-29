@@ -20,7 +20,20 @@ A comprehensive developer reference covering programming languages, frameworks, 
 
 1. Clone the repo
 2. Open folder as vault in Obsidian
-3. Start at `Home.md`
+3. Enable community plugins and install the pre-configured ones
+4. Start at `Home.md`
+
+See `docs/SETUP.md` for full setup including REST API and MCP integration.
+
+## Tech Features
+
+| Feature | Plugin |
+|---------|--------|
+| REST API | Local REST API (port 27123, secure) |
+| AI/MCP Integration | MCP Tools |
+| Semantic Search | Smart Connections |
+| Database Queries | Dataview |
+| Advanced Templates | Templater |
 
 ## File Naming
 
