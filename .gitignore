@@ -1,0 +1,16 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/hotkeys.json
+.obsidian/app.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
