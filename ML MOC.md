@@ -71,11 +71,12 @@ Machine learning, deep learning, and artificial intelligence concepts.
 - [[LLM Internals]]
 - [[RAG]]
 - [[Grounding]]
+- [[Prompt Engineering]]
 - [[Agent Frameworks]]
 - [[MCP Servers]]
 - [[MCP Gateway]]
 - [[Agent Gateway]]
-- [[Prompt Engineering]]
+- [[A2A Protocol]]
 
 ## Applications
 

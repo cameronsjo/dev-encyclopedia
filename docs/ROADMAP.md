@@ -14,7 +14,6 @@
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
-| Prompt Engineering | `idea` | High | Medium | Techniques, patterns, chains, best practices |
 | Vector Databases | `idea` | High | Medium | Pinecone, Weaviate, Qdrant, pgvector, Chroma |
 | Embeddings | `idea` | High | Medium | Models, semantic search, use cases |
 | Model Serving | `idea` | High | Medium | vLLM, TGI, Triton, Ollama, optimization |
@@ -29,7 +28,6 @@
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
-| A2A Protocol | `idea` | High | Medium | Google's Agent-to-Agent protocol |
 | MCP Registry | `idea` | Medium | Small | Discovery, cataloging MCP servers |
 | Agent Registry | `idea` | Medium | Small | Agent discovery, capabilities |
 | Service Discovery | `idea` | High | Medium | Consul, etcd, DNS-SD, Eureka |
@@ -72,7 +70,8 @@
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
-| AI Infrastructure | `done` | High | Medium | MCP Gateway, Agent Gateway, Grounding, LLM Internals |
+| AI Infrastructure | `done` | High | Medium | MCP Gateway, Agent Gateway, Grounding, LLM Internals, Prompt Engineering |
+| Agent Protocols | `done` | High | Medium | A2A Protocol |
 | Web Infrastructure | `done` | High | Medium | API Gateways, Load Balancing, Web Security |
 | Cross-platform frameworks | `done` | High | Large | Flutter, RN, MAUI, Electron, Tauri, Avalonia |
 | Web frontend frameworks | `done` | High | Medium | React, Vue, Angular, Svelte |
