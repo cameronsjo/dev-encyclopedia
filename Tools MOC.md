@@ -27,6 +27,12 @@ Development tools, libraries, and infrastructure across languages.
 - [[Runtimes]] — Execution models, VMs, interpreters
 - [[Deployment]] — Containers, serverless, platforms
 
+### Infrastructure & Security
+
+- [[API Gateways]] — Traffic routing, rate limiting, auth
+- [[Load Balancing]] — Traffic distribution, high availability
+- [[Web Security]] — WAF, DDoS protection, CAPTCHA
+
 ### Data
 
 - [[Database Engines]] — SQL, document, KV, graph, time-series, vector
