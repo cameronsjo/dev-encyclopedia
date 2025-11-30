@@ -65,6 +65,14 @@ Machine learning, deep learning, and artificial intelligence concepts.
 - [[Batch Normalization]]
 - [[Transfer Learning]]
 
+## LLMs & Agents
+
+- [[LLMs & Transformers]]
+- [[RAG]]
+- [[Agent Frameworks]]
+- [[MCP Servers]]
+- [[Prompt Engineering]]
+
 ## Applications
 
 ### NLP
@@ -73,7 +81,6 @@ Machine learning, deep learning, and artificial intelligence concepts.
 - [[Word Embeddings]]
 - [[Sequence Models]]
 - [[Attention Mechanisms]]
-- [[LLMs & Transformers]]
 
 ### Computer Vision
 
