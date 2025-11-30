@@ -5,8 +5,6 @@
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
 | Unreal Engine | `planned` | Medium | Medium | Complete game engines coverage |
-| API Design Patterns | `planned` | High | Medium | REST, GraphQL, gRPC, tRPC |
-| Security Concepts | `planned` | High | Large | OWASP, Auth patterns, Crypto basics |
 
 ## Ideas (Not Committed)
 
@@ -34,6 +32,9 @@
 | CS fundamentals | `done` | High | Medium | Big O, Data Structures, Patterns, Algorithms |
 | Math foundations | `done` | Medium | Medium | Calculus, Linear Algebra, Probability |
 | ML concepts | `done` | Medium | Medium | Fundamentals, Neural Networks, LLMs |
+| AI/Agent infrastructure | `done` | High | Medium | MCP Servers, RAG, Agent Frameworks |
+| API Design Patterns | `done` | High | Medium | REST, GraphQL, gRPC, tRPC, Webhooks |
+| Security Concepts | `done` | High | Large | OWASP, Auth patterns, Crypto basics |
 | Tool comparisons | `done` | High | Large | Testing, Logging, HTTP, ORMs, Build, Deploy |
 | Observability basics | `done` | Medium | Small | OpenTelemetry, Distributed Tracing |
 
