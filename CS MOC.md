@@ -46,6 +46,13 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Distributed Systems]]
 - [[System Design]]
 
+### Networking
+
+- [[Networking Fundamentals]]
+- [[Sockets & Low-Level Networking]]
+- [[DNS & Service Discovery]]
+- [[Network Performance]]
+
 ### Patterns
 
 - [[Design Patterns]]
