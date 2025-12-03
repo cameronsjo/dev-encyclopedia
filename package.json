@@ -1,0 +1,24 @@
+{
+  "name": "dev-encyclopedia",
+  "version": "1.0.0",
+  "description": "Developer's Encyclopedia - Obsidian vault with comprehensive developer reference",
+  "private": true,
+  "scripts": {
+    "lint": "markdownlint-cli2 '**/*.md' '#node_modules' '#.obsidian'",
+    "lint:fix": "markdownlint-cli2 --fix '**/*.md' '#node_modules' '#.obsidian'",
+    "validate:frontmatter": "node scripts/validate-frontmatter.js",
+    "validate:links": "node scripts/validate-wikilinks.js",
+    "spell": "cspell '**/*.md' --no-progress",
+    "validate": "npm run lint && npm run validate:frontmatter && npm run validate:links",
+    "validate:all": "npm run validate && npm run spell"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.14.0",
+    "gray-matter": "^4.0.3",
+    "glob": "^11.0.0",
+    "cspell": "^8.14.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
