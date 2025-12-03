@@ -8,10 +8,11 @@
   "MD010": true,
   "MD012": { "maximum": 2 },
   "MD013": false,
+  "MD020": false,
   "MD022": { "lines_above": 1, "lines_below": 1 },
   "MD024": { "siblings_only": true },
-  "MD025": { "front_matter_title": "title" },
-  "MD026": { "punctuation": ".,;:!" },
+  "MD025": false,
+  "MD026": { "punctuation": ".,;:" },
   "MD029": { "style": "ordered" },
   "MD030": true,
   "MD031": true,
@@ -25,7 +26,7 @@
   "MD037": true,
   "MD038": true,
   "MD039": true,
-  "MD040": true,
+  "MD040": false,
   "MD041": false,
   "MD042": true,
   "MD044": false,
@@ -37,5 +38,6 @@
   "MD050": { "style": "asterisk" },
   "MD051": false,
   "MD052": false,
-  "MD053": false
+  "MD053": false,
+  "MD056": false
 }

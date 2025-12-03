@@ -11,7 +11,7 @@ tags:
   - full-stack
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Ruby on Rails
@@ -443,6 +443,7 @@ User.includes(:posts).each { |u| u.posts.count }  # Good
 ## When to Use Rails
 
 **Strengths:**
+
 - Rapid development
 - Convention over configuration
 - Mature ecosystem (gems)
@@ -451,12 +452,14 @@ User.includes(:posts).each { |u| u.posts.count }  # Good
 - Strong community
 
 **Considerations:**
+
 - Ruby talent pool (smaller than Python/JS)
 - Performance (good, not best)
 - Learning curve (conventions)
 - Monolithic (microservices harder)
 
 **Best for:**
+
 - Startups (speed to market)
 - Content-heavy applications
 - MVPs and prototypes

@@ -13,7 +13,10 @@ const IGNORED_PATTERNS = [
   'node_modules/**',
   '.obsidian/**',
   'templates/**',
+  'docs/**',
   '.git/**',
+  'README.md',
+  'CLAUDE.md',
 ];
 
 // Regex to match Obsidian wikilinks: [[link]] or [[link|display]]
@@ -47,7 +50,14 @@ async function validateWikilinks() {
 
   let hasErrors = false;
   const brokenLinks = [];
+  const mocWarnings = [];
   const allLinks = [];
+
+  // MOC files are allowed to have links to planned content
+  const isMocFile = (file) => file.includes('MOC') || file === 'Home.md';
+
+  // Known intentional non-page links (code examples, etc.)
+  const IGNORED_LINKS = ['...slug'];
 
   for (const file of files) {
     const filePath = path.join(process.cwd(), file);
@@ -57,6 +67,11 @@ async function validateWikilinks() {
     while ((match = WIKILINK_REGEX.exec(content)) !== null) {
       const link = match[1].trim();
       allLinks.push({ file, link });
+
+      // Skip intentionally ignored links
+      if (IGNORED_LINKS.includes(link)) {
+        continue;
+      }
 
       // Normalize the link for comparison
       const normalizedLink = link.toLowerCase();
@@ -71,18 +86,29 @@ async function validateWikilinks() {
       if (!isValid) {
         // Try to find similar files for suggestions
         const suggestions = findSimilar(link, fileMap);
-        brokenLinks.push({
-          file,
-          link,
-          suggestions,
-        });
-        hasErrors = true;
+        const entry = { file, link, suggestions };
+
+        if (isMocFile(file)) {
+          // MOC files get warnings, not errors (planned content)
+          mocWarnings.push(entry);
+        } else {
+          brokenLinks.push(entry);
+          hasErrors = true;
+        }
       }
     }
   }
 
   // Print results
   console.log(`\nScanned ${files.length} files, found ${allLinks.length} wikilinks\n`);
+
+  if (mocWarnings.length > 0) {
+    console.log('Warnings (planned content in MOC files):');
+    for (const { file, link } of mocWarnings) {
+      console.log(`  ⚠️  ${file}: [[${link}]]`);
+    }
+    console.log('');
+  }
 
   if (brokenLinks.length > 0) {
     console.log('Broken links:');
@@ -99,7 +125,11 @@ async function validateWikilinks() {
     console.log(`Found ${brokenLinks.length} broken link(s)\n`);
     process.exit(1);
   } else {
-    console.log('All wikilinks are valid!\n');
+    if (mocWarnings.length > 0) {
+      console.log(`All wikilinks valid (${mocWarnings.length} planned links in MOC files)\n`);
+    } else {
+      console.log('All wikilinks are valid!\n');
+    }
     process.exit(0);
   }
 }

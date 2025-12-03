@@ -13,7 +13,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-12-02
+created: '2025-12-02'
 ---
 
 # Networking Fundamentals
@@ -328,6 +328,7 @@ Client → **Proxy** → Server(s)
 Globally distributed reverse proxies caching static content.
 
 **Benefits:**
+
 - Reduced latency (geographic proximity)
 - DDoS protection
 - Reduced origin load

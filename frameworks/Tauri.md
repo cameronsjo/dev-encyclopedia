@@ -12,7 +12,7 @@ tags:
   - web
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Tauri
@@ -84,6 +84,7 @@ Lightweight cross-platform desktop apps with web frontend and Rust backend.
 ### Frontend
 
 Any web framework:
+
 - React, Vue, Svelte, Solid
 - Vanilla JS/TS
 - Any build tool (Vite recommended)
@@ -91,6 +92,7 @@ Any web framework:
 ### Backend
 
 Rust core providing:
+
 - System APIs
 - File system access
 - Native functionality
@@ -367,6 +369,7 @@ Requires hosting update files (GitHub Releases works).
 ## When to Use Tauri
 
 **Strengths:**
+
 - Tiny bundle size
 - Low memory footprint
 - Rust backend (performance, safety)
@@ -374,12 +377,14 @@ Requires hosting update files (GitHub Releases works).
 - Strong security model
 
 **Considerations:**
+
 - Rust learning curve
 - Webview varies by OS
 - Younger ecosystem
 - Fewer ready-made solutions
 
 **Best for:**
+
 - Size-conscious apps
 - Teams with Rust experience
 - Apps needing mobile + desktop

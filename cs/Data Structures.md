@@ -9,7 +9,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Data Structures
@@ -19,6 +19,7 @@ Organized ways to store and access data, each with different performance trade-o
 ## Choosing a Data Structure
 
 **Key questions:**
+
 1. What operations are most frequent?
 2. How large is the data?
 3. Is ordering important?
@@ -42,11 +43,13 @@ Organized ways to store and access data, each with different performance trade-o
 | Delete | O(n) |
 
 **Use when:**
+
 - Need fast random access
 - Know size upfront (or growth is acceptable)
 - Cache locality matters
 
 **Language implementations:**
+
 | Language | Fixed | Dynamic |
 |----------|-------|---------|
 | C# | `T[]` | `List<T>` |
@@ -70,6 +73,7 @@ Organized ways to store and access data, each with different performance trade-o
 *O(1) if tail pointer maintained
 
 **Use when:**
+
 - Frequent insertions/deletions at known positions
 - Don't need random access
 - Building queues or stacks
@@ -87,6 +91,7 @@ Organized ways to store and access data, each with different performance trade-o
 | Peek | O(1) |
 
 **Use when:**
+
 - Function call tracking
 - Undo mechanisms
 - Expression evaluation
@@ -105,12 +110,14 @@ Organized ways to store and access data, each with different performance trade-o
 | Peek | O(1) |
 
 **Use when:**
+
 - BFS traversal
 - Task scheduling
 - Message passing
 - Rate limiting
 
 **Variants:**
+
 | Variant | Ordering |
 |---------|----------|
 | Queue | FIFO |
@@ -133,17 +140,20 @@ Organized ways to store and access data, each with different performance trade-o
 | Delete | O(1) | O(n) |
 
 **Collision resolution:**
+
 | Method | How |
 |--------|-----|
 | Chaining | Linked list at each bucket |
 | Open addressing | Probe for next empty slot |
 
 **Use when:**
+
 - Need fast lookup by key
 - Key equality is well-defined
 - Ordering doesn't matter
 
 **Language implementations:**
+
 | Language | Map | Set |
 |----------|-----|-----|
 | C# | `Dictionary<K,V>` | `HashSet<T>` |
@@ -155,6 +165,7 @@ Organized ways to store and access data, each with different performance trade-o
 ### Hash Functions
 
 **Good hash function:**
+
 - Deterministic (same input → same output)
 - Uniform distribution
 - Fast to compute
@@ -171,6 +182,7 @@ Organized ways to store and access data, each with different performance trade-o
 **What:** Each node has at most two children.
 
 **Traversals:**
+
 | Order | Visit Sequence |
 |-------|----------------|
 | Pre-order | Root, Left, Right |
@@ -202,6 +214,7 @@ Organized ways to store and access data, each with different performance trade-o
 | B+ Tree | Leaves linked | Range queries |
 
 **Language implementations:**
+
 | Language | Sorted Map |
 |----------|------------|
 | C# | `SortedDictionary<K,V>` (RB-tree) |
@@ -226,6 +239,7 @@ Organized ways to store and access data, each with different performance trade-o
 | Build heap | O(n) |
 
 **Use when:**
+
 - Need quick access to min/max
 - Priority queues
 - Heap sort
@@ -244,6 +258,7 @@ Organized ways to store and access data, each with different performance trade-o
 | Prefix search | O(m) |
 
 **Use when:**
+
 - Autocomplete
 - Spell checking
 - IP routing tables
@@ -284,6 +299,7 @@ Organized ways to store and access data, each with different performance trade-o
 **What:** Probabilistic set membership. May have false positives, never false negatives.
 
 **Use when:**
+
 - Checking if item might be in set
 - Cache lookup optimization
 - Duplicate detection at scale
@@ -293,6 +309,7 @@ Organized ways to store and access data, each with different performance trade-o
 **What:** Layered linked lists for O(log n) search.
 
 **Use when:**
+
 - Need sorted operations
 - Simpler than balanced trees
 - Concurrent access (lock-free variants)
@@ -307,6 +324,7 @@ Organized ways to store and access data, each with different performance trade-o
 | Find | O(α(n)) ≈ O(1) |
 
 **Use when:**
+
 - Kruskal's MST algorithm
 - Cycle detection
 - Connected components

@@ -7,7 +7,8 @@ tags:
   - moc
   - domains
 type: moc
-created: 2025-11-28
+created: '2025-11-28'
+status: complete
 ---
 
 # Domains MOC

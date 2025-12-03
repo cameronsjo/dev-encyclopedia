@@ -12,7 +12,7 @@ tags:
   - meta
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # React
@@ -288,6 +288,7 @@ function useDebounce(value, delay) {
 ## When to Use React
 
 **Strengths:**
+
 - Massive ecosystem and community
 - Excellent job market
 - Flexible (library, not framework)
@@ -295,12 +296,14 @@ function useDebounce(value, delay) {
 - Meta-frameworks (Next.js) are powerful
 
 **Considerations:**
+
 - "Just a library" — need to choose everything
 - Many ways to do same thing
 - Bundle size if not careful
 - Frequent ecosystem changes
 
 **Best for:**
+
 - Teams with existing React experience
 - Complex, interactive applications
 - When Next.js/Remix fit requirements

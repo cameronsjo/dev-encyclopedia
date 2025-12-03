@@ -19,6 +19,7 @@ const IGNORED_PATTERNS = [
   'node_modules/**',
   '.obsidian/**',
   'templates/**',
+  'docs/**',
   '.git/**',
   'README.md',
   'CLAUDE.md',

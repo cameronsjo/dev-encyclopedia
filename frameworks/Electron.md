@@ -11,7 +11,7 @@ tags:
   - web
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Electron
@@ -309,6 +309,7 @@ autoUpdater.on('update-downloaded', () => {
 ### With Web Frameworks
 
 Use any web framework:
+
 - React
 - Vue
 - Angular
@@ -334,6 +335,7 @@ Use any web framework:
 ## When to Use Electron
 
 **Strengths:**
+
 - Web team can build desktop
 - Consistent cross-platform
 - Massive ecosystem
@@ -341,12 +343,14 @@ Use any web framework:
 - Full Node.js access
 
 **Considerations:**
+
 - Large bundle size
 - High memory usage
 - Not truly native feel
 - Security requires attention
 
 **Best for:**
+
 - Complex desktop apps
 - Web app ports
 - Teams with web expertise

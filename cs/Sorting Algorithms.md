@@ -11,7 +11,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Sorting Algorithms
@@ -43,17 +43,20 @@ Algorithms for arranging elements in order.
 ### Quick Sort
 
 **How it works:**
+
 1. Pick a pivot
 2. Partition: elements < pivot on left, > pivot on right
 3. Recursively sort partitions
 
 **Characteristics:**
+
 - Average O(n log n), worst O(n²) with bad pivots
 - In-place with O(log n) stack space
 - Not stable
 - Excellent cache locality
 
 **Pivot selection matters:**
+
 | Strategy | Risk |
 |----------|------|
 | First/last element | O(n²) on sorted input |
@@ -65,11 +68,13 @@ Algorithms for arranging elements in order.
 ### Merge Sort
 
 **How it works:**
+
 1. Divide array in half
 2. Recursively sort halves
 3. Merge sorted halves
 
 **Characteristics:**
+
 - Always O(n log n)
 - Stable
 - Requires O(n) extra space
@@ -80,10 +85,12 @@ Algorithms for arranging elements in order.
 ### Heap Sort
 
 **How it works:**
+
 1. Build max heap from array
 2. Repeatedly extract max, place at end
 
 **Characteristics:**
+
 - Always O(n log n)
 - In-place O(1) extra
 - Not stable
@@ -94,11 +101,13 @@ Algorithms for arranging elements in order.
 ### Tim Sort
 
 **How it works:**
+
 - Hybrid of merge sort and insertion sort
 - Finds natural "runs" (sorted subsequences)
 - Merges runs intelligently
 
 **Characteristics:**
+
 - O(n) on nearly sorted data
 - Stable
 - O(n) extra space
@@ -108,10 +117,12 @@ Algorithms for arranging elements in order.
 ### Insertion Sort
 
 **How it works:**
+
 - Build sorted portion one element at a time
 - Insert each element in correct position
 
 **Characteristics:**
+
 - O(n) on nearly sorted data
 - O(n²) average/worst
 - Stable, in-place
@@ -128,11 +139,13 @@ Can beat O(n log n) by not comparing elements.
 ### Counting Sort
 
 **How it works:**
+
 1. Count occurrences of each value
 2. Calculate positions from counts
 3. Place elements in output array
 
 **Characteristics:**
+
 - O(n + k) where k = range of values
 - Only works for integers in known range
 - Stable
@@ -142,10 +155,12 @@ Can beat O(n log n) by not comparing elements.
 ### Radix Sort
 
 **How it works:**
+
 - Sort by each digit (or character), least to most significant
 - Use stable sort (counting sort) for each digit
 
 **Characteristics:**
+
 - O(nk) where k = number of digits
 - Only for integers or fixed-length strings
 - Stable
@@ -155,11 +170,13 @@ Can beat O(n log n) by not comparing elements.
 ### Bucket Sort
 
 **How it works:**
+
 1. Distribute elements into buckets by range
 2. Sort each bucket
 3. Concatenate buckets
 
 **Characteristics:**
+
 - O(n) average when uniform distribution
 - O(n²) worst when all elements in one bucket
 
@@ -172,6 +189,7 @@ Can beat O(n log n) by not comparing elements.
 ### Sorting Small Arrays
 
 For n < 10-50, simple algorithms win:
+
 - Insertion sort has lowest overhead
 - No recursion, no complex logic
 - Standard library sorts often switch to insertion for small partitions
@@ -187,23 +205,26 @@ For n < 10-50, simple algorithms win:
 ### Sorting with Expensive Comparisons
 
 If comparing elements is costly:
+
 - Minimize comparisons (merge sort = n log n comparisons)
 - Consider Schwartzian transform: compute keys once, sort by keys
 
 ### External Sorting
 
 Data doesn't fit in memory:
+
 - External merge sort
 - Sort chunks that fit in memory
 - Merge sorted chunks from disk
 
 ---
 
-## Stability Matters When...
+## Stability Matters When
 
 **Stable sort preserves original order for equal elements.**
 
 Important for:
+
 - Multi-key sorting (sort by last name, then first name)
 - Maintaining previous sort order
 - Database operations

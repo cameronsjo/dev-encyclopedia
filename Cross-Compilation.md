@@ -16,7 +16,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Cross-Compilation
@@ -43,6 +43,7 @@ Building software on one platform to run on another.
 | **Toolchain** | Compiler, linker, and tools for a target |
 
 **Example triples:**
+
 - `x86_64-unknown-linux-gnu` — 64-bit Linux with glibc
 - `aarch64-apple-darwin` — Apple Silicon macOS
 - `x86_64-pc-windows-msvc` — 64-bit Windows MSVC
@@ -72,12 +73,14 @@ GOOS=windows GOARCH=amd64 go build
 ```
 
 **Supported targets:**
+
 - `GOOS`: linux, darwin, windows, freebsd, android, ios, etc.
 - `GOARCH`: amd64, arm64, arm, 386, wasm, etc.
 
 **The catch: CGO**
 
 Pure Go cross-compiles trivially. CGO (C bindings) requires:
+
 - Cross-compiler for target
 - Target's C libraries
 - `CGO_ENABLED=1` + `CC=target-gcc`
@@ -89,12 +92,14 @@ Pure Go cross-compiles trivially. CGO (C bindings) requires:
 ## Rust — Powerful but More Setup
 
 **Add target:**
+
 ```bash
 rustup target add x86_64-unknown-linux-gnu
 rustup target add aarch64-apple-darwin
 ```
 
 **Build:**
+
 ```bash
 cargo build --target x86_64-unknown-linux-gnu
 ```
@@ -113,6 +118,7 @@ Rust compiles to object files easily. Linking needs target's linker.
 | CI per platform | Build natively on each OS |
 
 **`cross` (recommended for Linux targets):**
+
 ```bash
 cargo install cross
 cross build --target x86_64-unknown-linux-gnu
@@ -121,6 +127,7 @@ cross build --target x86_64-unknown-linux-gnu
 Uses Docker images with pre-configured toolchains.
 
 **Zig as linker (elegant):**
+
 ```bash
 cargo install cargo-zigbuild
 cargo zigbuild --target x86_64-unknown-linux-gnu
@@ -135,11 +142,13 @@ Zig bundles cross-compilation toolchains.
 .NET uses Runtime Identifiers (RIDs).
 
 **Common RIDs:**
+
 - `linux-x64`, `linux-arm64`
 - `osx-x64`, `osx-arm64`
 - `win-x64`, `win-arm64`
 
 **Publish for target:**
+
 ```bash
 dotnet publish -r linux-x64 --self-contained
 dotnet publish -r osx-arm64 --self-contained
@@ -169,6 +178,7 @@ Interpreted languages don't cross-compile. The interpreter runs on the target.
 | TypeScript | Node.js runtime | Docker, pkg, nexe, Deno compile |
 
 **Deno compile (TypeScript):**
+
 ```bash
 deno compile --target x86_64-unknown-linux-gnu app.ts
 ```

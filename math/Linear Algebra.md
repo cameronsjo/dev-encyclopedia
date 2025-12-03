@@ -10,7 +10,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Linear Algebra
@@ -68,6 +68,7 @@ Vector with length 1. Direction without magnitude.
 ### The Concept
 
 2D array of numbers. Can represent:
+
 - Linear transformations
 - Systems of equations
 - Data tables (rows = samples, columns = features)
@@ -112,6 +113,7 @@ Vector with length 1. Direction without magnitude.
 ### Matrices as Transformations
 
 Matrix multiplication transforms vectors:
+
 - Rotation
 - Scaling
 - Reflection
@@ -139,6 +141,7 @@ A**x** = **b**
 - **b** = result vector
 
 **Solutions:**
+
 - Unique: A is invertible
 - None: Inconsistent system
 - Infinite: Underdetermined
@@ -193,6 +196,7 @@ A = UΣVᵀ
 **Works for any matrix.** More general than eigendecomposition.
 
 **Applications:**
+
 - Dimensionality reduction
 - Matrix completion (recommendations)
 - Image compression
@@ -218,6 +222,7 @@ Extend operations to mismatched shapes (NumPy, PyTorch convention).
 ### Batched Operations
 
 Process multiple samples simultaneously:
+
 - Input: (batch_size, features)
 - Weights: (features, outputs)
 - Result: (batch_size, outputs)

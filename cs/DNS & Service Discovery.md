@@ -12,7 +12,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-12-03
+created: '2025-12-03'
 ---
 
 # DNS & Service Discovery

@@ -12,7 +12,7 @@ tags:
   - enterprise
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Spring Boot
@@ -61,6 +61,7 @@ public class Application {
 ```
 
 `@SpringBootApplication` combines:
+
 - `@Configuration` — Config class
 - `@EnableAutoConfiguration` — Auto-configure
 - `@ComponentScan` — Find beans
@@ -405,6 +406,7 @@ public record UserDto(String name, String email) {}
 ## When to Use Spring Boot
 
 **Strengths:**
+
 - Massive ecosystem
 - Excellent documentation
 - Enterprise proven
@@ -413,12 +415,14 @@ public record UserDto(String name, String email) {}
 - Kotlin support
 
 **Considerations:**
+
 - Steeper learning curve
 - Memory footprint (JVM)
 - Magic via annotations
 - Slower startup (vs native-first)
 
 **Best for:**
+
 - Enterprise applications
 - Teams with Java experience
 - Complex business logic

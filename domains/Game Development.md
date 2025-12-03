@@ -9,7 +9,7 @@ tags:
   - graphics
 type: moc
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Game Development
@@ -36,6 +36,7 @@ Building interactive games and real-time applications.
 **The generalist.** Largest market share, especially mobile/indie.
 
 **Strengths:**
+
 - Huge asset store
 - Massive community
 - C# (accessible)
@@ -43,6 +44,7 @@ Building interactive games and real-time applications.
 - VR/AR support
 
 **Considerations:**
+
 - Runtime fee controversy (2023, revised)
 - Performance vs Unreal for AAA
 - Render pipeline complexity
@@ -54,12 +56,14 @@ Building interactive games and real-time applications.
 **The powerhouse.** AAA graphics, complex systems. (See dedicated page coming soon)
 
 **Strengths:**
+
 - Industry-leading graphics
 - Blueprints (visual scripting)
 - Full source access
 - Nanite, Lumen, MetaHumans
 
 **Considerations:**
+
 - Steep learning curve
 - C++ complexity
 - Heavy tooling
@@ -72,6 +76,7 @@ Building interactive games and real-time applications.
 **The open-source contender.** Growing fast.
 
 **Strengths:**
+
 - Completely free (MIT)
 - Lightweight
 - Scene-based architecture
@@ -79,6 +84,7 @@ Building interactive games and real-time applications.
 - C# support
 
 **Considerations:**
+
 - Smaller ecosystem
 - 3D still maturing
 - Fewer learning resources
@@ -90,12 +96,14 @@ Building interactive games and real-time applications.
 **Rust ECS game engine.** Data-oriented, modern.
 
 **Strengths:**
+
 - Rust safety
 - Entity Component System
 - Hot reloading
 - Modern architecture
 
 **Considerations:**
+
 - Pre-1.0, changing rapidly
 - Smaller community
 - Rust learning curve
@@ -117,6 +125,7 @@ Building interactive games and real-time applications.
 | System | Logic that operates on components |
 
 **Benefits:**
+
 - Cache-friendly
 - Easy composition
 - Parallelization

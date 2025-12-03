@@ -11,7 +11,7 @@ tags:
   - typescript
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Remix
@@ -448,6 +448,7 @@ npx create-remix@latest --template remix-run/indie-stack
 ## When to Use Remix
 
 **Strengths:**
+
 - Web fundamentals focus
 - Progressive enhancement
 - Parallel data loading
@@ -456,11 +457,13 @@ npx create-remix@latest --template remix-run/indie-stack
 - Works without JavaScript
 
 **Considerations:**
+
 - Smaller ecosystem
 - Fewer tutorials
 - SSR-focused (no SSG)
 
 **Best for:**
+
 - Form-heavy applications
 - Progressive enhancement needs
 - Teams valuing web standards

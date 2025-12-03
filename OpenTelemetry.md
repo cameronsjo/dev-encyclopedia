@@ -12,7 +12,7 @@ tags:
   - distributed-systems
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # OpenTelemetry
@@ -22,12 +22,14 @@ Vendor-neutral observability framework for generating, collecting, and exporting
 ## Why OpenTelemetry?
 
 Before OTel, each observability vendor had proprietary instrumentation:
+
 - Jaeger for tracing
 - Prometheus for metrics
 - Different log formats everywhere
 - Switching vendors meant re-instrumenting everything
 
 **OTel solves this:**
+
 - One instrumentation, export anywhere
 - Standard wire protocol (OTLP)
 - Auto-instrumentation for common libraries
@@ -62,6 +64,7 @@ graph LR
 Track a request's journey through distributed systems.
 
 **Concepts:**
+
 - **Trace** — End-to-end request, identified by `trace_id`
 - **Span** — Single operation within a trace (has `span_id`)
 - **Parent Span** — The span that initiated this one
@@ -70,6 +73,7 @@ Track a request's journey through distributed systems.
 - **Status** — Ok, Error, or Unset
 
 **Example trace structure:**
+
 ```
 [HTTP Request] ─── trace_id: abc123
     └── [API Gateway] ─── span_id: 001, parent: null
@@ -86,6 +90,7 @@ Track a request's journey through distributed systems.
 Aggregated numerical data over time.
 
 **Types:**
+
 | Type | Use Case | Example |
 |------|----------|---------|
 | Counter | Things that only go up | Request count, errors |
@@ -99,6 +104,7 @@ Aggregated numerical data over time.
 Structured events with trace context.
 
 **OTel adds:**
+
 - Automatic `trace_id` and `span_id` injection
 - Standard severity levels
 - Resource attributes (service name, version)
@@ -123,16 +129,21 @@ Structured events with trace context.
 ### Deployment Patterns
 
 **Direct export:**
+
 ```
 App SDK → Exporter → Backend
 ```
+
 Simple, but tightly couples app to backend.
 
 **Via Collector (recommended):**
+
 ```
 App SDK → OTLP Exporter → OTel Collector → Multiple Backends
 ```
+
 Benefits:
+
 - Decouples app from backends
 - Collector handles batching, retry, sampling
 - Can switch backends without app changes
@@ -153,6 +164,7 @@ Benefits:
 How trace context flows across service boundaries.
 
 **Propagators:**
+
 | Format | Protocol | Notes |
 |--------|----------|-------|
 | W3C Trace Context | HTTP headers | Standard, use this |
@@ -161,6 +173,7 @@ How trace context flows across service boundaries.
 | AWS X-Ray | HTTP headers | AWS-specific |
 
 **HTTP headers (W3C):**
+
 ```
 traceparent: 00-{trace_id}-{span_id}-{flags}
 tracestate: vendor=value

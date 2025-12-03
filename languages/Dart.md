@@ -9,7 +9,7 @@ tags:
   - mobile
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Dart
@@ -226,17 +226,20 @@ Compile to native: `dart compile exe`
 ## When to Use Dart
 
 **Strengths:**
+
 - Flutter development
 - Hot reload
 - Sound null safety
 - Single language for multi-platform
 
 **Considerations:**
+
 - Mainly used with Flutter
 - Smaller ecosystem outside Flutter
 - Less general-purpose adoption
 
 **Best for:**
+
 - Flutter apps
 - Cross-platform mobile/desktop
 - Projects needing single codebase

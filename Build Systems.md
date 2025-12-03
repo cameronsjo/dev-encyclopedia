@@ -17,7 +17,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Build Systems
@@ -92,12 +92,14 @@ graph LR
 ### C# — dotnet CLI + MSBuild
 
 **Components:**
+
 - **Roslyn** — Compiler, produces IL
 - **MSBuild** — Build orchestration
 - **NuGet** — Package management
 - **dotnet CLI** — Unified interface
 
 **Build modes:**
+
 | Mode | Output | Use Case |
 |------|--------|----------|
 | Debug | IL + PDB symbols | Development |
@@ -105,6 +107,7 @@ graph LR
 | Native AOT | Native binary | CLI tools, containers |
 
 **Key files:**
+
 - `.csproj` — Project definition (MSBuild XML)
 - `Directory.Build.props` — Shared settings across projects
 - `global.json` — SDK version pinning
@@ -114,18 +117,21 @@ graph LR
 **Philosophy:** Simple, fast, no configuration files.
 
 **Components:**
+
 - **gc** — Official Go compiler
 - **go mod** — Dependency management
 - **go build** — Compilation
 - **go test** — Testing
 
 **Key features:**
+
 - Cross-compilation via `GOOS` and `GOARCH`
 - Static linking by default
 - Fast compilation (designed for it)
 - No makefile needed
 
 **Key files:**
+
 - `go.mod` — Module definition
 - `go.sum` — Dependency checksums
 
@@ -145,6 +151,7 @@ graph LR
 **Recommendation:** Use `uv` for speed, `pyproject.toml` for config.
 
 **Key files:**
+
 - `pyproject.toml` — Modern config standard
 - `requirements.txt` — Legacy dependency list
 - `setup.py` — Legacy build script
@@ -154,6 +161,7 @@ graph LR
 **Compilation:** TypeScript → JavaScript (transpilation).
 
 **Components:**
+
 - **tsc** — TypeScript compiler
 - **Bundler** — Combines JS modules for distribution
 
@@ -170,6 +178,7 @@ graph LR
 **Recommendation:** Vite for apps, esbuild for libraries.
 
 **Key files:**
+
 - `tsconfig.json` — TypeScript config
 - `package.json` — Dependencies and scripts
 - `vite.config.ts` / `webpack.config.js` — Bundler config
@@ -179,11 +188,13 @@ graph LR
 **The gold standard.** Unified build, test, package, publish.
 
 **Components:**
+
 - **rustc** — Compiler (LLVM backend)
 - **Cargo** — Build system + package manager
 - **crates.io** — Package registry
 
 **Key features:**
+
 - Incremental compilation
 - Parallel compilation
 - Built-in test runner
@@ -191,12 +202,14 @@ graph LR
 - Workspaces for monorepos
 
 **Build profiles:**
+
 | Profile | Optimization | Debug Info | Use |
 |---------|--------------|------------|-----|
 | dev | Low | Full | Development |
 | release | High | None | Production |
 
 **Key files:**
+
 - `Cargo.toml` — Project definition
 - `Cargo.lock` — Exact dependency versions
 
@@ -213,6 +226,7 @@ graph LR
 | Python | N/A | N/A | Interpreted |
 
 **Rust build times:** The common complaint. Mitigations:
+
 - Use `cargo check` for type checking without full build
 - Enable incremental compilation (default in dev)
 - Use `sccache` for shared compilation cache

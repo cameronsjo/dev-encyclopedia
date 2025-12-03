@@ -45,6 +45,7 @@ created: YYYY-MM-DD
 ## Writing Style
 
 **DO:**
+
 - Start with one-line description after H1
 - Use overview tables (Aspect | Details)
 - Include comparison tables between alternatives
@@ -54,6 +55,7 @@ created: YYYY-MM-DD
 - Keep code examples minimal and illustrative
 
 **DON'T:**
+
 - Write walls of code or full tutorials
 - Use emojis in prose (✅ ❌ in tables only)
 - Duplicate information across pages
@@ -62,6 +64,7 @@ created: YYYY-MM-DD
 ## Page Patterns
 
 **Framework/Tool pages follow:**
+
 1. Overview table (Type, Language, Platforms, Backing, etc.)
 2. Core concepts with brief explanations
 3. Key features/APIs
@@ -70,6 +73,7 @@ created: YYYY-MM-DD
 6. Related links section
 
 **Comparison pages follow:**
+
 1. Overview table across options
 2. Feature matrix
 3. Per-option details

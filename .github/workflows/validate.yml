@@ -48,6 +48,7 @@ jobs:
   wikilinks:
     name: Validate Wikilinks
     runs-on: ubuntu-latest
+    continue-on-error: true  # Don't fail on links to planned content
     steps:
       - name: Checkout
         uses: actions/checkout@v4

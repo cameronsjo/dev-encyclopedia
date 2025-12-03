@@ -11,7 +11,7 @@ tags:
   - google
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Angular
@@ -395,6 +395,7 @@ Organize by feature, lazy load.
 ## When to Use Angular
 
 **Strengths:**
+
 - Complete framework (batteries included)
 - TypeScript-first
 - Consistent patterns across projects
@@ -403,12 +404,14 @@ Organize by feature, lazy load.
 - Google backing and long-term support
 
 **Considerations:**
+
 - Steep learning curve
 - Verbose for small projects
 - Large bundle (improving)
 - RxJS learning curve (optional now)
 
 **Best for:**
+
 - Enterprise applications
 - Large teams
 - Long-term projects

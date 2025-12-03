@@ -10,7 +10,7 @@ tags:
   - full-stack
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Django
@@ -35,6 +35,7 @@ The web framework for perfectionists with deadlines.
 ### Batteries Included
 
 Django includes everything out of the box:
+
 - ORM
 - Admin interface
 - Authentication
@@ -549,6 +550,7 @@ python manage.py check --deploy
 ## When to Use Django
 
 **Strengths:**
+
 - Batteries included
 - Excellent admin interface
 - Strong security defaults
@@ -557,11 +559,13 @@ python manage.py check --deploy
 - Python ecosystem
 
 **Considerations:**
+
 - Monolithic (microservices harder)
 - ORM limitations for complex queries
 - Sync-first (async added later)
 
 **Best for:**
+
 - Content-heavy sites
 - Admin-heavy applications
 - Rapid prototyping

@@ -11,7 +11,7 @@ tags:
   - typescript
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Vue
@@ -313,6 +313,7 @@ Content distribution for component composition.
 ## When to Use Vue
 
 **Strengths:**
+
 - Gentle learning curve
 - Excellent documentation
 - Official solutions (routing, state)
@@ -321,11 +322,13 @@ Content distribution for component composition.
 - Template syntax (familiar to HTML devs)
 
 **Considerations:**
+
 - Smaller job market than React
 - Fewer third-party libraries
 - Less common in large enterprises
 
 **Best for:**
+
 - Teams new to modern frontend
 - Startups and mid-size companies
 - Projects valuing simplicity

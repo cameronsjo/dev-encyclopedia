@@ -10,7 +10,7 @@ tags:
   - content
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Astro
@@ -471,6 +471,7 @@ npm run build
 ## When to Use Astro
 
 **Strengths:**
+
 - Zero JS by default
 - Use any UI library
 - Great for content sites
@@ -479,11 +480,13 @@ npm run build
 - Islands architecture
 
 **Considerations:**
+
 - Less suited for app-like SPAs
 - Newer, smaller ecosystem
 - Islands require thinking differently
 
 **Best for:**
+
 - Marketing sites
 - Documentation
 - Blogs

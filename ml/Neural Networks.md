@@ -10,7 +10,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Neural Networks
@@ -222,6 +222,7 @@ Most important hyperparameter.
 | Too low | Very slow progress | Increase LR |
 
 **Learning rate schedules:**
+
 - Step decay
 - Cosine annealing
 - Warmup + decay

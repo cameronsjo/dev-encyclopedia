@@ -16,7 +16,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Debugging Tools
@@ -52,6 +52,7 @@ Pause execution, inspect state, step through code.
 **When to use:** Complex bugs, understanding unfamiliar code, inspecting data structures.
 
 **Key features:**
+
 - Breakpoints (conditional, hit count)
 - Step in/over/out
 - Watch expressions
@@ -63,6 +64,7 @@ Pause execution, inspect state, step through code.
 Record execution, replay backwards.
 
 **Tools:**
+
 - C#: VS Enterprise IntelliTrace
 - Rust: rr (Linux)
 - JS: Replay.io
@@ -78,6 +80,7 @@ Record execution, replay backwards.
 Visual Studio's debugger is exceptional.
 
 **Tools:**
+
 | Tool | Purpose |
 |------|---------|
 | Visual Studio Debugger | Full-featured IDE debugging |
@@ -96,6 +99,7 @@ Visual Studio's debugger is exceptional.
 The standard Go debugger. Works with VS Code, GoLand, CLI.
 
 **Key features:**
+
 - Goroutine-aware
 - Conditional breakpoints
 - Core dump analysis
@@ -116,6 +120,7 @@ The standard Go debugger. Works with VS Code, GoLand, CLI.
 **ipdb:** pdb with IPython features.
 
 **Profiling:**
+
 | Tool | What |
 |------|------|
 | cProfile | Built-in CPU profiler |
@@ -131,12 +136,14 @@ The standard Go debugger. Works with VS Code, GoLand, CLI.
 Chrome DevTools is remarkably powerful.
 
 **Features:**
+
 - Sources panel: Breakpoints, stepping
 - Performance panel: CPU profiling, flame charts
 - Memory panel: Heap snapshots, allocation timeline
 - Network panel: Request inspection
 
 **Node.js:**
+
 - `--inspect` flag enables debugging
 - VS Code attaches seamlessly
 - `node --prof` for V8 profiler
@@ -150,11 +157,13 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 **VS Code:** CodeLLDB extension provides good experience.
 
 **Challenges:**
+
 - Optimized code hard to debug
 - Async code complex to step through
 - Consider `cargo build` without release for debugging
 
 **Profiling:**
+
 | Tool | Platform | Use |
 |------|----------|-----|
 | perf | Linux | CPU profiling |
@@ -172,6 +181,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 **What:** Where is time spent?
 
 **Sampling vs Instrumentation:**
+
 | Method | How | Overhead |
 |--------|-----|----------|
 | Sampling | Periodically check stack | Low |
@@ -184,6 +194,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 **What:** Where is memory allocated? Are there leaks?
 
 **Key metrics:**
+
 - Heap size over time
 - Allocation rate
 - Object counts by type
@@ -194,6 +205,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 **What:** Lock contention, goroutine/thread issues.
 
 **Tools:**
+
 - Go: Block profiler, mutex profiler
 - C#: Concurrency Visualizer (VS Enterprise)
 - Rust: tracing + Tokio Console
@@ -207,6 +219,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 **Symptoms:** Growing memory over time.
 
 **Approach:**
+
 1. Take heap snapshots at intervals
 2. Compare object counts
 3. Find objects that shouldn't be retained
@@ -215,6 +228,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 ### Performance Regression
 
 **Approach:**
+
 1. Profile before/after change
 2. Compare flame graphs
 3. Identify new hot paths
@@ -223,6 +237,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 ### Race Conditions
 
 **Hard to reproduce.** Strategies:
+
 - Add delays to increase timing window
 - Use thread sanitizers (TSAN)
 - Time-travel debugging
@@ -231,6 +246,7 @@ Uses lldb (macOS/Linux) or gdb (Linux).
 ### Production Issues
 
 **Can't attach debugger.** Rely on:
+
 - Structured logging
 - Distributed tracing
 - Metrics

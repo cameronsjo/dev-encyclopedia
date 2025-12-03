@@ -10,7 +10,7 @@ tags:
   - android
 type: moc
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Mobile Development
@@ -70,12 +70,14 @@ graph LR
 **Declarative UI** with Swift.
 
 **Strengths:**
+
 - Concise, readable code
 - Live previews
 - Cross-Apple platforms (iOS, macOS, watchOS, tvOS)
 - State management built-in
 
 **Considerations:**
+
 - iOS 13+ minimum
 - Some UIKit features still needed
 - Debugging can be tricky
@@ -85,6 +87,7 @@ graph LR
 **Imperative UI** with view controllers.
 
 **When to use:**
+
 - Complex custom UI
 - Pre-iOS 13 support
 - Wrapping in SwiftUI
@@ -114,12 +117,14 @@ graph LR
 **Declarative UI** with Kotlin.
 
 **Strengths:**
+
 - Kotlin-native
 - Less boilerplate
 - Better state management
 - Interop with existing Views
 
 **Considerations:**
+
 - API 21+ (practical minimum)
 - Still maturing
 - Performance considerations for lists
@@ -156,12 +161,14 @@ graph LR
 | State | Provider, Riverpod, Bloc |
 
 **Strengths:**
+
 - Fast development (hot reload)
 - Consistent UI across platforms
 - Single codebase
 - Good performance
 
 **Considerations:**
+
 - Dart learning curve
 - Large app size
 - Platform feel can differ
@@ -176,12 +183,14 @@ graph LR
 | State | Redux, Zustand, Jotai |
 
 **Strengths:**
+
 - JavaScript/React skills transfer
 - Large ecosystem
 - Native look and feel
 - Expo for rapid development
 
 **Considerations:**
+
 - Bridge overhead (old arch)
 - Native modules sometimes needed
 - Debugging complexity
@@ -196,12 +205,14 @@ graph LR
 | State | MVVM, CommunityToolkit |
 
 **Strengths:**
+
 - C# ecosystem
 - Native controls
 - Enterprise support
 - Xamarin migration path
 
 **Considerations:**
+
 - Smaller community than Flutter/RN
 - macOS/Linux dev limited
 
@@ -216,11 +227,13 @@ graph LR
 **Approach:** Share business logic, native UI per platform.
 
 **Strengths:**
+
 - Best native experience
 - Kotlin everywhere
 - Gradual adoption
 
 **Considerations:**
+
 - Still maturing
 - iOS interop complexity
 

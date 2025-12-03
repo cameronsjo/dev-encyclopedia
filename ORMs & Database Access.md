@@ -18,7 +18,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # ORMs & Database Access
@@ -44,12 +44,14 @@ Cross-language comparison of database access patterns, ORMs, and query builders.
 **What:** Objects map to tables. ORM generates SQL from method calls.
 
 **Pros:**
+
 - Abstracts SQL completely
 - Type-safe queries
 - Automatic migrations
 - Relationship handling
 
 **Cons:**
+
 - N+1 query problems
 - Complex queries are awkward
 - Performance overhead
@@ -62,12 +64,14 @@ Cross-language comparison of database access patterns, ORMs, and query builders.
 **What:** Programmatic SQL construction with type safety.
 
 **Pros:**
+
 - Close to SQL
 - Composable queries
 - Less magic than ORM
 - Better performance control
 
 **Cons:**
+
 - More verbose than ORM
 - Still not raw SQL performance
 - Manual relationship handling
@@ -79,12 +83,14 @@ Cross-language comparison of database access patterns, ORMs, and query builders.
 **What:** Write SQL strings, map results manually.
 
 **Pros:**
+
 - Full control
 - Best performance
 - Use all database features
 - No abstraction leaks
 
 **Cons:**
+
 - SQL injection risk if not careful
 - Manual mapping
 - No compile-time checks (usually)
@@ -100,6 +106,7 @@ Cross-language comparison of database access patterns, ORMs, and query builders.
 The dominant ORM. Mature, feature-rich, well-integrated.
 
 **Key features:**
+
 - LINQ queries compile to SQL
 - Code-first or database-first
 - Migrations
@@ -137,12 +144,14 @@ Go culture favors simplicity. Many teams use `database/sql` directly.
 ### Python — SQLAlchemy Dominates
 
 SQLAlchemy has two APIs:
+
 - **Core:** Query builder
 - **ORM:** Full object mapping
 
 **Django ORM:** Tightly coupled to Django. Great within Django, awkward outside.
 
 **Async options:**
+
 - SQLAlchemy 2.0 (async support)
 - Tortoise ORM (async-first)
 - databases (async query runner)
@@ -152,22 +161,26 @@ SQLAlchemy has two APIs:
 ### TypeScript — Prisma Leading
 
 **Prisma:**
+
 - Schema-first
 - Generated type-safe client
 - Excellent DX
 - Migrations
 
 **TypeORM:**
+
 - Decorator-based
 - More traditional ORM
 - Older, more issues
 
 **Kysely:**
+
 - Query builder only
 - Excellent TypeScript types
 - No ORM features
 
 **Drizzle:**
+
 - SQL-like syntax
 - Type-safe
 - Growing fast
@@ -182,16 +195,19 @@ SQLAlchemy has two APIs:
 ### Rust — Type Safety First
 
 **Diesel:**
+
 - Compile-time query checking
 - Schema-aware types
 - Sync only
 
 **SeaORM:**
+
 - Async-first
 - More flexible
 - Less strict checking
 
 **sqlx:**
+
 - Compile-time checked raw SQL
 - Async
 - No ORM features
@@ -240,6 +256,7 @@ Reuse database connections.
 The most common ORM performance issue.
 
 **What happens:**
+
 1. Fetch 10 users (1 query)
 2. For each user, fetch their posts (10 queries)
 3. Total: 11 queries instead of 2
@@ -268,6 +285,7 @@ Schema changes over time.
 | Rust | Diesel migrations, sqlx-migrate |
 
 **Best practices:**
+
 - Version control migrations
 - Test migrations on copy of prod data
 - Make migrations reversible

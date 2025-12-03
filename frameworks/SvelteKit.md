@@ -11,7 +11,7 @@ tags:
   - typescript
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # SvelteKit
@@ -469,6 +469,7 @@ export function load({ params }) {
 ## When to Use SvelteKit
 
 **Strengths:**
+
 - Smallest bundles
 - Best performance
 - Simple mental model
@@ -476,11 +477,13 @@ export function load({ params }) {
 - Great DX
 
 **Considerations:**
+
 - Smaller ecosystem
 - Fewer jobs (growing)
 - Less enterprise adoption
 
 **Best for:**
+
 - Performance-critical sites
 - Small teams
 - Content sites

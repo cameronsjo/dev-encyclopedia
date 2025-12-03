@@ -12,7 +12,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-12-03
+created: '2025-12-03'
 ---
 
 # Network Performance
@@ -136,6 +136,7 @@ graph LR
 One lost packet blocks all subsequent data until retransmitted.
 
 **Solutions:**
+
 - HTTP/2: Multiplexed streams (still blocked at TCP level)
 - HTTP/3/QUIC: Per-stream loss handling
 
@@ -216,6 +217,7 @@ graph LR
 **Symptoms:** High latency when uploading/downloading.
 
 **Solutions:**
+
 - Active Queue Management (AQM)
 - CoDel, fq_codel, CAKE algorithms
 - Smaller buffers
@@ -255,6 +257,7 @@ Prioritize certain traffic types.
 | 5G | 1-10 ms | 100+ Mbps |
 
 **Challenges:**
+
 - Variable conditions
 - Handoffs between towers
 - Radio resource scheduling

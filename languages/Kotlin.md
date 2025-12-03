@@ -9,7 +9,7 @@ tags:
   - android
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Kotlin
@@ -132,6 +132,7 @@ when (result) {
 ### Kotlin Multiplatform (KMP)
 
 Share code across platforms:
+
 - Common (shared logic)
 - JVM (Android, backend)
 - Native (iOS, desktop)
@@ -188,6 +189,7 @@ Share code across platforms:
 ## When to Use Kotlin
 
 **Strengths:**
+
 - Concise, expressive
 - Null safety by default
 - Coroutines for async
@@ -195,11 +197,13 @@ Share code across platforms:
 - Java interop
 
 **Considerations:**
+
 - Slower compilation
 - Smaller (but growing) community
 - Learning curve for Java devs
 
 **Best for:**
+
 - Android development
 - Spring Boot (modern projects)
 - Multiplatform (shared logic)

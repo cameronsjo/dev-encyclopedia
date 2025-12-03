@@ -11,7 +11,7 @@ tags:
   - open-source
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Godot
@@ -397,6 +397,7 @@ Download export templates per platform.
 ## When to Use Godot
 
 **Strengths:**
+
 - Completely free, forever
 - Lightweight and fast
 - Excellent 2D support
@@ -406,12 +407,14 @@ Download export templates per platform.
 - Improving rapidly
 
 **Considerations:**
+
 - 3D not as mature as Unity/Unreal
 - Smaller asset ecosystem
 - Console export via third parties
 - Fewer tutorials (growing)
 
 **Best for:**
+
 - 2D games
 - Indie developers
 - Learning game development

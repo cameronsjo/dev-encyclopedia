@@ -9,7 +9,7 @@ tags:
   - web
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Ruby
@@ -249,6 +249,7 @@ Still not Go/Rust fast, but fast enough.
 ## When to Use Ruby
 
 **Strengths:**
+
 - Developer productivity
 - Rails ecosystem
 - Rapid prototyping
@@ -256,11 +257,13 @@ Still not Go/Rust fast, but fast enough.
 - Happiness
 
 **Considerations:**
+
 - Performance (better, not best)
 - Smaller talent pool than Python/JS
 - Startup scene shrinking
 
 **Best for:**
+
 - Web applications (Rails)
 - MVPs and startups
 - DevOps tooling

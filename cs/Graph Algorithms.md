@@ -11,7 +11,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Graph Algorithms
@@ -55,6 +55,7 @@ Algorithms for traversing, searching, and analyzing graphs.
 **What:** Visit all neighbors before going deeper.
 
 **Uses:**
+
 - Shortest path in unweighted graph
 - Level-order traversal
 - Finding connected components
@@ -69,6 +70,7 @@ Algorithms for traversing, searching, and analyzing graphs.
 **What:** Go as deep as possible, then backtrack.
 
 **Uses:**
+
 - Topological sort
 - Cycle detection
 - Path finding
@@ -101,6 +103,7 @@ Algorithms for traversing, searching, and analyzing graphs.
 **What:** Shortest path from source to all vertices (non-negative weights).
 
 **Complexity:**
+
 - O(V²) with array
 - O((V + E) log V) with priority queue
 
@@ -163,12 +166,14 @@ Algorithms for traversing, searching, and analyzing graphs.
 **What:** Linear ordering of DAG vertices such that for every edge u→v, u comes before v.
 
 **Use when:**
+
 - Task scheduling with dependencies
 - Build systems
 - Course prerequisites
 - Package installation order
 
 **Algorithms:**
+
 1. DFS-based: Post-order reverse
 2. Kahn's: Remove vertices with no incoming edges
 
@@ -183,6 +188,7 @@ Algorithms for traversing, searching, and analyzing graphs.
 ### In Directed Graphs
 
 **DFS with coloring:**
+
 - White: unvisited
 - Gray: in current path
 - Black: finished
@@ -202,10 +208,12 @@ Gray → Gray edge = cycle.
 **What:** Maximal sets of vertices where every vertex is reachable from every other.
 
 **Algorithms:**
+
 - Kosaraju's: Two DFS passes
 - Tarjan's: Single DFS with low-link values
 
 **Use when:**
+
 - Social network analysis
 - Compiler optimization (finding loops)
 - 2-SAT problem solving

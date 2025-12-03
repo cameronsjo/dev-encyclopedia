@@ -5,7 +5,8 @@ tags:
   - cs
   - computer-science
 type: moc
-created: 2025-11-28
+created: '2025-11-28'
+status: complete
 ---
 
 # Computer Science MOC

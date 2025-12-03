@@ -12,7 +12,7 @@ tags:
   - xaml
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Avalonia
@@ -343,6 +343,7 @@ dotnet new avalonia.xplat -n MyApp
 ```
 
 **Considerations:**
+
 - Larger download (Skia + .NET runtime)
 - Not for content sites (SEO)
 - Good for app-like experiences
@@ -386,6 +387,7 @@ dotnet new avalonia.xplat -n MyApp
 ## When to Use Avalonia
 
 **Strengths:**
+
 - True cross-platform (including Linux)
 - WPF developers feel at home
 - Consistent look everywhere
@@ -393,11 +395,13 @@ dotnet new avalonia.xplat -n MyApp
 - Active development
 
 **Considerations:**
+
 - Not native look per platform
 - Smaller ecosystem than WPF
 - Mobile still maturing
 
 **Best for:**
+
 - Linux desktop apps
 - WPF skills → cross-platform
 - Apps needing consistent UI

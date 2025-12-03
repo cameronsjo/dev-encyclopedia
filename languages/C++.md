@@ -10,7 +10,7 @@ tags:
   - performance
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # C++
@@ -170,6 +170,7 @@ auto result = numbers
 ### The Problem
 
 C++ has all of C's memory issues:
+
 - Buffer overflows
 - Use after free
 - Dangling pointers
@@ -206,6 +207,7 @@ C++ has all of C's memory issues:
 ## When to Use C++
 
 **Strengths:**
+
 - Maximum performance
 - Huge existing codebase
 - Game engines
@@ -213,12 +215,14 @@ C++ has all of C's memory issues:
 - Mature tooling
 
 **Considerations:**
+
 - Memory safety burden
 - Complexity
 - Build system pain
 - Long compile times
 
 **Best for:**
+
 - Game development
 - Performance-critical systems
 - Existing C++ codebases

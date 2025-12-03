@@ -9,7 +9,7 @@ tags:
   - enterprise
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Java
@@ -170,6 +170,7 @@ Java's runtime hosts other languages:
 ## When to Use Java
 
 **Strengths:**
+
 - Enterprise adoption
 - Mature ecosystem
 - Strong backwards compatibility
@@ -177,11 +178,13 @@ Java's runtime hosts other languages:
 - Large talent pool
 
 **Considerations:**
+
 - Verbose compared to Kotlin
 - Startup time (improving with GraalVM)
 - Memory footprint
 
 **Best for:**
+
 - Enterprise applications
 - Large teams
 - Long-lived projects

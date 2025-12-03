@@ -17,7 +17,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Web Frameworks
@@ -55,6 +55,7 @@ Cross-language comparison of backend web frameworks for APIs and web application
 | **Minimal** | Flask, Express, Gin | Flexible, assemble yourself |
 
 **Batteries-included gives you:**
+
 - ORM/database integration
 - Authentication/authorization
 - Admin interfaces
@@ -62,6 +63,7 @@ Cross-language comparison of backend web frameworks for APIs and web application
 - Templating
 
 **Minimal gives you:**
+
 - Routing
 - Request/response handling
 - Middleware
@@ -92,6 +94,7 @@ The most mature enterprise framework. Excellent performance, full feature set.
 | Controllers | Large apps, complex routing, full MVC |
 
 **Key features:**
+
 - Dependency injection built-in
 - Middleware pipeline
 - Model binding and validation
@@ -113,6 +116,7 @@ Go's `net/http` is production-ready. Many teams use it directly.
 | Stay minimal | Chi (just a router) |
 
 **Gin vs Echo:**
+
 - Gin: Fastest, minimal API
 - Echo: More features (binding, validation), slightly slower
 
@@ -121,17 +125,20 @@ Go's `net/http` is production-ready. Many teams use it directly.
 ### Python — FastAPI for APIs, Django for Apps
 
 **FastAPI:**
+
 - Modern, async-first
 - Type hints drive validation and docs
 - Automatic OpenAPI generation
 - Pydantic for data validation
 
 **Django:**
+
 - ORM, admin, auth, forms
 - Sync by default (async improving)
 - Best for full web apps with databases
 
 **Flask:**
+
 - Minimal, sync
 - Good for simple APIs
 - Less relevant now that FastAPI exists
@@ -158,12 +165,14 @@ Go's `net/http` is production-ready. Many teams use it directly.
 ### Rust — Axum or Actix
 
 **Axum:**
+
 - Built on Tokio + Tower
 - Composable, type-safe extractors
 - Growing ecosystem
 - Recommended for new projects
 
 **Actix-web:**
+
 - Actor model
 - Extremely fast
 - More complex

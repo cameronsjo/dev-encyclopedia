@@ -16,7 +16,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # HTTP Clients
@@ -47,6 +47,7 @@ Cross-language comparison of HTTP client libraries, patterns, and best practices
 **Why:** TCP handshake + TLS negotiation is expensive. Pooling amortizes this cost.
 
 **How:**
+
 - C#: Use single `HttpClient` instance (or `IHttpClientFactory`)
 - Go: Default `http.Client` pools connections
 - Python: Use `httpx.Client()` context or `requests.Session()`
@@ -69,15 +70,18 @@ Cross-language comparison of HTTP client libraries, patterns, and best practices
 ### Retry Strategies
 
 When to retry:
+
 - 5xx errors (server problems)
 - Timeouts
 - Connection failures
 
 When NOT to retry:
+
 - 4xx errors (client problems)
 - Non-idempotent requests (POST without idempotency key)
 
 **Retry patterns:**
+
 | Pattern | Description |
 |---------|-------------|
 | Fixed delay | Wait N seconds between retries |
@@ -94,12 +98,14 @@ When NOT to retry:
 The standard. Use `IHttpClientFactory` in DI scenarios to manage client lifecycle.
 
 **Key points:**
+
 - Single `HttpClient` instance is thread-safe
 - `IHttpClientFactory` handles DNS changes, pooling
 - `HttpRequestMessage` for fine-grained control
 - Polly for retry/circuit breaker policies
 
 **Common mistakes:**
+
 - Instantiating per request (socket exhaustion)
 - Not disposing `HttpResponseMessage` (memory leaks)
 - Ignoring DNS TTL (stale endpoints)
@@ -109,6 +115,7 @@ The standard. Use `IHttpClientFactory` in DI scenarios to manage client lifecycl
 The stdlib is production-ready. No need for third-party libraries for basic use.
 
 **Key points:**
+
 - Default client pools connections
 - Must close response body
 - Context for cancellation and timeouts
@@ -121,6 +128,7 @@ The stdlib is production-ready. No need for third-party libraries for basic use.
 Modern replacement for `requests`. Supports both sync and async.
 
 **Key points:**
+
 - `httpx.Client()` for connection pooling
 - `httpx.AsyncClient()` for async
 - HTTP/2 support built-in
@@ -149,6 +157,7 @@ Modern replacement for `requests`. Supports both sync and async.
 The de facto standard. Async by default with tokio.
 
 **Key points:**
+
 - `reqwest::Client` pools connections
 - Blocking API available via feature flag
 - Good TLS support (native-tls or rustls)

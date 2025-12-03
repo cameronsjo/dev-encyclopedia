@@ -10,7 +10,7 @@ tags:
   - csharp
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Unity
@@ -434,6 +434,7 @@ public class WeaponData : ScriptableObject
 ## When to Use Unity
 
 **Strengths:**
+
 - Cross-platform (20+ targets)
 - C# language (familiar to many)
 - Huge asset store
@@ -442,12 +443,14 @@ public class WeaponData : ScriptableObject
 - Large community
 
 **Considerations:**
+
 - Licensing costs at scale
 - Can feel bloated
 - Not best for AAA 3D (vs Unreal)
 - Runtime fees controversy (2023)
 
 **Best for:**
+
 - Mobile games
 - Indie games
 - VR/AR development
