@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "preToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$TOOL_INPUT\" | grep -q 'git commit'; then npm run lint --silent && npm run validate:frontmatter --silent || echo 'VALIDATION_FAILED'; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
