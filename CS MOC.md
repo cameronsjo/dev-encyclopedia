@@ -59,6 +59,10 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Architectural Patterns]]
 - [[API Design]]
 
+### Reference
+
+- [[Technical Measurements]]
+
 ---
 
 ## All CS Pages
