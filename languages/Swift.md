@@ -10,7 +10,7 @@ tags:
   - macos
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Swift
@@ -184,6 +184,7 @@ dependencies: [
 Not garbage collection. Reference counts at compile time.
 
 **Retain cycles:**
+
 ```swift
 class Parent {
     var child: Child?
@@ -235,6 +236,7 @@ Not supported. Use Kotlin Multiplatform for cross-platform.
 ## When to Use Swift
 
 **Strengths:**
+
 - Modern, safe language
 - Best for Apple platforms
 - Growing server-side
@@ -242,11 +244,13 @@ Not supported. Use Kotlin Multiplatform for cross-platform.
 - Great tooling (Xcode)
 
 **Considerations:**
+
 - Apple ecosystem lock-in
 - Smaller server ecosystem
 - ABI stability (recent)
 
 **Best for:**
+
 - iOS/macOS apps
 - Apple ecosystem
 - Server-side (if already Swift shop)

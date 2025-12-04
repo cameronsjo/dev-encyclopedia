@@ -11,7 +11,7 @@ tags:
   - dart
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Flutter
@@ -199,6 +199,7 @@ Sub-second UI updates without losing state.
 ### DevTools
 
 Built-in debugging tools:
+
 - Widget inspector
 - Performance overlay
 - Memory profiler
@@ -285,6 +286,7 @@ if (Platform.isIOS) {
 ## When to Use Flutter
 
 **Strengths:**
+
 - True single codebase
 - Excellent performance
 - Beautiful custom UIs
@@ -292,12 +294,14 @@ if (Platform.isIOS) {
 - Growing ecosystem
 
 **Considerations:**
+
 - Dart (new language for most)
 - App size larger than native
 - Platform-specific features need channels
 - Web not ideal for SEO-heavy sites
 
 **Best for:**
+
 - Cross-platform apps (mobile primary)
 - Custom branded UIs
 - Startups/small teams
@@ -309,6 +313,6 @@ if (Platform.isIOS) {
 
 - [[languages/Dart|Dart]]
 - [[React Native]]
-- [[.NET MAUI]]
+- [[dotNET MAUI]]
 - [[domains/Mobile Development|Mobile Development]]
 - [[domains/Desktop Development|Desktop Development]]

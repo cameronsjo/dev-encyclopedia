@@ -10,7 +10,7 @@ tags:
   - architecture
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # RAG
@@ -353,6 +353,7 @@ Qdrant + BGE embeddings + Llama 3 + BGE Reranker
 ## When to Use RAG
 
 **Strengths:**
+
 - Current, updateable knowledge
 - Cites sources
 - Works with any LLM
@@ -360,12 +361,14 @@ Qdrant + BGE embeddings + Llama 3 + BGE Reranker
 - Cost-effective vs fine-tuning
 
 **Considerations:**
+
 - Adds latency
 - Quality depends on retrieval
 - Chunk strategy matters
 - Needs maintenance (re-indexing)
 
 **Best for:**
+
 - Q&A over documents
 - Customer support bots
 - Code assistants

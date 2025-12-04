@@ -45,6 +45,7 @@ created: YYYY-MM-DD
 ## Writing Style
 
 **DO:**
+
 - Start with one-line description after H1
 - Use overview tables (Aspect | Details)
 - Include comparison tables between alternatives
@@ -54,6 +55,7 @@ created: YYYY-MM-DD
 - Keep code examples minimal and illustrative
 
 **DON'T:**
+
 - Write walls of code or full tutorials
 - Use emojis in prose (✅ ❌ in tables only)
 - Duplicate information across pages
@@ -62,6 +64,7 @@ created: YYYY-MM-DD
 ## Page Patterns
 
 **Framework/Tool pages follow:**
+
 1. Overview table (Type, Language, Platforms, Backing, etc.)
 2. Core concepts with brief explanations
 3. Key features/APIs
@@ -70,6 +73,7 @@ created: YYYY-MM-DD
 6. Related links section
 
 **Comparison pages follow:**
+
 1. Overview table across options
 2. Feature matrix
 3. Per-option details
@@ -99,3 +103,31 @@ created: YYYY-MM-DD
 **Frameworks:** Frontend (React, Vue, Angular, Svelte), Meta (Next.js, Nuxt, SvelteKit, Remix, Astro), Backend (Spring Boot, Rails, Laravel, Django), Mobile (Flutter, React Native, MAUI), Desktop (Electron, Tauri, Avalonia), Game (Unity, Godot, Bevy)
 
 **Tools:** Testing, Logging, HTTP clients, ORMs, Build systems, Deployment, Databases, Observability (Prometheus, Grafana, OpenTelemetry)
+
+## Validation
+
+Before committing changes, run validation:
+
+```bash
+npm run validate          # Lint + frontmatter + wikilinks
+npm run lint:fix          # Auto-fix markdown issues
+```
+
+### Validation Scripts
+
+| Command | What it checks |
+|---------|----------------|
+| `npm run lint` | Markdown formatting (markdownlint) |
+| `npm run lint:fix` | Auto-fix markdown issues |
+| `npm run validate:frontmatter` | Required frontmatter fields |
+| `npm run validate:links` | Wikilinks resolve to files |
+| `npm run spell` | Spelling (cspell) |
+
+### Pre-commit Requirements
+
+All commits must pass:
+
+1. **Markdown lint** — Formatting consistency
+2. **Frontmatter validation** — Required fields present and valid
+
+Wikilinks and spelling are checked but don't block commits (planned content is allowed in MOC files).

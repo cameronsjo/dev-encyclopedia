@@ -11,7 +11,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Design Patterns
@@ -23,6 +23,7 @@ Reusable solutions to common software design problems.
 **Origin:** "Gang of Four" book (1994) — Gamma, Helm, Johnson, Vlissides.
 
 **Categories:**
+
 - **Creational** — Object creation
 - **Structural** — Object composition
 - **Behavioral** — Object interaction
@@ -38,11 +39,13 @@ Reusable solutions to common software design problems.
 **Intent:** Ensure only one instance exists.
 
 **When to use:**
+
 - Database connection pools
 - Configuration managers
 - Logging services
 
 **Problems:**
+
 - Global state
 - Testing difficulties
 - Hidden dependencies
@@ -54,6 +57,7 @@ Reusable solutions to common software design problems.
 **Intent:** Let subclasses decide which class to instantiate.
 
 **When to use:**
+
 - Don't know exact type at compile time
 - Want to delegate creation logic
 - Need to return interface implementations
@@ -63,6 +67,7 @@ Reusable solutions to common software design problems.
 **Intent:** Create families of related objects.
 
 **When to use:**
+
 - Multiple platforms (UI toolkit per OS)
 - Theming systems
 - Database providers
@@ -72,6 +77,7 @@ Reusable solutions to common software design problems.
 **Intent:** Construct complex objects step by step.
 
 **When to use:**
+
 - Many constructor parameters
 - Optional parameters
 - Immutable objects with complex construction
@@ -83,6 +89,7 @@ Reusable solutions to common software design problems.
 **Intent:** Clone existing objects.
 
 **When to use:**
+
 - Object creation is expensive
 - Need copies with slight modifications
 
@@ -95,6 +102,7 @@ Reusable solutions to common software design problems.
 **Intent:** Make incompatible interfaces work together.
 
 **When to use:**
+
 - Integrating third-party libraries
 - Legacy system integration
 - API version compatibility
@@ -106,6 +114,7 @@ Reusable solutions to common software design problems.
 **Intent:** Add behavior dynamically without subclassing.
 
 **When to use:**
+
 - Adding features to objects at runtime
 - Avoiding subclass explosion
 - Middleware pipelines
@@ -117,6 +126,7 @@ Reusable solutions to common software design problems.
 **Intent:** Simplified interface to complex subsystem.
 
 **When to use:**
+
 - Hiding complexity
 - Providing high-level API
 - Reducing coupling to subsystem
@@ -126,6 +136,7 @@ Reusable solutions to common software design problems.
 **Intent:** Placeholder for another object.
 
 **Types:**
+
 | Type | Purpose |
 |------|---------|
 | Virtual | Lazy loading |
@@ -138,6 +149,7 @@ Reusable solutions to common software design problems.
 **Intent:** Tree structures with uniform interface.
 
 **When to use:**
+
 - File systems (files and folders)
 - UI components (containers and elements)
 - Organization hierarchies
@@ -147,6 +159,7 @@ Reusable solutions to common software design problems.
 **Intent:** Separate abstraction from implementation.
 
 **When to use:**
+
 - Platform-specific implementations
 - Avoiding cartesian product of subclasses
 
@@ -159,6 +172,7 @@ Reusable solutions to common software design problems.
 **Intent:** Define family of interchangeable algorithms.
 
 **When to use:**
+
 - Multiple algorithms for same task
 - Algorithm selection at runtime
 - Avoiding conditionals
@@ -170,6 +184,7 @@ Reusable solutions to common software design problems.
 **Intent:** Notify multiple objects of state changes.
 
 **When to use:**
+
 - Event systems
 - UI data binding
 - Pub/sub messaging
@@ -181,6 +196,7 @@ Reusable solutions to common software design problems.
 **Intent:** Encapsulate request as object.
 
 **When to use:**
+
 - Undo/redo functionality
 - Queuing operations
 - Logging/auditing
@@ -191,6 +207,7 @@ Reusable solutions to common software design problems.
 **Intent:** Object behavior changes with internal state.
 
 **When to use:**
+
 - State machines
 - Workflow engines
 - Document status transitions
@@ -200,6 +217,7 @@ Reusable solutions to common software design problems.
 **Intent:** Define algorithm skeleton, let subclasses fill steps.
 
 **When to use:**
+
 - Framework hooks
 - Invariant algorithm with variable steps
 
@@ -216,6 +234,7 @@ Reusable solutions to common software design problems.
 **Intent:** Add operations to object structure without modifying it.
 
 **When to use:**
+
 - Compilers (AST operations)
 - Document processing
 - Reporting on object graphs
@@ -227,6 +246,7 @@ Reusable solutions to common software design problems.
 **Intent:** Pass request along chain until handled.
 
 **When to use:**
+
 - Middleware pipelines
 - Event bubbling
 - Approval workflows
@@ -236,6 +256,7 @@ Reusable solutions to common software design problems.
 **Intent:** Centralize complex communications.
 
 **When to use:**
+
 - Chat rooms
 - Air traffic control
 - UI component coordination
@@ -245,6 +266,7 @@ Reusable solutions to common software design problems.
 **Intent:** Capture and restore object state.
 
 **When to use:**
+
 - Undo mechanisms
 - Checkpointing
 - Game saves
@@ -260,6 +282,7 @@ Beyond GoF, patterns that emerged later:
 **Intent:** Provide dependencies from outside rather than creating them.
 
 **Benefits:**
+
 - Testability (mock dependencies)
 - Loose coupling
 - Configuration flexibility
@@ -269,6 +292,7 @@ Beyond GoF, patterns that emerged later:
 **Intent:** Abstract data access behind collection-like interface.
 
 **When to use:**
+
 - Database access
 - Hiding persistence details
 - Enabling mocking
@@ -278,6 +302,7 @@ Beyond GoF, patterns that emerged later:
 **Intent:** Track changes and commit atomically.
 
 **When to use:**
+
 - ORMs (DbContext, Session)
 - Transaction management
 
@@ -286,6 +311,7 @@ Beyond GoF, patterns that emerged later:
 **Intent:** Separate read and write models.
 
 **When to use:**
+
 - Different read/write patterns
 - Event sourcing systems
 - Performance optimization
@@ -315,11 +341,13 @@ Patterns to avoid:
 ## When to Use Patterns
 
 **Do use patterns when:**
+
 - Problem clearly matches pattern intent
 - Team understands the pattern
 - Adds clear value (testability, flexibility)
 
 **Don't use patterns when:**
+
 - Simple solution works
 - Pattern adds unnecessary complexity
 - Just to say you used a pattern
@@ -333,6 +361,7 @@ Patterns to avoid:
 ### Functional Languages
 
 Many OOP patterns become trivial:
+
 - Strategy → Pass a function
 - Command → Functions are commands
 - Factory → Functions return values
@@ -341,6 +370,7 @@ Many OOP patterns become trivial:
 ### Modern OOP Languages
 
 Some patterns are built in:
+
 - Iterator → For-each loops, generators
 - Observer → Events, reactive libraries
 - Singleton → DI containers

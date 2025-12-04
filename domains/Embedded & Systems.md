@@ -10,7 +10,7 @@ tags:
   - low-level
 type: moc
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Embedded & Systems
@@ -20,6 +20,7 @@ Low-level programming for hardware, operating systems, and resource-constrained 
 ## What is Systems Programming?
 
 Code that interacts closely with hardware or provides services to other software:
+
 - Operating systems
 - Device drivers
 - Embedded firmware
@@ -44,18 +45,21 @@ Code that interacts closely with hardware or provides services to other software
 **The lingua franca of systems.**
 
 **Where it dominates:**
+
 - Linux kernel
 - Most embedded systems
 - Legacy systems
 - Maximum portability
 
 **Strengths:**
+
 - Minimal runtime
 - Close to hardware
 - Universal toolchain support
 - Maximum control
 
 **Weaknesses:**
+
 - Memory safety errors
 - Undefined behavior
 - No modern abstractions
@@ -65,12 +69,14 @@ Code that interacts closely with hardware or provides services to other software
 **C with objects (and much more).**
 
 **Where it's used:**
+
 - Game engines
 - Browsers
 - Databases
 - Performance-critical applications
 
 **Modern C++ (C++17, C++20):**
+
 - Smart pointers
 - RAII
 - Concepts
@@ -81,18 +87,21 @@ Code that interacts closely with hardware or provides services to other software
 **Systems programming with safety.**
 
 **Where it's growing:**
+
 - Linux kernel (modules)
 - Firefox components
 - AWS infrastructure
 - New embedded projects
 
 **Key features:**
+
 - Ownership system (compile-time memory safety)
 - No garbage collector
 - Zero-cost abstractions
 - Strong type system
 
 **Trade-offs:**
+
 - Steep learning curve
 - Longer compile times
 - Smaller ecosystem than C/C++
@@ -156,6 +165,7 @@ fn main() -> ! {
 ```
 
 **Key crates:**
+
 - `embedded-hal` - Hardware abstraction
 - `cortex-m` - ARM Cortex-M support
 - `svd2rust` - Peripheral access from SVD
@@ -210,6 +220,7 @@ fn main() -> ! {
 **C/C++:** `malloc`/`free`, `new`/`delete`
 
 **Common errors:**
+
 - Use after free
 - Double free
 - Memory leaks
@@ -218,6 +229,7 @@ fn main() -> ! {
 ### Rust Ownership
 
 **Compile-time memory safety:**
+
 - Each value has one owner
 - Borrowing rules enforced
 - No garbage collector

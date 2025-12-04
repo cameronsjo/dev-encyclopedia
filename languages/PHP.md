@@ -9,7 +9,7 @@ tags:
   - backend
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # PHP
@@ -233,6 +233,7 @@ PHP's original deployment model. Still works.
 ## When to Use PHP
 
 **Strengths:**
+
 - Massive ecosystem
 - Easy hosting
 - WordPress/CMS
@@ -240,11 +241,13 @@ PHP's original deployment model. Still works.
 - Cheap developers
 
 **Considerations:**
+
 - Legacy reputation
 - Type system bolted on
 - Not for non-web
 
 **Best for:**
+
 - Web applications
 - Content sites
 - WordPress ecosystem

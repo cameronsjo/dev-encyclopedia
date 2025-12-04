@@ -11,7 +11,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Distributed Tracing
@@ -89,11 +89,13 @@ Service A calls Service B over HTTP. How does B know the trace ID?
 **Extract** context from incoming requests.
 
 **W3C Trace Context (standard):**
+
 ```
 traceparent: 00-{trace_id}-{parent_span_id}-{flags}
 ```
 
 Example:
+
 ```
 traceparent: 00-0af7651916cd43dd8448eb211c80319c-b7ad6b7169203331-01
 ```
@@ -163,6 +165,7 @@ Metadata attached to spans for filtering and analysis.
 Point-in-time logs within a span.
 
 Use for:
+
 - Exceptions (with stack trace)
 - State changes
 - Retry attempts
@@ -183,6 +186,7 @@ Recording every span is expensive. Sampling reduces volume.
 | **Error-biased** | Always keep errors | Never miss failures |
 
 **Recommendation:**
+
 1. Head-based probability (10-20%) for baseline
 2. Tail-based at collector to capture all errors and slow traces
 

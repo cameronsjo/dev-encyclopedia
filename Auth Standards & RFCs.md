@@ -13,7 +13,7 @@ tags:
   - standards
 type: reference
 status: complete
-created: 2025-11-30
+created: '2025-11-30'
 ---
 
 # Auth Standards & RFCs
@@ -182,6 +182,7 @@ Push authorization parameters to server before redirect.
 ```
 
 **Benefits:**
+
 - Keeps sensitive params off URL (logged, cached, leaked via Referer)
 - Enables pre-validation before user interaction
 - Required for FAPI (Financial-grade API)
@@ -244,6 +245,7 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 | `jti` | JWT ID (unique identifier) |
 
 **Validation checklist:**
+
 - [ ] Verify signature (RS256 preferred over HS256)
 - [ ] Check `exp` not passed
 - [ ] Check `nbf` if present
@@ -347,6 +349,7 @@ token=eyJhbGciOiJSUzI1NiIs...
 ```
 
 **When to use:**
+
 - Opaque tokens (not self-contained)
 - Need real-time revocation check
 - Token details not in token itself
@@ -382,6 +385,7 @@ grant_type=urn:ietf:params:oauth:grant-type:token-exchange
 ```
 
 **Use cases:**
+
 - Impersonation (admin acting as user)
 - Delegation (service-to-service)
 - Token downscoping (reduce privileges)
@@ -524,6 +528,7 @@ Passwordless authentication using public key cryptography.
 ```
 
 **Benefits:**
+
 - Phishing-resistant (bound to origin)
 - No passwords to steal
 - Built into OS/browsers

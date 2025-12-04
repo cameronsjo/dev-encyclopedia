@@ -12,7 +12,7 @@ tags:
   - react
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # React Native
@@ -264,6 +264,7 @@ app/
 ### Using Existing
 
 Many packages wrap native functionality:
+
 - `react-native-camera`
 - `react-native-maps`
 - `react-native-gesture-handler`
@@ -318,6 +319,7 @@ Many packages wrap native functionality:
 ## When to Use React Native
 
 **Strengths:**
+
 - React/JS team can build mobile
 - Native look and feel
 - Large ecosystem
@@ -325,12 +327,14 @@ Many packages wrap native functionality:
 - Expo simplifies development
 
 **Considerations:**
+
 - Native modules sometimes needed
 - Two platforms to debug
 - Performance requires attention
 - Smaller desktop story than Flutter
 
 **Best for:**
+
 - Teams with React experience
 - Apps needing native feel
 - Rapid mobile development
@@ -341,7 +345,7 @@ Many packages wrap native functionality:
 ## Related
 
 - [[Flutter]]
-- [[.NET MAUI]]
+- [[dotNET MAUI]]
 - [[React]]
 - [[domains/Mobile Development|Mobile Development]]
 - [[TypeScript]]

@@ -3,8 +3,9 @@ title: Developer's Encyclopedia
 tags:
   - moc
   - index
-type: home
-created: 2025-11-28
+type: moc
+created: '2025-11-28'
+status: complete
 ---
 
 # Developer's Encyclopedia
@@ -30,10 +31,10 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Category | Languages |
 |----------|-----------|
-| Systems | [[languages/C++\|C++]], [[Rust]], [[Go]] |
-| Enterprise/JVM | [[languages/Java\|Java]], [[languages/Kotlin\|Kotlin]], [[C Sharp\|C#]] |
-| Web/Scripting | [[TypeScript]], [[Python]], [[languages/PHP\|PHP]], [[languages/Ruby\|Ruby]] |
-| Mobile/UI | [[languages/Swift\|Swift]], [[languages/Dart\|Dart]] |
+| Systems | [[languages/C++|C++]], [[Rust]], [[Go]] |
+| Enterprise/JVM | [[languages/Java|Java]], [[languages/Kotlin|Kotlin]], [[C Sharp|C#]] |
+| Web/Scripting | [[TypeScript]], [[Python]], [[languages/PHP|PHP]], [[languages/Ruby|Ruby]] |
+| Mobile/UI | [[languages/Swift|Swift]], [[languages/Dart|Dart]] |
 
 ---
 
@@ -41,11 +42,11 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Domain | What's There |
 |--------|--------------|
-| [[domains/Web Development\|Web]] | Frontend frameworks, backend, full-stack |
-| [[domains/Mobile Development\|Mobile]] | iOS, Android, cross-platform (Flutter, RN) |
-| [[domains/Desktop Development\|Desktop]] | WPF, SwiftUI, Electron, Tauri, Qt |
-| [[domains/Game Development\|Game]] | Unity, Unreal, Godot, Bevy |
-| [[domains/Embedded & Systems\|Embedded]] | Bare metal, RTOS, systems programming |
+| [[domains/Web Development|Web]] | Frontend frameworks, backend, full-stack |
+| [[domains/Mobile Development|Mobile]] | iOS, Android, cross-platform (Flutter, RN) |
+| [[domains/Desktop Development|Desktop]] | WPF, SwiftUI, Electron, Tauri, Qt |
+| [[domains/Game Development|Game]] | Unity, Unreal, Godot, Bevy |
+| [[domains/Embedded & Systems|Embedded]] | Bare metal, RTOS, systems programming |
 
 ---
 

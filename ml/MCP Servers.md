@@ -10,7 +10,7 @@ tags:
   - agents
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # MCP Servers
@@ -330,6 +330,7 @@ server.tool("read", async ({ filename }) => {
 ## When to Use MCP
 
 **Strengths:**
+
 - Standardized protocol (not vendor-locked)
 - Runtime capability discovery
 - Clean separation of concerns
@@ -337,11 +338,13 @@ server.tool("read", async ({ filename }) => {
 - Works with Claude Desktop, Claude Code
 
 **Considerations:**
+
 - Anthropic-originated (adoption growing)
 - Newer than alternatives
 - Requires MCP-compatible client
 
 **Best for:**
+
 - Building AI tools for Claude
 - Multi-tool integrations
 - Sharing tools across projects

@@ -12,7 +12,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Big O Notation
@@ -87,6 +87,7 @@ O(n² + n) = O(n²)
 Operations don't depend on input size.
 
 **Examples:**
+
 - Array index access
 - Hash table lookup (average)
 - Stack push/pop
@@ -97,6 +98,7 @@ Operations don't depend on input size.
 Halving the problem each step.
 
 **Examples:**
+
 - Binary search
 - Balanced tree operations
 - Finding in sorted array
@@ -109,6 +111,7 @@ Halving the problem each step.
 Touch each element once.
 
 **Examples:**
+
 - Array traversal
 - Linear search
 - Counting elements
@@ -119,6 +122,7 @@ Touch each element once.
 Typically: divide and conquer with linear work at each level.
 
 **Examples:**
+
 - Merge sort
 - Heap sort
 - Quick sort (average)
@@ -131,6 +135,7 @@ Typically: divide and conquer with linear work at each level.
 Nested iteration over input.
 
 **Examples:**
+
 - Bubble sort
 - Insertion sort
 - Naive string matching
@@ -143,6 +148,7 @@ Nested iteration over input.
 Combinatorial explosion.
 
 **Examples:**
+
 - Naive Fibonacci
 - Power set generation
 - Traveling salesman (brute force)
@@ -169,6 +175,7 @@ Same notation, but for memory usage.
 O(1) extra space beyond input.
 
 **Examples:**
+
 - Heap sort
 - Quick sort (with careful implementation)
 - Two-pointer techniques
@@ -233,6 +240,7 @@ Resize happens rarely. Most appends are O(1). Overall: O(1) amortized.
 **Single loop over n elements:** O(n)
 
 **Nested loops:**
+
 - Both iterate n times: O(n²)
 - Inner loop constant: O(n)
 - Inner loop halves: O(n log n)

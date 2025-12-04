@@ -16,7 +16,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Logging Libraries
@@ -33,11 +33,13 @@ Traditional text logs are human-readable but machine-hostile. Structured logging
 - **Alerting** — Trigger on specific field patterns
 
 **Text log:**
+
 ```
 2024-01-15 10:23:45 ERROR Failed to process order 12345 for user john@example.com
 ```
 
 **Structured log:**
+
 ```json
 {"timestamp":"2024-01-15T10:23:45Z","level":"error","message":"Failed to process order","order_id":12345,"user_email":"john@example.com","service":"orders"}
 ```
@@ -115,6 +117,7 @@ Log.Information("Order {OrderId} processed for {UserId}", orderId, userId);
 ```
 
 **Key features:**
+
 - Sinks (outputs): Console, File, Seq, Elasticsearch, Application Insights
 - Enrichers: Add properties globally (machine name, environment)
 - Destructuring: Complex objects logged as structured data
@@ -127,6 +130,7 @@ Log.Information("Order {OrderId} processed for {UserId}", orderId, userId);
 Added in Go 1.21, the stdlib now has structured logging built-in.
 
 **Key features:**
+
 - Zero dependencies
 - Handler interface for custom outputs
 - Attribute groups for nested structure
@@ -141,6 +145,7 @@ Added in Go 1.21, the stdlib now has structured logging built-in.
 Processor-based pipeline that transforms log events:
 
 **Key features:**
+
 - Processors add/modify fields in chain
 - Integrates with stdlib logging
 - Context variables for request-scoped data
@@ -153,6 +158,7 @@ Processor-based pipeline that transforms log events:
 Fastest Node.js logger, JSON by default:
 
 **Key features:**
+
 - JSON output (pipe to `pino-pretty` for dev)
 - Child loggers with inherited context
 - Async mode for high throughput
@@ -165,6 +171,7 @@ Fastest Node.js logger, JSON by default:
 More than logging—a full instrumentation framework:
 
 **Key features:**
+
 - Spans track operation duration automatically
 - Events are logs within spans
 - Subscribers process the data (console, JSON, OTLP)
@@ -225,6 +232,7 @@ Modern observability connects three signals:
 **Correlation:** Include `trace_id` and `span_id` in logs to link them to traces.
 
 All five languages have OTLP exporters:
+
 - C#: `OpenTelemetry.Exporter.OpenTelemetryProtocol`
 - Go: `go.opentelemetry.io/otel`
 - Python: `opentelemetry-sdk`

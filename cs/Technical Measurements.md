@@ -13,7 +13,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-12-03
+created: '2025-12-03'
 ---
 
 # Technical Measurements

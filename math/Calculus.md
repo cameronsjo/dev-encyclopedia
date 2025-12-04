@@ -10,7 +10,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Calculus
@@ -33,6 +33,7 @@ The mathematics of change. Foundation for optimization, physics, and machine lea
 The derivative measures **instantaneous rate of change**.
 
 **Notation:**
+
 | Form | Meaning |
 |------|---------|
 | f'(x) | Derivative of f |
@@ -147,6 +148,7 @@ Integration is the inverse of differentiation. Also measures area under curve.
 **Critical points:** Where f'(x) = 0 or undefined.
 
 **Second derivative test:**
+
 - f''(x) > 0 → local minimum
 - f''(x) < 0 → local maximum
 - f''(x) = 0 → inconclusive
@@ -183,6 +185,7 @@ H = | ∂²f/∂x² ∂²f/∂x∂y |
 ```
 
 **Uses:**
+
 - Second-order optimization (Newton's method)
 - Characterizing critical points
 - Curvature information
@@ -194,6 +197,7 @@ Matrix of first partial derivatives for vector functions:
 If f: Rⁿ → Rᵐ, Jacobian is m×n matrix.
 
 **Uses:**
+
 - Chain rule for vector functions
 - Change of variables
 - Backpropagation through layers

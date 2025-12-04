@@ -12,7 +12,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-12-03
+created: '2025-12-03'
 ---
 
 # Sockets & Low-Level Networking
@@ -153,11 +153,13 @@ Set with `setsockopt()`, get with `getsockopt()`.
 ### Common Patterns
 
 **Reuse address** (avoid "Address already in use"):
+
 ```
 setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable));
 ```
 
 **Disable Nagle** (for low-latency):
+
 ```
 setsockopt(sock, IPPROTO_TCP, TCP_NODELAY, &enable, sizeof(enable));
 ```

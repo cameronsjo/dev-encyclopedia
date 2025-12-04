@@ -13,7 +13,7 @@ tags:
 type: concept
 status: complete
 difficulty: intermediate
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # LLMs & Transformers
@@ -45,6 +45,7 @@ The architecture powering modern AI: ChatGPT, Claude, and beyond.
 For each position, compute weighted sum of all positions based on relevance.
 
 **Steps:**
+
 1. Project input to Query (Q), Key (K), Value (V)
 2. Compute attention scores: Q · Kᵀ
 3. Scale and softmax: scores / √d_k

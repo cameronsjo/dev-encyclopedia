@@ -12,7 +12,7 @@ tags:
   - typescript
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Nuxt
@@ -499,6 +499,7 @@ npm run preview  # Preview build
 ## When to Use Nuxt
 
 **Strengths:**
+
 - Best Vue DX
 - Auto-imports everything
 - Excellent TypeScript
@@ -506,11 +507,13 @@ npm run preview  # Preview build
 - Great modules ecosystem
 
 **Considerations:**
+
 - Vue-only
 - Smaller ecosystem than Next.js
 - Enterprise adoption smaller
 
 **Best for:**
+
 - Vue teams
 - Full-stack Vue apps
 - Content sites (with Nuxt Content)

@@ -12,7 +12,7 @@ tags:
   - reference
 type: reference
 status: complete
-created: 2025-11-30
+created: '2025-11-30'
 ---
 
 # Essential RFCs
@@ -135,12 +135,14 @@ Cache-Control: max-age=60, stale-while-revalidate=3600
 | HTTP/3 | QUIC (UDP) | No head-of-line blocking, 0-RTT |
 
 **HTTP/2 Benefits:**
+
 - Multiple requests over single connection
 - Header compression (HPACK)
 - Stream prioritization
 - Server push (rarely used)
 
 **HTTP/3 Benefits:**
+
 - Faster connection establishment
 - Better on lossy networks
 - Connection migration (Wi-Fi → cellular)
@@ -170,6 +172,7 @@ scheme     authority       path        query   fragment
 | `#` | `%23` |
 
 **Safe characters (no encoding needed):**
+
 ```
 A-Z a-z 0-9 - . _ ~
 ```
@@ -202,6 +205,7 @@ A-Z a-z 0-9 - . _ ~
 The ubiquitous data format.
 
 **Valid JSON:**
+
 - Objects: `{"key": "value"}`
 - Arrays: `[1, 2, 3]`
 - Strings: `"hello"` (double quotes only)
@@ -210,6 +214,7 @@ The ubiquitous data format.
 - Null: `null`
 
 **NOT valid JSON:**
+
 - Single quotes: `'hello'`
 - Trailing commas: `[1, 2, 3,]`
 - Comments: `// comment`
@@ -242,6 +247,7 @@ name,email,age
 ```
 
 **Rules:**
+
 - Fields with commas, quotes, or newlines must be quoted
 - Escape quotes by doubling: `"He said ""hello"""`
 - Line endings: CRLF (but LF common)
@@ -275,11 +281,13 @@ ISO 8601 profile for internet timestamps.
 ```
 
 **Always:**
+
 - Use UTC (`Z` suffix) for storage/APIs
 - Include timezone for user-facing displays
 - Use ISO 8601/RFC 3339 format
 
 **Never:**
+
 - Store local times without timezone
 - Use ambiguous formats (`01/02/03`)
 
@@ -381,6 +389,7 @@ Accept: application/dns-message
 ```
 
 **Providers:**
+
 - Cloudflare: `https://cloudflare-dns.com/dns-query`
 - Google: `https://dns.google/dns-query`
 
@@ -393,6 +402,7 @@ Accept: application/dns-message
 Transport Layer Security—encryption for the web.
 
 **Improvements over TLS 1.2:**
+
 - 1-RTT handshake (vs 2-RTT)
 - 0-RTT resumption (optional)
 - Removed weak ciphers
@@ -472,6 +482,7 @@ Notable extensions:
 Transmission Control Protocol.
 
 **Three-way handshake:**
+
 ```
 Client ──SYN──────► Server
 Client ◄──SYN-ACK── Server
@@ -479,6 +490,7 @@ Client ──ACK──────► Server
 ```
 
 **Connection termination:**
+
 ```
 Client ──FIN──────► Server
 Client ◄──ACK────── Server

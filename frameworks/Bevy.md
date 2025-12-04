@@ -11,7 +11,7 @@ tags:
   - open-source
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Bevy
@@ -473,6 +473,7 @@ app.add_plugins(MinimalPlugins)  // Headless, testing
 ## When to Use Bevy
 
 **Strengths:**
+
 - Rust safety and performance
 - Modern ECS architecture
 - Parallel by default
@@ -481,6 +482,7 @@ app.add_plugins(MinimalPlugins)  // Headless, testing
 - No runtime fees
 
 **Considerations:**
+
 - Rust learning curve
 - No visual editor (yet)
 - Pre-1.0 (breaking changes)
@@ -488,6 +490,7 @@ app.add_plugins(MinimalPlugins)  // Headless, testing
 - Mobile still experimental
 
 **Best for:**
+
 - Rust enthusiasts
 - Performance-critical games
 - Learning ECS concepts

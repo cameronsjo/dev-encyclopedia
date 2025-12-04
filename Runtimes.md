@@ -17,7 +17,7 @@ tags:
   - rust
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Runtimes
@@ -69,11 +69,13 @@ graph LR
 *Minimal runtime. No GC, no VM.
 
 **What runs:**
+
 - Small startup code (sets up stack, calls main)
 - Panic handler
 - Allocator (optional, can be no_std)
 
 **Result:**
+
 - Instant startup
 - Predictable performance (no GC pauses)
 - Smallest binaries
@@ -86,12 +88,14 @@ graph LR
 Go has a runtime, but it's compiled into every binary.
 
 **Runtime provides:**
+
 - Garbage collector (concurrent, low-latency)
 - Goroutine scheduler (M:N threading)
 - Channel operations
 - Stack management
 
 **Characteristics:**
+
 - Larger binaries than Rust (runtime included)
 - Fast startup (still native code)
 - GC pauses (typically < 1ms)
@@ -102,6 +106,7 @@ Go has a runtime, but it's compiled into every binary.
 The Common Language Runtime is a full VM.
 
 **Runtime provides:**
+
 - JIT compilation (IL → native)
 - Garbage collector (generational)
 - Type system enforcement
@@ -123,35 +128,40 @@ The Common Language Runtime is a full VM.
 The reference implementation interprets bytecode.
 
 **Runtime provides:**
+
 - Bytecode compilation (`.pyc` files)
 - Garbage collector (reference counting + cycle detector)
 - Global Interpreter Lock (GIL)
 - Dynamic typing infrastructure
 
 **The GIL:**
+
 - Only one thread executes Python at a time
 - I/O releases the GIL (async works fine)
 - CPU parallelism requires multiprocessing
 - Being removed in Python 3.13+ (free-threaded builds)
 
 **Alternative runtimes:**
+
 | Runtime | Difference |
 |---------|------------|
 | PyPy | JIT compiler, faster for long-running |
 | Cython | Compiles to C |
 | GraalPy | On GraalVM, polyglot |
 
-### TypeScript/JavaScript — V8, SpiderMonkey, etc.
+### TypeScript/JavaScript — V8, SpiderMonkey, etc
 
 JavaScript engines are sophisticated JIT compilers.
 
 **V8 (Chrome, Node.js):**
+
 - Ignition (interpreter) → TurboFan (optimizing JIT)
 - Hidden classes for object optimization
 - Generational GC
 - Inline caching
 
 **Other engines:**
+
 | Engine | Used By |
 |--------|---------|
 | V8 | Chrome, Node.js, Deno, Bun |

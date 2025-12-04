@@ -11,7 +11,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Probability & Statistics
@@ -59,6 +59,7 @@ The mathematics of uncertainty. Foundation for machine learning, inference, and 
 P(A|B) = P(B|A) · P(A) / P(B)
 
 **Interpretation:**
+
 - P(A) = prior (belief before evidence)
 - P(B|A) = likelihood (probability of evidence given hypothesis)
 - P(A|B) = posterior (updated belief after evidence)
@@ -119,6 +120,7 @@ Works for both discrete and continuous.
 f(x) = (1/σ√2π) exp(-(x-μ)²/2σ²)
 
 **Properties:**
+
 - Bell-shaped, symmetric
 - Mean = median = mode = μ
 - 68% within 1σ, 95% within 2σ, 99.7% within 3σ
@@ -163,6 +165,7 @@ E[X] = Σ x · P(X = x) (discrete)
 E[X] = ∫ x · f(x) dx (continuous)
 
 **Properties:**
+
 - E[aX + b] = aE[X] + b
 - E[X + Y] = E[X] + E[Y]
 
@@ -171,6 +174,7 @@ E[X] = ∫ x · f(x) dx (continuous)
 Var(X) = E[(X - μ)²] = E[X²] - (E[X])²
 
 **Properties:**
+
 - Var(aX + b) = a²Var(X)
 - Var(X + Y) = Var(X) + Var(Y) (if independent)
 

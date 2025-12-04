@@ -12,7 +12,7 @@ tags:
   - framework
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Agent Frameworks

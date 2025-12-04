@@ -12,7 +12,7 @@ tags:
   - serverless
 type: comparison
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Deployment
@@ -92,6 +92,7 @@ Compiles in full environment, runs in minimal image.
 ### When to Use K8s
 
 **Use when:**
+
 - Multiple services to orchestrate
 - Need auto-scaling
 - Want self-healing
@@ -99,6 +100,7 @@ Compiles in full environment, runs in minimal image.
 - Team has K8s expertise
 
 **Don't use when:**
+
 - Single service
 - Small team
 - Simple deployment needs
@@ -283,6 +285,7 @@ graph LR
 | Business metrics | Actual impact |
 
 **Essential stack:**
+
 - Logs → Aggregator (Loki, ELK, CloudWatch)
 - Traces → Jaeger, Tempo, vendor APM
 - Metrics → Prometheus + Grafana

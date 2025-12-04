@@ -10,7 +10,7 @@ tags:
   - full-stack
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Laravel
@@ -491,6 +491,7 @@ php artisan optimize
 ## When to Use Laravel
 
 **Strengths:**
+
 - Elegant, expressive syntax
 - Huge PHP ecosystem
 - Excellent documentation
@@ -499,11 +500,13 @@ php artisan optimize
 - Active development
 
 **Considerations:**
+
 - PHP reputation (though modern PHP is good)
 - Hosting requirements (PHP hosting common)
 - Some "magic" can be confusing
 
 **Best for:**
+
 - Web applications with CRUD
 - SaaS products
 - APIs (with Sanctum)

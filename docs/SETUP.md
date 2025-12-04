@@ -26,6 +26,7 @@ The vault is pre-configured for these community plugins:
 3. Install and Enable
 
 Or use the Obsidian URI:
+
 ```
 obsidian://show-plugin?id=obsidian-local-rest-api
 obsidian://show-plugin?id=dataview
@@ -58,7 +59,7 @@ curl -k https://localhost:27123/ \
 | POST /search/simple/ | Search vault |
 | GET /active/ | Get active file |
 
-Full docs: https://coddingtonbear.github.io/obsidian-local-rest-api/
+Full docs: <https://coddingtonbear.github.io/obsidian-local-rest-api/>
 
 ## MCP Integration
 

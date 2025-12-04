@@ -9,7 +9,7 @@ tags:
   - gui
 type: moc
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Desktop Development
@@ -49,11 +49,13 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 **Legacy but alive.** Simple, drag-and-drop design.
 
 **Use when:**
+
 - Maintaining existing apps
 - Simple internal tools
 - Quick prototypes
 
 **Limitations:**
+
 - GDI+ rendering
 - Poor scaling
 - Dated look
@@ -63,12 +65,14 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 **XAML-based, vector graphics, data binding.**
 
 **Strengths:**
+
 - Powerful data binding (MVVM)
 - Custom styling and templates
 - Hardware-accelerated (DirectX)
 - Mature ecosystem
 
 **Considerations:**
+
 - Windows only
 - Large runtime
 - Steeper learning curve
@@ -78,11 +82,13 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 **Modern Windows UI.** Fluent Design, latest controls.
 
 **Strengths:**
+
 - Modern look
 - Decoupled from OS updates
 - Part of Windows App SDK
 
 **Considerations:**
+
 - Windows 10 1809+ only
 - Still maturing
 - Migration from UWP/WPF needed
@@ -96,11 +102,13 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 **Declarative, modern.** Same framework as iOS.
 
 **Strengths:**
+
 - Code sharing with iOS
 - Concise syntax
 - Native look automatically
 
 **Considerations:**
+
 - macOS 10.15+
 - Some AppKit features still needed
 
@@ -109,6 +117,7 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 **Mature, full control.** Traditional Cocoa.
 
 **Use when:**
+
 - Complex custom UI
 - Pre-10.15 support
 - Document-based apps
@@ -138,11 +147,13 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 **Cross-platform C++ toolkit.** Also Python (PySide/PyQt).
 
 **Strengths:**
+
 - True cross-platform
 - Comprehensive widgets
 - Commercial support
 
 **Considerations:**
+
 - Licensing (GPL/LGPL/Commercial)
 - C++ complexity
 - Large footprint
@@ -163,11 +174,13 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 | Android | Native |
 
 **Strengths:**
+
 - Single codebase
 - Native controls
 - .NET ecosystem
 
 **Considerations:**
+
 - Linux not official
 - macOS via Catalyst (limitations)
 
@@ -183,6 +196,7 @@ WinForms (2002) → WPF (2006) → UWP (2015) → WinUI 3 (2021)
 | Web (WASM) | ✅ |
 
 **Strengths:**
+
 - WPF developers feel at home
 - True Linux support
 - Active development
@@ -198,6 +212,7 @@ See Linux section. Works on Windows, macOS, Linux.
 **Platforms:** Windows, macOS, Linux
 
 **Strengths:**
+
 - Kotlin, modern
 - Share with Android Compose
 
@@ -210,11 +225,13 @@ See Linux section. Works on Windows, macOS, Linux.
 **Chromium + Node.js.** Powers VS Code, Slack, Discord.
 
 **Strengths:**
+
 - Full web ecosystem
 - Huge community
 - Battle-tested
 
 **Considerations:**
+
 - Large bundle (100+ MB)
 - High memory usage
 - Not truly native
@@ -224,11 +241,13 @@ See Linux section. Works on Windows, macOS, Linux.
 **Web frontend + Rust backend.** System webview.
 
 **Strengths:**
+
 - Small bundles (< 10 MB)
 - Low memory
 - Rust backend
 
 **Considerations:**
+
 - Webview varies by OS
 - Rust learning curve
 - Younger ecosystem

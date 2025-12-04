@@ -9,7 +9,7 @@ tags:
 type: concept
 status: complete
 difficulty: fundamentals
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # ML Fundamentals

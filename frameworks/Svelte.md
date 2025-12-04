@@ -11,7 +11,7 @@ tags:
   - compiler
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Svelte
@@ -407,6 +407,7 @@ Built-in animation support.
 ## When to Use Svelte
 
 **Strengths:**
+
 - Smallest bundle sizes
 - Fastest runtime performance
 - Easiest to learn
@@ -415,12 +416,14 @@ Built-in animation support.
 - Minimal boilerplate
 
 **Considerations:**
+
 - Smaller ecosystem
 - Fewer jobs (growing)
 - Less enterprise adoption
 - Runes migration (Svelte 5)
 
 **Best for:**
+
 - Performance-critical apps
 - Small teams/solo developers
 - Learning modern frontend

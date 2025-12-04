@@ -12,7 +12,7 @@ tags:
   - dotnet
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # .NET MAUI
@@ -355,6 +355,7 @@ builder.UseMauiApp<App>()
 ## When to Use .NET MAUI
 
 **Strengths:**
+
 - .NET ecosystem (NuGet, C#, tooling)
 - Native controls per platform
 - Single project structure
@@ -362,12 +363,14 @@ builder.UseMauiApp<App>()
 - Existing Xamarin investment
 
 **Considerations:**
+
 - macOS via Catalyst (limitations)
 - No Linux (official)
 - Smaller community than Flutter/RN
 - Some rough edges (newer)
 
 **Best for:**
+
 - .NET/C# teams
 - Enterprise with .NET investment
 - Apps needing native platform feel

@@ -13,7 +13,7 @@ tags:
   - vercel
 type: reference
 status: complete
-created: 2025-11-28
+created: '2025-11-28'
 ---
 
 # Next.js
@@ -481,6 +481,7 @@ No server features (SSR, API routes, ISR).
 ## When to Use Next.js
 
 **Strengths:**
+
 - Most popular React framework
 - Excellent Vercel integration
 - All rendering strategies
@@ -488,12 +489,14 @@ No server features (SSR, API routes, ISR).
 - Great TypeScript support
 
 **Considerations:**
+
 - Complex mental model (RSC)
 - Vercel-optimized (self-host harder)
 - Fast-moving (breaking changes)
 - Bundle size
 
 **Best for:**
+
 - Production React apps
 - SEO-important sites
 - E-commerce
