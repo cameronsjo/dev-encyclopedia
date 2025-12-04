@@ -51,6 +51,7 @@ Development tools, libraries, and infrastructure across languages.
 ### Containers
 
 - [[Container Runtimes]] — Docker, Podman, Colima, Rancher Desktop
+- [[Container Tools]] — Portainer, Traefik, Watchtower, registries
 
 ### Infrastructure & Security
 
@@ -68,10 +69,11 @@ Development tools, libraries, and infrastructure across languages.
 ### Observability
 
 - [[Observability Stack]] — Metrics, logs, traces comparison
+- [[Log Aggregation]] — Loki, Elasticsearch, Splunk, Fluentd
+- [[Distributed Tracing]] — Jaeger, Zipkin, Tempo
 - [[OpenTelemetry]] — Unified telemetry collection
 - [[Prometheus]] — Metrics monitoring
 - [[Grafana]] — Visualization and dashboards
-- [[Distributed Tracing]] — Request flow tracking
 
 ### UI
 
