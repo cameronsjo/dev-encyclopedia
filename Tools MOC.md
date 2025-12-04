@@ -52,6 +52,7 @@ Development tools, libraries, and infrastructure across languages.
 
 - [[Container Runtimes]] — Docker, Podman, Colima, Rancher Desktop
 - [[Container Tools]] — Portainer, Traefik, Watchtower, registries
+- [[Kubernetes]] — K8s, K3s, kind, minikube, Helm
 
 ### Infrastructure & Security
 
