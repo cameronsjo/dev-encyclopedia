@@ -37,6 +37,7 @@
 | Security Concepts | `done` | High | Large | OWASP, Auth patterns, Crypto basics |
 | Tool comparisons | `done` | High | Large | Testing, Logging, HTTP, ORMs, Build, Deploy |
 | Observability basics | `done` | Medium | Small | OpenTelemetry, Distributed Tracing |
+| File Storage | `done` | High | Medium | Object, block, file, distributed storage |
 
 ## Technical Debt
 

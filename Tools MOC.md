@@ -30,6 +30,7 @@ Development tools, libraries, and infrastructure across languages.
 ### Data
 
 - [[Database Engines]] — SQL, document, KV, graph, time-series, vector
+- [[File Storage]] — Object, block, file, distributed storage
 - [[ORMs & Database Access]] — Data access patterns
 - [[Serialization]] — JSON, YAML, binary formats
 
