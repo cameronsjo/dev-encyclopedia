@@ -64,6 +64,10 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Architectural Patterns]]
 - [[API Design]]
 
+### Software Engineering
+
+- [[Testing Strategies]] — Unit, integration, E2E, BDD, property-based
+
 ### Reference
 
 - [[Technical Measurements]]
