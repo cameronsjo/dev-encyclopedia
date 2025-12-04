@@ -20,6 +20,8 @@ Development tools, libraries, and infrastructure across languages.
 - [[HTTP Clients]] — REST clients, request handling
 - [[Debugging Tools]] — Debuggers, profilers, tracers
 - [[Version Managers]] — nvm, pyenv, mise, asdf, rustup
+- [[Environment Management]] — direnv, dotenv, mise
+- [[Remote Development]] — SSH, VS Code Remote, Codespaces
 
 ### Build & Deploy
 
@@ -38,10 +40,12 @@ Development tools, libraries, and infrastructure across languages.
 
 - [[Linux Distributions]] — Debian, Fedora, Arch, Alpine, NixOS
 - [[Package Managers]] — apt, dnf, pacman, brew, winget
+- [[Process Managers]] — systemd, launchd, supervisord, PM2
 
 ### Runtimes
 
 - [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
+- [[Language Runtimes]] — Python, Ruby, JVM, .NET, PHP runtimes
 - [[WebAssembly Runtimes]] — Wasmtime, Wasmer, WasmEdge
 
 ### Containers
