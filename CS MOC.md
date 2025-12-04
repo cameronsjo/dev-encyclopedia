@@ -45,6 +45,11 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Concurrency Patterns]]
 - [[Distributed Systems]]
 - [[System Design]]
+- [[Systems Language Performance]] — C, C++, Rust, Go, WASM
+
+### Execution
+
+- [[WebAssembly]] — WASM, WASI, Component Model
 
 ### Networking
 

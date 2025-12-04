@@ -19,6 +19,7 @@ Development tools, libraries, and infrastructure across languages.
 - [[Logging Libraries]] — Structured logging, observability
 - [[HTTP Clients]] — REST clients, request handling
 - [[Debugging Tools]] — Debuggers, profilers, tracers
+- [[Version Managers]] — nvm, pyenv, mise, asdf, rustup
 
 ### Build & Deploy
 
@@ -30,7 +31,13 @@ Development tools, libraries, and infrastructure across languages.
 
 - [[Shells]] — Bash vs Zsh vs Fish vs PowerShell
 - [[Terminal Emulators]] — Ghostty, Alacritty, Kitty, Warp, iTerm2
+- [[Terminal Multiplexers]] — tmux vs screen vs Zellij
 - [[WSL]] — Windows Subsystem for Linux
+
+### Operating Systems
+
+- [[Linux Distributions]] — Debian, Fedora, Arch, Alpine, NixOS
+- [[Package Managers]] — apt, dnf, pacman, brew, winget
 
 ### Runtimes
 
