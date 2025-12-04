@@ -24,12 +24,22 @@ Development tools, libraries, and infrastructure across languages.
 
 - [[Build Systems]] — Compilers, bundlers, task runners
 - [[Cross-Compilation]] — Building for multiple targets
-- [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
 - [[Deployment]] — Containers, serverless, platforms
 
 ### Shells & CLI
 
 - [[Shells]] — Bash vs Zsh vs Fish vs PowerShell
+- [[Terminal Emulators]] — Ghostty, Alacritty, Kitty, Warp, iTerm2
+- [[WSL]] — Windows Subsystem for Linux
+
+### Runtimes
+
+- [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
+- [[WebAssembly Runtimes]] — Wasmtime, Wasmer, WasmEdge
+
+### Containers
+
+- [[Container Runtimes]] — Docker, Podman, Colima, Rancher Desktop
 
 ### Infrastructure & Security
 
