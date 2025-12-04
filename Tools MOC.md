@@ -24,8 +24,12 @@ Development tools, libraries, and infrastructure across languages.
 
 - [[Build Systems]] — Compilers, bundlers, task runners
 - [[Cross-Compilation]] — Building for multiple targets
-- [[Runtimes]] — Execution models, VMs, interpreters
+- [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
 - [[Deployment]] — Containers, serverless, platforms
+
+### Shells & CLI
+
+- [[Shells]] — Bash vs Zsh vs Fish vs PowerShell
 
 ### Infrastructure & Security
 
