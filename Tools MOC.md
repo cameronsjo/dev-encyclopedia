@@ -20,13 +20,40 @@ Development tools, libraries, and infrastructure across languages.
 - [[Logging Libraries]] — Structured logging, observability
 - [[HTTP Clients]] — REST clients, request handling
 - [[Debugging Tools]] — Debuggers, profilers, tracers
+- [[Version Managers]] — nvm, pyenv, mise, asdf, rustup
+- [[Environment Management]] — direnv, dotenv, mise
+- [[Remote Development]] — SSH, VS Code Remote, Codespaces
 
 ### Build & Deploy
 
 - [[Build Systems]] — Compilers, bundlers, task runners
 - [[Cross-Compilation]] — Building for multiple targets
-- [[Runtimes]] — Execution models, VMs, interpreters
 - [[Deployment]] — Containers, serverless, platforms
+
+### Shells & CLI
+
+- [[Shells]] — Bash vs Zsh vs Fish vs PowerShell
+- [[Terminal Emulators]] — Ghostty, Alacritty, Kitty, Warp, iTerm2
+- [[Terminal Multiplexers]] — tmux vs screen vs Zellij
+- [[WSL]] — Windows Subsystem for Linux
+
+### Operating Systems
+
+- [[Linux Distributions]] — Debian, Fedora, Arch, Alpine, NixOS
+- [[Package Managers]] — apt, dnf, pacman, brew, winget
+- [[Process Managers]] — systemd, launchd, supervisord, PM2
+
+### Runtimes
+
+- [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
+- [[Language Runtimes]] — Python, Ruby, JVM, .NET, PHP runtimes
+- [[WebAssembly Runtimes]] — Wasmtime, Wasmer, WasmEdge
+
+### Containers
+
+- [[Container Runtimes]] — Docker, Podman, Colima, Rancher Desktop
+- [[Container Tools]] — Portainer, Traefik, Watchtower, registries
+- [[Kubernetes]] — K8s, K3s, kind, minikube, Helm
 
 ### Infrastructure & Security
 
@@ -44,10 +71,11 @@ Development tools, libraries, and infrastructure across languages.
 ### Observability
 
 - [[Observability Stack]] — Metrics, logs, traces comparison
+- [[Log Aggregation]] — Loki, Elasticsearch, Splunk, Fluentd
+- [[Distributed Tracing]] — Jaeger, Zipkin, Tempo
 - [[OpenTelemetry]] — Unified telemetry collection
 - [[Prometheus]] — Metrics monitoring
 - [[Grafana]] — Visualization and dashboards
-- [[Distributed Tracing]] — Request flow tracking
 
 ### UI
 
