@@ -725,4 +725,4 @@ async def parallel_research(self, topics: list[str]):
 - [[MCP Gateway]]
 - [[Agent Gateway]]
 - [[Agent Frameworks]]
-- [[Service Discovery]]
+- [[DNS & Service Discovery|Service Discovery]]
