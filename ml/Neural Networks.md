@@ -286,5 +286,5 @@ Most important hyperparameter.
 
 - [[Backpropagation]]
 - [[Convolutional Neural Networks]]
-- [[Transformers]]
+- [[LLMs & Transformers|Transformers]]
 - [[Deep Learning]]

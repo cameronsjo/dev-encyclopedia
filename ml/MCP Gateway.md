@@ -12,7 +12,7 @@ tags:
   - gateway
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # MCP Gateway
@@ -508,17 +508,20 @@ function validateToolCall(tool: string): void {
 ## When to Use MCP Gateway
 
 **Strengths:**
+
 - Centralized MCP management
 - Unified auth and observability
 - Multi-tenant isolation
 - Production-ready scaling
 
 **Considerations:**
+
 - Additional infrastructure
 - Latency overhead
 - Complexity for simple setups
 
 **Best for:**
+
 - Enterprise deployments
 - Multi-tenant platforms
 - Production AI applications

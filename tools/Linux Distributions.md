@@ -10,7 +10,7 @@ tags:
   - operating-system
 type: comparison
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # Linux Distributions
@@ -85,7 +85,7 @@ Major Linux distributions, their families, and use cases.
 └───────┘ └───────┘ └─────────┘
 ```
 
-*CentOS Stream continues, CentOS Linux ended*
+_CentOS Stream continues, CentOS Linux ended_
 
 ---
 

@@ -11,7 +11,7 @@ tags:
   - infrastructure
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # A2A Protocol
@@ -698,17 +698,20 @@ async def parallel_research(self, topics: list[str]):
 ## When to Use A2A
 
 **Strengths:**
+
 - Cross-framework agent collaboration
 - Standardized discovery and communication
 - Async, long-running task support
 - Clear state management
 
 **Considerations:**
+
 - Newer protocol (2025)
 - Ecosystem still developing
 - Overhead for simple single-agent use
 
 **Best for:**
+
 - Multi-agent systems
 - Heterogeneous agent environments
 - Enterprise agent platforms
@@ -722,4 +725,4 @@ async def parallel_research(self, topics: list[str]):
 - [[MCP Gateway]]
 - [[Agent Gateway]]
 - [[Agent Frameworks]]
-- [[Service Discovery]]
+- [[DNS & Service Discovery|Service Discovery]]

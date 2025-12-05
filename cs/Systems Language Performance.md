@@ -11,7 +11,7 @@ tags:
   - comparison
 type: comparison
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # Systems Language Performance
@@ -53,6 +53,7 @@ Source → Compiler → Machine Code → CPU
 ```
 
 **Characteristics:**
+
 - No hidden costs
 - Predictable memory layout
 - Direct syscalls possible
@@ -71,6 +72,7 @@ Source → Compiler → Machine Code → CPU
 ```
 
 **Characteristics:**
+
 - Zero-cost abstractions (templates, RAII, constexpr)
 - Costs when using: virtual, RTTI, exceptions
 - More optimization opportunities than C
@@ -89,6 +91,7 @@ Source → Compiler → LLVM IR → Machine Code → CPU
 ```
 
 **Characteristics:**
+
 - Same performance ceiling as C/C++
 - Safety checks at compile time, not runtime
 - Predictable: no hidden allocations
@@ -111,6 +114,7 @@ Source → Compiler → Machine Code → CPU
 ```
 
 **Characteristics:**
+
 - GC pauses (sub-millisecond, but present)
 - Goroutine overhead (~2KB initial stack)
 - Escape analysis reduces allocations
@@ -133,6 +137,7 @@ Source → Compiler → .wasm → Runtime → (JIT/AOT) → CPU
 ```
 
 **Characteristics:**
+
 - ~0.8-1.0x native speed (JIT/AOT)
 - Mandatory bounds checking
 - No direct syscalls (WASI abstraction)
@@ -201,7 +206,7 @@ Go:
 | Go | ~1.2MB | ~1.8MB | Runtime + GC |
 | WASM | ~10KB | ~50KB | + runtime memory |
 
-*Static linking increases binary size but reduces dependencies*
+_Static linking increases binary size but reduces dependencies_
 
 ---
 
@@ -217,7 +222,7 @@ Raw number crunching, SIMD-friendly.
 | Image processing | 1.0x | 1.0x | 1.0x | 1.2-1.5x | 1.0-1.3x |
 | Crypto | 1.0x | 1.0x | 1.0x | 1.1-1.3x | 1.0-1.2x |
 
-*SIMD support: C/C++/Rust (intrinsics), Go (limited), WASM (SIMD proposal)*
+_SIMD support: C/C++/Rust (intrinsics), Go (limited), WASM (SIMD proposal)_
 
 ### Memory-Bound
 
@@ -229,7 +234,7 @@ Cache efficiency, allocation patterns.
 | Pointer chasing | 1.0x | 1.0x | 1.0x | 1.0x |
 | Many small allocations | 1.0x | 1.0-1.2x | 1.0-1.1x | 1.5-3.0x |
 
-*Go's GC adds overhead for allocation-heavy workloads*
+_Go's GC adds overhead for allocation-heavy workloads_
 
 ### I/O-Bound
 
@@ -242,7 +247,7 @@ Syscalls, async, concurrency.
 | Network (async) | Complex | Complex | 1.0x (tokio) | 1.0x (goroutines) |
 | 10K connections | Hard | Hard | Easy | Easy |
 
-*Go and Rust async excel at concurrent I/O*
+_Go and Rust async excel at concurrent I/O_
 
 ---
 

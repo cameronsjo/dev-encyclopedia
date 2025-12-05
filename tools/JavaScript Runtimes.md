@@ -11,7 +11,7 @@ tags:
   - runtime
 type: comparison
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # JavaScript Runtimes
@@ -237,7 +237,7 @@ bunx                 # Like npx
 | Cold start | Medium | Medium | Fast |
 | Memory usage | Medium | Medium | Lower |
 
-*Note: Benchmarks vary by workload. Always test your specific use case.*
+_Note: Benchmarks vary by workload. Always test your specific use case._
 
 ---
 

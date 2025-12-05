@@ -11,7 +11,7 @@ tags:
   - comparison
 type: reference
 status: complete
-created: 2025-12-03
+created: "2025-12-03"
 ---
 
 # File Storage
@@ -101,6 +101,7 @@ Many services implement the S3 API:
 | Deep Archive | Compliance, long-term | Hours | Cheapest storage, expensive retrieval |
 
 **AWS S3 Classes:**
+
 ```
 Standard → Standard-IA → One Zone-IA → Glacier Instant
                                      → Glacier Flexible
@@ -282,6 +283,7 @@ Hadoop Distributed File System. Designed for large files, batch processing.
 ```
 
 **Characteristics:**
+
 - 128MB default block size
 - 3x replication (configurable)
 - Write-once semantics
@@ -412,6 +414,7 @@ Store data at edge locations for ultra-low latency:
 | Replication | 2-3x storage cost |
 
 **Cost Optimization:**
+
 - Use lifecycle policies for tiering
 - Consider egress-free providers (R2, Wasabi)
 - Compress before storing

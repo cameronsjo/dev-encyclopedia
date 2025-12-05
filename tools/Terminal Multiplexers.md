@@ -10,7 +10,7 @@ tags:
   - cli
 type: comparison
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # Terminal Multiplexers
@@ -45,6 +45,7 @@ Without multiplexer:          With multiplexer:
 ```
 
 **Key benefits:**
+
 - Sessions persist when disconnected
 - Multiple panes in one terminal
 - Switch between workspaces

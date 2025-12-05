@@ -10,7 +10,7 @@ tags:
   - virtualization
 type: reference
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # WSL
@@ -219,6 +219,7 @@ git clone ...
 ```
 
 Settings:
+
 1. Docker Desktop → Settings → General → Use WSL 2 based engine
 2. Settings → Resources → WSL Integration → Enable for your distros
 

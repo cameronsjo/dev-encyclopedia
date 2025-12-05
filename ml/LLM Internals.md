@@ -12,7 +12,7 @@ tags:
   - internals
 type: concept
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # LLM Internals
@@ -209,12 +209,14 @@ Instructions that shape model behavior across the conversation.
 ### System Prompt Patterns
 
 **Role Pattern:**
+
 ```
 You are [role] with expertise in [domain].
 Your goal is to [objective].
 ```
 
 **Rules Pattern:**
+
 ```
 Follow these rules:
 1. Always [do X]
@@ -223,6 +225,7 @@ Follow these rules:
 ```
 
 **Format Pattern:**
+
 ```
 Respond in the following format:
 {
@@ -233,6 +236,7 @@ Respond in the following format:
 ```
 
 **Few-Shot Pattern:**
+
 ```
 Here are examples of good responses:
 
@@ -272,6 +276,7 @@ Controlling how the model formats and structures responses.
 ### Style Control Methods
 
 **1. Explicit Instructions:**
+
 ```
 Respond in a casual, friendly tone.
 Use bullet points for lists.
@@ -279,6 +284,7 @@ Keep response under 100 words.
 ```
 
 **2. Examples (Few-Shot):**
+
 ```
 Example response style:
 Q: What is X?
@@ -286,6 +292,7 @@ A: Great question! X is basically... [casual explanation]
 ```
 
 **3. Format Enforcement:**
+
 ```
 Always structure your response as:
 ## Summary
@@ -299,6 +306,7 @@ Always structure your response as:
 ```
 
 **4. Personas:**
+
 ```
 Respond as a senior software engineer reviewing code.
 Be direct, point out issues clearly, suggest improvements.
