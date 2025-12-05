@@ -5,6 +5,7 @@
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
 | Unreal Engine | `planned` | Medium | Medium | Complete game engines coverage |
+| DNS Deep Dive | `planned` | High | Medium | Records, resolution, DNSSEC, DoH/DoT, troubleshooting |
 
 ## Ideas (Not Committed)
 
@@ -84,6 +85,8 @@
 | AI/Agent infrastructure | `done` | High | Medium | MCP Servers, RAG, Agent Frameworks |
 | API Design Patterns | `done` | High | Medium | REST, GraphQL, gRPC, tRPC, Webhooks |
 | Security Concepts | `done` | High | Large | OWASP, Auth patterns, Crypto basics |
+| Auth Standards & RFCs | `done` | High | Medium | OAuth, OIDC, JWT, PKCE, DPoP, PAR, PASETO |
+| Essential RFCs | `done` | High | Medium | HTTP, TLS, JSON, URI, WebSocket, DNS basics |
 | Tool comparisons | `done` | High | Large | Testing, Logging, HTTP, ORMs, Build, Deploy |
 | Observability basics | `done` | Medium | Small | OpenTelemetry, Distributed Tracing |
 | File Storage | `done` | High | Medium | Object, block, file, distributed storage |
