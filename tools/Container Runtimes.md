@@ -11,7 +11,7 @@ tags:
   - devops
 type: comparison
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # Container Runtimes
@@ -167,6 +167,7 @@ podman generate systemd --new --name mycontainer
 ### Podman Desktop
 
 GUI application similar to Docker Desktop:
+
 - Container/pod management
 - Image building
 - Kubernetes integration

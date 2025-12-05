@@ -12,7 +12,7 @@ tags:
   - security
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # API Gateways
@@ -584,6 +584,7 @@ Request → Gateway → Service A → Service B
 ## When to Use API Gateway
 
 **Strengths:**
+
 - Centralized cross-cutting concerns
 - Client abstraction
 - Security enforcement
@@ -591,12 +592,14 @@ Request → Gateway → Service A → Service B
 - Observability
 
 **Considerations:**
+
 - Single point of failure (need HA)
 - Added latency
 - Complexity
 - Gateway can become bottleneck
 
 **Best for:**
+
 - Microservices architectures
 - Multi-client applications
 - Public APIs

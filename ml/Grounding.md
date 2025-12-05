@@ -12,7 +12,7 @@ tags:
   - rag
 type: concept
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Grounding
@@ -466,18 +466,21 @@ requirements:
 ## When to Ground
 
 **Always ground:**
+
 - Factual queries (dates, numbers, events)
 - Medical/legal/financial advice
 - Technical specifications
 - Current events
 
 **Grounding optional:**
+
 - Creative writing
 - Brainstorming
 - Code generation (unless specs matter)
 - General explanations
 
 **Skip grounding:**
+
 - Pure opinion questions
 - Hypotheticals
 - Casual conversation

@@ -61,7 +61,12 @@ async function validateWikilinks() {
 
   for (const file of files) {
     const filePath = path.join(process.cwd(), file);
-    const content = fs.readFileSync(filePath, 'utf8');
+    let content = fs.readFileSync(filePath, 'utf8');
+
+    // Remove fenced code blocks before scanning for wikilinks
+    content = content.replace(/```[\s\S]*?```/g, '');
+    // Remove inline code
+    content = content.replace(/`[^`]+`/g, '');
 
     let match;
     while ((match = WIKILINK_REGEX.exec(content)) !== null) {

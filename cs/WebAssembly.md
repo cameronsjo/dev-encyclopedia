@@ -10,7 +10,7 @@ tags:
   - portable
 type: reference
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # WebAssembly
@@ -217,6 +217,7 @@ Stack evolution:
 ### Traps
 
 Execution stops on:
+
 - Out of bounds memory access
 - Divide by zero
 - Invalid indirect call

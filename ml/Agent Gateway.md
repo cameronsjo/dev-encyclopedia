@@ -13,7 +13,7 @@ tags:
   - llm
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Agent Gateway
@@ -561,6 +561,7 @@ Integrate with Istio/Linkerd for traffic management.
 ## When to Use Agent Gateway
 
 **Strengths:**
+
 - Multi-provider flexibility
 - Cost control and visibility
 - Production resilience
@@ -568,11 +569,13 @@ Integrate with Istio/Linkerd for traffic management.
 - Centralized observability
 
 **Considerations:**
+
 - Added latency (minimal)
 - Additional infrastructure
 - Complexity for simple apps
 
 **Best for:**
+
 - Production AI applications
 - Multi-model strategies
 - Cost-sensitive deployments

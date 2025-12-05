@@ -11,7 +11,7 @@ tags:
   - devops
 type: comparison
 status: complete
-created: 2025-12-04
+created: "2025-12-04"
 ---
 
 # Container Tools
@@ -57,6 +57,7 @@ volumes:
 ```
 
 **Features:**
+
 - Container/stack management
 - Docker Compose support
 - Multi-environment (Docker, Swarm, K8s)
@@ -85,6 +86,7 @@ services:
 ```
 
 **Features:**
+
 - Simple, clean UI
 - Edit compose files in browser
 - Start/stop/restart stacks
@@ -160,6 +162,7 @@ services:
 ```
 
 **Features:**
+
 - Auto-discovery via Docker labels
 - Let's Encrypt integration
 - Middleware (auth, rate limit, etc.)
@@ -265,6 +268,7 @@ services:
 ```
 
 **Options:**
+
 ```yaml
 environment:
   # Update schedule
@@ -350,6 +354,7 @@ cp harbor.yml.tmpl harbor.yml
 ```
 
 **Features:**
+
 - Vulnerability scanning (Trivy)
 - RBAC and projects
 - Replication between registries
@@ -570,6 +575,7 @@ docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock lazyteam/lazydo
 ```
 
 **Features:**
+
 - Container/image/volume management
 - Log viewing
 - Stats monitoring
