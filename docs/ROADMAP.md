@@ -46,14 +46,25 @@
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
+| CI/CD Pipelines | `idea` | High | Medium | GitHub Actions, GitLab CI, Jenkins, ArgoCD |
+| IaC Tools | `idea` | High | Medium | Terraform, Pulumi, CloudFormation, OpenTofu |
 | Service Mesh | `idea` | Medium | Medium | Istio, Linkerd, sidecar patterns |
 | Secrets Management | `idea` | High | Medium | Vault, AWS Secrets Manager, rotation |
 | CDN | `idea` | Medium | Small | Cloudflare, Fastly, edge caching |
 | Container Security | `idea` | Medium | Medium | Image scanning, runtime security |
 | Supply Chain Security | `idea` | High | Medium | SBOM, Sigstore, dependency scanning, attestation |
 | Identity (IAM) | `idea` | High | Medium | OAuth 2.0, OIDC, SSO, SAML deep dive |
-| DevOps/Infrastructure | `idea` | Medium | Large | CI/CD, IaC, Kubernetes |
 | Cloud platforms | `idea` | Medium | Large | AWS, GCP, Azure comparisons |
+| Feature Flags | `idea` | Medium | Small | LaunchDarkly, Unleash, experimentation platforms |
+
+### Data & Storage
+
+| Item | Status | Impact | Effort | Notes |
+|------|--------|--------|--------|-------|
+| Message Queues | `idea` | High | Medium | Kafka, RabbitMQ, Redis Streams, SQS, NATS |
+| Caching Strategies | `idea` | High | Medium | Redis, Memcached, CDN patterns, cache invalidation |
+| Search Engines | `idea` | High | Medium | Elasticsearch, Meilisearch, Typesense, Algolia |
+| Database Internals | `idea` | High | Large | B-trees, WAL, MVCC, query planning, indexes |
 
 ### Other
 
