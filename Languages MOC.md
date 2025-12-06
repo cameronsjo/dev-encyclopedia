@@ -18,7 +18,7 @@ Programming languages and their ecosystems.
 
 | Language | Paradigm | Use Cases |
 |----------|----------|-----------|
-| [[languages/C++|C++]] | Multi-paradigm | Games, systems, performance |
+| [[Languages/C++|C++]] | Multi-paradigm | Games, systems, performance |
 | [[Rust]] | Ownership-based | Systems, CLI, safe code |
 | [[Go]] | CSP, imperative | Cloud, CLI, services |
 
@@ -26,8 +26,8 @@ Programming languages and their ecosystems.
 
 | Language | Paradigm | Use Cases |
 |----------|----------|-----------|
-| [[languages/Java|Java]] | OOP | Enterprise, Android (legacy) |
-| [[languages/Kotlin|Kotlin]] | OOP + Functional | Android, backend |
+| [[Languages/Java|Java]] | OOP | Enterprise, Android (legacy) |
+| [[Languages/Kotlin|Kotlin]] | OOP + Functional | Android, backend |
 | [[C Sharp|C#]] | OOP + Functional | .NET, games, enterprise |
 
 ### Web & Scripting
@@ -36,15 +36,15 @@ Programming languages and their ecosystems.
 |----------|----------|-----------|
 | [[TypeScript]] | Multi-paradigm | Frontend, Node.js |
 | [[Python]] | Multi-paradigm | ML, scripting, web |
-| [[languages/PHP|PHP]] | Multi-paradigm | Web, WordPress |
-| [[languages/Ruby|Ruby]] | OOP | Rails, web |
+| [[Languages/PHP|PHP]] | Multi-paradigm | Web, WordPress |
+| [[Languages/Ruby|Ruby]] | OOP | Rails, web |
 
 ### Mobile & UI
 
 | Language | Paradigm | Use Cases |
 |----------|----------|-----------|
-| [[languages/Swift|Swift]] | Multi-paradigm | Apple platforms |
-| [[languages/Dart|Dart]] | OOP | Flutter |
+| [[Languages/Swift|Swift]] | Multi-paradigm | Apple platforms |
+| [[Languages/Dart|Dart]] | OOP | Flutter |
 
 ---
 
@@ -52,11 +52,11 @@ Programming languages and their ecosystems.
 
 | Domain | Primary Languages |
 |--------|-------------------|
-| [[domains/Web Development|Web]] | TypeScript, Python, Go, C#, PHP, Ruby |
-| [[domains/Mobile Development|Mobile]] | Swift, Kotlin, Dart, TypeScript, C# |
-| [[domains/Desktop Development|Desktop]] | C#, C++, Swift, Rust, TypeScript |
-| [[domains/Game Development|Game]] | C#, C++, Rust |
-| [[domains/Embedded & Systems|Systems]] | C++, Rust, C |
+| [[Domains/Web Development|Web]] | TypeScript, Python, Go, C#, PHP, Ruby |
+| [[Domains/Mobile Development|Mobile]] | Swift, Kotlin, Dart, TypeScript, C# |
+| [[Domains/Desktop Development|Desktop]] | C#, C++, Swift, Rust, TypeScript |
+| [[Domains/Game Development|Game]] | C#, C++, Rust |
+| [[Domains/Embedded & Systems|Systems]] | C++, Rust, C |
 
 ---
 

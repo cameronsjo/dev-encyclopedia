@@ -19,9 +19,9 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 | [[Languages MOC]] | 12 languages, ecosystems, comparisons |
 | [[Domains MOC]] | Web, Mobile, Desktop, Game, Embedded |
 | [[Tools MOC]] | Testing, logging, HTTP, databases, deployment |
-| [[CS MOC]] | Data structures, algorithms, design patterns |
+| [[Computer Science MOC]] | Data structures, algorithms, design patterns |
 | [[Math MOC]] | Calculus, linear algebra, statistics |
-| [[ML MOC]] | Machine learning, neural networks, LLMs |
+| [[Machine Learning MOC]] | Machine learning, neural networks, LLMs |
 
 ---
 
@@ -31,10 +31,10 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Category | Languages |
 |----------|-----------|
-| Systems | [[languages/C++|C++]], [[Rust]], [[Go]] |
-| Enterprise/JVM | [[languages/Java|Java]], [[languages/Kotlin|Kotlin]], [[C Sharp|C#]] |
-| Web/Scripting | [[TypeScript]], [[Python]], [[languages/PHP|PHP]], [[languages/Ruby|Ruby]] |
-| Mobile/UI | [[languages/Swift|Swift]], [[languages/Dart|Dart]] |
+| Systems | [[Languages/C++|C++]], [[Rust]], [[Go]] |
+| Enterprise/JVM | [[Languages/Java|Java]], [[Languages/Kotlin|Kotlin]], [[C Sharp|C#]] |
+| Web/Scripting | [[TypeScript]], [[Python]], [[Languages/PHP|PHP]], [[Languages/Ruby|Ruby]] |
+| Mobile/UI | [[Languages/Swift|Swift]], [[Languages/Dart|Dart]] |
 
 ---
 
@@ -42,11 +42,11 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Domain | What's There |
 |--------|--------------|
-| [[domains/Web Development|Web]] | Frontend frameworks, backend, full-stack |
-| [[domains/Mobile Development|Mobile]] | iOS, Android, cross-platform (Flutter, RN) |
-| [[domains/Desktop Development|Desktop]] | WPF, SwiftUI, Electron, Tauri, Qt |
-| [[domains/Game Development|Game]] | Unity, Unreal, Godot, Bevy |
-| [[domains/Embedded & Systems|Embedded]] | Bare metal, RTOS, systems programming |
+| [[Domains/Web Development|Web]] | Frontend frameworks, backend, full-stack |
+| [[Domains/Mobile Development|Mobile]] | iOS, Android, cross-platform (Flutter, RN) |
+| [[Domains/Desktop Development|Desktop]] | WPF, SwiftUI, Electron, Tauri, Qt |
+| [[Domains/Game Development|Game]] | Unity, Unreal, Godot, Bevy |
+| [[Domains/Embedded & Systems|Embedded]] | Bare metal, RTOS, systems programming |
 
 ---
 
@@ -69,11 +69,11 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Page | Topics |
 |------|--------|
-| [[cs/Big O Notation]] | Complexity analysis |
-| [[cs/Data Structures]] | Arrays, trees, graphs |
-| [[cs/Sorting Algorithms]] | QuickSort, MergeSort |
-| [[cs/Graph Algorithms]] | BFS, DFS, Dijkstra |
-| [[cs/Design Patterns]] | GoF, modern patterns |
+| [[Computer Science/Big O Notation]] | Complexity analysis |
+| [[Computer Science/Data Structures]] | Arrays, trees, graphs |
+| [[Computer Science/Sorting Algorithms]] | QuickSort, MergeSort |
+| [[Computer Science/Graph Algorithms]] | BFS, DFS, Dijkstra |
+| [[Computer Science/Design Patterns]] | GoF, modern patterns |
 
 ---
 
@@ -81,12 +81,12 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Page | Topics |
 |------|--------|
-| [[math/Calculus]] | Derivatives, optimization |
-| [[math/Linear Algebra]] | Vectors, matrices |
-| [[math/Probability & Statistics]] | Distributions, inference |
-| [[ml/ML Fundamentals]] | Supervised, unsupervised |
-| [[ml/Neural Networks]] | Architecture, training |
-| [[ml/LLMs & Transformers]] | Attention, GPT, Claude |
+| [[Math/Calculus]] | Derivatives, optimization |
+| [[Math/Linear Algebra]] | Vectors, matrices |
+| [[Math/Probability & Statistics]] | Distributions, inference |
+| [[Machine Learning/ML Fundamentals]] | Supervised, unsupervised |
+| [[Machine Learning/Neural Networks]] | Architecture, training |
+| [[Machine Learning/LLMs & Transformers]] | Attention, GPT, Claude |
 
 ---
 
