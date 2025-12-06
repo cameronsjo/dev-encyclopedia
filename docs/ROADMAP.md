@@ -8,34 +8,17 @@
 
 ## Ideas (Not Committed)
 
-### Agent Protocols & Registries
-
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
-| MCP Registry | `idea` | Medium | Small | Discovery, cataloging MCP servers |
-| Agent Registry | `idea` | Medium | Small | Agent discovery, capabilities |
-| Service Discovery | `idea` | High | Medium | Consul, etcd, DNS-SD, Eureka |
-| Service Registry | `idea` | Medium | Medium | Registration, health, metadata |
-
-### Web3 & Blockchain
-
-| Item | Status | Impact | Effort | Notes |
-|------|--------|--------|--------|-------|
-| Blockchain Fundamentals | `idea` | Medium | Medium | Consensus, blocks, merkle trees |
-| Cryptocurrency | `idea` | Medium | Medium | Bitcoin, Ethereum, tokenomics |
-| Smart Contracts | `idea` | Medium | Medium | Solidity, EVM, auditing |
-| Web3 Development | `idea` | Medium | Medium | Wallets, dApps, web3.js/ethers |
-
-### Infrastructure & DevOps
-
-| Item | Status | Impact | Effort | Notes |
-|------|--------|--------|--------|-------|
-| Identity (IAM) | `idea` | High | Medium | OAuth 2.0, OIDC, SSO, SAML deep dive |
+| (empty - open for suggestions!) | | | | |
 
 ## Completed
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
+| Web3 & Blockchain | `done` | Medium | Medium | Blockchain Fundamentals, Cryptocurrency, Smart Contracts, Web3 Development |
+| Agent & Service Registries | `done` | High | Medium | MCP Registry, Agent Registry, Service Discovery, Service Registry |
+| Identity (IAM) | `done` | High | Medium | OAuth 2.0, OIDC, SSO, SAML, RBAC/ABAC, OPA |
 | AI Infrastructure | `done` | High | Medium | MCP Gateway, Agent Gateway, Grounding, LLM Internals, Prompt Engineering |
 | Agent Protocols | `done` | High | Medium | A2A Protocol |
 | Web Infrastructure | `done` | High | Medium | API Gateways, Load Balancing, Web Security |
