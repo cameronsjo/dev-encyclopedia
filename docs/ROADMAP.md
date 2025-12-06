@@ -4,24 +4,9 @@
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
-| Unreal Engine | `planned` | Medium | Medium | Complete game engines coverage |
-| DNS Deep Dive | `planned` | High | Medium | Records, resolution, DNSSEC, DoH/DoT, troubleshooting |
+| (empty - all caught up!) | | | | |
 
 ## Ideas (Not Committed)
-
-### AI/LLM Infrastructure
-
-| Item | Status | Impact | Effort | Notes |
-|------|--------|--------|--------|-------|
-| Vector Databases | `idea` | High | Medium | Pinecone, Weaviate, Qdrant, pgvector, Chroma |
-| Embeddings | `idea` | High | Medium | Models, semantic search, use cases |
-| Model Serving | `idea` | High | Medium | vLLM, TGI, Triton, Ollama, optimization |
-| Fine-tuning | `idea` | Medium | Medium | LoRA, QLoRA, PEFT, when vs RAG |
-| LLM Evaluation | `idea` | Medium | Medium | RAGAS, benchmarks, evals frameworks |
-| AI Security | `idea` | High | Medium | Prompt injection, jailbreaks, red teaming |
-| AI Observability | `idea` | Medium | Small | LangSmith, Helicone, agent tracing |
-| Semantic Caching | `idea` | Medium | Small | LLM-specific caching patterns |
-| Multimodal AI | `idea` | Medium | Medium | Vision-language models, audio, video |
 
 ### Agent Protocols & Registries
 
@@ -40,41 +25,12 @@
 | Cryptocurrency | `idea` | Medium | Medium | Bitcoin, Ethereum, tokenomics |
 | Smart Contracts | `idea` | Medium | Medium | Solidity, EVM, auditing |
 | Web3 Development | `idea` | Medium | Medium | Wallets, dApps, web3.js/ethers |
-| Cryptography | `idea` | High | Large | Hashing, encryption, signatures, ZK proofs |
 
 ### Infrastructure & DevOps
 
 | Item | Status | Impact | Effort | Notes |
 |------|--------|--------|--------|-------|
-| CI/CD Pipelines | `idea` | High | Medium | GitHub Actions, GitLab CI, Jenkins, ArgoCD |
-| IaC Tools | `idea` | High | Medium | Terraform, Pulumi, CloudFormation, OpenTofu |
-| Service Mesh | `idea` | Medium | Medium | Istio, Linkerd, sidecar patterns |
-| Secrets Management | `idea` | High | Medium | Vault, AWS Secrets Manager, rotation |
-| CDN | `idea` | Medium | Small | Cloudflare, Fastly, edge caching |
-| Container Security | `idea` | Medium | Medium | Image scanning, runtime security |
-| Supply Chain Security | `idea` | High | Medium | SBOM, Sigstore, dependency scanning, attestation |
 | Identity (IAM) | `idea` | High | Medium | OAuth 2.0, OIDC, SSO, SAML deep dive |
-| Cloud platforms | `idea` | Medium | Large | AWS, GCP, Azure comparisons |
-| Feature Flags | `idea` | Medium | Small | LaunchDarkly, Unleash, experimentation platforms |
-
-### Data & Storage
-
-| Item | Status | Impact | Effort | Notes |
-|------|--------|--------|--------|-------|
-| Message Queues | `idea` | High | Medium | Kafka, RabbitMQ, Redis Streams, SQS, NATS |
-| Caching Strategies | `idea` | High | Medium | Redis, Memcached, CDN patterns, cache invalidation |
-| Search Engines | `idea` | High | Medium | Elasticsearch, Meilisearch, Typesense, Algolia |
-| Database Internals | `idea` | High | Large | B-trees, WAL, MVCC, query planning, indexes |
-
-### Other
-
-| Item | Status | Impact | Effort | Notes |
-|------|--------|--------|--------|-------|
-| More CS algorithms | `idea` | High | Medium | Dynamic Programming, Backtracking, etc. |
-| Additional languages | `idea` | Medium | Medium | C, Zig, Elixir, Scala, Haskell |
-| Frontend extras | `idea` | Low | Small | Solid, HTMX |
-| CLI frameworks | `idea` | Low | Small | Click, Clap, Commander.js |
-| Embedded frameworks | `idea` | Low | Medium | Arduino, ESP-IDF, RTOS |
 
 ## Completed
 
@@ -84,23 +40,32 @@
 | Agent Protocols | `done` | High | Medium | A2A Protocol |
 | Web Infrastructure | `done` | High | Medium | API Gateways, Load Balancing, Web Security |
 | Cross-platform frameworks | `done` | High | Large | Flutter, RN, MAUI, Electron, Tauri, Avalonia |
-| Web frontend frameworks | `done` | High | Medium | React, Vue, Angular, Svelte |
+| Web frontend frameworks | `done` | High | Medium | React, Vue, Angular, Svelte, Solid, HTMX |
 | Backend frameworks | `done` | Medium | Medium | Spring Boot, Rails, Laravel, Django |
-| Game engines | `done` | Medium | Medium | Unity, Godot, Bevy |
+| Game engines | `done` | Medium | Medium | Unity, Godot, Bevy, Unreal Engine |
 | Database Engines | `done` | High | Large | SQL, Document, KV, Graph, Vector, TimeSeries |
+| Database Internals | `done` | High | Large | B-trees, WAL, MVCC, query planning, indexes |
 | Observability Stack | `done` | High | Medium | Prometheus, Grafana, Observability overview |
 | Meta-frameworks | `done` | High | Medium | Next.js, Nuxt, SvelteKit, Remix, Astro |
 | CS fundamentals | `done` | High | Medium | Big O, Data Structures, Patterns, Algorithms |
+| CS algorithms | `done` | High | Medium | Dynamic Programming, Backtracking, DNS |
 | Math foundations | `done` | Medium | Medium | Calculus, Linear Algebra, Probability |
 | ML concepts | `done` | Medium | Medium | Fundamentals, Neural Networks, LLMs |
 | AI/Agent infrastructure | `done` | High | Medium | MCP Servers, RAG, Agent Frameworks |
+| AI/LLM Infrastructure | `done` | High | Large | Vector DBs, Embeddings, Model Serving, Fine-tuning, Evals, AI Security, Observability, Semantic Caching, Multimodal |
 | API Design Patterns | `done` | High | Medium | REST, GraphQL, gRPC, tRPC, Webhooks |
 | Security Concepts | `done` | High | Large | OWASP, Auth patterns, Crypto basics |
+| Security Deep Dive | `done` | High | Large | Cryptography, Secrets Management, Container Security, Supply Chain Security, AI Security |
 | Auth Standards & RFCs | `done` | High | Medium | OAuth, OIDC, JWT, PKCE, DPoP, PAR, PASETO |
 | Essential RFCs | `done` | High | Medium | HTTP, TLS, JSON, URI, WebSocket, DNS basics |
 | Tool comparisons | `done` | High | Large | Testing, Logging, HTTP, ORMs, Build, Deploy |
+| DevOps/Infrastructure | `done` | High | Large | CI/CD, IaC, Service Mesh, CDN, Feature Flags, Cloud Platforms |
+| Data & Storage | `done` | High | Large | Message Queues, Caching Strategies, Search Engines |
 | Observability basics | `done` | Medium | Small | OpenTelemetry, Distributed Tracing |
 | File Storage | `done` | High | Medium | Object, block, file, distributed storage |
+| Additional languages | `done` | Medium | Medium | C, Zig, Elixir, Scala, Haskell |
+| CLI frameworks | `done` | Low | Small | Click, Typer, clap, cobra, Commander.js |
+| Embedded frameworks | `done` | Low | Medium | Arduino, ESP-IDF, Zephyr, FreeRTOS |
 
 ## Technical Debt
 
