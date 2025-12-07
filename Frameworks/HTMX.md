@@ -1,3 +1,18 @@
+---
+title: HTMX
+aliases:
+  - htmx
+  - htmx.js
+tags:
+  - framework
+  - web
+  - frontend
+  - javascript
+type: reference
+status: complete
+created: "2025-12-07"
+---
+
 # HTMX
 
 A lightweight JavaScript library that extends HTML with AJAX, WebSockets, and Server-Sent Events using declarative attributes, enabling modern web interactions without writing JavaScript.

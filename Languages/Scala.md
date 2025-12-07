@@ -1,3 +1,18 @@
+---
+title: Scala
+aliases:
+  - Scala Language
+  - Scala 3
+tags:
+  - language
+  - jvm
+  - functional
+  - object-oriented
+type: reference
+status: complete
+created: "2025-12-07"
+---
+
 # Scala
 
 A multi-paradigm language combining object-oriented and functional programming on the JVM with a powerful type system and expressive syntax.

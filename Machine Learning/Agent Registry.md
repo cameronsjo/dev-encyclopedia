@@ -1,3 +1,18 @@
+---
+title: Agent Registry
+aliases:
+  - AI Agent Registry
+  - Agent Discovery
+tags:
+  - machine-learning
+  - ai-agents
+  - infrastructure
+  - concept
+type: reference
+status: complete
+created: "2025-12-07"
+---
+
 # Agent Registry
 
 A centralized service for discovering, advertising, and managing AI agents in multi-agent systems.

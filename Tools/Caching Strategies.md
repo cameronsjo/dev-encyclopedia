@@ -1,3 +1,18 @@
+---
+title: Caching Strategies
+aliases:
+  - Caching
+  - Cache Patterns
+tags:
+  - infrastructure
+  - performance
+  - architecture
+  - tool
+type: reference
+status: complete
+created: "2025-12-07"
+---
+
 # Caching Strategies
 
 Techniques for storing and retrieving frequently accessed data to improve performance and reduce backend load.

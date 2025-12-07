@@ -10,7 +10,7 @@ tags:
   - domain
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Web3 Development
