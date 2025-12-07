@@ -178,6 +178,7 @@ zig c++ -o myapp main.cpp
 | **Undefined Behavior** | Detected in safe builds, explicit `@setRuntimeSafety(false)` to disable |
 
 **Build Modes:**
+
 - `Debug` - All safety checks, no optimizations
 - `ReleaseSafe` - Optimized with safety checks
 - `ReleaseFast` - Maximum speed, minimal safety

@@ -38,11 +38,13 @@ A multi-paradigm language combining object-oriented and functional programming o
 ### Type System
 
 **Variance:**
+
 - Covariance (`+T`): `List[Dog]` is subtype of `List[Animal]`
 - Contravariance (`-T`): `Function1[-T, +R]`
 - Invariance (default): `Array[T]`
 
 **Advanced Types:**
+
 - Path-dependent types
 - Higher-kinded types (`F[_]`)
 - Existential types (Scala 2) / Wildcard types (Scala 3)
@@ -54,6 +56,7 @@ A multi-paradigm language combining object-oriented and functional programming o
 Mixins combining interface and implementation, support multiple inheritance.
 
 **Key features:**
+
 - Abstract and concrete members
 - Self-type annotations
 - Linearization (deterministic MRO)
@@ -64,6 +67,7 @@ Mixins combining interface and implementation, support multiple inheritance.
 **Case classes:** Immutable data containers with automatic `equals`, `hashCode`, `toString`, `copy`, and pattern matching support.
 
 **Pattern matching:**
+
 - Destructuring
 - Guards (`if` conditions)
 - Type patterns
@@ -84,6 +88,7 @@ Mixins combining interface and implementation, support multiple inheritance.
 | **Summoning** | `implicitly[T]` | `summon[T]` |
 
 **Scala 3 improvements:**
+
 - Intent-driven syntax (explicit purpose)
 - Reduced ambiguity
 - Better error messages
@@ -94,6 +99,7 @@ Mixins combining interface and implementation, support multiple inheritance.
 Syntactic sugar for `map`, `flatMap`, `withFilter` chains.
 
 **Desugars to:**
+
 - `for (x <- xs) yield f(x)` → `xs.map(f)`
 - `for (x <- xs; y <- ys) yield (x, y)` → `xs.flatMap(x => ys.map(y => (x, y)))`
 - `for (x <- xs if pred) yield x` → `xs.withFilter(pred).map(identity)`
@@ -185,18 +191,21 @@ Syntactic sugar for `map`, `flatMap`, `withFilter` chains.
 ## Migration Paths
 
 **Java → Scala:**
+
 - Start with Scala 2 syntax (familiar)
 - Gradually adopt FP patterns
 - Leverage existing Java libraries
 - Consider Scala 3 for new modules
 
 **Scala 2 → Scala 3:**
+
 - Use compatibility mode
 - Migrate implicits to givens incrementally
 - Adopt new syntax gradually
 - Rewrite macros last
 
 **Scala → Kotlin:**
+
 - Similar syntax for basics
 - Different concurrency models (Akka → Coroutines)
 - Loss of higher-kinded types

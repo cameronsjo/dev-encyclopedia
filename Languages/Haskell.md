@@ -46,6 +46,7 @@ readFile :: FilePath -> IO String
 ```
 
 **Implications:**
+
 - Referential transparency: expressions can be replaced with their values
 - Easier reasoning about code behavior
 - Natural parallelization opportunities
@@ -90,6 +91,7 @@ instance Eq Color where
 ```
 
 **Common Type Classes:**
+
 - `Eq` - Equality comparison
 - `Ord` - Ordering
 - `Show` - String conversion
@@ -216,6 +218,7 @@ library
 ```
 
 **Commands:**
+
 - `cabal build` - Compile project
 - `cabal repl` - Interactive REPL
 - `cabal test` - Run tests
@@ -234,12 +237,14 @@ extra-deps: []
 ```
 
 **Commands:**
+
 - `stack build` - Build project
 - `stack test` - Run tests
 - `stack ghci` - Load REPL
 - `stack exec <app>` - Run executable
 
 **Stack vs Cabal:**
+
 - Stack: Reproducible builds, curated snapshots, simpler for beginners
 - Cabal: More flexible, direct control, better for library authors
 
@@ -263,6 +268,7 @@ extra-deps: []
 The de facto standard Haskell compiler.
 
 **Key Features:**
+
 - Advanced optimizations (strictness analysis, inlining, fusion)
 - Language extensions via pragmas
 - Profiling tools
@@ -270,6 +276,7 @@ The de facto standard Haskell compiler.
 - Interactive REPL (GHCi)
 
 **Common Language Extensions:**
+
 ```haskell
 {-# LANGUAGE OverloadedStrings #-}  -- String literals as Text
 {-# LANGUAGE DeriveGeneric #-}      -- Auto-derive Generic instances

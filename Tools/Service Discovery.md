@@ -38,11 +38,13 @@ A pattern and toolset enabling services to find and communicate with each other 
 ### Service Discovery Patterns
 
 **Client-Side Discovery**: Client queries registry, performs load balancing, makes direct request.
+
 - More network hops avoided
 - Client complexity increases
 - Examples: Netflix Ribbon + Eureka, Consul with client library
 
 **Server-Side Discovery**: Client requests via load balancer/proxy, which queries registry.
+
 - Simpler clients
 - Additional proxy layer
 - Examples: Kubernetes Service + DNS, AWS ELB + Route 53
@@ -62,6 +64,7 @@ A pattern and toolset enabling services to find and communicate with each other 
 **Backing**: HashiCorp (open source + enterprise)
 
 **Key Features**:
+
 - DNS and HTTP APIs for service lookup
 - Multi-datacenter support with WAN gossip
 - Built-in health checking (HTTP, TCP, script, TTL)
@@ -77,6 +80,7 @@ A pattern and toolset enabling services to find and communicate with each other 
 **Backing**: Cloud Native Computing Foundation (CNCF)
 
 **Key Features**:
+
 - Strong consistency via Raft consensus
 - Watch API for real-time updates
 - Lease-based TTL for ephemeral keys
@@ -93,6 +97,7 @@ A pattern and toolset enabling services to find and communicate with each other 
 **Backing**: Apache Software Foundation
 
 **Key Features**:
+
 - Hierarchical namespace (like filesystem)
 - Ephemeral nodes for session-based registration
 - Watchers for change notifications
@@ -109,6 +114,7 @@ A pattern and toolset enabling services to find and communicate with each other 
 **Backing**: Netflix OSS
 
 **Key Features**:
+
 - RESTful service registration and discovery
 - Client-side load balancing (with Ribbon)
 - Zone awareness for AWS regions
@@ -125,6 +131,7 @@ A pattern and toolset enabling services to find and communicate with each other 
 **Backing**: Kubernetes / CNCF
 
 **Key Features**:
+
 - Automatic DNS records for Services and Pods
 - Service-based discovery (`service-name.namespace.svc.cluster.local`)
 - Headless Services for direct pod IPs
@@ -139,6 +146,7 @@ A pattern and toolset enabling services to find and communicate with each other 
 **Backing**: IETF standard (RFC 6763)
 
 **Key Features**:
+
 - Multicast DNS for local network discovery
 - No central registry required
 - Standard DNS record types (SRV, TXT, PTR)
@@ -162,11 +170,13 @@ A pattern and toolset enabling services to find and communicate with each other 
 ### Load Balancing Integration
 
 **Client-Side Load Balancing**:
+
 - Service discovery returns all healthy instances
 - Client library (Ribbon, gRPC LB) selects instance
 - Algorithms: Round-robin, least connections, random
 
 **Server-Side Load Balancing**:
+
 - Discovery system updates load balancer config
 - Examples: Consul Template → HAProxy, K8s Service → kube-proxy
 
@@ -239,6 +249,7 @@ graph LR
 ### Service-to-Service Security
 
 Service discovery enables, but doesn't provide:
+
 - **Authentication**: Verify service identity (mTLS, JWT)
 - **Authorization**: Enforce access policies
 - **Encryption**: Protect data in transit

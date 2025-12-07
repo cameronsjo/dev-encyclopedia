@@ -40,18 +40,21 @@ Numerical representations of unstructured data (text, images, audio) in continuo
 ### Similarity Metrics
 
 **Cosine Similarity**
+
 - Measures angle between vectors (direction, not magnitude)
 - Range: -1 to 1 (1 = identical direction)
 - Best for: Normalized embeddings, text similarity
 - Formula: `cos(θ) = (A·B) / (||A|| ||B||)`
 
 **Euclidean Distance (L2)**
+
 - Measures straight-line distance between points
 - Range: 0 to ∞ (0 = identical)
 - Best for: Spatial data, when magnitude matters
 - Formula: `√Σ(Ai - Bi)²`
 
 **Dot Product**
+
 - Measures alignment and magnitude
 - Range: -∞ to ∞ (higher = more similar)
 - Best for: Pre-normalized vectors, recommendation scores
@@ -60,24 +63,28 @@ Numerical representations of unstructured data (text, images, audio) in continuo
 ### Indexing Algorithms
 
 **HNSW (Hierarchical Navigable Small World)**
+
 - Graph-based index with multiple layers
 - Fast queries (log complexity) with high recall
 - Memory-intensive (stores graph in RAM)
 - Best for: High-accuracy requirements
 
 **IVF (Inverted File Index)**
+
 - Partitions space into clusters (Voronoi cells)
 - Search only relevant clusters
 - Lower memory than HNSW
 - Best for: Large-scale datasets with memory constraints
 
 **PQ (Product Quantization)**
+
 - Compresses vectors into compact codes
 - Reduces memory 10-100x with minimal accuracy loss
 - Combines with IVF (IVFPQ) for scalable search
 - Best for: Billion-scale deployments
 
 **Flat Index**
+
 - Brute-force exact search
 - Guaranteed 100% recall
 - Best for: Small datasets (<100K vectors), baseline accuracy
@@ -85,6 +92,7 @@ Numerical representations of unstructured data (text, images, audio) in continuo
 ### Hybrid Search
 
 Combines vector similarity with traditional keyword/metadata filtering:
+
 - **Pre-filtering**: Apply filters before vector search
 - **Post-filtering**: Search first, filter results after
 - **Sparse-Dense**: Combine BM25/keyword scores with vector similarity
@@ -158,12 +166,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### Pinecone
 
 **Strengths:**
+
 - Zero infrastructure management (fully serverless)
 - Predictable low latency at any scale
 - Best-in-class query performance
 - Strong hybrid search capabilities
 
 **Considerations:**
+
 - Highest cost at scale
 - Vendor lock-in (proprietary)
 - Limited control over infrastructure
@@ -173,12 +183,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### Weaviate
 
 **Strengths:**
+
 - Rich GraphQL API with complex queries
 - Strong ecosystem and integrations
 - Excellent documentation and community
 - Flexible deployment (cloud or self-hosted)
 
 **Considerations:**
+
 - Higher learning curve for configuration
 - Resource-intensive for large datasets
 - Query performance varies with complexity
@@ -188,12 +200,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### Qdrant
 
 **Strengths:**
+
 - Advanced filtering with payload indexing
 - Efficient quantization (reduced memory)
 - Rust-based performance and reliability
 - Clean REST and gRPC APIs
 
 **Considerations:**
+
 - Smaller ecosystem than Pinecone/Weaviate
 - Less mature cloud offering
 - Documentation gaps for advanced features
@@ -203,12 +217,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### Milvus
 
 **Strengths:**
+
 - Handles billion-scale datasets
 - GPU acceleration support
 - Mature distributed architecture
 - LF AI & Data Foundation backing
 
 **Considerations:**
+
 - Complex deployment and operations
 - Steep learning curve
 - Higher resource requirements
@@ -218,12 +234,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### Chroma
 
 **Strengths:**
+
 - Embedded mode (no server required)
 - Simplest developer experience
 - Lightweight and fast iteration
 - Perfect for prototyping
 
 **Considerations:**
+
 - Limited scalability (single-node)
 - Basic filtering capabilities
 - Not production-ready for large datasets
@@ -233,12 +251,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### pgvector
 
 **Strengths:**
+
 - Native PostgreSQL integration
 - ACID transactions with vectors
 - Join vectors with relational data
 - Leverage existing PostgreSQL expertise
 
 **Considerations:**
+
 - Lower query performance than specialized DBs
 - Limited to 16K dimensions
 - Requires PostgreSQL tuning for scale
@@ -248,12 +268,14 @@ Combines vector similarity with traditional keyword/metadata filtering:
 ### FAISS (Library, Not Database)
 
 **Strengths:**
+
 - Meta-backed, battle-tested library
 - Fastest in-memory search
 - Flexible index composition
 - No network overhead
 
 **Considerations:**
+
 - Requires custom persistence layer
 - No built-in filtering or metadata
 - Single-machine memory limits
@@ -294,15 +316,18 @@ Higher dimensions = better semantic capture but slower queries and more memory.
 ### Index Tuning
 
 **HNSW Parameters:**
+
 - `ef_construction`: Build-time accuracy (64-512, higher = better recall)
 - `M`: Graph connections per node (16-64, higher = better recall, more memory)
 - `ef_search`: Query-time accuracy (10-500, higher = better recall, slower)
 
 **IVF Parameters:**
+
 - `nlist`: Number of clusters (√N to 4√N where N = dataset size)
 - `nprobe`: Clusters to search (1-nlist, higher = better recall, slower)
 
 **PQ Parameters:**
+
 - `m`: Subvector count (8-64, must divide dimension count)
 - `nbits`: Bits per code (8 is standard, 4 for extreme compression)
 

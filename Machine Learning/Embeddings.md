@@ -34,6 +34,7 @@ Dense vector representations that capture semantic meaning of text, images, or o
 **Dense Vectors:** Each item represented as array of floating-point numbers capturing semantic features.
 
 **Similarity Metrics:**
+
 - **Cosine Similarity:** Most common, measures angle between vectors (0-1 range)
 - **Euclidean Distance:** L2 distance in vector space
 - **Dot Product:** Raw similarity score, affected by magnitude
@@ -43,11 +44,13 @@ Dense vector representations that capture semantic meaning of text, images, or o
 ### Text Embeddings
 
 **Sentence vs Document:**
+
 - **Sentence embeddings:** Single vector per sentence, optimized for short text
 - **Document embeddings:** Average/pool multiple sentence vectors, or use specialized models
 - **Chunking:** Long documents split into overlapping chunks (typically 256-512 tokens)
 
 **Semantic Properties:**
+
 - Synonyms have similar embeddings
 - Context-aware (same word, different meanings = different embeddings)
 - Support cross-lingual similarity in multilingual models
@@ -55,17 +58,20 @@ Dense vector representations that capture semantic meaning of text, images, or o
 ### Image Embeddings
 
 **CLIP (Contrastive Language-Image Pre-training):**
+
 - Joint text-image embedding space
 - Same vector space for images and descriptions
 - Enables image search via text queries
 
 **Vision Transformers:**
+
 - ViT models produce image embeddings
 - Used for image classification, similarity, clustering
 
 ### Multimodal Embeddings
 
 Models that embed multiple data types into shared space:
+
 - **Text + Images:** CLIP, ALIGN
 - **Text + Audio:** CLAP
 - **Text + Video:** VideoCLIP
@@ -90,16 +96,19 @@ Models that embed multiple data types into shared space:
 ### Chunking Strategies
 
 **Fixed-Size Chunks:**
+
 - Split documents into equal token/character counts
 - Simple but may break semantic units
 - Overlap recommended (50-100 tokens)
 
 **Semantic Chunks:**
+
 - Split on paragraph/section boundaries
 - Preserve logical units
 - Variable size but more coherent
 
 **Recursive Splitting:**
+
 - Try splitting on larger units first (sections)
 - Fall back to smaller units (sentences) if too large
 - Maintains hierarchy and context
@@ -107,11 +116,13 @@ Models that embed multiple data types into shared space:
 ### Fine-Tuning Embeddings
 
 **Domain Adaptation:**
+
 - Fine-tune on domain-specific paired data (question-answer, query-document)
 - Improves retrieval for specialized vocabularies (medical, legal, technical)
 - Requires training infrastructure
 
 **Approaches:**
+
 - Contrastive learning: Bring similar items closer, push dissimilar apart
 - Triplet loss: Anchor, positive, negative examples
 - In-batch negatives: Efficient training with large batches
@@ -119,15 +130,18 @@ Models that embed multiple data types into shared space:
 ### Retrieval Optimization
 
 **Hybrid Search:**
+
 - Combine vector similarity with keyword search (BM25)
 - Handles both semantic and exact matches
 - Rerank combined results
 
 **Metadata Filtering:**
+
 - Pre-filter by date, category, source before vector search
 - Reduces search space and improves relevance
 
 **Reranking:**
+
 - Initial broad retrieval (top 100)
 - Cross-encoder reranking for final top-k
 - Significantly improves precision
@@ -142,6 +156,7 @@ Models that embed multiple data types into shared space:
 | **Long Context/Code** | 3072-4096 | Captures complex structure and dependencies |
 
 **Trade-offs:**
+
 - Higher dimensions = better quality but slower search, more storage
 - Can reduce dimensions via PCA/dimensionality reduction post-hoc
 - OpenAI allows specifying output dimensions (flexibility)
@@ -214,26 +229,31 @@ graph TD
 ## Best Practices
 
 **Chunking:**
+
 - Keep chunks 256-512 tokens for most models
 - Use overlap (50-100 tokens) to prevent context loss
 - Test different strategies for your domain
 
 **Storage:**
+
 - Use vector databases for >10K vectors (Pinecone, Weaviate, Qdrant)
 - Postgres pgvector works for smaller datasets
 - Index with HNSW or IVF for fast approximate search
 
 **Quality:**
+
 - Evaluate retrieval with metrics (MRR, NDCG, Recall@K)
 - A/B test different models and chunk sizes
 - Monitor for drift as content changes
 
 **Cost Optimization:**
+
 - Batch embed requests (up to 100s per call)
 - Cache embeddings for static content
 - Consider self-hosted models (BGE, E5) for high volume
 
 **Security:**
+
 - Sanitize inputs before embedding (prompt injection)
 - Validate retrieved content before passing to LLM
 - Monitor for PII leakage in embeddings

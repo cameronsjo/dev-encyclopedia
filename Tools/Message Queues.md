@@ -33,18 +33,21 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Messaging Patterns
 
 **Point-to-Point (Queue)**
+
 - Single consumer receives each message
 - Work distribution across workers
 - Message deleted after consumption
 - Example: Job processing, task distribution
 
 **Publish-Subscribe (Topic)**
+
 - Multiple subscribers receive each message
 - Broadcasting events to multiple services
 - Each subscriber gets independent copy
 - Example: Notifications, event distribution
 
 **Event Streaming**
+
 - Persistent, ordered log of events
 - Consumers replay from any offset
 - Long-term retention
@@ -61,16 +64,19 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Ordering Guarantees
 
 **Total Ordering**
+
 - All messages globally ordered
 - Single partition/queue only
 - Limits throughput
 
 **Partition Ordering**
+
 - Messages within partition ordered
 - Different partitions independent
 - Scales horizontally
 
 **No Ordering**
+
 - Maximum parallelism
 - Application handles ordering
 - Highest throughput
@@ -91,6 +97,7 @@ Systems for asynchronous communication between services using queues, topics, an
 | **Best For** | Event sourcing, stream processing, high-volume data pipelines |
 
 **Key Features:**
+
 - Consumer groups with automatic rebalancing
 - Log compaction for state storage
 - Kafka Streams for processing
@@ -98,6 +105,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Time-based and log retention
 
 **Considerations:**
+
 - Complex operational overhead
 - Requires ZooKeeper (pre-3.0) or KRaft
 - Not ideal for low-latency messaging
@@ -117,6 +125,7 @@ Systems for asynchronous communication between services using queues, topics, an
 | **Best For** | Task queues, RPC, complex routing patterns |
 
 **Key Features:**
+
 - Flexible routing (direct, topic, fanout, headers)
 - Dead letter exchanges
 - Message TTL and priority
@@ -124,6 +133,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Management UI
 
 **Considerations:**
+
 - Messages deleted after consumption
 - Not designed for replay
 - Lower throughput than Kafka
@@ -143,6 +153,7 @@ Systems for asynchronous communication between services using queues, topics, an
 | **Best For** | Real-time messaging, lightweight event streaming, caching + messaging |
 
 **Key Features:**
+
 - Consumer groups with pending entries
 - Time-based queries
 - Auto-trimming by length/time
@@ -150,6 +161,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Integrated with Redis ecosystem
 
 **Considerations:**
+
 - Limited retention (memory-based)
 - Single-node bottleneck
 - No built-in partitioning
@@ -169,6 +181,7 @@ Systems for asynchronous communication between services using queues, topics, an
 | **Best For** | AWS-native apps, serverless, decoupling microservices |
 
 **Key Features:**
+
 - Zero operational overhead
 - Auto-scaling
 - Dead letter queues
@@ -176,6 +189,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Integration with Lambda, SNS, EventBridge
 
 **Considerations:**
+
 - AWS vendor lock-in
 - Limited retention (14 days max)
 - No message replay
@@ -195,6 +209,7 @@ Systems for asynchronous communication between services using queues, topics, an
 | **Best For** | Microservices mesh, IoT, edge computing, request-reply |
 
 **Key Features:**
+
 - Minimal dependencies
 - Subject-based addressing
 - Request-reply pattern
@@ -202,6 +217,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Leaf nodes for edge
 
 **Considerations:**
+
 - JetStream required for persistence
 - Smaller ecosystem than Kafka
 - Limited third-party integrations
@@ -221,6 +237,7 @@ Systems for asynchronous communication between services using queues, topics, an
 | **Best For** | Multi-tenancy, geo-replication, unified messaging |
 
 **Key Features:**
+
 - Tiered storage (hot/warm/cold)
 - Native multi-tenancy
 - Geo-replication built-in
@@ -228,6 +245,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Functions for stream processing
 
 **Considerations:**
+
 - More complex than Kafka
 - Smaller community
 - Operationally heavy
@@ -254,16 +272,19 @@ Systems for asynchronous communication between services using queues, topics, an
 **Purpose:** Scale message consumption across multiple instances.
 
 **Kafka/Pulsar:**
+
 - Automatic partition assignment
 - Rebalancing on consumer join/leave
 - Each partition consumed by one consumer in group
 
 **RabbitMQ:**
+
 - Competing consumers on same queue
 - Round-robin distribution
 - Manual or auto-ack
 
 **Redis Streams:**
+
 - Consumer groups with pending entries list
 - Claim stale messages
 - ACK-based tracking
@@ -273,12 +294,14 @@ Systems for asynchronous communication between services using queues, topics, an
 **Purpose:** Handle messages that fail processing.
 
 **Common Uses:**
+
 - Poison message isolation
 - Manual inspection and reprocessing
 - Alerting on recurring failures
 - Archival of bad data
 
 **Implementation:**
+
 - Maximum retry count exceeded
 - Processing exception
 - Message expiration
@@ -287,12 +310,14 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Backpressure Handling
 
 **Producer-Side:**
+
 - Block on full buffer
 - Drop messages
 - Return error to caller
 - Batch and compress
 
 **Consumer-Side:**
+
 - Limit prefetch/batch size
 - Manual acknowledgment
 - Pause/resume consumption
@@ -312,6 +337,7 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Use Kafka When
 
 **Strengths:**
+
 - Need event replay and reprocessing
 - High-volume data pipelines
 - Event sourcing architecture
@@ -320,6 +346,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Strong ordering within partitions
 
 **Best For:**
+
 - Analytics and data lakes
 - Change data capture (CDC)
 - Activity tracking
@@ -327,6 +354,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Microservices event bus
 
 **Considerations:**
+
 - Operational complexity
 - Resource-intensive
 - Overkill for simple queues
@@ -335,6 +363,7 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Use RabbitMQ When
 
 **Strengths:**
+
 - Need complex routing patterns
 - Request-reply messaging
 - Task distribution with priorities
@@ -343,6 +372,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Rich management UI
 
 **Best For:**
+
 - Background job processing
 - RPC communication
 - Workflow orchestration
@@ -350,6 +380,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Moderate throughput workloads
 
 **Considerations:**
+
 - No message replay
 - Scaling limits vs Kafka
 - Memory management
@@ -358,6 +389,7 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Use Redis Streams When
 
 **Strengths:**
+
 - Already using Redis
 - Need very low latency
 - Simple event streaming
@@ -366,6 +398,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Combined caching + messaging
 
 **Best For:**
+
 - Chat applications
 - Real-time dashboards
 - Lightweight event sourcing
@@ -373,6 +406,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Rate limiting with messaging
 
 **Considerations:**
+
 - Memory constraints
 - Single-stream bottleneck
 - Limited retention
@@ -381,6 +415,7 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Use SQS When
 
 **Strengths:**
+
 - Running on AWS
 - Zero operational overhead
 - Serverless architecture
@@ -389,6 +424,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - AWS service integration
 
 **Best For:**
+
 - Lambda triggers
 - Decoupling AWS services
 - Simple queue workloads
@@ -396,6 +432,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Teams without ops resources
 
 **Considerations:**
+
 - AWS vendor lock-in
 - FIFO throughput limits
 - No replay capability
@@ -405,6 +442,7 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Use NATS When
 
 **Strengths:**
+
 - Need extreme simplicity
 - Sub-millisecond latency critical
 - Request-reply pattern
@@ -413,6 +451,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Minimal resource footprint
 
 **Best For:**
+
 - Service mesh communication
 - Edge computing
 - IoT messaging
@@ -420,6 +459,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Telemetry collection
 
 **Considerations:**
+
 - JetStream needed for durability
 - Smaller ecosystem
 - Less mature streaming features
@@ -428,6 +468,7 @@ Systems for asynchronous communication between services using queues, topics, an
 ### Use Pulsar When
 
 **Strengths:**
+
 - Multi-tenant requirements
 - Geo-replication needed
 - Tiered storage critical
@@ -436,6 +477,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Horizontal scaling priority
 
 **Best For:**
+
 - Multi-tenant SaaS
 - Global deployments
 - Financial services
@@ -443,6 +485,7 @@ Systems for asynchronous communication between services using queues, topics, an
 - Large-scale enterprises
 
 **Considerations:**
+
 - High complexity
 - Smaller community
 - BookKeeper dependency
@@ -471,26 +514,32 @@ Systems for asynchronous communication between services using queues, topics, an
 ## Common Pitfalls
 
 **Poison Messages**
+
 - One bad message blocks queue
 - Solution: Dead letter queues, message validation, retry limits
 
 **Consumer Lag**
+
 - Consumers falling behind producers
 - Solution: Scale consumers, increase batch size, optimize processing
 
 **Message Duplication**
+
 - At-least-once delivery causes duplicates
 - Solution: Idempotent consumers, deduplication logic, exactly-once semantics
 
 **Partition Skew**
+
 - Uneven load across partitions
 - Solution: Better key distribution, more partitions, monitoring
 
 **Lost Messages**
+
 - Fire-and-forget without confirmation
 - Solution: Producer acknowledgments, replication, persistence
 
 **Tight Coupling**
+
 - Shared message schemas create dependencies
 - Solution: Schema evolution, versioning, backward compatibility
 

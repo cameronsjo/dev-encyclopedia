@@ -45,6 +45,7 @@ Core architectural components and algorithms that power relational and NoSQL dat
 ### B-Tree Storage
 
 **Architecture:**
+
 - Pages organized in balanced tree structure
 - Each page: fixed size (typically 4KB, 8KB, or 16KB)
 - Internal nodes: keys + pointers to child pages
@@ -61,6 +62,7 @@ Core architectural components and algorithms that power relational and NoSQL dat
 | Use Cases | OLTP, transactional workloads, random reads |
 
 **Page Structure:**
+
 ```
 Page Header (metadata, LSN, free space pointer)
 ├─ Slot Array (offsets to tuples)
@@ -69,6 +71,7 @@ Page Header (metadata, LSN, free space pointer)
 ```
 
 **Optimizations:**
+
 - **Clustered Index:** Table data stored in B-tree leaf nodes (primary key order)
 - **Non-Clustered Index:** Leaf nodes contain pointers to heap tuples
 - **Covering Index:** Include extra columns to avoid heap lookups
@@ -77,12 +80,14 @@ Page Header (metadata, LSN, free space pointer)
 ### LSM-Tree Storage
 
 **Architecture:**
+
 - **MemTable:** In-memory sorted structure (skip list or red-black tree)
 - **Immutable MemTable:** Frozen for flushing to disk
 - **SSTables:** Sorted String Tables on disk (immutable)
 - **Compaction:** Merge SSTables to remove obsoletes
 
 **Write Path:**
+
 ```
 Write → WAL → MemTable → (flush) → L0 SSTable → (compact) → L1-Ln
 ```
@@ -98,6 +103,7 @@ Write → WAL → MemTable → (flush) → L0 SSTable → (compact) → L1-Ln
 | Use Cases | Write-heavy workloads, time-series, append-only logs |
 
 **Compaction Strategies:**
+
 - **Leveled:** Merge adjacent levels (PostgreSQL, RocksDB default)
 - **Size-Tiered:** Merge SSTables of similar size (Cassandra default)
 - **Time-Window:** Compact by time buckets (time-series optimized)
@@ -119,22 +125,26 @@ Write → WAL → MemTable → (flush) → L0 SSTable → (compact) → L1-Ln
 **Purpose:** Guarantee durability (the D in ACID) without synchronous disk writes on every transaction.
 
 **Protocol:**
+
 1. Transaction modifies pages in buffer pool (in-memory)
 2. Log records written to WAL **before** dirty pages flushed to disk
 3. Transaction commits only after WAL fsync completes
 4. Dirty pages lazily flushed by checkpointer
 
 **Log Sequence Number (LSN):**
+
 - Monotonically increasing identifier for each log record
 - Each page stores LSN of last modification
 - Recovery: replay WAL records with LSN > page LSN
 
 **WAL Record Types:**
+
 - **INSERT/UPDATE/DELETE:** Physical or logical record of change
 - **CHECKPOINT:** Marker for recovery starting point
 - **COMMIT/ABORT:** Transaction outcome
 
 **Optimization:**
+
 - **Group Commit:** Batch multiple transactions into single fsync
 - **WAL Compression:** Reduce log volume for network replication
 - **WAL Archiving:** Ship logs to replicas or backup systems
@@ -144,6 +154,7 @@ Write → WAL → MemTable → (flush) → L0 SSTable → (compact) → L1-Ln
 **Purpose:** Cache disk pages in memory to minimize expensive I/O operations.
 
 **Architecture:**
+
 ```
 Buffer Pool (fixed-size array of frames)
 ├─ Frame 0: [Page ID | Dirty Bit | Pin Count | Data (8KB)]
@@ -165,12 +176,14 @@ Replacement Policy: LRU, Clock, LRU-K
 | Page Table | Map page IDs to buffer pool frames |
 
 **Eviction Policies:**
+
 - **LRU (Least Recently Used):** Simple but vulnerable to sequential scans
 - **Clock:** Approximates LRU with lower overhead (single pass)
 - **LRU-K:** Track K most recent accesses (PostgreSQL uses this)
 - **2Q:** Separate queues for first-time and frequently accessed pages
 
 **Challenges:**
+
 - **Buffer Pool Pollution:** Large scans evict hot pages → use ring buffers for scans
 - **Priority Inversion:** Low-priority queries evict high-priority data → weighted eviction
 
@@ -179,16 +192,19 @@ Replacement Policy: LRU, Clock, LRU-K
 **Purpose:** Establish recovery points to minimize WAL replay time.
 
 **Process:**
+
 1. Write all dirty pages in buffer pool to disk
 2. Write checkpoint record to WAL (includes oldest active transaction LSN)
 3. Update control file with checkpoint LSN
 
 **Recovery Algorithm (ARIES):**
+
 1. **Analysis Phase:** Scan WAL from last checkpoint to identify dirty pages and active transactions
 2. **Redo Phase:** Replay WAL to reconstruct buffer pool state at crash
 3. **Undo Phase:** Roll back uncommitted transactions
 
 **Checkpoint Strategies:**
+
 - **Full Checkpoint:** Flush all dirty pages (blocks writes during flush)
 - **Incremental Checkpoint:** Spread flushing over time (PostgreSQL)
 - **Fuzzy Checkpoint:** Allow concurrent modifications (most modern systems)
@@ -238,6 +254,7 @@ See Isolation Levels section below.
 ### Isolation Anomalies
 
 **Dirty Read:** Read uncommitted changes from another transaction
+
 ```sql
 -- T1: UPDATE accounts SET balance = 500 WHERE id = 1;
 -- T2: SELECT balance FROM accounts WHERE id = 1; -- sees 500
@@ -245,6 +262,7 @@ See Isolation Levels section below.
 ```
 
 **Non-Repeatable Read:** Same query returns different results within transaction
+
 ```sql
 -- T1: SELECT balance FROM accounts WHERE id = 1; -- returns 1000
 -- T2: UPDATE accounts SET balance = 500 WHERE id = 1; COMMIT;
@@ -252,6 +270,7 @@ See Isolation Levels section below.
 ```
 
 **Phantom Read:** Range query returns different rows within transaction
+
 ```sql
 -- T1: SELECT COUNT(*) FROM orders WHERE status = 'pending'; -- returns 10
 -- T2: INSERT INTO orders (..., status = 'pending') ...; COMMIT;
@@ -263,6 +282,7 @@ See Isolation Levels section below.
 **Core Idea:** Keep multiple versions of each tuple to allow readers to access consistent snapshots without blocking writers.
 
 **Tuple Versioning:**
+
 ```
 Tuple Header
 ├─ xmin: Transaction ID that created this version
@@ -272,6 +292,7 @@ Tuple Header
 ```
 
 **Snapshot Isolation:**
+
 - Each transaction gets snapshot at start: `(xmin, xmax, active_xids)`
 - Tuple visible if:
   - Created by committed transaction < snapshot xmin, OR
@@ -279,6 +300,7 @@ Tuple Header
   - Not deleted, OR deleted by uncommitted/future transaction
 
 **Visibility Rules (PostgreSQL-style):**
+
 1. If `xmin` is current transaction → visible
 2. If `xmin` is aborted or in-progress → not visible
 3. If `xmax` is NULL → visible
@@ -312,6 +334,7 @@ Tuple Header
 **Exclusive (X) Lock:** Write access, blocks all other locks
 
 **Intent Locks:** Signal intention to acquire finer-grained locks
+
 - **IS (Intent Shared):** Plan to acquire S locks on rows
 - **IX (Intent Exclusive):** Plan to acquire X locks on rows
 - **SIX (Shared + Intent Exclusive):** Read entire table + update specific rows
@@ -329,18 +352,21 @@ Tuple Header
 ### Two-Phase Locking (2PL)
 
 **Protocol:**
+
 1. **Growing Phase:** Acquire locks, cannot release any lock
 2. **Shrinking Phase:** Release locks, cannot acquire any new lock
 
 **Guarantees:** Conflict-serializable schedules (equivalent to some serial execution)
 
 **Variants:**
+
 - **Strict 2PL:** Hold all locks until commit/abort (prevents cascading aborts)
 - **Strong Strict 2PL:** Strict 2PL + release in reverse acquisition order
 
 ## Deadlock Detection
 
 **Scenario:**
+
 ```
 T1: LOCK TABLE accounts (X)    | T2: LOCK TABLE orders (X)
 T1: LOCK TABLE orders (X) ...  | T2: LOCK TABLE accounts (X) ...
@@ -358,6 +384,7 @@ T1: LOCK TABLE orders (X) ...  | T2: LOCK TABLE accounts (X) ...
 | Deadlock Prevention | Impose ordering (e.g., always lock tables alphabetically) | ✅ No detection needed, ❌ Limits concurrency |
 
 **Victim Selection:**
+
 - Transaction with least work done (minimize wasted effort)
 - Transaction with fewest locks held
 - Youngest transaction (least time invested)
@@ -369,16 +396,19 @@ T1: LOCK TABLE orders (X) ...  | T2: LOCK TABLE accounts (X) ...
 **Default index type in most databases.**
 
 **Structure:**
+
 - Height-balanced tree, all leaves at same depth
 - Internal nodes: keys + child pointers
 - Leaf nodes: keys + row pointers (heap TID or clustered data)
 
 **Operations:**
+
 - **Search:** O(log n) - traverse from root to leaf
 - **Insert:** O(log n) - find leaf, insert, split if full
 - **Delete:** O(log n) - find leaf, remove, merge if underfull
 
 **Range Scans:** Efficient via leaf-level linked list
+
 ```sql
 SELECT * FROM users WHERE age BETWEEN 20 AND 30;
 -- 1. Binary search for age = 20 in B-tree
@@ -390,6 +420,7 @@ SELECT * FROM users WHERE age BETWEEN 20 AND 30;
 **Structure:** Hash table mapping keys to row pointers
 
 **Characteristics:**
+
 - **Point Queries:** O(1) average case
 - **Range Scans:** Not supported (hash destroys ordering)
 - **Equality Only:** Cannot use for `<`, `>`, `BETWEEN`, `LIKE`
@@ -401,12 +432,14 @@ SELECT * FROM users WHERE age BETWEEN 20 AND 30;
 **Purpose:** Index multi-value columns (arrays, JSONB, full-text search)
 
 **Structure:**
+
 - Maps each element to list of rows containing it
 - Example: `tags = ['postgres', 'database']` creates entries:
   - `postgres → [row1, row2, ...]`
   - `database → [row1, row3, ...]`
 
 **Queries:**
+
 ```sql
 -- Find rows where tags contain 'postgres'
 SELECT * FROM articles WHERE tags @> ARRAY['postgres'];
@@ -422,6 +455,7 @@ SELECT * FROM documents WHERE content @@ to_tsquery('database & performance');
 **Structure:** Balanced tree with predicate-based search (not just equality)
 
 **Use Cases:**
+
 - **Geometric:** PostGIS (points, polygons, spatial queries)
 - **Range Types:** `daterange`, `int4range` overlaps
 - **Nearest Neighbor:** Find K closest points
@@ -476,33 +510,40 @@ Result Set
 ### Join Algorithms
 
 **Nested Loop Join:**
+
 ```
 for each row r1 in R:
     for each row r2 in S where r2.key = r1.key:
         output (r1, r2)
 ```
+
 - **Cost:** O(n × m) without index, O(n × log m) with index on S
 - **Best for:** Small outer table, index on inner table
 
 **Hash Join:**
+
 ```
 1. Build phase: Create hash table from smaller table R
 2. Probe phase: For each row in S, lookup in hash table
 ```
+
 - **Cost:** O(n + m)
 - **Best for:** Equi-joins, medium-to-large tables, no indexes
 
 **Merge Join:**
+
 ```
 1. Sort R and S by join key (if not already sorted)
 2. Merge sorted runs
 ```
+
 - **Cost:** O(n log n + m log m) if unsorted, O(n + m) if sorted
 - **Best for:** Already sorted inputs (clustered index), range joins
 
 ### Cost Model
 
 **Simplified Formula:**
+
 ```
 Total Cost = (seq_page_cost × pages_read) +
              (random_page_cost × random_reads) +
@@ -511,6 +552,7 @@ Total Cost = (seq_page_cost × pages_read) +
 ```
 
 **Statistics Used:**
+
 - **reltuples:** Estimated row count
 - **relpages:** Estimated page count
 - **Histograms:** Distribution of values (for selectivity estimation)
@@ -519,6 +561,7 @@ Total Cost = (seq_page_cost × pages_read) +
 ### Optimization Techniques
 
 **Predicate Pushdown:** Move filters closer to data source
+
 ```sql
 -- Before: Filter after join
 SELECT * FROM (SELECT * FROM orders JOIN customers ...) WHERE status = 'shipped'
@@ -528,12 +571,14 @@ SELECT * FROM (SELECT * FROM orders WHERE status = 'shipped') JOIN customers ...
 ```
 
 **Projection Pushdown:** Select only needed columns early
+
 ```sql
 -- Push projection down to scan
 SELECT name FROM users; -- only read 'name' column, not entire row
 ```
 
 **Join Reordering:** Choose optimal join order using dynamic programming
+
 ```sql
 -- Given: A JOIN B JOIN C
 -- Candidates: (A ⋈ B) ⋈ C, (A ⋈ C) ⋈ B, (B ⋈ C) ⋈ A, ...
@@ -541,6 +586,7 @@ SELECT name FROM users; -- only read 'name' column, not entire row
 ```
 
 **Subquery Unnesting:** Convert correlated subqueries to joins
+
 ```sql
 -- Correlated (runs subquery per row)
 SELECT * FROM orders o
@@ -557,17 +603,20 @@ SELECT o.* FROM orders o JOIN customers c ON c.id = o.customer_id;
 **Problem:** MVCC creates dead tuples (old versions no longer visible to any transaction)
 
 **VACUUM Process:**
+
 1. Scan table to identify dead tuples
 2. Mark dead tuple space as reusable (update free space map)
 3. Update visibility map (tracks pages with no dead tuples)
 4. Truncate empty pages at end of table (if possible)
 
 **VACUUM FULL:**
+
 - Rewrites entire table, reclaiming all dead space
 - Requires exclusive lock (blocks reads/writes)
 - Use sparingly (high I/O cost)
 
 **AUTOVACUUM:** Background process that runs VACUUM automatically when:
+
 - `dead_tuples > autovacuum_vacuum_threshold + (autovacuum_vacuum_scale_factor × reltuples)`
 
 ### Compaction (LSM-Trees)
@@ -575,12 +624,14 @@ SELECT o.* FROM orders o JOIN customers c ON c.id = o.customer_id;
 **Problem:** Overlapping SSTables waste space and slow reads
 
 **Leveled Compaction:**
+
 1. Level 0: Flush MemTable to SSTables (overlapping ranges)
 2. Level 1+: Non-overlapping SSTables within level
 3. When level exceeds size threshold, compact into next level
 4. Merge sort SSTables, discard tombstones and old versions
 
 **Size-Tiered Compaction:**
+
 - Group SSTables by similar size
 - Merge when N SSTables accumulate in a tier
 - Less write amplification, more space amplification
@@ -592,12 +643,14 @@ SELECT o.* FROM orders o JOIN customers c ON c.id = o.customer_id;
 ### Buffer Pool Sizing
 
 **Rule of Thumb:** Allocate 25-75% of system RAM
+
 - Too small: High disk I/O (thrashing)
 - Too large: OS page cache starved (double-buffering inefficiency)
 
 ### WAL Tuning
 
 **Checkpoint Frequency:**
+
 - More frequent: Faster recovery, higher I/O overhead
 - Less frequent: Slower recovery, less overhead
 
@@ -606,6 +659,7 @@ SELECT o.* FROM orders o JOIN customers c ON c.id = o.customer_id;
 ### Index Strategy
 
 **When to Index:**
+
 - ✅ Columns in WHERE clauses (high selectivity)
 - ✅ Foreign keys (join performance)
 - ✅ Columns in ORDER BY / GROUP BY
@@ -613,6 +667,7 @@ SELECT o.* FROM orders o JOIN customers c ON c.id = o.customer_id;
 - ❌ Frequently updated columns (index maintenance overhead)
 
 **Covering Indexes:** Include extra columns to avoid heap lookups
+
 ```sql
 CREATE INDEX idx_users_email_name ON users(email) INCLUDE (name);
 -- Query can satisfy: SELECT name FROM users WHERE email = '...'
@@ -625,6 +680,7 @@ CREATE INDEX idx_users_email_name ON users(email) INCLUDE (name);
 **Cardinality Misestimates:** Update statistics with `ANALYZE` or increase `default_statistics_target`
 
 **Avoid Implicit Conversions:**
+
 ```sql
 -- BAD: Index on int column cannot be used
 WHERE id = '123'  -- implicit cast: CAST(id AS text) = '123'

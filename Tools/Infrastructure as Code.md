@@ -32,11 +32,13 @@ Manage and provision infrastructure through machine-readable definition files ra
 ### Declarative vs Imperative
 
 **Declarative** - Specify desired end state, tool determines how to achieve it:
+
 - Focus on "what" not "how"
 - Idempotent by design
 - Examples: Terraform HCL, CloudFormation YAML, Pulumi (declarative mode)
 
 **Imperative** - Explicitly define steps to execute:
+
 - Fine-grained control over provisioning flow
 - Requires manual idempotency handling
 - Examples: Pulumi (imperative mode), AWS CDK, custom scripts
@@ -44,12 +46,14 @@ Manage and provision infrastructure through machine-readable definition files ra
 ### State Management
 
 **State File** - Records actual infrastructure state to detect changes:
+
 - Tracks resource mappings (logical name → cloud resource ID)
 - Enables drift detection (actual vs desired state)
 - Must be stored remotely for team collaboration (S3, Terraform Cloud, cloud storage)
 - Locking mechanisms prevent concurrent modifications
 
 **Stateless** - No persistent state file:
+
 - Relies on cloud provider APIs for current state
 - Simpler but less powerful drift detection
 - Example: CloudFormation (uses stack metadata)
@@ -57,6 +61,7 @@ Manage and provision infrastructure through machine-readable definition files ra
 ### Drift Detection
 
 Identifies resources modified outside IaC workflow:
+
 - Manual console changes
 - External automation scripts
 - Emergency hotfixes
@@ -65,6 +70,7 @@ Identifies resources modified outside IaC workflow:
 ### Modules and Reusability
 
 **Modules/Stacks** - Reusable infrastructure components:
+
 - Encapsulate common patterns (VPC setup, EKS cluster, RDS instance)
 - Parameterized for different environments
 - Published to registries (Terraform Registry, Pulumi Registry)
@@ -87,6 +93,7 @@ Identifies resources modified outside IaC workflow:
 ### Terraform
 
 **Strengths:**
+
 - Industry standard with largest provider ecosystem
 - Strong community and module registry
 - Cloud-agnostic (AWS, Azure, GCP, Kubernetes, SaaS APIs)
@@ -94,12 +101,14 @@ Identifies resources modified outside IaC workflow:
 - Plan/apply workflow for safe changes
 
 **Considerations:**
+
 - HCL learning curve for developers unfamiliar with DSLs
 - State file management complexity
 - Enterprise features require Terraform Cloud subscription
 - HashiCorp license change in 2023 (BSL, not fully open-source)
 
 **When to Use:**
+
 - Multi-cloud infrastructure
 - Need extensive provider support
 - Team comfortable with DSLs
@@ -108,6 +117,7 @@ Identifies resources modified outside IaC workflow:
 ### OpenTofu
 
 **Strengths:**
+
 - Fully open-source (Linux Foundation project)
 - Drop-in Terraform replacement (compatible with 1.5.x)
 - Community-driven development
@@ -115,12 +125,14 @@ Identifies resources modified outside IaC workflow:
 - No vendor lock-in concerns
 
 **Considerations:**
+
 - Newer project (forked 2023)
 - Smaller community than Terraform
 - Feature parity still catching up
 - Provider compatibility may lag slightly
 
 **When to Use:**
+
 - Require truly open-source tooling
 - Concerned about HashiCorp licensing
 - Migrating from Terraform <1.6
@@ -129,6 +141,7 @@ Identifies resources modified outside IaC workflow:
 ### Pulumi
 
 **Strengths:**
+
 - Use familiar programming languages (TypeScript, Python, Go, C#, Java)
 - Full IDE support (autocomplete, refactoring, debugging)
 - Imperative control flow (loops, conditionals, functions)
@@ -136,12 +149,14 @@ Identifies resources modified outside IaC workflow:
 - Pulumi Service for state and secrets management
 
 **Considerations:**
+
 - Smaller community than Terraform
 - State management requires Pulumi Service or self-hosted backend
 - Mixing infrastructure and application logic can blur boundaries
 - Less module reuse across language ecosystems
 
 **When to Use:**
+
 - Developer-first teams
 - Complex provisioning logic
 - Need programmatic abstractions
@@ -150,6 +165,7 @@ Identifies resources modified outside IaC workflow:
 ### AWS CDK
 
 **Strengths:**
+
 - Native AWS integration and type safety
 - Constructs library for high-level abstractions
 - Synthesizes to CloudFormation for deployment
@@ -157,12 +173,14 @@ Identifies resources modified outside IaC workflow:
 - L1/L2/L3 constructs (low to high level)
 
 **Considerations:**
+
 - AWS-only (no multi-cloud)
 - CloudFormation limitations (resource limits, rollback behavior)
 - Steeper learning curve for infrastructure teams
 - Tightly coupled to AWS service releases
 
 **When to Use:**
+
 - AWS-only infrastructure
 - Development teams building on AWS
 - Need type-safe infrastructure definitions
@@ -171,6 +189,7 @@ Identifies resources modified outside IaC workflow:
 ### CloudFormation
 
 **Strengths:**
+
 - Fully AWS-managed (no external state)
 - Deep AWS integration and immediate new service support
 - StackSets for multi-account/multi-region deployment
@@ -178,6 +197,7 @@ Identifies resources modified outside IaC workflow:
 - No additional tooling required
 
 **Considerations:**
+
 - YAML/JSON verbosity
 - AWS-only
 - Limited abstraction capabilities
@@ -185,6 +205,7 @@ Identifies resources modified outside IaC workflow:
 - No native testing frameworks
 
 **When to Use:**
+
 - AWS-exclusive infrastructure
 - Prefer AWS-native tooling
 - Simple to moderate infrastructure complexity
@@ -193,6 +214,7 @@ Identifies resources modified outside IaC workflow:
 ### Crossplane
 
 **Strengths:**
+
 - Kubernetes-native (CRDs, controllers, GitOps)
 - Control plane for multi-cloud resources
 - Composition for reusable patterns
@@ -200,6 +222,7 @@ Identifies resources modified outside IaC workflow:
 - Policy enforcement via admission controllers
 
 **Considerations:**
+
 - Requires Kubernetes cluster
 - Kubernetes expertise needed
 - Smaller provider ecosystem
@@ -207,6 +230,7 @@ Identifies resources modified outside IaC workflow:
 - State stored in etcd (Kubernetes API server)
 
 **When to Use:**
+
 - Kubernetes-centric platform teams
 - GitOps workflows (ArgoCD, Flux)
 - Self-service infrastructure via CRDs
@@ -227,6 +251,7 @@ Identifies resources modified outside IaC workflow:
 ### Workspaces and Environments
 
 Manage multiple environments (dev, staging, prod) from single codebase:
+
 - Terraform workspaces (shared code, separate state)
 - Environment-specific variable files
 - Directory-per-environment structure
@@ -235,6 +260,7 @@ Manage multiple environments (dev, staging, prod) from single codebase:
 ### GitOps for IaC
 
 Version control as source of truth:
+
 1. Infrastructure changes via pull requests
 2. Automated planning on PR creation
 3. Peer review of proposed changes
@@ -244,6 +270,7 @@ Version control as source of truth:
 ### Policy as Code
 
 Enforce governance through automated policy checks:
+
 - Sentinel (Terraform Cloud/Enterprise)
 - Open Policy Agent (OPA) - Rego language
 - Cloud Custodian - cloud compliance automation
@@ -252,6 +279,7 @@ Enforce governance through automated policy checks:
 ### Cost Estimation
 
 Predict infrastructure costs before provisioning:
+
 - Infracost - estimates from Terraform/CloudFormation
 - Cloud provider calculators
 - FinOps integration in CI/CD

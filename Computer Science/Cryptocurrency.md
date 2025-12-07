@@ -34,6 +34,7 @@ Digital or virtual currencies secured by cryptography, operating on decentralize
 ### Account Models
 
 **UTXO Model (Unspent Transaction Output)**
+
 - Used by Bitcoin, Cardano, Litecoin
 - Transactions consume inputs and create outputs
 - Each output can only be spent once
@@ -42,6 +43,7 @@ Digital or virtual currencies secured by cryptography, operating on decentralize
 - Simpler to verify entire history
 
 **Account Model**
+
 - Used by Ethereum, most smart contract platforms
 - Track balances like traditional bank accounts
 - Single balance per address
@@ -63,6 +65,7 @@ graph LR
 ```
 
 **Key Stages:**
+
 1. **Creation** - User constructs transaction with recipient, amount, fee
 2. **Signing** - Private key proves ownership and authorizes transfer
 3. **Broadcasting** - Transaction shared with network nodes
@@ -84,6 +87,7 @@ Transaction costs paid to network validators for computation and storage.
 | **Total Cost** | Gas Used × (Base Fee + Priority Fee) |
 
 **Factors Affecting Fees:**
+
 - Network congestion (demand for block space)
 - Transaction complexity (simple transfers vs. smart contracts)
 - Data storage requirements
@@ -107,12 +111,14 @@ Transaction costs paid to network validators for computation and storage.
 ### Ethereum Token Standards
 
 **ERC-20 (Fungible Tokens)**
+
 - Standard for interchangeable tokens (currencies, governance)
 - Core functions: `transfer()`, `balanceOf()`, `approve()`, `transferFrom()`
 - Examples: USDT, USDC, UNI, LINK, DAI
 - Use cases: Stablecoins, governance tokens, utility tokens
 
 **ERC-721 (Non-Fungible Tokens)**
+
 - Unique, indivisible assets
 - Each token has distinct identifier and metadata
 - Core functions: `ownerOf()`, `transferFrom()`, `tokenURI()`
@@ -120,6 +126,7 @@ Transaction costs paid to network validators for computation and storage.
 - Use cases: Digital art, collectibles, gaming items, identity
 
 **ERC-1155 (Multi-Token Standard)**
+
 - Single contract manages multiple token types
 - Mix fungible and non-fungible in one contract
 - Batch operations reduce gas costs
@@ -138,6 +145,7 @@ Cryptocurrencies designed to maintain stable value relative to reference asset (
 | **Commodity-Backed** | Backed by gold, oil, etc. | PAXG, DGX | Physical commodities | Low-Medium |
 
 **Key Considerations:**
+
 - Centralization risk (fiat-backed require trust in issuer)
 - Transparency of reserves (regular audits critical)
 - Regulatory compliance and oversight
@@ -178,6 +186,7 @@ Software or hardware managing private keys and enabling transaction signing.
 | **Steel Wallets** | Metal backup | Cryptosteel, Billfodl | ✅ Very High | Disaster-proof backup |
 
 **Security Best Practices:**
+
 - Never share private keys or seed phrases
 - Use hardware wallets for significant holdings
 - Enable multi-factor authentication on exchange accounts
@@ -190,6 +199,7 @@ Software or hardware managing private keys and enabling transaction signing.
 ### Centralized Exchanges (CEX)
 
 **Characteristics:**
+
 - Custodial (exchange controls funds)
 - High liquidity and trading volume
 - Fiat on/off ramps
@@ -200,6 +210,7 @@ Software or hardware managing private keys and enabling transaction signing.
 **Major Players:** Binance, Coinbase, Kraken, Gemini
 
 **Advantages:**
+
 - ✅ User-friendly interfaces
 - ✅ High liquidity
 - ✅ Advanced trading features (margin, futures)
@@ -207,6 +218,7 @@ Software or hardware managing private keys and enabling transaction signing.
 - ✅ Fiat deposits/withdrawals
 
 **Disadvantages:**
+
 - ❌ Custody risk (not your keys, not your coins)
 - ❌ Regulatory risk and potential seizures
 - ❌ Privacy concerns (KYC required)
@@ -216,6 +228,7 @@ Software or hardware managing private keys and enabling transaction signing.
 ### Decentralized Exchanges (DEX)
 
 **Characteristics:**
+
 - Non-custodial (users control funds)
 - Automated Market Makers (AMMs) or order books
 - No KYC requirements
@@ -225,6 +238,7 @@ Software or hardware managing private keys and enabling transaction signing.
 **Major Players:** Uniswap, PancakeSwap, Curve, dYdX, SushiSwap
 
 **Advantages:**
+
 - ✅ User controls private keys
 - ✅ No KYC/AML barriers
 - ✅ Transparent on-chain operations
@@ -232,6 +246,7 @@ Software or hardware managing private keys and enabling transaction signing.
 - ✅ Composability with DeFi protocols
 
 **Disadvantages:**
+
 - ❌ Lower liquidity for most pairs
 - ❌ Higher slippage on large trades
 - ❌ Gas fees for transactions
@@ -255,6 +270,7 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 ### Distribution Mechanisms
 
 **Initial Distribution:**
+
 - **Mining/Staking Rewards** - Gradual distribution to network participants
 - **Presale/ICO** - Early investor allocation
 - **Airdrop** - Free distribution to users (marketing/decentralization)
@@ -262,6 +278,7 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 - **Treasury** - Reserved for ecosystem development
 
 **Key Metrics:**
+
 - **Circulating Supply** - Tokens currently in circulation
 - **Total Supply** - All minted tokens (including locked)
 - **Max Supply** - Hard cap (if exists)
@@ -281,12 +298,14 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 ## Use Cases
 
 ### Payments and Remittances
+
 - Cross-border transfers without intermediaries
 - Lower fees than traditional wire transfers
 - 24/7 availability
 - Challenges: Volatility, regulatory uncertainty, user experience
 
 ### Decentralized Finance (DeFi)
+
 - Lending and borrowing without banks
 - Decentralized exchanges (DEXs)
 - Yield farming and liquidity provision
@@ -294,6 +313,7 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 - Challenges: Smart contract risk, complexity, regulatory concerns
 
 ### Non-Fungible Tokens (NFTs)
+
 - Digital art and collectibles
 - Gaming items and metaverse assets
 - Identity and credentials
@@ -301,12 +321,14 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 - Challenges: Speculation, environmental concerns, copyright issues
 
 ### Store of Value
+
 - Alternative to gold or traditional assets
 - Hedge against inflation
 - Sovereign resistance (censorship-proof)
 - Challenges: Volatility, regulatory risk, adoption barriers
 
 ### Governance
+
 - Decentralized Autonomous Organizations (DAOs)
 - Protocol governance tokens
 - Community-driven decision making
@@ -315,24 +337,28 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 ## Key Concepts Summary
 
 **Blockchain Fundamentals:**
+
 - Distributed ledger maintained by network of nodes
 - Cryptographic hashing ensures immutability
 - Consensus mechanisms validate transactions
 - Transparency and auditability of all transactions
 
 **Cryptographic Security:**
+
 - Public/private key pairs control ownership
 - Digital signatures prove transaction authenticity
 - Hash functions create unique transaction identifiers
 - Merkle trees enable efficient verification
 
 **Decentralization:**
+
 - No central authority controls network
 - Censorship resistance and permissionless access
 - Trade-offs with efficiency and governance
 - Varying degrees across different cryptocurrencies
 
 **Trustless Transactions:**
+
 - Mathematical proofs replace institutional trust
 - Smart contracts enable programmable agreements
 - Reduced counterparty risk
@@ -356,18 +382,21 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 ### Choosing a Cryptocurrency
 
 **For Payments:**
+
 - **Low volatility needed** → Stablecoins (USDC, DAI)
 - **Maximum decentralization** → Bitcoin
 - **Speed and low fees** → Solana, Polygon
 - **Privacy** → Monero, Zcash
 
 **For Smart Contracts:**
+
 - **Mature ecosystem** → Ethereum
 - **Low fees** → Polygon, Arbitrum (L2), Avalanche
 - **High throughput** → Solana, Binance Smart Chain
 - **Academic rigor** → Cardano
 
 **For Store of Value:**
+
 - **Digital gold** → Bitcoin
 - **Yield generation** → Staking assets (ETH, SOL, ADA)
 - **Stable value** → Stablecoins (but no appreciation)
@@ -375,30 +404,35 @@ Economic model governing cryptocurrency supply, distribution, and incentives.
 ## Risks and Challenges
 
 **Technical Risks:**
+
 - Smart contract vulnerabilities and exploits
 - Private key loss or theft
 - Network attacks (51%, eclipse, MEV)
 - Software bugs and protocol failures
 
 **Market Risks:**
+
 - Extreme price volatility
 - Liquidity constraints
 - Market manipulation
 - Exchange insolvency
 
 **Regulatory Risks:**
+
 - Unclear or evolving regulations
 - Potential bans or restrictions
 - Tax complexity and reporting requirements
 - Securities classification uncertainty
 
 **Operational Risks:**
+
 - User error (wrong address, lost keys)
 - Phishing and social engineering
 - Centralized exchange custody risk
 - Irreversible transactions
 
 **Environmental Concerns:**
+
 - Proof of Work energy consumption
 - E-waste from mining hardware
 - Carbon footprint of network operations

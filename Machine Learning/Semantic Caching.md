@@ -89,12 +89,14 @@ graph TD
 ### GPTCache Integration
 
 **Features:**
+
 - Pre-built similarity evaluators (embedding distance, BERT score)
 - Multiple storage backends (SQLite, Redis, Qdrant)
 - Automatic cache eviction policies (LRU, LFU)
 - Built-in embedding model management
 
 **Example Flow:**
+
 1. Configure similarity threshold (0.9 recommended starting point)
 2. Select embedding model (OpenAI, Sentence Transformers, Cohere)
 3. Choose vector store (FAISS for dev, Redis/Qdrant for prod)
@@ -103,12 +105,14 @@ graph TD
 ### Redis with Vector Search
 
 **Advantages:**
+
 - Existing infrastructure reuse
 - Fast in-memory vector search with HNSW
 - TTL-based cache expiration
 - Horizontal scaling with Redis Cluster
 
 **Pattern:**
+
 - Store embeddings as FLOAT32 vectors in Redis Hash
 - Create vector index with distance metric (cosine, L2)
 - Query: `FT.SEARCH idx "@vector:[VECTOR_BLOB $K]"` → K nearest neighbors
@@ -155,16 +159,19 @@ graph TD
 ### Invalidation Patterns
 
 **TTL Example:**
+
 - Cache product recommendations for 6 hours
 - Cache general knowledge indefinitely
 - Cache user-specific data for 1 hour
 
 **Version Tags:**
+
 - Tag cache entries with `gpt-4-1106` model version
 - Purge all entries when upgrading to `gpt-4-turbo`
 - Separate caches for different system prompts
 
 **Selective Invalidation:**
+
 - Track cache entries by topic/domain using metadata
 - Invalidate only affected domain on data update
 - Use embedding metadata filtering in vector DBs
@@ -174,16 +181,19 @@ graph TD
 ### Break-Even Calculation
 
 **Costs:**
+
 - LLM API call: $0.01-0.10 per request (GPT-4)
 - Embedding generation: $0.0001 per query (text-embedding-3-small)
 - Vector search: $0.00001 per lookup (Redis/managed service)
 
 **Savings:**
+
 - 50% hit rate → 50% cost reduction (minus embedding overhead)
 - 70% hit rate → 65-70% cost reduction
 - 90% hit rate → 85-90% cost reduction
 
 **Example:**
+
 - 1M queries/month at $0.02/query = $20,000
 - 70% hit rate → 700K cached, 300K LLM calls
 - Cost: (1M × $0.0001) + (300K × $0.02) = $6,100
@@ -216,12 +226,14 @@ graph TD
 ### Selection Criteria
 
 **Use Semantic Caching If:**
+
 - 30%+ of queries are semantically similar
 - LLM costs are significant ($500+/month)
 - Response latency impacts UX
 - Query distribution is skewed (power law)
 
 **Avoid Semantic Caching If:**
+
 - Every query is unique (creative, code gen)
 - Real-time accuracy critical (no cached staleness)
 - Very low query volume (<1000/day)
@@ -230,21 +242,25 @@ graph TD
 ### Vector Store Selection
 
 **Choose GPTCache If:**
+
 - Rapid prototyping
 - Single-node deployment
 - Minimal infrastructure
 
 **Choose Redis If:**
+
 - Existing Redis infrastructure
 - Need TTL-based expiration
 - Moderate scale (10M+ queries/day)
 
 **Choose Dedicated Vector DB (Pinecone/Weaviate/Qdrant) If:**
+
 - Massive scale (100M+ queries/day)
 - Multi-tenant isolation required
 - Advanced filtering/metadata needs
 
 **Choose PostgreSQL + pgvector If:**
+
 - Already using Postgres
 - Want unified relational + vector storage
 - Moderate scale, simple stack

@@ -41,6 +41,7 @@ graph TD
 ```
 
 **Structure:**
+
 - **Root Servers** - 13 root server clusters worldwide (a-m.root-servers.net)
 - **TLD Servers** - Top-Level Domain servers (.com, .org, country codes)
 - **Authoritative Servers** - Hold actual DNS records for domains
@@ -62,6 +63,7 @@ graph TD
 | **PTR** | Reverse DNS lookup | IP → Domain | `34.216.184.93.in-addr.arpa → example.com` |
 
 **Additional Records:**
+
 - **DNSKEY** - Public key for DNSSEC
 - **DS** - Delegation Signer for DNSSEC chain of trust
 - **RRSIG** - DNSSEC signature
@@ -91,6 +93,7 @@ sequenceDiagram
 ```
 
 **Steps:**
+
 1. Client queries recursive resolver
 2. Resolver checks cache
 3. If not cached, queries root servers
@@ -108,12 +111,14 @@ Resolver returns referrals to client; client performs each step itself. Less com
 ## Caching and TTL
 
 **Time To Live (TTL):**
+
 - Defines how long records can be cached
 - Specified in seconds
 - Balances performance vs. freshness
 - Common values: 300s (5min), 3600s (1hr), 86400s (24hr)
 
 **Caching Layers:**
+
 - Browser cache
 - Operating system cache
 - Recursive resolver cache
@@ -133,6 +138,7 @@ Resolver returns referrals to client; client performs each step itself. Less com
 DNS Security Extensions provide authentication and integrity verification.
 
 **Purpose:**
+
 - Prevent cache poisoning
 - Verify DNS responses are authentic
 - Establish chain of trust from root to domain
@@ -147,12 +153,14 @@ DNS Security Extensions provide authentication and integrity verification.
 | **NSEC/NSEC3** | Proof of non-existence |
 
 **Validation Chain:**
+
 1. Root zone signs TLD records
 2. TLD signs authoritative nameserver records
 3. Authoritative server signs domain records
 4. Resolver validates entire chain
 
 **Considerations:**
+
 - ✅ Prevents DNS spoofing and cache poisoning
 - ✅ Essential for high-security environments
 - ❌ Increased response size (UDP fragmentation issues)
@@ -197,11 +205,13 @@ DNS Security Extensions provide authentication and integrity verification.
 Serve different DNS responses based on query source.
 
 **Use Cases:**
+
 - Internal vs. external clients see different IPs
 - Corporate networks with private internal services
 - VPN users receive internal addresses
 
 **Example:**
+
 ```
 External query: www.company.com → 203.0.113.10 (public IP)
 Internal query: www.company.com → 10.0.1.50 (private IP)
@@ -212,12 +222,14 @@ Internal query: www.company.com → 10.0.1.50 (private IP)
 Return different IP addresses based on geographic location of requester.
 
 **Benefits:**
+
 - ✅ Route users to nearest server
 - ✅ Reduce latency
 - ✅ Comply with data residency requirements
 - ✅ Load distribution across regions
 
 **Providers:**
+
 - Route 53 (AWS)
 - Cloudflare
 - Azure Traffic Manager
@@ -226,6 +238,7 @@ Return different IP addresses based on geographic location of requester.
 ### DNS Load Balancing
 
 **Round Robin:**
+
 ```
 example.com A 192.0.2.1
 example.com A 192.0.2.2
@@ -238,11 +251,13 @@ Resolver rotates through addresses. Simple but no health checking.
 Assign different probabilities to each IP address.
 
 **Failover:**
+
 - Monitor health of endpoints
 - Remove failed servers from DNS responses
 - Requires low TTL for faster failover
 
 **Considerations:**
+
 - ❌ No session persistence
 - ❌ Caching delays failover
 - ❌ No real-time health awareness (client-side)
@@ -254,6 +269,7 @@ Assign different probabilities to each IP address.
 ### dig (Domain Information Groper)
 
 **Basic Query:**
+
 ```bash
 dig example.com
 
@@ -274,6 +290,7 @@ dig -x 93.184.216.34
 ```
 
 **Output Sections:**
+
 - **QUESTION** - Query sent
 - **ANSWER** - Response records
 - **AUTHORITY** - Authoritative nameservers
@@ -282,6 +299,7 @@ dig -x 93.184.216.34
 ### nslookup
 
 **Basic Query:**
+
 ```bash
 nslookup example.com
 
@@ -299,6 +317,7 @@ nslookup
 ### host
 
 **Basic Query:**
+
 ```bash
 host example.com
 
@@ -321,6 +340,7 @@ host 93.184.216.34
 | **UDP Fragmentation** | Large responses fail | EDNS0 issues with DNSSEC | Enable TCP fallback, reduce response size |
 
 **Debugging Workflow:**
+
 1. Test local cache: `dig example.com` (may be cached)
 2. Bypass cache: `dig @8.8.8.8 example.com`
 3. Trace resolution: `dig +trace example.com`
@@ -362,24 +382,28 @@ _dmarc  IN  TXT   "v=DMARC1; p=quarantine; rua=mailto:dmarc@example.com"
 ## Best Practices
 
 **Configuration:**
+
 - Use at least 2 authoritative nameservers in different networks
 - Implement DNSSEC for security-critical domains
 - Set appropriate TTLs (lower before changes, higher for stability)
 - Monitor DNS query patterns and latency
 
 **Security:**
+
 - Use DoH/DoT for sensitive environments
 - Enable DNSSEC validation on resolvers
 - Implement CAA records to control certificate issuance
 - Regular audit of DNS records for unauthorized changes
 
 **Performance:**
+
 - Minimize DNS lookup chains (CNAME depth)
 - Use Anycast for globally distributed services
 - Implement proper caching strategy
 - Consider GeoDNS for global applications
 
 **Operational:**
+
 - Automate DNS updates via API (Terraform, Route53 API)
 - Test changes in staging zones first
 - Monitor authoritative server uptime

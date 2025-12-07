@@ -211,6 +211,7 @@ export default function Home() {
 ```
 
 **Features:**
+
 - File-based routing
 - Server functions with `server$`
 - Streaming SSR
@@ -252,6 +253,7 @@ const [data] = createResource(userId, fetchUser);
 | **TypeScript** | Excellent | Excellent |
 
 **Migration notes:**
+
 - No `useState` — use `createSignal`
 - No `useEffect` — use `createEffect`
 - No `useMemo` — use `createMemo`

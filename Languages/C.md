@@ -44,6 +44,7 @@ A low-level, procedural programming language providing direct memory access and 
 - Stack allocation — Automatic variables, freed on scope exit
 
 **Ownership** — No language-level enforcement. Programmer tracks:
+
 - Who owns allocated memory
 - When to free (double-free is undefined behavior)
 - Avoiding use-after-free
@@ -113,6 +114,7 @@ union Value {
 **Actions with No Specified Outcome** — Compiler may assume UB never occurs, leading to surprising optimizations.
 
 **Common Sources:**
+
 - Dereferencing null/invalid pointers
 - Out-of-bounds array access
 - Signed integer overflow
@@ -164,6 +166,7 @@ union Value {
 | **TCC** | Tiny C Compiler, extremely fast compilation, minimal optimization |
 
 **Recommended Flags:**
+
 - `-Wall -Wextra -Wpedantic` — Comprehensive warnings
 - `-Werror` — Treat warnings as errors
 - `-std=c99` / `-std=c11` — Specify standard
@@ -210,12 +213,14 @@ union Value {
 ### Key Distinctions
 
 **C vs C++:**
+
 - C is not a subset of C++ (subtle incompatibilities)
 - C lacks classes, exceptions, templates, namespaces, references
 - C++ has RAII (destructors), reducing manual cleanup
 - C code often compiles as C++ but semantics may differ
 
 **C vs Rust:**
+
 - Both aim for zero-cost abstractions
 - Rust prevents memory errors at compile time (borrow checker)
 - C requires external tools (sanitizers, Valgrind) to catch errors
@@ -256,6 +261,7 @@ union Value {
 - **FFI Layers** — Exposing libraries to other languages
 
 **Avoid For:**
+
 - Application-level software (prefer C++, Rust, higher-level languages)
 - Projects prioritizing safety over control (use Rust)
 - Rapid prototyping (Python, Go, JavaScript better suited)

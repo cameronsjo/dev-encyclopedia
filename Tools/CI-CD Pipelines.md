@@ -44,6 +44,7 @@ Automated systems for building, testing, and deploying code from source control 
 ## Pipeline Stages
 
 ### Build Stage
+
 **Compile source code and prepare artifacts**
 
 - Dependency installation and caching
@@ -53,6 +54,7 @@ Automated systems for building, testing, and deploying code from source control 
 - Static analysis and linting
 
 ### Test Stage
+
 **Validate code quality and functionality**
 
 - Unit tests (fast, isolated)
@@ -62,6 +64,7 @@ Automated systems for building, testing, and deploying code from source control 
 - Code coverage reporting
 
 ### Package Stage
+
 **Create deployable artifacts**
 
 - Container image builds (Docker, OCI)
@@ -71,6 +74,7 @@ Automated systems for building, testing, and deploying code from source control 
 - SBOM (Software Bill of Materials) generation
 
 ### Deploy Stage
+
 **Release to target environments**
 
 - Environment-specific configurations
@@ -82,6 +86,7 @@ Automated systems for building, testing, and deploying code from source control 
 ## Core Concepts
 
 ### Artifacts
+
 **Build outputs stored for deployment**
 
 - Immutable packages built once, deployed many times
@@ -91,6 +96,7 @@ Automated systems for building, testing, and deploying code from source control 
 - Artifact promotion between environments (dev → staging → prod)
 
 ### Caching
+
 **Reusing dependencies and build outputs for speed**
 
 - **Dependency caching**: npm, pip, Maven, NuGet packages
@@ -100,6 +106,7 @@ Automated systems for building, testing, and deploying code from source control 
 - **Multi-level caching**: Local, runner, remote
 
 ### Matrix Builds
+
 **Test across multiple configurations in parallel**
 
 ```yaml
@@ -111,12 +118,14 @@ matrix:
 ```
 
 **Use cases:**
+
 - Cross-platform compatibility testing
 - Multiple language/framework versions
 - Different database engines
 - Browser compatibility (Selenium grids)
 
 ### Self-Hosted Runners
+
 **Run builds on your own infrastructure**
 
 | Aspect | Cloud Runners | Self-Hosted Runners |
@@ -145,6 +154,7 @@ graph LR
 ### GitOps Tools
 
 **ArgoCD**
+
 - Kubernetes-native continuous delivery
 - Visual application health dashboards
 - Automated sync with Git repositories
@@ -153,6 +163,7 @@ graph LR
 - Rollback to any Git commit
 
 **Flux CD**
+
 - CNCF graduated project
 - GitOps toolkit (source, kustomize, helm controllers)
 - Image automation for automatic deployments
@@ -160,6 +171,7 @@ graph LR
 - Progressive delivery with Flagger
 
 **Key Benefits:**
+
 - ✅ Audit trail (all changes in Git history)
 - ✅ Easy rollbacks (git revert)
 - ✅ Consistent environments (infrastructure as code)
@@ -168,6 +180,7 @@ graph LR
 ## Deployment Strategies
 
 ### Blue-Green Deployment
+
 **Two identical environments, switch traffic atomically**
 
 ```mermaid
@@ -181,6 +194,7 @@ graph LR
 ```
 
 **Steps:**
+
 1. Deploy new version to idle environment (green)
 2. Test green environment thoroughly
 3. Switch load balancer to green
@@ -190,6 +204,7 @@ graph LR
 **Cons:** 2× infrastructure cost, database migrations complex
 
 ### Canary Deployment
+
 **Gradually shift traffic to new version**
 
 ```mermaid
@@ -203,6 +218,7 @@ graph LR
 ```
 
 **Steps:**
+
 1. Deploy new version alongside old
 2. Route small percentage (5-10%) to new version
 3. Monitor metrics (errors, latency, business KPIs)
@@ -213,6 +229,7 @@ graph LR
 **Cons:** Requires traffic splitting, longer deployment time
 
 ### Rolling Deployment
+
 **Replace instances incrementally**
 
 ```mermaid
@@ -227,6 +244,7 @@ graph TD
 **Cons:** Mixed versions during rollout, slower rollback
 
 ### Feature Flags + Deployment
+
 **Decouple deployment from release**
 
 - Deploy code with features disabled
@@ -240,6 +258,7 @@ graph TD
 ### GitHub Actions
 
 **Strengths:**
+
 - Native GitHub integration (PR checks, status badges)
 - Massive marketplace of actions (30,000+)
 - Matrix builds for cross-platform testing
@@ -247,6 +266,7 @@ graph TD
 - OIDC for keyless cloud authentication
 
 **Configuration Example:**
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -267,6 +287,7 @@ jobs:
 ```
 
 **Best Practices:**
+
 - Pin action versions to SHA (not tags) for security
 - Use `concurrency` groups to cancel outdated runs
 - Cache dependencies with `actions/cache`
@@ -275,6 +296,7 @@ jobs:
 ### GitLab CI
 
 **Strengths:**
+
 - Integrated with GitLab repos, issues, merge requests
 - Built-in container registry and package registry
 - Auto DevOps for zero-config pipelines
@@ -282,6 +304,7 @@ jobs:
 - Compliance pipelines for regulated industries
 
 **Key Features:**
+
 - **Stages:** Define sequential or parallel execution
 - **DAG pipelines:** Direct dependencies between jobs
 - **Child pipelines:** Trigger separate pipelines dynamically
@@ -290,6 +313,7 @@ jobs:
 ### Jenkins
 
 **Strengths:**
+
 - Maximum flexibility and customization
 - 1,800+ plugins for any integration
 - Declarative and scripted pipelines
@@ -297,12 +321,14 @@ jobs:
 - Battle-tested for complex enterprise workflows
 
 **Considerations:**
+
 - Requires dedicated infrastructure and maintenance
 - UI/UX less modern than cloud-native platforms
 - Plugin compatibility can break on upgrades
 - Security requires careful configuration
 
 **Modern Usage:**
+
 - Jenkins X for Kubernetes-native CI/CD
 - Jenkinsfiles in source control (pipeline as code)
 - Blue Ocean UI for better visualization
@@ -310,6 +336,7 @@ jobs:
 ### CircleCI
 
 **Strengths:**
+
 - Optimized for Docker workflows
 - Intelligent caching and parallelism
 - Orbs (reusable config packages)
@@ -317,6 +344,7 @@ jobs:
 - Built-in insights and analytics
 
 **Resource Classes:**
+
 - Small, medium, large, xlarge executors
 - GPU and ARM instances available
 - Docker layer caching for fast image builds
@@ -324,6 +352,7 @@ jobs:
 ### ArgoCD
 
 **Strengths:**
+
 - Visual Git → Kubernetes sync status
 - Automated drift detection and correction
 - Multi-cluster management from single pane
@@ -331,6 +360,7 @@ jobs:
 - Webhooks for event-driven sync
 
 **Architecture:**
+
 - Application CRDs define deployment targets
 - Controllers continuously reconcile Git → cluster
 - Projects for multi-tenancy and RBAC
@@ -339,6 +369,7 @@ jobs:
 ### Tekton
 
 **Strengths:**
+
 - Cloud Native Computing Foundation project
 - Kubernetes CRDs for tasks, pipelines, triggers
 - No central server (runs in K8s clusters)
@@ -346,6 +377,7 @@ jobs:
 - Tekton Chains for supply chain security (SLSA)
 
 **Concepts:**
+
 - **Tasks:** Reusable steps (build, test, deploy)
 - **Pipelines:** DAG of tasks with parameters
 - **Triggers:** Event-driven pipeline execution
@@ -354,69 +386,87 @@ jobs:
 ## When to Use
 
 ### GitHub Actions
+
 **Best for:**
+
 - ✅ Projects hosted on GitHub
 - ✅ Open source with community actions
 - ✅ Matrix builds across OS/versions
 - ✅ Rapid setup with marketplace integrations
 
 **Considerations:**
+
 - ❌ Cost on private repos with high usage
 - ❌ Limited to GitHub ecosystem
 
 ### GitLab CI
+
 **Best for:**
+
 - ✅ GitLab-native projects
 - ✅ End-to-end DevOps platform (SCM to monitoring)
 - ✅ Review apps and dynamic environments
 - ✅ Compliance and audit requirements
 
 **Considerations:**
+
 - ❌ Less marketplace ecosystem than GitHub
 - ❌ Self-hosted GitLab has maintenance overhead
 
 ### Jenkins
+
 **Best for:**
+
 - ✅ Complex enterprise workflows
 - ✅ Legacy systems integration
 - ✅ Highly customized pipelines
 - ✅ On-premises deployments
 
 **Considerations:**
+
 - ❌ High maintenance burden
 - ❌ Plugin fragmentation and breakage
 - ❌ Outdated UI/UX
 
 ### CircleCI
+
 **Best for:**
+
 - ✅ Docker-heavy workflows
 - ✅ Teams needing advanced caching
 - ✅ Performance-critical builds
 - ✅ Cross-platform mobile (iOS + Android)
 
 **Considerations:**
+
 - ❌ Pricing higher than some alternatives
 - ❌ Less flexible than Jenkins
 
 ### ArgoCD
+
 **Best for:**
+
 - ✅ Kubernetes-native deployments
 - ✅ GitOps adoption
 - ✅ Multi-cluster management
 - ✅ Declarative infrastructure
 
 **Considerations:**
+
 - ❌ Kubernetes-only (not for VMs, serverless)
 - ❌ Requires K8s cluster to run
 
 ### Tekton
+
 **Best for:**
+
 - ✅ Cloud-native pipelines on Kubernetes
 - ✅ Vendor-neutral CI/CD
 - ✅ Supply chain security (SLSA compliance)
 - ✅ Custom pipeline controllers
 
 **Considerations:**
+
 - ❌ Steeper learning curve
 - ❌ Requires Kubernetes expertise
 - ❌ Less turnkey than managed platforms
@@ -439,6 +489,7 @@ jobs:
 ## Best Practices
 
 ### Pipeline Design
+
 - **Fast feedback:** Run fast tests (unit) before slow (integration, e2e)
 - **Fail fast:** Exit immediately on first error
 - **Parallelize:** Run independent jobs concurrently
@@ -446,6 +497,7 @@ jobs:
 - **Versioned config:** Pipeline definitions in source control
 
 ### Security
+
 - **Secrets management:** Use vault integrations (HashiCorp Vault, AWS Secrets Manager)
 - **Least privilege:** Minimal permissions for service accounts
 - **OIDC authentication:** Keyless cloud access (GitHub → AWS, GCP, Azure)
@@ -453,6 +505,7 @@ jobs:
 - **Dependency scanning:** Automated CVE detection (Dependabot, Snyk)
 
 ### Performance
+
 - **Dependency caching:** Avoid re-downloading packages
 - **Docker layer caching:** Reuse unchanged layers
 - **Incremental builds:** Only rebuild changed modules
@@ -460,6 +513,7 @@ jobs:
 - **Concurrency limits:** Prevent resource exhaustion
 
 ### Observability
+
 - **Structured logs:** JSON output for parsing
 - **Metrics dashboards:** Build times, success rates, queue depth
 - **Alerting:** Notify on failures (Slack, PagerDuty)
@@ -469,14 +523,17 @@ jobs:
 ## Advanced Patterns
 
 ### Monorepo CI
+
 **Challenges:** Avoid rebuilding unchanged projects
 
 **Solutions:**
+
 - **Path filters:** Trigger only on changed directories
 - **Nx/Turborepo:** Incremental builds with dependency graphs
 - **Split pipelines:** Per-project workflows with shared config
 
 ### Multi-Environment Promotion
+
 **Pattern:** dev → staging → production with gates
 
 ```mermaid
@@ -490,20 +547,24 @@ graph LR
 ```
 
 **Gates:**
+
 - Automated tests passing
 - Manual approval (security, product review)
 - Time-based windows (deploy only during business hours)
 - External approvals (change management systems)
 
 ### Ephemeral Environments
+
 **Concept:** Temporary, on-demand environments per PR
 
 **Benefits:**
+
 - Test features in isolation
 - QA preview before merge
 - Automated cleanup on PR close
 
 **Tools:**
+
 - GitLab Review Apps
 - Heroku Review Apps
 - Kubernetes namespaces per PR

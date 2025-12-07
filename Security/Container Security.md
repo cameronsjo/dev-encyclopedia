@@ -53,6 +53,7 @@ graph LR
 | **Hardened** | CIS-hardened, patched | Compliance-heavy environments |
 
 **Best Practices:**
+
 - Use specific version tags, never `latest`
 - Prefer official or verified publisher images
 - Scan base images before use
@@ -70,6 +71,7 @@ graph LR
 | **Aqua** | Commercial | Platform solution, runtime integration | Enterprise features, cost |
 
 **Scanning Strategy:**
+
 ```yaml
 # Example: Multi-stage scanning
 Build Time:    Scan base images, dependencies
@@ -82,6 +84,7 @@ Runtime:       Monitor for new vulnerabilities
 ### Image Hardening
 
 **Minimal Images:**
+
 ```dockerfile
 # Distroless example (Go app)
 FROM golang:1.21 AS builder
@@ -96,6 +99,7 @@ ENTRYPOINT ["/app"]
 ```
 
 **Security Checklist:**
+
 - ✅ Run as non-root user
 - ✅ Use read-only root filesystem where possible
 - ✅ Drop all capabilities, add only required
@@ -115,6 +119,7 @@ ENTRYPOINT ["/app"]
 | **Restricted** | Heavily restricted, follows hardening best practices | High-security environments |
 
 **Restricted Profile Requirements:**
+
 - Non-root user
 - No privilege escalation
 - Read-only root filesystem
@@ -132,6 +137,7 @@ ENTRYPOINT ["/app"]
 | **Falco Admission** | Runtime threat-based admission | Block workloads with suspicious behavior |
 
 **Common Policies:**
+
 - Enforce image registry allowlist
 - Require resource limits/requests
 - Block privileged containers
@@ -154,6 +160,7 @@ spec:
 ```
 
 **Best Practices:**
+
 - Default deny all traffic
 - Explicit allow required connections
 - Namespace isolation
@@ -172,6 +179,7 @@ spec:
 | **Tracee** | Runtime security events | eBPF | Aqua, signatures & policies |
 
 **Falco Example Rules:**
+
 ```yaml
 # Detect shell spawned in container
 - rule: Shell in Container
@@ -183,6 +191,7 @@ spec:
 ### Runtime Best Practices
 
 **Container Configuration:**
+
 - Run as non-root user (`runAsNonRoot: true`)
 - Read-only filesystem (`readOnlyRootFilesystem: true`)
 - Drop capabilities (`drop: [ALL]`)
@@ -190,6 +199,7 @@ spec:
 - Set AppArmor/SELinux contexts
 
 **Rootless Containers:**
+
 - Rootless Docker/Podman for development
 - Kubernetes user namespace isolation (alpha)
 - Reduced blast radius from container escape
@@ -217,6 +227,7 @@ spec:
 | **Workload Identity** | No static credentials | GKE Workload Identity, IRSA |
 
 **Best Practices:**
+
 - Never commit secrets to Git
 - Rotate secrets regularly
 - Use short-lived credentials
@@ -237,6 +248,7 @@ graph TD
 ```
 
 **Tools:**
+
 - **Sigstore/Cosign:** Keyless signing, transparency log
 - **Notary:** Docker Content Trust, TUF-based
 - **in-toto:** Supply chain attestation framework
@@ -250,6 +262,7 @@ graph TD
 | **CycloneDX** | Security-focused, VEX support | Syft, Trivy |
 
 **Why SBOMs Matter:**
+
 - Rapid vulnerability response (Log4Shell scenarios)
 - License compliance
 - Dependency transparency
@@ -258,6 +271,7 @@ graph TD
 ## Security Checklist
 
 ### Build Phase
+
 - [ ] Use minimal base images (distroless/scratch)
 - [ ] Scan for vulnerabilities (Trivy/Grype)
 - [ ] Multi-stage builds to reduce final image
@@ -267,6 +281,7 @@ graph TD
 - [ ] Generate and store SBOM
 
 ### Deploy Phase
+
 - [ ] Admission policies enforce security standards
 - [ ] Image signature verification required
 - [ ] Pod Security Standards applied
@@ -276,6 +291,7 @@ graph TD
 - [ ] Registry scanning enabled
 
 ### Runtime Phase
+
 - [ ] Runtime security monitoring (Falco)
 - [ ] Read-only root filesystem
 - [ ] Capabilities dropped
@@ -285,6 +301,7 @@ graph TD
 - [ ] Anomaly detection configured
 
 ### Monitoring Phase
+
 - [ ] CVE scanning on schedule
 - [ ] Security event alerts configured
 - [ ] Compliance reporting automated
@@ -317,12 +334,15 @@ graph TD
 ## Compliance & Standards
 
 ### CIS Benchmarks
+
 - CIS Docker Benchmark
 - CIS Kubernetes Benchmark
 - Automated scanning with kube-bench
 
 ### NIST SP 800-190
+
 Application Container Security Guide covering:
+
 - Image security
 - Registry security
 - Orchestrator security
@@ -330,7 +350,9 @@ Application Container Security Guide covering:
 - Host OS security
 
 ### Pod Security Standards (PSS)
+
 Kubernetes-native replacement for PodSecurityPolicy:
+
 - Privileged
 - Baseline (default)
 - Restricted (hardened)

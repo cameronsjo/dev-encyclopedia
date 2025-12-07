@@ -39,6 +39,7 @@ Models that understand both images and text, enabling visual reasoning and image
 **Architecture:** Vision encoder (e.g., ViT) + Language model (e.g., GPT, Claude) with cross-attention.
 
 **Capabilities:**
+
 - Image understanding and description
 - Visual question answering (VQA)
 - Document analysis (OCR + reasoning)
@@ -53,6 +54,7 @@ Text-to-image diffusion models that create images from natural language descript
 **Architecture:** Diffusion models (iterative denoising) + text encoders (CLIP, T5).
 
 **Capabilities:**
+
 - Text-to-image generation
 - Image editing and inpainting
 - Style transfer
@@ -64,6 +66,7 @@ Text-to-image diffusion models that create images from natural language descript
 Speech recognition, generation, and audio understanding.
 
 **Capabilities:**
+
 - Speech-to-text (ASR)
 - Text-to-speech (TTS)
 - Audio classification
@@ -107,12 +110,14 @@ Speech recognition, generation, and audio understanding.
 Joint embedding space for text and images, enabling zero-shot classification and retrieval.
 
 **How it works:**
+
 1. Train image encoder and text encoder jointly
 2. Maximize similarity of matching image-text pairs
 3. Minimize similarity of non-matching pairs
 4. Enables semantic search and classification without fine-tuning
 
 **Use cases:**
+
 - Image search by text description
 - Zero-shot image classification
 - Content moderation
@@ -123,12 +128,14 @@ Joint embedding space for text and images, enabling zero-shot classification and
 Iterative denoising process that generates images from noise.
 
 **Process:**
+
 1. Start with random noise
 2. Iteratively denoise using learned model
 3. Condition on text embeddings (from CLIP, T5)
 4. Produce final image after N steps (typically 20-50)
 
 **Advantages:**
+
 - High-quality outputs
 - Stable training
 - Controllable generation
@@ -138,6 +145,7 @@ Iterative denoising process that generates images from noise.
 Vision-language models applied to structured documents (PDFs, forms, tables).
 
 **Capabilities:**
+
 - Layout understanding (headers, tables, columns)
 - OCR + reasoning (not just text extraction)
 - Form filling and data extraction
@@ -207,7 +215,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 
 ## When to Use: Decision Guide
 
-### Choose Vision-Language Models When:
+### Choose Vision-Language Models When
 
 | Scenario | Best Model | Why |
 |----------|-----------|-----|
@@ -219,7 +227,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 | **Multi-image comparison** | GPT-4V, Claude 3 | Excellent multi-image handling |
 | **Safety-critical applications** | Claude 3 | Constitutional AI, strong safety |
 
-### Choose Image Generation When:
+### Choose Image Generation When
 
 | Scenario | Best Model | Why |
 |----------|-----------|-----|
@@ -229,7 +237,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 | **Commercial use** | Adobe Firefly | Licensed for commercial use |
 | **Speed and efficiency** | Stable Diffusion XL Turbo | Fast inference |
 
-### Choose Audio Models When:
+### Choose Audio Models When
 
 | Scenario | Best Model | Why |
 |----------|-----------|-----|
@@ -243,6 +251,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 ### Vision-Language Models
 
 **Best Practices:**
+
 - Resize images to reduce token usage (models accept various sizes)
 - Use image URLs when possible to save bandwidth
 - Provide context in text for ambiguous images
@@ -251,6 +260,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 - Implement retry logic for large documents
 
 **Common Pitfalls:**
+
 - Not accounting for image token costs (varies by model)
 - Sending full PDFs when text extraction would suffice
 - Ignoring context window limits with many images
@@ -259,6 +269,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 ### Image Generation
 
 **Best Practices:**
+
 - Iterate on prompts (specific > vague)
 - Use negative prompts to exclude unwanted elements
 - Specify aspect ratio and style explicitly
@@ -267,6 +278,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 - Implement content filtering for user-generated prompts
 
 **Common Pitfalls:**
+
 - Overloading prompts with too many details
 - Not specifying image quality/resolution
 - Ignoring licensing for commercial use
@@ -275,6 +287,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 ### Document AI
 
 **Best Practices:**
+
 - Pre-process PDFs to optimize quality (300 DPI recommended)
 - Split large documents into chunks if needed
 - Use structured output formats (JSON, Markdown tables)
@@ -283,6 +296,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 - Handle multi-column layouts explicitly in prompts
 
 **Common Pitfalls:**
+
 - Sending low-resolution scans
 - Not handling edge cases (rotated text, handwriting)
 - Expecting 100% accuracy on degraded documents
@@ -311,6 +325,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 ## Future Directions
 
 **Emerging Trends:**
+
 - Native video understanding (not just frames)
 - Real-time multimodal streaming
 - Any-to-any modality conversion
@@ -319,6 +334,7 @@ Vision-language models applied to structured documents (PDFs, forms, tables).
 - 3D generation from text/images
 
 **Challenges:**
+
 - Hallucination in image descriptions
 - Computational cost for high-resolution inputs
 - Copyright and licensing for generated content

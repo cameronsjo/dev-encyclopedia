@@ -24,18 +24,21 @@ HTMX extends HTML's capabilities to make any element trigger HTTP requests and u
 ### Key Attributes
 
 **Request Attributes:**
+
 - `hx-get`, `hx-post`, `hx-put`, `hx-patch`, `hx-delete` — Issue HTTP requests
 - `hx-trigger` — Specify what triggers the request (click, change, load, revealed, etc.)
 - `hx-include` — Include additional form data in the request
 - `hx-params` — Filter which parameters to include
 
 **Response Handling:**
+
 - `hx-target` — Specify which element receives the response
 - `hx-swap` — Control how content is swapped (innerHTML, outerHTML, beforebegin, afterend, etc.)
 - `hx-select` — Extract a portion of the response HTML
 - `hx-swap-oob` — Update multiple targets with a single response (out-of-band swaps)
 
 **Advanced Features:**
+
 - `hx-push-url` — Update browser URL and history
 - `hx-boost` — Progressively enhance standard links and forms
 - `hx-confirm` — Show confirmation dialog before request
@@ -45,6 +48,7 @@ HTMX extends HTML's capabilities to make any element trigger HTTP requests and u
 ### Event Model
 
 HTMX triggers custom events throughout the request lifecycle:
+
 - `htmx:beforeRequest` — Before AJAX request sent
 - `htmx:afterSwap` — After new content swapped into DOM
 - `htmx:responseError` — On HTTP error response
@@ -79,6 +83,7 @@ HTMX triggers custom events throughout the request lifecycle:
 ### Backend Framework Support
 
 **Django:**
+
 ```python
 # Template returns HTML fragment
 def search_results(request):
@@ -88,6 +93,7 @@ def search_results(request):
 ```
 
 **Spring Boot:**
+
 ```java
 // Thymeleaf fragment
 @GetMapping("/users")

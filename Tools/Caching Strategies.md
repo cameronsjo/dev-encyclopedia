@@ -145,6 +145,7 @@ When cache reaches memory limit, remove entries using:
 **Problem:** Many requests simultaneously miss cache, overload database.
 
 **Solutions:**
+
 - **Locking:** First requester fetches, others wait
 - **Probabilistic early expiration:** Refresh before TTL expires
 - **Request coalescing:** Deduplicate concurrent identical requests
@@ -155,6 +156,7 @@ When cache reaches memory limit, remove entries using:
 **Problem:** Empty cache after restart causes high database load.
 
 **Solutions:**
+
 - **Cache warming:** Preload critical data on startup
 - **Gradual traffic ramp:** Slowly increase traffic to new instances
 - **Persistent cache:** Use Redis with persistence (RDB/AOF)
@@ -164,6 +166,7 @@ When cache reaches memory limit, remove entries using:
 **Problem:** Cache and database get out of sync.
 
 **Solutions:**
+
 - **TTL:** Accept eventual consistency with bounded staleness
 - **Write-through:** Ensure writes update both cache and DB
 - **Event-driven invalidation:** React to database changes
@@ -174,6 +177,7 @@ When cache reaches memory limit, remove entries using:
 **Problem:** Single key receives disproportionate traffic, becomes bottleneck.
 
 **Solutions:**
+
 - **Replication:** Shard hot key across multiple cache instances
 - **Local cache:** Add application-level cache in front of Redis
 - **Randomized TTL:** Prevent synchronized expiration
@@ -249,16 +253,19 @@ Response: 200 OK + new content (if modified)
 ### Cache Cluster Topologies
 
 **Primary-Replica:**
+
 - Single primary for writes, multiple replicas for reads
 - Eventual consistency between replicas
 - Failover to replica on primary failure
 
 **Sharded:**
+
 - Data partitioned across multiple nodes
 - Consistent hashing for key distribution
 - Scale horizontally by adding shards
 
 **Replicated:**
+
 - Full copy of data on each node
 - High availability, low read latency
 - High memory overhead, complex write coordination
@@ -318,6 +325,7 @@ Response: 200 OK + new content (if modified)
 ## Best Practices
 
 **DO:**
+
 - Set appropriate TTLs based on data change frequency
 - Monitor cache hit rates and eviction rates
 - Use separate cache namespaces for different data types
@@ -327,6 +335,7 @@ Response: 200 OK + new content (if modified)
 - Version cache keys when schema changes
 
 **DON'T:**
+
 - Cache sensitive data without encryption
 - Set TTLs longer than data staleness tolerance
 - Ignore cache stampede on high-traffic keys

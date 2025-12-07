@@ -72,17 +72,20 @@ Centralized database storing service instance locations, health status, and meta
 ### Consul
 
 **Architecture:**
+
 - Agent on each node (client mode)
 - Server cluster (3-5 nodes) for consensus
 - Gossip protocol for membership and failure detection
 - DNS and HTTP interfaces for queries
 
 **Registration:**
+
 - Service definition files (JSON/HCL)
 - HTTP API registration
 - Automatic deregistration on health check failure
 
 **Health Checks:**
+
 - HTTP endpoint checks
 - TCP connection checks
 - Script-based checks
@@ -90,6 +93,7 @@ Centralized database storing service instance locations, health status, and meta
 - TTL-based checks
 
 **Key Features:**
+
 - Multi-datacenter support
 - Service mesh (Consul Connect)
 - KV store for configuration
@@ -118,22 +122,26 @@ service {
 ### etcd
 
 **Architecture:**
+
 - Raft consensus for strong consistency
 - Hierarchical key-value store
 - Watch API for real-time updates
 - gRPC and HTTP interfaces
 
 **Registration:**
+
 - Keys with TTL (lease-based)
 - Automatic cleanup on lease expiration
 - Directory structure for service organization
 
 **Health Checks:**
+
 - TTL/lease renewal required
 - Service must refresh lease periodically
 - No built-in active health checking
 
 **Key Features:**
+
 - Strong consistency guarantees
 - Efficient watch mechanism
 - Transaction support
@@ -155,22 +163,26 @@ etcdctl lease keep-alive 694d7a4e5c1a7c0d
 ### Eureka
 
 **Architecture:**
+
 - Server cluster with peer replication (AP model)
 - Client library handles registration
 - REST API for all operations
 - Self-preservation mode prevents mass deregistration
 
 **Registration:**
+
 - Client sends heartbeat every 30s (default)
 - Full registration info on first heartbeat
 - Renewal-only on subsequent heartbeats
 
 **Health Checks:**
+
 - Heartbeat-based (no active polling)
 - Client-side health check integration
 - Configurable eviction timeout
 
 **Key Features:**
+
 - AWS region/zone awareness
 - Spring Cloud integration
 - Client-side caching
@@ -201,22 +213,26 @@ eureka:
 ### Kubernetes Service Registry
 
 **Architecture:**
+
 - Built on etcd backend
 - API server provides registry interface
 - kube-proxy or service mesh handles discovery
 - Labels and selectors for service targeting
 
 **Registration:**
+
 - Automatic via Service resources
 - Endpoints controller tracks Pod IPs
 - EndpointSlice for scalability (1000+ endpoints)
 
 **Health Checks:**
+
 - Liveness probes (restart unhealthy pods)
 - Readiness probes (remove from endpoints)
 - Startup probes (delayed initialization)
 
 **Key Features:**
+
 - Native to Kubernetes platform
 - Integrated with network policies
 - Supports headless services
@@ -287,11 +303,13 @@ spec:
 **Example:** Consul DNS, Kubernetes CoreDNS
 
 **Advantages:**
+
 - No client library required
 - Works with any language/framework
 - Standardized interface
 
 **Limitations:**
+
 - TTL caching can cause stale data
 - Limited metadata in DNS records
 - No advanced load balancing
@@ -303,11 +321,13 @@ spec:
 **Examples:** Eureka + Ribbon, Consul + custom client
 
 **Advantages:**
+
 - Client controls load balancing algorithm
 - No single point of failure proxy
 - Rich metadata available
 
 **Disadvantages:**
+
 - Client library required for each language
 - Client logic duplicated across services
 - Registry address must be known
@@ -319,11 +339,13 @@ spec:
 **Examples:** Kubernetes kube-proxy, Envoy + Consul
 
 **Advantages:**
+
 - Services unaware of registry
 - Centralized routing logic
 - Language-agnostic
 
 **Disadvantages:**
+
 - Load balancer is critical component
 - Additional network hop
 - Proxy must scale with traffic
@@ -335,11 +357,13 @@ spec:
 **Examples:** Istio + Kubernetes, Consul Connect
 
 **Advantages:**
+
 - Complete service decoupling
 - Advanced traffic management
 - Security and observability built-in
 
 **Disadvantages:**
+
 - Operational complexity
 - Resource overhead (sidecar per instance)
 - Learning curve
@@ -382,21 +406,25 @@ spec:
 ### Considerations
 
 **Operational Overhead:**
+
 - Registry must be highly available
 - Requires monitoring and maintenance
 - Adds complexity to deployment
 
 **Network Dependency:**
+
 - Services depend on registry availability
 - Network partitions can cause issues
 - Need fallback/caching strategies
 
 **Consistency Requirements:**
+
 - Choose CP or AP based on needs
 - Understand failure modes
 - Plan for split-brain scenarios
 
 **Scale:**
+
 - Registry must handle query load
 - Watch/notification mechanisms at scale
 - Metadata storage growth
@@ -404,16 +432,19 @@ spec:
 ### Alternatives
 
 **Static Configuration:**
+
 - Works for small, stable deployments
 - No registry overhead
 - Limited to fixed infrastructure
 
 **DNS Only:**
+
 - Simple, no special tooling
 - Limited metadata and health checking
 - Sufficient for some use cases
 
 **Platform-Managed:**
+
 - Kubernetes, cloud platforms handle it
 - No need for separate registry
 - Platform lock-in
@@ -421,28 +452,33 @@ spec:
 ## Best Practices
 
 **Registration:**
+
 - Register on successful startup, not deployment
 - Include all necessary metadata upfront
 - Deregister gracefully on shutdown
 
 **Health Checks:**
+
 - Check actual service health, not just process
 - Include dependency health in checks
 - Use appropriate intervals (not too frequent)
 - Implement graceful degradation
 
 **Metadata:**
+
 - Keep metadata minimal and relevant
 - Use consistent naming conventions
 - Version metadata schema
 
 **Client Behavior:**
+
 - Cache registry responses
 - Handle registry unavailability
 - Refresh cache periodically
 - Implement circuit breakers
 
 **Operations:**
+
 - Monitor registry health and latency
 - Set up alerts for registration failures
 - Test failure scenarios

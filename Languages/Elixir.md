@@ -63,6 +63,7 @@ end
 ```
 
 **Key Characteristics:**
+
 - Millions of processes on a single machine
 - ~2KB memory per process
 - Message passing via immutable data
@@ -119,6 +120,7 @@ end
 ```
 
 **Supervision Strategies:**
+
 - `:one_for_one` - Restart only failed process
 - `:one_for_all` - Restart all children if one fails
 - `:rest_for_one` - Restart failed process and those started after it
@@ -402,6 +404,7 @@ end)
 ### Elixir vs Erlang
 
 **Elixir Advantages:**
+
 - Modern, readable syntax
 - Better tooling (Mix, ExUnit, formatter)
 - Richer standard library
@@ -409,6 +412,7 @@ end)
 - Easier to learn
 
 **Erlang Advantages:**
+
 - More mature libraries for telecom
 - Slightly better raw performance
 - Larger pool of battle-tested code
@@ -419,6 +423,7 @@ end)
 ### Elixir vs Go
 
 **Elixir Advantages:**
+
 - Superior fault tolerance (supervision trees)
 - Hot code reloading
 - Built-in distribution
@@ -426,6 +431,7 @@ end)
 - Better for long-lived connections (WebSockets)
 
 **Go Advantages:**
+
 - Faster raw performance
 - Lower memory footprint
 - Simpler deployment (single binary)
@@ -435,6 +441,7 @@ end)
 ### Elixir vs Rust
 
 **Elixir Advantages:**
+
 - Easier concurrency (actor model)
 - Fault tolerance built-in
 - Faster development cycles
@@ -442,6 +449,7 @@ end)
 - Hot code reloading
 
 **Rust Advantages:**
+
 - 10-100x faster for CPU-bound tasks
 - Compile-time safety guarantees
 - No garbage collection
