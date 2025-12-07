@@ -39,7 +39,7 @@ Quick-reference definitions for foundational computer science terminology.
 | Term | Definition |
 |------|------------|
 | **P** | Problems solvable in polynomial time. Considered "efficiently solvable." |
-| **NP** | Problems whose solutions can be *verified* in polynomial time. (Non-deterministic Polynomial) |
+| **NP** | Problems whose solutions can be _verified_ in polynomial time. (Non-deterministic Polynomial) |
 | **NP-Complete** | Hardest problems in NP. If any NP-complete problem is in P, then P=NP. |
 | **NP-Hard** | At least as hard as NP-complete, but not necessarily in NP (may not be decision problems). |
 | **PSPACE** | Problems solvable with polynomial space (may take exponential time). |

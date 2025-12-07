@@ -42,6 +42,7 @@ OTP = Truncate(HMAC-SHA1(Secret, Counter)) mod 10^d
 ```
 
 Where:
+
 - **Secret**: Shared key between server and authenticator
 - **Counter**: Incrementing value, synchronized between parties
 - **d**: Number of digits (typically 6)
@@ -89,6 +90,7 @@ OTP = Truncate(HMAC-SHA1(Secret, Counter)) mod 10^d
 ```
 
 Where:
+
 - **TimeStep**: Usually 30 seconds
 - **CurrentUnixTime**: Seconds since Unix epoch
 
@@ -141,6 +143,7 @@ Example: JBSWY3DPEHPK3PXP
 ```
 
 **Requirements:**
+
 - Minimum 128 bits entropy (160 bits recommended)
 - Generated server-side using secure random
 - Stored encrypted, never in plaintext
@@ -204,6 +207,7 @@ Backup codes (use each only once):
 ```
 
 **Best practices:**
+
 - Generate 8-10 codes
 - Single-use only
 - Store securely (password manager, safe)

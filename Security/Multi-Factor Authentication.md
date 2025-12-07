@@ -99,6 +99,7 @@ sequenceDiagram
 ```
 
 **Why it's phishing-resistant:**
+
 - Authenticator checks origin (domain) before signing
 - Credentials are bound to specific websites
 - Private key never leaves the authenticator
@@ -172,6 +173,7 @@ sequenceDiagram
 ```
 
 **How common?**
+
 - FBI reported 1,611 SIM swapping complaints in 2021 ($68M losses)
 - Often targets cryptocurrency holders, executives
 
@@ -186,6 +188,7 @@ SS7 (Signaling System 7) is the protocol telecom carriers use to exchange inform
 | **Call interception** | Listen to voice calls |
 
 **Who can exploit SS7?**
+
 - State actors
 - Telecom insiders
 - Anyone who can access SS7 network (surprisingly accessible)
@@ -310,6 +313,7 @@ MFA evolution: remove the password entirely.
 | **Biometric + Device** | Face/fingerprint tied to device possession |
 
 **Passwordless benefits:**
+
 - No password to phish, steal, or forget
 - Better UX (no password entry)
 - Reduces account lockouts
