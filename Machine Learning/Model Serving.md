@@ -11,7 +11,7 @@ tags:
   - llm
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Model Serving
@@ -177,17 +177,20 @@ CPU-optimized inference with quantization for running LLMs on consumer hardware.
 ### vLLM
 
 **Strengths:**
+
 - Highest throughput for LLM serving
 - Excellent GPU memory efficiency with PagedAttention
 - Production-ready with continuous batching
 - Strong community and active development
 
 **Considerations:**
+
 - GPU-required (no CPU fallback)
 - Python-based (may have higher overhead than compiled solutions)
 - Limited to supported model architectures
 
 **Best for:**
+
 - Production LLM APIs with high request volume
 - Cost optimization through better GPU utilization
 - Serving popular model architectures (Llama, Mistral, GPT-NeoX)
@@ -195,17 +198,20 @@ CPU-optimized inference with quantization for running LLMs on consumer hardware.
 ### Text Generation Inference
 
 **Strengths:**
+
 - Easiest production deployment (Docker, Kubernetes)
 - Integrated with Hugging Face ecosystem
 - Streaming and server-sent events out of the box
 - Grammar and regex-constrained generation
 
 **Considerations:**
+
 - Slightly lower throughput than vLLM
 - Fewer quantization options than TensorRT-LLM
 - Best with Hugging Face model formats
 
 **Best for:**
+
 - Rapid deployment from Hugging Face models
 - Applications requiring streaming responses
 - Teams already using Hugging Face infrastructure
@@ -213,18 +219,21 @@ CPU-optimized inference with quantization for running LLMs on consumer hardware.
 ### TensorRT-LLM
 
 **Strengths:**
+
 - Lowest latency for single requests
 - Maximum optimization for NVIDIA hardware
 - Advanced quantization (FP8 on H100)
 - Multi-GPU and multi-node scaling
 
 **Considerations:**
+
 - Requires model compilation step
 - NVIDIA GPUs only
 - More complex setup than vLLM/TGI
 - Limited to NVIDIA-supported architectures
 
 **Best for:**
+
 - Latency-critical applications (sub-100ms requirements)
 - NVIDIA GPU infrastructure
 - Maximum performance from hardware
@@ -233,17 +242,20 @@ CPU-optimized inference with quantization for running LLMs on consumer hardware.
 ### Triton Inference Server
 
 **Strengths:**
+
 - Multi-framework and multi-backend support
 - Ensemble models (preprocessing + inference + postprocessing)
 - Model versioning and A/B testing
 - CPU and GPU backends
 
 **Considerations:**
+
 - Complex configuration for LLMs
 - Not LLM-optimized out of the box
 - Steeper learning curve
 
 **Best for:**
+
 - Serving multiple model types (CV, NLP, recommenders)
 - Heterogeneous inference workloads
 - Organizations already using NVIDIA infrastructure
@@ -252,17 +264,20 @@ CPU-optimized inference with quantization for running LLMs on consumer hardware.
 ### Ollama
 
 **Strengths:**
+
 - Simplest local deployment (single binary)
 - Built-in model registry and management
 - Cross-platform (macOS, Linux, Windows)
 - Good developer experience
 
 **Considerations:**
+
 - Not designed for production scale
 - Lower throughput than GPU-optimized solutions
 - Limited customization compared to vLLM/TGI
 
 **Best for:**
+
 - Local development and testing
 - Edge deployment on consumer hardware
 - Prototyping and experimentation
@@ -271,17 +286,20 @@ CPU-optimized inference with quantization for running LLMs on consumer hardware.
 ### llama.cpp
 
 **Strengths:**
+
 - Best CPU inference performance
 - Minimal dependencies (C++ binary)
 - Extensive quantization options (GGUF)
 - Runs on edge devices and embedded systems
 
 **Considerations:**
+
 - CPU-bound (much slower than GPU)
 - Basic batching support
 - Manual quantization and model conversion
 
 **Best for:**
+
 - CPU-only deployment requirements
 - Edge devices and embedded systems
 - Minimal infrastructure overhead

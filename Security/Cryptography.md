@@ -11,7 +11,7 @@ tags:
   - concept
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Cryptography
@@ -40,6 +40,7 @@ Same key for encryption and decryption. Fast, suitable for bulk data.
 | **Blowfish** | 32-448-bit | 64-bit | ❌ Superseded by AES | Legacy systems only |
 
 **Modes of Operation:**
+
 - **GCM (Galois/Counter Mode)**: Provides both encryption and authentication (AEAD)
 - **CBC (Cipher Block Chaining)**: Requires separate MAC, older standard
 - **CTR (Counter Mode)**: Converts block cipher to stream cipher
@@ -60,6 +61,7 @@ Key pairs (public/private). Slower, used for key exchange and digital signatures
 | **DSA** | 1024-3072-bit | Moderate | ❌ Deprecated | Legacy only |
 
 **ECC Advantages:**
+
 - Smaller keys (256-bit ECC ≈ 3072-bit RSA security)
 - Faster computation
 - Lower power consumption
@@ -144,6 +146,7 @@ Transport Layer Security — encrypts data in transit.
 | **SSL 3.0** | ❌ Broken | POODLE attack |
 
 **TLS 1.3 Cipher Suites (all AEAD):**
+
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_CHACHA20_POLY1305_SHA256`
 - `TLS_AES_128_GCM_SHA256`
@@ -173,6 +176,7 @@ Transport Layer Security — encrypts data in transit.
 | **Destruction** | Secure deletion when keys expire |
 
 **Common KMS:**
+
 - AWS KMS
 - Google Cloud KMS
 - Azure Key Vault
@@ -273,6 +277,7 @@ Algorithms resistant to quantum computer attacks.
 ## Anti-Patterns
 
 **❌ NEVER:**
+
 - Roll your own crypto
 - Use ECB mode
 - Use MD5 or SHA-1 for security purposes
@@ -283,6 +288,7 @@ Algorithms resistant to quantum computer attacks.
 - Use weak random number generators (`Math.random()`)
 
 **✅ ALWAYS:**
+
 - Use well-vetted libraries (OpenSSL, libsodium, cryptography.io)
 - Use authenticated encryption (AEAD: AES-GCM, ChaCha20-Poly1305)
 - Use cryptographically secure random number generators
@@ -315,6 +321,11 @@ Algorithms resistant to quantum computer attacks.
 
 ## Related
 
+- [[Elliptic Curve Cryptography]] — Deep dive into ECC, curves, and EdDSA
+- [[Post-Quantum Cryptography]] — NIST PQC standards, migration strategies
+- [[Forward Secrecy]] — Perfect forward secrecy, future secrecy, Double Ratchet
+- [[One-Time Pad]] — The only provably unbreakable cipher
+- [[Cryptographic Algorithms Comparison]] — Side-by-side algorithm comparison
 - [[Security Concepts]]
 - [[Auth Standards & RFCs]]
 - [[TLS Best Practices]]

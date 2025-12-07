@@ -11,7 +11,7 @@ tags:
   - tooling
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # MCP Registry
@@ -42,16 +42,19 @@ Registries maintain metadata about available MCP servers including:
 ### Discovery Mechanisms
 
 **Public Registries**: Community-maintained catalogs (Smithery, mcp.run)
+
 - Searchable by capability, domain, language
 - Version history and changelog tracking
 - Usage statistics and community ratings
 
 **Private Registries**: Organization-internal catalogs
+
 - Custom approval workflows
 - Enterprise authentication integration
 - Compliance and security scanning
 
 **Dynamic Discovery**: Runtime server enumeration
+
 - Server announces capabilities on connection
 - Client queries available tools/resources
 - No pre-registration required
@@ -174,6 +177,7 @@ runtime:
 Registries expose tool schemas for static analysis and validation:
 
 **Schema Structure**:
+
 - Tool name and description
 - Input parameter types and constraints
 - Output format specification
@@ -181,6 +185,7 @@ Registries expose tool schemas for static analysis and validation:
 - Examples and usage patterns
 
 **Use Cases**:
+
 - IDE autocomplete and validation
 - Client-side validation before invocation
 - Documentation generation
@@ -191,6 +196,7 @@ Registries expose tool schemas for static analysis and validation:
 Registries catalog available resource types:
 
 **Resource Metadata**:
+
 - URI template patterns
 - MIME types and formats
 - Access control requirements
@@ -198,6 +204,7 @@ Registries catalog available resource types:
 - Rate limiting information
 
 **Discovery Flow**:
+
 1. Client queries registry for resource-providing servers
 2. Registry returns matching servers with resource templates
 3. Client connects to server and requests specific resources

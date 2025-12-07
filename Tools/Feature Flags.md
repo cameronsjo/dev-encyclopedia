@@ -10,7 +10,7 @@ tags:
   - deployment
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Feature Flags
@@ -72,6 +72,7 @@ Entitlements and access control.
 Determine who sees which variant.
 
 **Common Targeting Criteria:**
+
 - User attributes (ID, email, role, tier)
 - Geographic location (country, region, city)
 - Device/platform (mobile, desktop, OS, browser)
@@ -80,6 +81,7 @@ Determine who sees which variant.
 - Allowlists/blocklists (specific user IDs)
 
 **Rule Composition:**
+
 - AND/OR logic combining multiple criteria
 - Rule priority and fallback behavior
 - Default variants for non-matching users
@@ -93,6 +95,7 @@ Initial: 1% → Monitor metrics → 5% → 25% → 50% → 100%
 ```
 
 **Strategies:**
+
 - **Percentage-based**: Random selection of user percentage
 - **Ring-based**: Internal → Beta users → Power users → All users
 - **Geographic**: Region by region rollout
@@ -103,12 +106,14 @@ Initial: 1% → Monitor metrics → 5% → 25% → 50% → 100%
 Compare variants to measure impact.
 
 **Key Components:**
+
 - **Variants**: Control (A), Treatment (B), optional C/D/E
 - **Metrics**: Primary (conversion), Secondary (engagement, revenue)
 - **Statistical significance**: Confidence intervals, sample sizes
 - **Consistent assignment**: User always sees same variant
 
 **Example Setup:**
+
 - Control: Current checkout (50%)
 - Treatment A: One-click checkout (25%)
 - Treatment B: Guest checkout (25%)
@@ -119,12 +124,14 @@ Compare variants to measure impact.
 Instant rollback without deployment.
 
 **Use Cases:**
+
 - Bug discovered in production
 - Performance degradation from new feature
 - Third-party service outage affecting feature
 - Unexpected user behavior or confusion
 
 **Best Practices:**
+
 - Monitor metrics for automatic triggers
 - Define rollback criteria upfront
 - Test kill switch before rollout
@@ -162,18 +169,21 @@ Instant rollback without deployment.
 ### Client-Side vs Server-Side
 
 **Client-Side Evaluation:**
+
 - SDK downloads flag state to client
 - Fast evaluation (no network calls)
 - Risk: Flag rules visible to users
 - Best for: Public flags, low-sensitivity targeting
 
 **Server-Side Evaluation:**
+
 - SDK queries service for each evaluation
 - Targeting rules remain private
 - Latency consideration (use caching)
 - Best for: Sensitive logic, fine-grained targeting
 
 **Hybrid Approach:**
+
 - Edge workers evaluate at CDN layer
 - Low latency + server-side privacy
 - Supported by LaunchDarkly, Split, Unleash
@@ -196,6 +206,7 @@ graph LR
 ```
 
 **Best Practices:**
+
 - Create flag in platform first
 - Reference flag in code via constants
 - Deploy code with flag off
@@ -206,6 +217,7 @@ graph LR
 ### Flag Management
 
 **Naming Conventions:**
+
 ```
 release.new-checkout-flow
 ops.recommendation-engine
@@ -214,12 +226,14 @@ permission.advanced-analytics
 ```
 
 **Organization:**
+
 - Prefix by type (release, ops, experiment, permission)
 - Use kebab-case for readability
 - Include ticket/epic number for traceability
 - Tag with team, service, domain
 
 **Preventing Flag Sprawl:**
+
 - Set TTL/expiration dates on creation
 - Automated alerts for stale flags
 - Quarterly flag cleanup sprints
@@ -244,42 +258,49 @@ permission.advanced-analytics
 ### Platform Selection Criteria
 
 **Choose LaunchDarkly if:**
+
 - Enterprise org with budget
 - Need mature integrations (Datadog, Slack, Jira)
 - Require robust RBAC and compliance
 - Want best-in-class support
 
 **Choose Split if:**
+
 - Strong focus on experimentation/A/B testing
 - Need tight analytics integration
 - Value feature impact measurement
 - Want built-in statistical analysis
 
 **Choose Unleash if:**
+
 - Want open source flexibility
 - Need data residency/privacy control
 - Have infra team to manage deployment
 - Want no per-user pricing
 
 **Choose Flagsmith if:**
+
 - Want simpler OSS option than Unleash
 - Need easy self-hosting
 - Prefer straightforward UI
 - Don't need extensive integrations
 
 **Choose ConfigCat if:**
+
 - Startup/small team with budget constraints
 - Want transparent, predictable pricing
 - Need good DX without enterprise complexity
 - Appreciate generous free tier
 
 **Choose PostHog if:**
+
 - Already using PostHog for analytics
 - Want all-in-one product analytics + flags
 - Prefer unified user tracking
 - Value integrated experimentation + insights
 
 **Build custom if:**
+
 - Very simple use cases (on/off toggles)
 - Strong privacy/compliance requirements
 - Existing config infrastructure to extend
@@ -314,18 +335,21 @@ sequenceDiagram
 ### Caching Strategy
 
 **Local SDK Cache:**
+
 - In-memory cache of flag states
 - TTL: 1-5 minutes typical
 - Reduces latency and service load
 - Trade-off: Slight staleness acceptable
 
 **Edge Caching:**
+
 - Evaluate at CDN edge workers
 - Sub-millisecond latency
 - Reduced origin load
 - Best of client + server approaches
 
 **Backend Cache:**
+
 - Redis/Memcached for server-side SDKs
 - Shared across instances
 - Faster than service calls
@@ -369,17 +393,20 @@ sequenceDiagram
 ## Security Considerations
 
 **Flag Privacy:**
+
 - Server-side evaluation for sensitive targeting
 - Avoid exposing business logic in client flags
 - Use environment-specific SDKs
 
 **Access Control:**
+
 - RBAC for flag modifications
 - Audit logs for all changes
 - Approval workflows for production
 - Separate dev/staging/prod environments
 
 **Data Exposure:**
+
 - Don't log user PII in flag events
 - Sanitize user context before sending
 - Consider data residency requirements
@@ -388,6 +415,7 @@ sequenceDiagram
 ## Monitoring and Observability
 
 **Key Metrics:**
+
 - Flag evaluation rate
 - Evaluation errors/timeouts
 - Cache hit rate
@@ -395,12 +423,14 @@ sequenceDiagram
 - Feature-specific metrics (conversion, latency, errors)
 
 **Alerting:**
+
 - Sudden spike in evaluation errors
 - Feature metrics degrade during rollout
 - Kill switch activated
 - Flag not cleaned up after TTL
 
 **Integration:**
+
 - Connect to APM (Datadog, New Relic)
 - Link to incident management (PagerDuty)
 - Export to data warehouse for analysis

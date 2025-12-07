@@ -1,3 +1,18 @@
+---
+title: Agent Registry
+aliases:
+  - AI Agent Registry
+  - Agent Discovery
+tags:
+  - machine-learning
+  - ai-agents
+  - infrastructure
+  - concept
+type: reference
+status: complete
+created: "2025-12-07"
+---
+
 # Agent Registry
 
 A centralized service for discovering, advertising, and managing AI agents in multi-agent systems.
@@ -215,12 +230,14 @@ sequenceDiagram
 ### When to Use Agent Registry vs Service Registry
 
 **Use Agent Registry when:**
+
 - Discovering agents by capability, not just endpoint
 - Managing AI-specific metadata (models, performance, schemas)
 - Orchestrating multi-agent workflows with A2A/MCP protocols
 - Building agent marketplaces or enterprise AI platforms
 
 **Use Service Registry when:**
+
 - Traditional microservice discovery (REST/gRPC services)
 - Simple health checks and load balancing
 - No AI-specific capability advertisement needed
@@ -233,11 +250,13 @@ sequenceDiagram
 Single authoritative registry for all agents:
 
 **Strengths:**
+
 - Simple to query and manage
 - Consistent view across system
 - Easy to enforce policies
 
 **Considerations:**
+
 - Single point of failure (mitigate with replication)
 - Potential bottleneck at scale
 - Network latency for distributed agents
@@ -249,11 +268,13 @@ Single authoritative registry for all agents:
 Multiple regional or domain-specific registries:
 
 **Strengths:**
+
 - Geographic distribution, lower latency
 - Domain isolation (security, compliance)
 - Horizontal scalability
 
 **Considerations:**
+
 - Synchronization complexity
 - Cross-registry discovery challenges
 - Consistent policy enforcement
@@ -265,11 +286,13 @@ Multiple regional or domain-specific registries:
 Distributed discovery with central coordination:
 
 **Strengths:**
+
 - Local discovery speed
 - Central governance
 - Resilience to network partitions
 
 **Considerations:**
+
 - Implementation complexity
 - Eventual consistency trade-offs
 - Conflict resolution required

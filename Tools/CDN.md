@@ -10,7 +10,7 @@ tags:
   - tool
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # CDN
@@ -131,11 +131,13 @@ graph TB
 ```
 
 **Benefits:**
+
 - Geographic optimization (use best CDN per region)
 - Failover capability
 - Leverage provider strengths (Cloudflare DDoS + Fastly VCL)
 
 **Challenges:**
+
 - Complexity in cache invalidation
 - Higher costs
 - Split analytics
@@ -156,6 +158,7 @@ graph LR
 ```
 
 **Use Cases:**
+
 - API responses with predictable data
 - A/B testing and feature flags
 - Authentication/authorization checks
@@ -182,6 +185,7 @@ graph TB
 ```
 
 **Configuration Example (CloudFront):**
+
 - Enable Origin Shield in region closest to origin
 - All edge locations route through shield
 - Reduces origin requests by 80-90%
@@ -252,6 +256,7 @@ CDN-provided transformations:
 - **Lazy Loading Headers:** `Link: <image.jpg>; rel=preload; as=image`
 
 **Example (Cloudflare Images):**
+
 ```
 https://example.com/cdn-cgi/image/width=800,format=auto/image.jpg
 ```
@@ -366,6 +371,7 @@ Available data from CDN providers:
 ### Best For
 
 **Use CDN when:**
+
 - Serving users across multiple geographic regions
 - High traffic volume (>1TB/month bandwidth)
 - Need DDoS protection and WAF
@@ -373,6 +379,7 @@ Available data from CDN providers:
 - API responses have cacheability (even short TTL helps)
 
 **Skip CDN when:**
+
 - Purely local/regional audience (single data center sufficient)
 - 100% dynamic, user-specific content with no caching
 - Very low traffic (<100GB/month)

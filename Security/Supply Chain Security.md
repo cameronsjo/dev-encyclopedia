@@ -11,7 +11,7 @@ tags:
   - compliance
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Supply Chain Security
@@ -46,6 +46,7 @@ Machine-readable inventory of all components in software.
 | **Best For** | Continuous security scanning | Compliance, audit trails |
 
 **When to Use Which:**
+
 - **CycloneDX:** Agile security-first environments, DevSecOps pipelines
 - **SPDX:** Regulatory compliance, enterprise procurement, license auditing
 - **Both:** Generate both for maximum interoperability
@@ -71,11 +72,13 @@ Machine-readable inventory of all components in software.
 Identical binaries produced from same source, regardless of build environment.
 
 **Benefits:**
+
 - Verify official binaries match source code
 - Detect build-time tampering
 - Enable independent verification
 
 **Challenges:**
+
 - Timestamps, file ordering, environment variables
 - Compiler non-determinism
 - Build tool versions
@@ -93,6 +96,7 @@ Open-source signing and verification for software artifacts.
 | **Fulcio** | Short-lived signing certificates tied to OIDC | Let's Encrypt for code signing |
 
 **Workflow:**
+
 1. Developer authenticates via OIDC (GitHub, Google, etc.)
 2. Fulcio issues short-lived certificate (10 minutes)
 3. Cosign signs artifact with ephemeral key
@@ -100,6 +104,7 @@ Open-source signing and verification for software artifacts.
 5. Consumer verifies against transparency log
 
 **Key Benefits:**
+
 - No long-lived private keys to manage
 - Public transparency log prevents backdating
 - Identity-based trust (who signed) vs key-based (what key signed)
@@ -153,6 +158,7 @@ Not all CVEs require immediate action. Focus on:
 4. **Fix Availability:** Is a patch available?
 
 **Prioritization Frameworks:**
+
 - **CVSS:** Base score (severity) + environmental adjustments
 - **EPSS:** Probability of exploitation (data-driven)
 - **VEX (Vulnerability Exploitability eXchange):** Document which CVEs affect your product
@@ -171,6 +177,7 @@ Not all CVEs require immediate action. Focus on:
 | **Proprietary** | ⚠️ | ❌ | ❌ | ❌ |
 
 **Red Flags:**
+
 - GPL/AGPL in proprietary software (copyleft contamination)
 - Missing license (assume proprietary)
 - Custom licenses (legal review required)
@@ -188,6 +195,7 @@ Not all CVEs require immediate action. Focus on:
 ### Secure Build Practices
 
 **CI/CD Hardening:**
+
 - Use ephemeral build environments
 - Pin dependencies with lock files (package-lock.json, Pipfile.lock, go.sum)
 - Verify checksums of downloaded tools
@@ -195,6 +203,7 @@ Not all CVEs require immediate action. Focus on:
 - Minimal permissions for CI service accounts
 
 **Artifact Signing:**
+
 ```bash
 # Generate SBOM
 syft packages myapp:latest -o cyclonedx-json > sbom.json
@@ -227,11 +236,13 @@ Supply chain metadata specification for end-to-end verification.
 ### Admission Control (Kubernetes)
 
 **Policy Enforcement:**
+
 - **Open Policy Agent (OPA) Gatekeeper:** Rego policies for allowed registries, required signatures
 - **Kyverno:** Kubernetes-native policies (YAML)
 - **Ratify (Notary v2):** Verify artifact signatures before admission
 
 **Example Policies:**
+
 - Only allow images from approved registries
 - Require Sigstore signatures
 - Block images with critical vulnerabilities
@@ -240,11 +251,13 @@ Supply chain metadata specification for end-to-end verification.
 ### Software Composition Analysis (SCA) at Runtime
 
 **Why Runtime Scanning:**
+
 - Base images updated after deployment
 - New CVEs disclosed after release
 - Detect runtime-loaded dependencies
 
 **Tools:**
+
 - **Anchore Enterprise:** Continuous container scanning
 - **Aqua Security:** Runtime vulnerability management
 - **Sysdig Secure:** Threat detection + vulnerability correlation
@@ -274,6 +287,7 @@ Supply chain metadata specification for end-to-end verification.
 ### Quick Start Checklist
 
 **Immediate Wins:**
+
 - [ ] Enable Dependabot (GitHub) or Renovate (GitLab)
 - [ ] Generate SBOMs in CI/CD (Syft)
 - [ ] Scan containers before push (Trivy)
@@ -281,6 +295,7 @@ Supply chain metadata specification for end-to-end verification.
 - [ ] Sign release artifacts (Cosign)
 
 **Medium Term:**
+
 - [ ] Implement SLSA Level 2 provenance
 - [ ] Automate license compliance checks
 - [ ] Set up Rekor transparency log monitoring
@@ -288,6 +303,7 @@ Supply chain metadata specification for end-to-end verification.
 - [ ] Establish vulnerability triage process
 
 **Advanced:**
+
 - [ ] Achieve SLSA Level 3 with hermetic builds
 - [ ] Implement reproducible builds
 - [ ] Integrate VEX for false positive reduction
@@ -297,6 +313,7 @@ Supply chain metadata specification for end-to-end verification.
 ## Best Practices
 
 **Dependency Management:**
+
 - Review dependencies before adding (maintenance, security history)
 - Minimize dependency count
 - Prefer well-maintained libraries over abandoned ones
@@ -304,6 +321,7 @@ Supply chain metadata specification for end-to-end verification.
 - Monitor for typosquatting attacks
 
 **Build Security:**
+
 - Run builds in isolated, ephemeral environments
 - Use minimal base images (distroless, Alpine)
 - Multi-stage Dockerfiles (separate build and runtime)
@@ -311,6 +329,7 @@ Supply chain metadata specification for end-to-end verification.
 - Verify all downloaded artifacts (checksums, signatures)
 
 **Monitoring & Response:**
+
 - Subscribe to security advisories (GitHub, CVE feeds)
 - Establish SLAs for patching by severity
 - Maintain inventory of all deployed software

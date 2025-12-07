@@ -10,7 +10,7 @@ tags:
   - domain
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Web3 Development
@@ -71,12 +71,14 @@ Blockchain infrastructure providers offering HTTP/WebSocket access to read state
 ### Connection Patterns
 
 **Modern (wagmi + RainbowKit):**
+
 - Handles multi-wallet support automatically
 - Built-in UI for wallet selection
 - Account and network management
 - React hooks for wallet state
 
 **Direct (ethers.js/viem):**
+
 - Manual wallet detection and connection
 - Custom UI required
 - More control, more code
@@ -198,18 +200,21 @@ graph TD
 ### Data Layer Strategies
 
 **Direct RPC (Simple Apps)**
+
 - Read contract state directly via web3 library
 - Listen to events for real-time updates
 - Good for: Simple contracts, low data requirements
 - Limitations: Slow queries, no historical data aggregation
 
 **The Graph (Complex Queries)**
+
 - Indexer that creates GraphQL API from blockchain events
 - Define subgraph schema mapping events to entities
 - Good for: NFT marketplaces, DeFi dashboards, analytics
 - Limitations: Indexing delay, subgraph development overhead
 
 **Centralized API + Verification (Hybrid)**
+
 - Backend indexes blockchain data into database
 - Frontend verifies critical data on-chain
 - Good for: Fast UX with trust verification
@@ -218,16 +223,19 @@ graph TD
 ### State Management
 
 **On-Chain State (Source of Truth)**
+
 - Token balances, NFT ownership, contract configuration
 - Read via RPC, updated via transactions
 - Always verify critical data on-chain
 
 **Off-Chain State (Performance)**
+
 - UI preferences, cached data, draft transactions
 - Use React state, Zustand, or Jotai
 - Sync with on-chain state after confirmations
 
 **Hybrid Pattern**
+
 - Optimistic updates in UI (instant feedback)
 - Transaction pending state (wallet confirms)
 - Block confirmation (finalized state)
@@ -245,6 +253,7 @@ graph TD
 | **Services** | Pinata, NFT.Storage, Web3.Storage (managed pinning) |
 
 **Common Patterns:**
+
 - Store metadata JSON on IPFS, reference by hash in smart contract
 - Use `ipfs://` URIs in contracts, resolve via gateway in frontend
 - Pin important content to prevent garbage collection
@@ -257,6 +266,7 @@ Indexing protocol that transforms blockchain events into queryable GraphQL APIs.
 ### Subgraph Components
 
 **Schema (GraphQL)**
+
 ```graphql
 type Token @entity {
   id: ID!
@@ -276,11 +286,13 @@ type Transfer @entity {
 ```
 
 **Mapping (Event Handlers)**
+
 - AssemblyScript functions triggered by contract events
 - Create/update entities in graph database
 - Handle Transfer, Mint, Burn events
 
 **Query (Frontend)**
+
 ```graphql
 query NFTsByOwner($owner: Bytes!) {
   tokens(where: { owner: $owner }, orderBy: tokenId) {
@@ -295,6 +307,7 @@ query NFTsByOwner($owner: Bytes!) {
 ```
 
 **When to Use The Graph:**
+
 - ✅ Complex queries (filters, sorting, aggregations)
 - ✅ Historical data and time-series analytics
 - ✅ Multi-contract data joins
@@ -306,16 +319,19 @@ query NFTsByOwner($owner: Bytes!) {
 ### Reading Blockchain State
 
 **Token Balances**
+
 - ERC-20: `balanceOf(address)` - Returns wei/smallest unit
 - ERC-721: `balanceOf(address)` - Returns NFT count
 - ERC-1155: `balanceOf(address, tokenId)` - Returns amount of specific token
 
 **Contract Configuration**
+
 - Read public state variables (name, symbol, totalSupply)
 - Call view/pure functions (no gas cost)
 - Batch reads with multicall for efficiency
 
 **Block Data**
+
 - Current block number, timestamp, gas price
 - Used for deadlines, auctions, time-based logic
 
@@ -331,6 +347,7 @@ query NFTsByOwner($owner: Bytes!) {
 6. **Handle Result** - Update UI, show confirmation
 
 **Gas Optimization**
+
 - Use `eth_estimateGas` for accurate estimates
 - Add 10-20% buffer for safety
 - Consider EIP-1559 (base fee + priority fee)
@@ -357,6 +374,7 @@ const unwatch = publicClient.watchContractEvent({
 ```
 
 **Historical Events**
+
 - Query past events with filters (block range, indexed parameters)
 - Reconstruct state from event history
 - Use for activity feeds, provenance tracking
@@ -373,6 +391,7 @@ const unwatch = publicClient.watchContractEvent({
 ### Metadata Pattern
 
 **On-Chain Reference (Contract)**
+
 ```solidity
 function tokenURI(uint256 tokenId) public view returns (string) {
     return string(abi.encodePacked("ipfs://", _baseURI, "/", tokenId, ".json"));
@@ -380,6 +399,7 @@ function tokenURI(uint256 tokenId) public view returns (string) {
 ```
 
 **Off-Chain Metadata (IPFS)**
+
 ```json
 {
   "name": "Cool NFT #123",
@@ -393,6 +413,7 @@ function tokenURI(uint256 tokenId) public view returns (string) {
 ```
 
 **Frontend Loading**
+
 1. Read `tokenURI(tokenId)` from contract
 2. Resolve IPFS URI via gateway
 3. Fetch and parse JSON metadata
@@ -412,10 +433,12 @@ function tokenURI(uint256 tokenId) public view returns (string) {
 Before interacting with DeFi protocols, users must approve token spending.
 
 **Two-Transaction Pattern:**
+
 1. `approve(spenderAddress, amount)` - Grant allowance
 2. `protocol.deposit(amount)` - Protocol transfers approved tokens
 
 **Infinite Approvals** - Common UX pattern, security tradeoff
+
 - Approve `type(uint256).max` to avoid repeated approvals
 - Convenient but risky if protocol has vulnerabilities
 - Consider limited approvals for security-conscious users
@@ -423,20 +446,24 @@ Before interacting with DeFi protocols, users must approve token spending.
 ### Common Interactions
 
 **DEX Swaps**
+
 - Approve token A, call swap function, receive token B
 - Handle slippage tolerance (max acceptable price change)
 - Display price impact before execution
 
 **Lending Protocols**
+
 - Deposit collateral, borrow assets, repay loans
 - Monitor health factor (collateral ratio)
 - Handle liquidation warnings
 
 **Staking**
+
 - Stake tokens, earn rewards, claim/compound, unstake
 - Track APY/APR, staking duration, lock periods
 
 **Liquidity Provision**
+
 - Add paired tokens to pools, receive LP tokens
 - Calculate impermanent loss risk
 - Track fees earned and pool composition
@@ -481,12 +508,14 @@ Before interacting with DeFi protocols, users must approve token spending.
 ### Next.js + wagmi + RainbowKit (Recommended)
 
 **Strengths:**
+
 - Complete wallet management out of the box
 - Server-side rendering support
 - Built-in hooks for contracts, balances, transactions
 - Beautiful wallet connection UI
 
 **Setup:**
+
 1. Wrap app with `WagmiConfig` and `RainbowKitProvider`
 2. Configure chains and providers
 3. Use hooks: `useAccount`, `useContractRead`, `useContractWrite`
@@ -494,11 +523,13 @@ Before interacting with DeFi protocols, users must approve token spending.
 ### Vanilla React + viem
 
 **Strengths:**
+
 - Minimal dependencies, full control
 - Custom wallet connection flow
 - Flexible state management
 
 **Tradeoffs:**
+
 - More boilerplate code
 - Manual multi-wallet support
 - Custom UI needed
@@ -520,11 +551,13 @@ Before interacting with DeFi protocols, users must approve token spending.
 ### Local Development
 
 **Hardhat Network**
+
 - Fork mainnet to test with real contracts
 - Fast mining, console.log in Solidity
 - Reset state between tests
 
 **Mock Contracts**
+
 - Deploy simplified versions for frontend testing
 - Predictable behavior, no gas costs
 - Fast iteration without blockchain dependency
@@ -532,11 +565,13 @@ Before interacting with DeFi protocols, users must approve token spending.
 ### Testnet Deployment
 
 **Popular Testnets:**
+
 - Sepolia (Ethereum) - Stable, well-supported
 - Mumbai (Polygon) - Fast, free MATIC from faucets
 - Goerli (Deprecated 2024) - Migrate to Sepolia
 
 **Best Practices:**
+
 - Test full user flows before mainnet
 - Get testnet tokens from faucets
 - Verify contracts on testnet explorers

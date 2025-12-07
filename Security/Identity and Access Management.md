@@ -11,7 +11,7 @@ tags:
   - concept
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Identity and Access Management
@@ -255,11 +255,13 @@ Provide elevated privileges only when needed, for limited time, with approval wo
 Never trust, always verify. Authenticate and authorize every request regardless of network location.
 
 **Principles**:
+
 - Verify explicitly (use all data points: identity, device, location, behavior)
 - Least privilege access (just-enough, just-in-time)
 - Assume breach (segment access, verify end-to-end encryption, analytics for threat detection)
 
 **Implementation**:
+
 - Strong authentication (MFA, passwordless)
 - Device trust (MDM, compliance checks)
 - Micro-segmentation (per-resource policies)
@@ -270,6 +272,7 @@ Never trust, always verify. Authenticate and authorize every request regardless 
 Eliminate passwords using FIDO2/WebAuthn, magic links, or biometrics.
 
 **Methods**:
+
 - **FIDO2/WebAuthn**: Hardware keys or platform authenticators (Face ID, Windows Hello)
 - **Magic Links**: One-time URLs sent to verified email
 - **Passkeys**: Synced FIDO2 credentials across devices (Apple/Google/Microsoft)
@@ -281,6 +284,7 @@ Eliminate passwords using FIDO2/WebAuthn, magic links, or biometrics.
 ### Session Management
 
 **Best Practices**:
+
 - Short-lived access tokens (5-15 minutes)
 - Longer-lived refresh tokens with rotation
 - Sliding session expiration for active users
@@ -311,6 +315,7 @@ Eliminate passwords using FIDO2/WebAuthn, magic links, or biometrics.
 ### Audit and Compliance
 
 **Log Everything**:
+
 - Authentication attempts (success and failure)
 - Authorization decisions
 - Permission changes
@@ -318,6 +323,7 @@ Eliminate passwords using FIDO2/WebAuthn, magic links, or biometrics.
 - Token issuance and revocation
 
 **Compliance Requirements**:
+
 - SOC 2: Access reviews, separation of duties, audit trails
 - GDPR: Right to access, right to be forgotten, consent management
 - HIPAA: Minimum necessary access, emergency access procedures, encryption

@@ -10,7 +10,7 @@ tags:
   - cryptography
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Blockchain Fundamentals
@@ -77,6 +77,7 @@ Binary hash trees enabling efficient verification:
 ```
 
 **Benefits:**
+
 - Verify single transaction without downloading entire block
 - Compact fraud proofs
 - Light client support (SPV - Simplified Payment Verification)
@@ -160,6 +161,7 @@ Binary hash trees enabling efficient verification:
 **Definition**: No single point of control or failure.
 
 **Spectrum:**
+
 - **Full nodes**: Store complete blockchain, validate all blocks
 - **Light nodes**: Store headers only, trust full nodes for transactions
 - **Mining/validator pools**: Concentration risk
@@ -169,6 +171,7 @@ Binary hash trees enabling efficient verification:
 ### Immutability
 
 **Why Tamper-Proof**:
+
 1. Changing block N requires rehashing blocks N → tip
 2. Attacker must outpace honest chain growth
 3. Economic cost (PoW electricity, PoS slashing) exceeds gain
@@ -180,6 +183,7 @@ Binary hash trees enabling efficient verification:
 **Byzantine Generals Problem**: Reaching consensus when some participants are malicious/faulty.
 
 **Blockchain Solutions:**
+
 - PoW: Computational majority assumed honest
 - PoS: Economic majority assumed honest
 - PBFT: 2/3 honest validator supermajority required
@@ -196,11 +200,13 @@ Binary hash trees enabling efficient verification:
 ### Finality
 
 **Probabilistic Finality (PoW)**:
+
 - Each confirmation increases reversal difficulty
 - Never 100% certain (but exponentially unlikely)
 - Bitcoin convention: 6 confirmations ≈ irreversible
 
 **Deterministic Finality (PoS/PBFT)**:
+
 - Explicit checkpoint after supermajority attestation
 - Mathematically guaranteed (barring >33% validator collusion)
 - Faster economic settlement
@@ -227,7 +233,7 @@ Binary hash trees enabling efficient verification:
 
 ## When to Use Blockchain
 
-### Blockchain is Ideal When:
+### Blockchain is Ideal When
 
 | Requirement | Why Blockchain Helps |
 |-------------|---------------------|
@@ -237,7 +243,7 @@ Binary hash trees enabling efficient verification:
 | **Transparency required** | Public verification of rules/state |
 | **Value transfer** | Native support for digital assets |
 
-### Blockchain is Overkill When:
+### Blockchain is Overkill When
 
 | Scenario | Better Solution |
 |----------|----------------|

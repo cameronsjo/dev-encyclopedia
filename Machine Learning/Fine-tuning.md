@@ -12,7 +12,7 @@ tags:
   - training
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Fine-tuning
@@ -43,6 +43,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ### Use Cases for Fine-tuning
 
 **Strong candidates:**
+
 - Instruction following in specific formats (JSON, SQL, code)
 - Domain-specific terminology and reasoning (medical, legal, technical)
 - Tone and style consistency (customer service, brand voice)
@@ -50,6 +51,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 - Reducing hallucinations on known domains
 
 **Poor candidates:**
+
 - Adding recent factual knowledge (use RAG)
 - One-off tasks or experiments (use prompting)
 - Tasks with <100 quality examples
@@ -62,6 +64,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 **Description:** Update all model parameters during training.
 
 **Characteristics:**
+
 - Highest quality potential
 - Maximum memory requirements (model weights + gradients + optimizer states)
 - Risk of catastrophic forgetting
@@ -76,6 +79,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 **Mathematics:** For weight matrix W, learn ΔW = BA where B and A are low-rank (r << d).
 
 **Characteristics:**
+
 - 90%+ memory reduction vs full fine-tuning
 - Trainable parameters: typically 0.1-1% of model size
 - Minimal quality degradation
@@ -89,6 +93,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 **Description:** LoRA with base model quantized to 4-bit precision.
 
 **Characteristics:**
+
 - Further 75% memory reduction vs LoRA
 - Enables fine-tuning 70B models on single 48GB GPU
 - Minimal quality loss vs full-precision LoRA
@@ -101,6 +106,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 **Description:** Insert small trainable modules between frozen transformer layers.
 
 **Characteristics:**
+
 - Similar memory savings to LoRA
 - Slightly more inference overhead
 - Can be stacked or composed
@@ -113,6 +119,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 **Description:** Learn continuous task-specific vectors prepended to input embeddings.
 
 **Characteristics:**
+
 - Smallest number of parameters (10K-100K)
 - Fastest training
 - No model architecture changes
@@ -130,7 +137,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 | **Adapters** | 1-5% (70-350M) | ~15GB | ✅ Very Good | ⚠️ Moderate | Multi-adapter scenarios |
 | **Prefix Tuning** | <0.01% (<1M) | ~10GB | ⚠️ Good | ✅ Fast | Simple tasks, experiments |
 
-*Memory estimates for training 7B parameter model (FP16/BF16)*
+_Memory estimates for training 7B parameter model (FP16/BF16)_
 
 ## Dataset Preparation
 
@@ -139,6 +146,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 **Priority:** Quality over quantity. 500 excellent examples > 5,000 mediocre ones.
 
 **Required elements:**
+
 - Consistent format across all examples
 - Representative of target task distribution
 - Diverse enough to prevent overfitting
@@ -157,6 +165,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ### Data Format
 
 **Instruction format (most common):**
+
 ```json
 {
   "instruction": "Classify the sentiment of this review",
@@ -166,6 +175,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ```
 
 **Chat format:**
+
 ```json
 {
   "messages": [
@@ -200,12 +210,14 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ### Learning Rate Strategies
 
 **Conservative (recommended starting point):**
+
 - Full fine-tune: 1e-5 to 5e-5
 - LoRA: 1e-4 to 3e-4
 - Use linear warmup (10% of total steps)
 - Cosine decay to 10% of peak
 
 **Aggressive (for quick experiments):**
+
 - 2-5x higher learning rates
 - Shorter warmup
 - Higher risk of instability
@@ -240,12 +252,14 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ### During Training
 
 **Monitor these metrics:**
+
 - Training loss (should decrease smoothly)
 - Validation loss (should track training, watch for divergence)
 - Learning rate schedule
 - Gradient norms (watch for explosions)
 
 **Warning signs:**
+
 - Validation loss increasing while training decreases (overfitting)
 - Loss plateaus early (learning rate too low, data insufficient)
 - NaN or exploding gradients (learning rate too high, numerical instability)
@@ -253,16 +267,19 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ### Post-Training
 
 **Task-specific metrics:**
+
 - Classification: Accuracy, F1, precision, recall
 - Generation: BLEU, ROUGE, perplexity
 - Instruction following: Human evaluation, GPT-4 as judge
 
 **General capability preservation:**
+
 - Run base model benchmarks (MMLU, HellaSwag, etc.)
 - Compare pre/post fine-tuning scores
 - Test edge cases and out-of-distribution inputs
 
 **A/B testing:**
+
 - Deploy alongside base model
 - Measure task success rates
 - Monitor hallucination rates
@@ -285,21 +302,25 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 ### Training Frameworks
 
 **Hugging Face Transformers + PEFT:**
+
 - Most popular, extensive model support
 - Easy LoRA/QLoRA integration
 - SFTTrainer for supervised fine-tuning
 
 **Axolotl:**
+
 - Configuration-driven fine-tuning
 - Optimized for common workflows
 - Built on Transformers/PEFT
 
 **LLaMA Factory:**
+
 - Web UI for fine-tuning
 - Supports multiple methods
 - Good for beginners
 
 **OpenAI Fine-tuning API:**
+
 - Managed service for GPT models
 - No infrastructure management
 - Limited customization
@@ -317,6 +338,7 @@ Adapting pre-trained models to specific tasks or domains by continuing training 
 Train on multiple tasks simultaneously to improve generalization.
 
 **Approaches:**
+
 - Task-specific prefixes or adapters
 - Weighted loss across tasks
 - Curriculum learning (simple → complex)
@@ -326,6 +348,7 @@ Train on multiple tasks simultaneously to improve generalization.
 Further align models with human preferences after supervised fine-tuning.
 
 **Process:**
+
 1. Supervised fine-tuning (SFT) on demonstrations
 2. Train reward model on preference rankings
 3. Optimize policy with PPO/DPO
@@ -337,6 +360,7 @@ Further align models with human preferences after supervised fine-tuning.
 Sequentially fine-tune on new tasks without forgetting previous ones.
 
 **Techniques:**
+
 - Elastic Weight Consolidation (EWC)
 - Progressive adapter addition
 - Memory replay buffers

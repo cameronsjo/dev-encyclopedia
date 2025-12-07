@@ -11,7 +11,7 @@ tags:
   - monitoring
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # AI Observability
@@ -31,7 +31,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 ## Core Capabilities
 
 ### Trace Visualization
+
 **Track execution flow through LLM pipelines:**
+
 - Individual LLM API calls with request/response payloads
 - Multi-step agent reasoning chains and decision points
 - RAG pipeline stages: retrieval, reranking, generation
@@ -39,7 +41,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 - Parallel execution paths in agent orchestration
 
 ### Token and Cost Tracking
+
 **Monitor resource consumption:**
+
 - Per-request token counts (prompt + completion)
 - Cumulative usage per user, session, or feature
 - Real-time cost calculation with model-specific pricing
@@ -47,7 +51,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 - Historical trends for capacity planning
 
 ### Latency Analysis
+
 **Identify performance bottlenecks:**
+
 - Time-to-first-token (TTFT) metrics
 - Total generation latency per request
 - Streaming chunk intervals
@@ -55,7 +61,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 - Queue wait times and throttling events
 
 ### Prompt Management
+
 **Version control for prompts:**
+
 - Prompt template versioning with git-like diffs
 - A/B testing support with traffic splitting
 - Rollback capabilities for bad deployments
@@ -63,7 +71,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 - Audit trail for prompt changes
 
 ### Agent Debugging
+
 **Inspect multi-step reasoning:**
+
 - Step-by-step agent decision logs
 - Intermediate outputs and internal monologue
 - Tool selection rationale and parameters
@@ -71,7 +81,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 - Loop detection and termination analysis
 
 ### Quality Evaluation
+
 **Assess output correctness:**
+
 - Human feedback collection (thumbs up/down)
 - Automated evaluations (similarity, faithfulness, hallucination detection)
 - Custom evaluators with LLM-as-judge patterns
@@ -92,7 +104,9 @@ Specialized observability for LLM applications: trace generation calls, track to
 ## Integration Patterns
 
 ### SDK Instrumentation
+
 **Direct code integration:**
+
 ```python
 # LangSmith example
 from langsmith import trace
@@ -106,7 +120,9 @@ def generate_response(prompt: str) -> str:
 **Cons:** Code changes required, framework lock-in risk
 
 ### Gateway Proxy
+
 **Intercept LLM API calls:**
+
 ```bash
 # Route OpenAI calls through Helicone
 export OPENAI_API_BASE=https://oai.hconeai.com/v1
@@ -117,7 +133,9 @@ export HELICONE_API_KEY=your_key
 **Cons:** Additional network latency, single point of failure
 
 ### OpenTelemetry Extension
+
 **Standards-based tracing:**
+
 ```python
 from opentelemetry import trace
 from openllmetry.instrumentation.openai import OpenAIInstrumentor
@@ -135,7 +153,9 @@ with tracer.start_as_current_span("llm_call"):
 ## Key Features by Use Case
 
 ### Production Monitoring
+
 **Essential capabilities:**
+
 - Real-time dashboards for latency and error rates
 - Cost tracking with budget alerts
 - PII detection and redaction
@@ -143,7 +163,9 @@ with tracer.start_as_current_span("llm_call"):
 - Incident correlation with traces
 
 ### Development & Debugging
+
 **Essential capabilities:**
+
 - Detailed trace inspection with payload viewing
 - Prompt playground for testing variations
 - Agent step-by-step debugging
@@ -151,7 +173,9 @@ with tracer.start_as_current_span("llm_call"):
 - Diff comparison between prompt versions
 
 ### Evaluation & Testing
+
 **Essential capabilities:**
+
 - Dataset management for regression tests
 - Batch evaluation runs
 - Custom evaluator definitions
@@ -159,7 +183,9 @@ with tracer.start_as_current_span("llm_call"):
 - A/B test result analysis
 
 ### Security & Compliance
+
 **Essential capabilities:**
+
 - Audit logs for all LLM interactions
 - PII detection and anonymization
 - Prompt injection attempt logging
@@ -180,24 +206,28 @@ with tracer.start_as_current_span("llm_call"):
 ## Common Metrics
 
 ### Latency Metrics
+
 - **Time-to-First-Token (TTFT):** User-perceived responsiveness
 - **Total Latency:** End-to-end request duration
 - **Tokens per Second:** Streaming generation speed
 - **P95/P99 Latency:** Tail latency for SLA monitoring
 
 ### Cost Metrics
+
 - **Cost per Request:** Average spend per LLM call
 - **Daily/Monthly Budget Burn:** Cumulative spending trends
 - **Cost by Model:** Compare pricing across GPT-4, Claude, etc.
 - **Cost by Feature:** Attribute spending to product areas
 
 ### Quality Metrics
+
 - **Hallucination Rate:** % of factually incorrect outputs
 - **Retrieval Accuracy:** Relevance of RAG-retrieved documents
 - **User Feedback Score:** Thumbs up/down ratios
 - **Task Success Rate:** % of successful completions
 
 ### Usage Metrics
+
 - **Requests per Minute (RPM):** Traffic volume
 - **Token Throughput:** Total tokens processed
 - **Unique Users:** Active user counts
@@ -206,6 +236,7 @@ with tracer.start_as_current_span("llm_call"):
 ## Best Practices
 
 ### Instrumentation
+
 - Instrument at agent/pipeline boundaries, not individual LLM calls
 - Capture prompt templates separately from runtime variables
 - Include user ID and session ID for request correlation
@@ -213,6 +244,7 @@ with tracer.start_as_current_span("llm_call"):
 - Set sampling rates to balance cost and coverage
 
 ### Cost Management
+
 - Set per-user and per-feature budget limits
 - Monitor unexpected cost spikes with alerting
 - Use cheaper models for development/testing
@@ -220,6 +252,7 @@ with tracer.start_as_current_span("llm_call"):
 - Track cost attribution to product teams
 
 ### Security
+
 - Redact PII before sending to external observability platforms
 - Implement rate limiting per user/API key
 - Log prompt injection attempts for security analysis
@@ -227,6 +260,7 @@ with tracer.start_as_current_span("llm_call"):
 - Encrypt trace payloads in transit and at rest
 
 ### Evaluation
+
 - Maintain golden datasets for regression testing
 - Version evaluators alongside prompt changes
 - Run evaluations in CI/CD pipelines

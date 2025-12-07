@@ -11,7 +11,7 @@ tags:
   - testing
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # LLM Evaluation
@@ -34,21 +34,25 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### Quality Metrics
 
 **Faithfulness** - Output accuracy relative to source information (critical for RAG)
+
 - Measures hallucination and grounding
 - Checks citation accuracy
 - Validates fact consistency
 
 **Relevance** - Answer appropriateness to the query
+
 - Query-response alignment
 - Context utilization
 - Topic coherence
 
 **Coherence** - Logical flow and readability
+
 - Sentence structure quality
 - Argument consistency
 - Natural language fluency
 
 **Completeness** - Coverage of required information
+
 - Answer thoroughness
 - Missing critical details
 - Scope appropriateness
@@ -74,30 +78,35 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### Framework Details
 
 **RAGAS** (RAG Assessment)
+
 - Specialized for RAG system evaluation
 - Metrics: faithfulness, answer relevance, context precision/recall
 - Automated scoring using LLM-as-judge
 - Integrates with LangChain and LlamaIndex
 
 **LangSmith**
+
 - End-to-end observability and evaluation
 - Dataset management and versioning
 - Human annotation workflows
 - Production monitoring and debugging
 
 **Braintrust**
+
 - Focus on CI/CD integration for LLM apps
 - Regression detection across prompt versions
 - Cost and latency tracking
 - Collaborative review workflows
 
 **OpenAI Evals**
+
 - Template-based evaluation framework
 - Community-contributed eval sets
 - Model-graded and rule-based evals
 - JSON-based eval definitions
 
 **Promptfoo**
+
 - CLI-first workflow for rapid iteration
 - Multi-provider support (OpenAI, Anthropic, local models)
 - Automated red-teaming and security testing
@@ -108,16 +117,19 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### General Knowledge & Reasoning
 
 **MMLU (Massive Multitask Language Understanding)**
+
 - 57 subjects across STEM, humanities, social sciences
 - Multiple-choice format
 - Tests breadth of knowledge
 
 **GSM8K (Grade School Math 8K)**
+
 - 8,500 grade school math word problems
 - Tests multi-step reasoning
 - Chain-of-thought evaluation
 
 **HellaSwag**
+
 - Commonsense reasoning about everyday events
 - Sentence completion with context
 - Tests physical and social reasoning
@@ -125,11 +137,13 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### Code & Technical
 
 **HumanEval**
+
 - 164 hand-written programming problems
 - Function completion with test cases
 - Python-focused, pass@k metric
 
 **MBPP (Mostly Basic Python Problems)**
+
 - 974 entry-level Python programming tasks
 - Tests basic coding competency
 - More accessible than HumanEval
@@ -146,16 +160,19 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### Automated Metrics
 
 **Rule-Based**
+
 - Exact match, regex patterns
 - Format validation (JSON, structured output)
 - Fast, deterministic, limited scope
 
 **Model-Based (LLM-as-Judge)**
+
 - Use strong LLM to score weaker model outputs
 - Flexible criteria, closer to human judgment
 - Risk of bias, requires careful prompt design
 
 **Embedding Similarity**
+
 - Semantic similarity via vector distance
 - Good for paraphrase detection
 - Misses factual errors with similar meaning
@@ -163,16 +180,19 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### Human Evaluation
 
 **Expert Review**
+
 - Domain specialists assess outputs
 - High quality, expensive, slow
 - Gold standard for complex tasks
 
 **Crowdsourcing**
+
 - Scale via platforms (Mechanical Turk, Scale AI)
 - Requires quality control and clear rubrics
 - Cost-effective for volume
 
 **User Feedback**
+
 - Thumbs up/down, implicit signals (clicks, edits)
 - Real-world relevance
 - Noisy, requires aggregation
@@ -180,11 +200,13 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### A/B Testing
 
 **Online Experimentation**
+
 - Compare prompt/model versions in production
 - Measure business metrics (engagement, conversion)
 - Requires traffic and statistical significance
 
 **Interleaving**
+
 - Mix results from variants in single session
 - Faster convergence than traditional A/B
 - Good for ranking and recommendation tasks
@@ -192,11 +214,13 @@ Systematic assessment of LLM performance across quality, safety, and task-specif
 ### Regression Testing
 
 **Golden Datasets**
+
 - Curated examples with expected outputs
 - Detect degradation across model updates
 - Version control for prompts and expected results
 
 **CI/CD Integration**
+
 - Run evals on every prompt change
 - Automated pass/fail gates
 - Track metrics over time
@@ -239,18 +263,21 @@ graph TD
 ### Metric Selection
 
 **For RAG Systems:**
+
 - ✅ Faithfulness (most critical)
 - ✅ Answer relevance
 - ✅ Context precision/recall
 - ❌ Generic fluency (less important if factually correct)
 
 **For Chatbots:**
+
 - ✅ Coherence and naturalness
 - ✅ Instruction following
 - ✅ Safety and toxicity
 - ❌ Exact match (too strict for conversational AI)
 
 **For Code Generation:**
+
 - ✅ Pass@k (functional correctness)
 - ✅ Test coverage
 - ✅ Security vulnerability detection
@@ -259,16 +286,19 @@ graph TD
 ### LLM-as-Judge Guidance
 
 **Strengths:**
+
 - Flexible, human-like assessment
 - Evaluates nuanced criteria (helpfulness, tone)
 - Scales better than human annotation
 
 **Pitfalls:**
+
 - Position bias (favors first/last options)
 - Verbosity bias (prefers longer responses)
 - Self-preference (rates own outputs higher)
 
 **Mitigations:**
+
 - Use strong judge model (GPT-4, Claude 3.5 Sonnet)
 - Randomize answer order
 - Detailed rubrics and examples in judge prompt
@@ -289,16 +319,19 @@ graph TD
 ## Cost Considerations
 
 **Budget-Friendly:**
+
 - Rule-based metrics (free, instant)
 - Open-source frameworks (RAGAS, Promptfoo)
 - Crowdsourced human eval (moderate cost)
 
 **Higher Cost:**
+
 - LLM-as-judge with GPT-4 (API costs scale with volume)
 - Expert human review (expensive, slow)
 - Commercial platforms (LangSmith, Braintrust) at scale
 
 **Optimization Strategies:**
+
 - Start with automated metrics, escalate to human for ambiguous cases
 - Cache judge responses for identical inputs
 - Sample strategically rather than evaluating every output

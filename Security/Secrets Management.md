@@ -11,7 +11,7 @@ tags:
   - concept
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Secrets Management
@@ -33,16 +33,19 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 ### Secret Types
 
 **Static Secrets** — Long-lived credentials stored and retrieved as-is.
+
 - API keys, service account tokens, third-party credentials
 - Manual or scheduled rotation
 - Versioned history for rollback
 
 **Dynamic Secrets** — Generated on-demand with limited TTL.
+
 - Database credentials created per-session
 - Cloud IAM roles with temporary tokens
 - Automatic revocation after expiration
 
 **Encryption Keys** — Used to encrypt application data.
+
 - Master keys, data encryption keys (DEKs)
 - Key rotation without data re-encryption (envelope encryption)
 - Hardware Security Module (HSM) backing for compliance
@@ -50,16 +53,19 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 ### Access Patterns
 
 **Pull Model** — Applications fetch secrets at runtime.
+
 - Direct API calls to secret manager
 - SDK/library integration
 - Requires network access to secret service
 
 **Push Model** — Secrets injected into application environment.
+
 - Kubernetes secrets mounted as volumes/env vars
 - CI/CD injects secrets during deployment
 - Sidecar containers sync secrets to filesystem
 
 **Operator Model** — Platform manages secret lifecycle.
+
 - External Secrets Operator syncs to Kubernetes
 - Cloud provider managed identities
 - Service mesh handles certificate rotation
@@ -83,6 +89,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **Enterprise-grade secret management with dynamic secrets and multi-cloud support.**
 
 **Key Features:**
+
 - Dynamic secret generation for databases, cloud providers, SSH, PKI
 - Encryption as a Service for application data
 - Identity-based access with multiple auth methods (Kubernetes, AWS IAM, LDAP)
@@ -91,12 +98,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Self-hosted or managed (HCP Vault)
 
 **Use Cases:**
+
 - Multi-cloud environments requiring unified secret management
 - Dynamic database credentials for zero-trust applications
 - Certificate authority for internal PKI
 - Encryption key management with HSM backing
 
 **Considerations:**
+
 - Operational complexity (HA, unsealing, upgrades)
 - Requires dedicated infrastructure
 - Learning curve for policy language
@@ -106,6 +115,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **Managed secret storage with native AWS service integration.**
 
 **Key Features:**
+
 - Automatic rotation for RDS, Redshift, DocumentDB credentials
 - Lambda-based custom rotation functions
 - VPC endpoint support for private access
@@ -114,12 +124,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - CloudFormation and CDK support
 
 **Use Cases:**
+
 - AWS-native applications
 - Rotating RDS database credentials
 - Secrets shared across AWS accounts
 - Lambda functions requiring API keys
 
 **Considerations:**
+
 - AWS-only (not multi-cloud)
 - Cost scales with secret count and API calls
 - Limited dynamic secret types vs Vault
@@ -129,6 +141,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **Azure's managed service for secrets, keys, and certificates.**
 
 **Key Features:**
+
 - Hardware Security Module (HSM) backing
 - Managed identities for Azure resources
 - Certificate lifecycle management
@@ -137,12 +150,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Soft delete and purge protection
 
 **Use Cases:**
+
 - Azure-hosted applications and services
 - Managed identity authentication
 - Certificate management for App Service, AKS
 - Compliance requiring FIPS 140-2 Level 2
 
 **Considerations:**
+
 - Azure-specific (limited multi-cloud)
 - Throttling limits on high-traffic scenarios
 - Premium tier required for HSM backing
@@ -152,6 +167,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **Google Cloud's managed secret storage service.**
 
 **Key Features:**
+
 - Automatic replication across regions
 - Secret versioning with enabled/disabled states
 - IAM-based access control
@@ -160,12 +176,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Integration with Cloud Build, Cloud Run, GKE
 
 **Use Cases:**
+
 - GCP-native applications
 - Secrets for Cloud Run, Cloud Functions
 - Multi-region secret replication
 - Integration with Workload Identity
 
 **Considerations:**
+
 - GCP-only ecosystem
 - No dynamic secret generation
 - Limited rotation automation vs AWS
@@ -175,6 +193,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **Developer-focused secret management with CLI and CI/CD integration.**
 
 **Key Features:**
+
 - CLI for local development and CI/CD
 - Secret references in config files (`op://vault/item/field`)
 - Browser extension for credential autofill
@@ -183,12 +202,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Integrations with GitHub Actions, GitLab CI, CircleCI
 
 **Use Cases:**
+
 - Developer local environment secrets
 - CI/CD pipeline credentials
 - Team password sharing
 - Bridging personal and work credentials
 
 **Considerations:**
+
 - Not designed for production runtime secrets
 - No dynamic secret generation
 - Subscription-based pricing
@@ -198,6 +219,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **Universal secret management SaaS for multi-environment applications.**
 
 **Key Features:**
+
 - Environment-based secret organization (dev, staging, prod)
 - Automatic syncing to cloud platforms, CI/CD, Kubernetes
 - Secret referencing and composition
@@ -206,12 +228,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Dynamic secret injection (no SDK required)
 
 **Use Cases:**
+
 - Multi-environment secret synchronization
 - Replacing scattered .env files
 - Syncing secrets to Vercel, Netlify, Heroku
 - Teams managing secrets across many services
 
 **Considerations:**
+
 - SaaS-only (no self-hosted option)
 - Not designed for dynamic secret generation
 - Pricing scales with seats and projects
@@ -221,6 +245,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 **File encryption tool for GitOps workflows.**
 
 **Key Features:**
+
 - Encrypts values in YAML/JSON/INI files (keys remain plaintext)
 - Multi-key support (AWS KMS, GCP KMS, Azure Key Vault, PGP, age)
 - Editor integration for transparent encrypt/decrypt
@@ -228,12 +253,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Integrates with Flux, ArgoCD, Helm
 
 **Use Cases:**
+
 - GitOps secret management
 - Encrypting Kubernetes manifests
 - Config files in version control
 - Multi-party secret access (PGP keys)
 
 **Considerations:**
+
 - File-based (not API-driven)
 - No rotation automation
 - Requires key management strategy
@@ -244,16 +271,19 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 ### Secret Rotation
 
 **Automatic Rotation** — Service rotates credentials on schedule.
+
 - AWS Secrets Manager: RDS, Redshift, DocumentDB (Lambda-based)
 - Azure Key Vault: Certificates via policies
 - Vault: Dynamic secrets auto-expire
 
 **Manual Rotation** — Operator triggers rotation.
+
 - Update secret version
 - Application fetches latest version
 - Old version deprecated after grace period
 
 **Zero-Downtime Rotation:**
+
 1. Create new credential version
 2. Dual-running period (old and new both valid)
 3. Applications migrate to new version
@@ -271,18 +301,21 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 ### Access Policies
 
 **Identity-Based Access:**
+
 - Vault: Policies attached to authentication tokens
 - AWS: IAM policies on roles/users
 - Azure: RBAC with Azure AD principals
 - GCP: IAM bindings to service accounts
 
 **Attribute-Based Access:**
+
 - Environment tags (production vs staging)
 - IP allowlisting
 - Time-based restrictions
 - MFA requirements for sensitive secrets
 
 **Least Privilege:**
+
 - Separate policies per service
 - Read-only vs read-write permissions
 - Path-based restrictions (e.g., `/prod/*` vs `/dev/*`)
@@ -290,6 +323,7 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 ### Audit Logging
 
 **What to Log:**
+
 - Secret access (read operations)
 - Secret modifications (create, update, delete)
 - Policy changes
@@ -297,12 +331,14 @@ Secure storage, distribution, rotation, and auditing of sensitive credentials (A
 - Rotation events
 
 **Integration:**
+
 - Vault: Audit devices (file, syslog, socket)
 - AWS: CloudTrail logs
 - Azure: Diagnostic logs to Log Analytics
 - GCP: Cloud Audit Logs
 
 **Compliance:**
+
 - Immutable logs for SOC 2, PCI-DSS
 - Long-term retention
 - SIEM integration for alerting
@@ -326,6 +362,7 @@ data:
 ```
 
 **Problems:**
+
 - Not encrypted in etcd by default (requires encryption provider)
 - Stored in version control if committed
 - No rotation automation
@@ -352,6 +389,7 @@ spec:
 ```
 
 **Benefits:**
+
 - Secrets live in external manager (Vault, AWS, Azure, GCP)
 - Automatic sync and rotation
 - Single source of truth
@@ -369,12 +407,14 @@ spec:
 | **Dynamic Secrets** | ✅ | Automatic | ✅ | Per-request |
 
 **Environment Variables:**
+
 - Visible in process listings (`ps aux`)
 - Leaked in logs, error reports
 - No rotation without restart
 - Acceptable for non-sensitive config
 
 **Secret Managers:**
+
 - Encrypted in transit and at rest
 - Access logged and auditable
 - Rotation without redeploy
@@ -402,11 +442,13 @@ spec:
 ```
 
 **Doppler:**
+
 - Automatic sync to CI/CD secrets
 - Reference secrets without API calls
 - Audit CI/CD secret access
 
 **Best Practices:**
+
 - Use OIDC for authentication (no long-lived tokens)
 - Scope secrets to specific workflows/branches
 - Rotate CI/CD secrets regularly
@@ -417,17 +459,20 @@ spec:
 ### HashiCorp Vault
 
 **Strengths:**
+
 - Multi-cloud and hybrid environments
 - Dynamic secret generation for databases, cloud providers
 - Complex access policies and compliance requirements
 - Enterprise features (namespaces, replication, HSMs)
 
 **Considerations:**
+
 - Requires operational expertise
 - Infrastructure overhead (HA, unsealing)
 - Cost of self-hosting or HCP Vault
 
 **Best For:**
+
 - Large enterprises with multi-cloud strategy
 - Zero-trust architectures requiring dynamic credentials
 - Regulated industries (finance, healthcare)
@@ -437,17 +482,20 @@ spec:
 **AWS Secrets Manager / Azure Key Vault / GCP Secret Manager**
 
 **Strengths:**
+
 - Fully managed (no infrastructure)
 - Native integration with cloud services
 - Automatic scaling and high availability
 - Compliance certifications inherited from cloud provider
 
 **Considerations:**
+
 - Vendor lock-in
 - Limited to single cloud ecosystem
 - API costs at scale
 
 **Best For:**
+
 - Cloud-native applications
 - Teams without secret management expertise
 - Startups prioritizing speed over multi-cloud
@@ -457,17 +505,20 @@ spec:
 **1Password / Doppler**
 
 **Strengths:**
+
 - Excellent developer experience
 - Fast setup and CI/CD integration
 - Team collaboration features
 - No infrastructure to manage
 
 **Considerations:**
+
 - SaaS dependency
 - Not designed for production runtime at scale
 - Limited compliance features vs enterprise solutions
 
 **Best For:**
+
 - Developer environment secrets
 - CI/CD pipelines
 - Small to medium teams
@@ -476,17 +527,20 @@ spec:
 ### SOPS
 
 **Strengths:**
+
 - GitOps-native workflow
 - No runtime dependency
 - Multi-cloud key management
 - Free and open source
 
 **Considerations:**
+
 - File-based (not API-driven)
 - Manual rotation process
 - Requires key management strategy
 
 **Best For:**
+
 - GitOps deployments (Flux, ArgoCD)
 - Kubernetes manifests in Git
 - Teams already using Git for config
@@ -514,40 +568,47 @@ spec:
 ## Best Practices
 
 **Never Commit Secrets:**
+
 - Use `.gitignore` for `.env`, `secrets.yaml`
 - Scan commits with tools like `git-secrets`, `truffleHog`
 - Revoke and rotate any committed secrets immediately
 
 **Principle of Least Privilege:**
+
 - One secret per service (no shared credentials)
 - Scope access by environment, path, identity
 - Use dynamic secrets where possible (short TTL)
 
 **Rotation Strategy:**
+
 - Automate rotation for databases, cloud credentials
 - Define rotation schedule (30/60/90 days)
 - Test rotation process in non-production first
 - Monitor for failed rotations
 
 **Audit and Monitor:**
+
 - Enable audit logging on all secret access
 - Alert on anomalies (unusual access patterns, failed auth)
 - Integrate logs with SIEM for compliance
 - Regular access reviews
 
 **Encryption Everywhere:**
+
 - Secrets encrypted at rest (storage layer)
 - Secrets encrypted in transit (TLS)
 - Kubernetes etcd encryption enabled
 - Use HSMs for regulatory compliance
 
 **Backup and Disaster Recovery:**
+
 - Regular backups of secret manager state
 - Test restore procedures
 - Document unsealing process (Vault)
 - Maintain break-glass credentials securely
 
 **Developer Experience:**
+
 - Provide CLI tools for local secret access
 - Document secret retrieval process
 - Automate secret injection in development

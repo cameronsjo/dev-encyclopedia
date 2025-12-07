@@ -11,7 +11,7 @@ tags:
   - concept
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Smart Contracts
@@ -34,6 +34,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 ### Solidity Fundamentals
 
 **Contract Structure:**
+
 - State variables (stored on blockchain)
 - Functions (external, public, internal, private)
 - Modifiers (reusable access control)
@@ -41,12 +42,14 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 - Constructors (one-time initialization)
 
 **Visibility Specifiers:**
+
 - `external` - Only callable from outside contract
 - `public` - Callable from anywhere, auto-generates getter
 - `internal` - Only this contract and derived contracts
 - `private` - Only this contract
 
 **State Mutability:**
+
 - `view` - Reads state but doesn't modify
 - `pure` - Neither reads nor modifies state
 - `payable` - Can receive ETH
@@ -54,12 +57,14 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 ### EVM (Ethereum Virtual Machine)
 
 **Execution Model:**
+
 - Stack-based architecture (256-bit words)
 - Opcodes compiled from Solidity
 - Deterministic execution across all nodes
 - Gas metering for every operation
 
 **Transaction Lifecycle:**
+
 1. Transaction submitted to mempool
 2. Miner/validator picks transaction
 3. EVM executes bytecode
@@ -77,6 +82,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 | **Optimization** | Minimize storage writes, use events, pack variables |
 
 **Gas Costs (approximate):**
+
 - Storage write: 20,000 gas
 - Storage update: 5,000 gas
 - Transfer ETH: 21,000 gas
@@ -113,6 +119,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 **Purpose:** Deploy multiple contract instances from a single factory contract.
 
 **Benefits:**
+
 - Standardized deployment
 - Event tracking for all instances
 - Reduced bytecode duplication with `create2` deterministic addresses
@@ -145,6 +152,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 ### Checks-Effects-Interactions Pattern
 
 **Always follow this order:**
+
 1. **Checks** - Validate conditions (require statements)
 2. **Effects** - Update contract state
 3. **Interactions** - External calls to other contracts
@@ -164,6 +172,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 | **Anchor** | Rust | Solana framework with built-in testing | Solana contracts |
 
 **Foundry Advantages:**
+
 - Written in Rust (extremely fast)
 - Tests in Solidity (same language as contracts)
 - Built-in fuzzing and invariant testing
@@ -173,6 +182,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 ### Testing Best Practices
 
 **Coverage Areas:**
+
 - Unit tests for individual functions
 - Integration tests for contract interactions
 - Fuzz testing for unexpected inputs
@@ -181,6 +191,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 - Mainnet fork testing with real state
 
 **Security Checklist:**
+
 - [ ] All external calls checked for reentrancy
 - [ ] Access control on privileged functions
 - [ ] Integer overflow protection (Solidity 0.8.0+)
@@ -195,6 +206,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 ### Audit Process
 
 **Phases:**
+
 1. **Automated Analysis** - Slither, Mythril, Echidna
 2. **Manual Review** - Line-by-line code inspection
 3. **Invariant Testing** - Property-based testing
@@ -240,6 +252,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 ## Development Workflow
 
 **Typical Stack:**
+
 1. **Development** - Foundry/Hardhat for compilation and testing
 2. **Local Network** - Anvil (Foundry) or Hardhat Network
 3. **Deployment** - Forge scripts or Hardhat deploy
@@ -248,11 +261,13 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 6. **Frontend** - ethers.js/viem + wagmi for React integration
 
 **Environment Progression:**
+
 - Local (Anvil/Hardhat) → Testnet (Sepolia/Goerli) → Mainnet
 
 ## Best Practices
 
 **Security:**
+
 - Start with audited libraries (OpenZeppelin)
 - Fail fast with `require()` statements
 - Use events for off-chain monitoring
@@ -260,6 +275,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 - Never trust user input or external contracts
 
 **Gas Optimization:**
+
 - Pack storage variables (use uint128 over uint256 when possible)
 - Use `immutable` for constructor-set constants
 - Use `calldata` instead of `memory` for external parameters
@@ -267,6 +283,7 @@ Self-executing programs deployed on blockchain networks that automatically enfor
 - Batch operations to reduce transaction count
 
 **Maintainability:**
+
 - Document all functions with NatSpec comments
 - Use descriptive variable and function names
 - Keep functions small and focused

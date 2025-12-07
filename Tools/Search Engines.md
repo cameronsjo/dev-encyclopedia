@@ -10,7 +10,7 @@ tags:
   - search
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Search Engines
@@ -170,6 +170,7 @@ graph LR
 The most popular search and analytics engine, now under proprietary license.
 
 **Strengths:**
+
 - Battle-tested at massive scale (billions of documents)
 - Rich ecosystem: Kibana (visualization), Logstash (ingestion), Beats (shippers)
 - Powerful query DSL with complex bool queries, nested objects, geo search
@@ -177,12 +178,14 @@ The most popular search and analytics engine, now under proprietary license.
 - Machine learning features (anomaly detection, forecasting)
 
 **Considerations:**
+
 - SSPL license restricts cloud hosting (AWS, GCP, Azure cannot offer managed service)
 - Resource intensive: requires careful tuning (heap size, shards, replicas)
 - Operational complexity: cluster management, monitoring, upgrades
 - Can be overkill for simple site search
 
 **Best For:**
+
 - Log analytics and observability (ELK stack)
 - Enterprise search with complex requirements
 - Large-scale data analytics
@@ -193,6 +196,7 @@ The most popular search and analytics engine, now under proprietary license.
 AWS fork of Elasticsearch (pre-license change), fully open source.
 
 **Strengths:**
+
 - Apache 2.0 license: truly open source
 - API compatible with Elasticsearch 7.10.2
 - Active development by AWS and community
@@ -200,12 +204,14 @@ AWS fork of Elasticsearch (pre-license change), fully open source.
 - Security plugins included (authentication, encryption, audit)
 
 **Considerations:**
+
 - Smaller ecosystem than Elasticsearch
 - Feature lag behind latest Elasticsearch innovations
 - AWS-centric development priorities
 - Same operational complexity as Elasticsearch
 
 **Best For:**
+
 - Organizations requiring open source license
 - AWS-native architectures
 - Migration from Elasticsearch avoiding license issues
@@ -216,6 +222,7 @@ AWS fork of Elasticsearch (pre-license change), fully open source.
 Modern, developer-friendly search engine focused on instant search experiences.
 
 **Strengths:**
+
 - Zero-config defaults: works out-of-box with sensible settings
 - Built-in typo tolerance and relevance tuning
 - Instant search (as-you-type) optimized
@@ -224,12 +231,14 @@ Modern, developer-friendly search engine focused on instant search experiences.
 - Written in Rust: memory-safe, fast
 
 **Considerations:**
+
 - Limited analytics capabilities (not for log analysis)
 - Horizontal scaling still maturing
 - Smaller community and ecosystem
 - Not ideal for complex aggregations or reporting
 
 **Best For:**
+
 - Site search and product discovery
 - Rapid prototyping and MVPs
 - Small to medium deployments
@@ -240,6 +249,7 @@ Modern, developer-friendly search engine focused on instant search experiences.
 Lightning-fast, typo-tolerant search engine with developer experience focus.
 
 **Strengths:**
+
 - Blazing fast: C++ implementation, in-memory indexing
 - Built-in typo tolerance with smart defaults
 - Tuned for instant search (sub-10ms queries)
@@ -248,12 +258,14 @@ Lightning-fast, typo-tolerant search engine with developer experience focus.
 - Affordable cloud hosting option
 
 **Considerations:**
+
 - GPL v3 license (requires open-sourcing derivative works)
 - Primarily in-memory: RAM = dataset size
 - Limited analytics features
 - Smaller ecosystem than Elasticsearch/Solr
 
 **Best For:**
+
 - E-commerce product search
 - Autocomplete and instant search
 - Performance-critical applications
@@ -264,6 +276,7 @@ Lightning-fast, typo-tolerant search engine with developer experience focus.
 Hosted search-as-a-service with exceptional developer experience.
 
 **Strengths:**
+
 - Best-in-class typo tolerance and relevance out-of-box
 - Sub-50ms global latency via CDN-like infrastructure
 - Zero ops: fully managed, auto-scaling
@@ -272,6 +285,7 @@ Hosted search-as-a-service with exceptional developer experience.
 - Excellent documentation and support
 
 **Considerations:**
+
 - Expensive at scale (pay per record and operation)
 - Proprietary SaaS: vendor lock-in
 - Limited customization vs self-hosted options
@@ -279,6 +293,7 @@ Hosted search-as-a-service with exceptional developer experience.
 - Pricing can be prohibitive for large catalogs
 
 **Best For:**
+
 - E-commerce with global users
 - Companies prioritizing speed-to-market over cost
 - Teams without search infrastructure expertise
@@ -289,6 +304,7 @@ Hosted search-as-a-service with exceptional developer experience.
 Veteran open-source search platform built on Lucene (same core as Elasticsearch).
 
 **Strengths:**
+
 - Mature, stable, well-documented (since 2004)
 - Apache 2.0 license: truly open source
 - Rich feature set: facets, geospatial, spell check, more-like-this
@@ -297,12 +313,14 @@ Veteran open-source search platform built on Lucene (same core as Elasticsearch)
 - Active community and extensive plugins
 
 **Considerations:**
+
 - Steeper learning curve than modern alternatives
 - XML-heavy configuration (less developer-friendly)
 - Slower innovation pace vs Elasticsearch
 - Smaller mindshare in modern stacks
 
 **Best For:**
+
 - Organizations standardized on Lucene ecosystem
 - Legacy systems requiring long-term stability
 - Complex document search (research, legal, publishing)
@@ -310,35 +328,40 @@ Veteran open-source search platform built on Lucene (same core as Elasticsearch)
 
 ## Decision Guide
 
-### Choose Elasticsearch/OpenSearch if:
+### Choose Elasticsearch/OpenSearch if
+
 - ✅ You need log analytics and observability (ELK/EFK stack)
 - ✅ Complex aggregations and analytics are core requirements
 - ✅ Massive scale (billions of documents) with horizontal scaling
 - ✅ You have dedicated search infrastructure team
 - ✅ Budget for operational complexity exists
 
-### Choose Meilisearch if:
+### Choose Meilisearch if
+
 - ✅ You want instant search without configuration complexity
 - ✅ Site search or product search for small-medium catalogs
 - ✅ Developer experience and speed-to-market are priorities
 - ✅ Open source with permissive license (MIT) required
 - ✅ Single-node performance is sufficient
 
-### Choose Typesense if:
+### Choose Typesense if
+
 - ✅ Sub-10ms query latency is critical
 - ✅ You need blazing-fast autocomplete and filtering
 - ✅ Dataset fits in memory (< 100GB typical)
 - ✅ Simple deployment with minimal ops overhead
 - ✅ GPL v3 license is acceptable
 
-### Choose Algolia if:
+### Choose Algolia if
+
 - ✅ Zero operations burden is worth premium pricing
 - ✅ Global low-latency is critical (CDN-like search)
 - ✅ Time-to-market outweighs cost concerns
 - ✅ You want best-in-class relevance out-of-box
 - ✅ Analytics and A/B testing built-in are valuable
 
-### Choose Solr if:
+### Choose Solr if
+
 - ✅ You need proven stability and long-term support
 - ✅ Existing Lucene/Solr expertise in organization
 - ✅ Complex document search (legal, research, archives)
@@ -370,11 +393,13 @@ graph TD
 ### Indexing Strategy
 
 **Bulk Indexing:**
+
 - Batch documents (1000-5000 per request)
 - Disable refresh during bulk operations
 - Use async indexing where possible
 
 **Index Settings:**
+
 - Number of shards: `num_docs / 50GB` as starting point
 - Number of replicas: balance availability vs resource cost
 - Refresh interval: increase for write-heavy workloads (default 1s)
@@ -382,16 +407,19 @@ graph TD
 ### Query Optimization
 
 **Reduce Scope:**
+
 - Filter before querying (filters are cacheable)
 - Limit fields searched (`_source` filtering)
 - Use `size` parameter to limit results returned
 
 **Caching:**
+
 - Query cache: cache filter results
 - Field data cache: for aggregations and sorting
 - Request cache: cache result counts
 
 **Scoring:**
+
 - Disable scoring when not needed (`constant_score` query)
 - Use `track_total_hits: false` if count not required
 - Consider approximate aggregations for large datasets
@@ -399,6 +427,7 @@ graph TD
 ### Monitoring
 
 Key metrics to track:
+
 - **Query latency**: p50, p95, p99 response times
 - **Indexing throughput**: documents/second
 - **Cluster health**: green/yellow/red status

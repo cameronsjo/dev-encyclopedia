@@ -9,7 +9,7 @@ tags:
   - fundamentals
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Dynamic Programming
@@ -143,6 +143,7 @@ def coin_change(coins: list[int], amount: int) -> int:
 **State:** `dp[i][w]` = max value using first i items with weight limit w
 
 **Recurrence:**
+
 ```
 dp[i][w] = max(
     dp[i-1][w],              # don't take item i
@@ -180,6 +181,7 @@ def knapsack(weights: list[int], values: list[int], capacity: int) -> int:
 **State:** `dp[i][j]` = LCS length of text1[0:i] and text2[0:j]
 
 **Recurrence:**
+
 ```
 if text1[i-1] == text2[j-1]:
     dp[i][j] = dp[i-1][j-1] + 1
@@ -223,6 +225,7 @@ def longest_increasing_subsequence(nums: list[int]) -> int:
 **State:** `dp[i][j]` = edit distance for word1[0:i] to word2[0:j]
 
 **Recurrence:**
+
 ```
 if word1[i-1] == word2[j-1]:
     dp[i][j] = dp[i-1][j-1]
@@ -243,6 +246,7 @@ else:
 **State:** `dp[i][j]` = minimum operations to multiply matrices from i to j
 
 **Recurrence:**
+
 ```
 dp[i][j] = min(
     dp[i][k] + dp[k+1][j] + dimensions[i-1] * dimensions[k] * dimensions[j]
@@ -261,6 +265,7 @@ Problems where state depends on previous elements in a sequence.
 **Examples:** Fibonacci, House Robber, Climbing Stairs, Decode Ways
 
 **Pattern:**
+
 ```python
 dp = [base_case] * n
 for i in range(start, n):
@@ -274,6 +279,7 @@ Problems involving paths, grids, or two sequences.
 **Examples:** Unique Paths, Minimum Path Sum, LCS, Edit Distance
 
 **Pattern:**
+
 ```python
 dp = [[0] * cols for _ in range(rows)]
 for i in range(rows):
@@ -288,6 +294,7 @@ Problems involving ranges or intervals.
 **Examples:** Matrix Chain Multiplication, Palindrome Partitioning, Burst Balloons
 
 **Pattern:**
+
 ```python
 # Process by increasing interval length
 for length in range(2, n + 1):
@@ -304,6 +311,7 @@ Problems with discrete states and transitions.
 **Examples:** Best Time to Buy/Sell Stock (with cooldown/fees), Paint House
 
 **Pattern:**
+
 ```python
 # Multiple states per position
 state1, state2 = initial_values

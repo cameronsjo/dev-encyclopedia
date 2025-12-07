@@ -10,7 +10,7 @@ tags:
   - compiled
 type: reference
 status: complete
-created: 2025-11-30
+created: "2025-11-30"
 ---
 
 # Zig
@@ -178,6 +178,7 @@ zig c++ -o myapp main.cpp
 | **Undefined Behavior** | Detected in safe builds, explicit `@setRuntimeSafety(false)` to disable |
 
 **Build Modes:**
+
 - `Debug` - All safety checks, no optimizations
 - `ReleaseSafe` - Optimized with safety checks
 - `ReleaseFast` - Maximum speed, minimal safety
