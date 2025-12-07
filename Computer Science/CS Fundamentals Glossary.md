@@ -225,6 +225,199 @@ Task B ──┴────┴── Task B
 | **Contradiction** | False under all possible assignments. |
 | **NP-Complete (SAT)** | Boolean satisfiability: first proven NP-complete problem. |
 
+## Graph Theory
+
+| Term | Definition |
+|------|------------|
+| **Graph** | Set of vertices (nodes) connected by edges. G = (V, E). |
+| **Directed Graph (Digraph)** | Edges have direction: A → B ≠ B → A. |
+| **Undirected Graph** | Edges have no direction: A — B means both directions. |
+| **Weighted Graph** | Edges have associated values (costs, distances). |
+| **DAG** | Directed Acyclic Graph. No cycles; enables topological ordering. |
+| **Cycle** | Path that starts and ends at same vertex. |
+| **Connected** | Path exists between every pair of vertices (undirected). |
+| **Strongly Connected** | Path exists in both directions between every pair (directed). |
+| **Tree** | Connected acyclic graph. n vertices, n-1 edges. |
+| **Spanning Tree** | Tree that includes all vertices of a graph. |
+| **Bipartite** | Vertices can be split into two sets with edges only between sets. |
+| **Topological Sort** | Linear ordering where for every edge u→v, u comes before v. Only possible for DAGs. |
+| **Adjacency Matrix** | 2D array where matrix[i][j] = 1 if edge exists. O(V²) space. |
+| **Adjacency List** | Array of lists; each vertex stores its neighbors. O(V+E) space. |
+| **In-degree** | Number of edges coming into a vertex. |
+| **Out-degree** | Number of edges leaving a vertex. |
+| **Path** | Sequence of vertices connected by edges. |
+| **Shortest Path** | Path with minimum total weight (Dijkstra, Bellman-Ford). |
+| **MST** | Minimum Spanning Tree. Spans all vertices with minimum total edge weight. |
+
+## Parsing & Formal Languages
+
+| Term | Definition |
+|------|------------|
+| **Grammar** | Rules defining valid strings in a language. Production rules. |
+| **BNF** | Backus-Naur Form. Notation for context-free grammars. |
+| **Terminal** | Literal symbol in grammar (actual characters/tokens). |
+| **Non-terminal** | Symbol that can be expanded by grammar rules. |
+| **Parse Tree** | Tree showing how input derives from grammar rules. |
+| **AST** | Abstract Syntax Tree. Simplified parse tree; semantic structure without syntax noise. |
+| **Lexer/Tokenizer** | Converts character stream to token stream. |
+| **Parser** | Converts token stream to parse tree/AST. |
+| **Recursive Descent** | Top-down parser using mutual recursion. One function per grammar rule. |
+| **LL Parser** | Left-to-right, Leftmost derivation. Top-down. LL(k) looks ahead k tokens. |
+| **LR Parser** | Left-to-right, Rightmost derivation. Bottom-up. More powerful than LL. |
+| **Ambiguous Grammar** | Grammar where some strings have multiple parse trees. |
+| **Left Recursion** | Rule like A → Aα. Problematic for recursive descent parsers. |
+
+### Chomsky Hierarchy
+
+```
+Type 0: Recursively enumerable    (Turing machine)
+Type 1: Context-sensitive         (Linear bounded automaton)
+Type 2: Context-free              (Pushdown automaton) ← Most programming languages
+Type 3: Regular                   (Finite automaton) ← Regex
+```
+
+## Databases
+
+| Term | Definition |
+|------|------------|
+| **ACID** | Atomicity, Consistency, Isolation, Durability. Transaction guarantees. |
+| **Atomicity** | Transaction fully completes or fully rolls back. No partial state. |
+| **Consistency** | Transaction brings database from one valid state to another. |
+| **Isolation** | Concurrent transactions don't interfere with each other. |
+| **Durability** | Committed transactions survive system failures. |
+| **BASE** | Basically Available, Soft state, Eventual consistency. NoSQL alternative to ACID. |
+| **Transaction** | Logical unit of work; sequence of operations treated as single unit. |
+| **Commit** | Make transaction's changes permanent. |
+| **Rollback** | Undo transaction's changes. |
+| **Normalization** | Organizing data to reduce redundancy. 1NF, 2NF, 3NF, BCNF. |
+| **Denormalization** | Intentionally adding redundancy for read performance. |
+| **Index** | Data structure for fast lookups. Trade write speed for read speed. |
+| **B-Tree** | Balanced tree used for database indexes. O(log n) operations. |
+| **Primary Key** | Unique identifier for a row. |
+| **Foreign Key** | Reference to primary key in another table. Enforces relationships. |
+| **Join** | Combine rows from multiple tables based on related columns. |
+| **Sharding** | Horizontal partitioning across multiple databases. Scale-out strategy. |
+| **Replication** | Copying data to multiple nodes. Availability and read scaling. |
+| **Write-Ahead Log (WAL)** | Log changes before applying. Enables crash recovery. |
+| **MVCC** | Multi-Version Concurrency Control. Readers don't block writers. |
+
+### Isolation Levels
+
+```
+Read Uncommitted  → Dirty reads possible
+Read Committed    → No dirty reads
+Repeatable Read   → No dirty reads, no non-repeatable reads
+Serializable      → Full isolation (slowest)
+```
+
+## Functional Programming
+
+| Term | Definition |
+|------|------------|
+| **First-Class Function** | Functions can be assigned to variables, passed as arguments, returned. |
+| **Higher-Order Function** | Function that takes or returns other functions. |
+| **Lambda/Anonymous Function** | Function without a name. `x => x * 2` |
+| **Closure** | Function that captures variables from enclosing scope. |
+| **Currying** | Transform f(a, b, c) into f(a)(b)(c). Partial application enabler. |
+| **Partial Application** | Fix some arguments, return function taking the rest. |
+| **Map** | Apply function to each element: [1,2,3].map(x => x*2) → [2,4,6] |
+| **Filter** | Keep elements matching predicate: [1,2,3].filter(x => x>1) → [2,3] |
+| **Reduce/Fold** | Combine elements into single value: [1,2,3].reduce((a,b) => a+b) → 6 |
+| **Functor** | Type with map operation. Applies function inside container. |
+| **Monad** | Functor with flatMap/bind. Chains computations that return wrapped values. |
+| **Option/Maybe** | Container for value that might be absent. Avoid null. |
+| **Either** | Container for value that's one of two types. Often error handling. |
+| **Lazy Evaluation** | Delay computation until value needed. Enables infinite structures. |
+| **Eager Evaluation** | Compute immediately. Default in most languages. |
+| **Tail Recursion** | Recursive call is last operation. Can be optimized to loop. |
+| **Pattern Matching** | Destructure data and branch based on structure. |
+
+### Example: Monad Chaining
+
+```
+// Without monad (null checks everywhere)
+if (user != null) {
+  if (user.address != null) {
+    return user.address.city;
+  }
+}
+
+// With Option monad
+user.flatMap(u => u.address).map(a => a.city)
+```
+
+## Object-Oriented Programming
+
+| Term | Definition |
+|------|------------|
+| **Class** | Blueprint for creating objects. Defines properties and methods. |
+| **Object/Instance** | Concrete realization of a class. |
+| **Encapsulation** | Bundle data with methods that operate on it. Hide internal state. |
+| **Inheritance** | Create new class from existing class. "is-a" relationship. |
+| **Polymorphism** | Same interface, different implementations. Method behaves differently based on type. |
+| **Abstraction** | Hide complexity behind simple interface. |
+| **Interface** | Contract specifying methods a class must implement. |
+| **Abstract Class** | Class that can't be instantiated; meant to be subclassed. |
+| **Composition** | Build complex objects from simpler ones. "has-a" relationship. |
+| **Aggregation** | Weak composition; contained object can exist independently. |
+| **Method Overriding** | Subclass provides different implementation of inherited method. |
+| **Method Overloading** | Same method name, different parameter types/counts. |
+| **Constructor** | Special method called when creating new instance. |
+| **Destructor/Finalizer** | Called when object is destroyed. Cleanup resources. |
+| **this/self** | Reference to current object instance. |
+| **super** | Reference to parent class. Access overridden methods. |
+| **Virtual Method** | Method that can be overridden. Default in some languages. |
+| **SOLID** | Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion. |
+
+### Composition vs Inheritance
+
+```
+Inheritance (is-a):          Composition (has-a):
+class Dog extends Animal     class Car {
+                               engine: Engine
+                               wheels: Wheel[]
+                             }
+
+Prefer composition: more flexible, avoids deep hierarchies
+```
+
+## Networking
+
+| Term | Definition |
+|------|------------|
+| **Latency** | Time for data to travel from source to destination. Measured in ms. |
+| **Throughput** | Amount of data transferred per unit time. Measured in Mbps, Gbps. |
+| **Bandwidth** | Maximum theoretical throughput of a connection. |
+| **Jitter** | Variation in latency. Bad for real-time applications. |
+| **RTT** | Round-Trip Time. Latency for request + response. |
+| **Packet** | Unit of data transmitted over network. Header + payload. |
+| **Protocol** | Rules for communication. HTTP, TCP, UDP, etc. |
+| **TCP** | Transmission Control Protocol. Reliable, ordered, connection-oriented. |
+| **UDP** | User Datagram Protocol. Unreliable, unordered, connectionless. Fast. |
+| **IP** | Internet Protocol. Addressing and routing packets. IPv4, IPv6. |
+| **DNS** | Domain Name System. Translates domain names to IP addresses. |
+| **Port** | Logical endpoint for network communication. 0-65535. |
+| **Socket** | Endpoint for sending/receiving data. IP address + port. |
+| **Handshake** | Initial exchange to establish connection. TCP uses 3-way handshake. |
+| **TLS/SSL** | Transport Layer Security. Encryption for data in transit. |
+| **HTTP** | Hypertext Transfer Protocol. Request-response, stateless. |
+| **WebSocket** | Full-duplex communication over single TCP connection. |
+| **Load Balancer** | Distributes traffic across multiple servers. |
+| **Proxy** | Intermediary between client and server. Forward or reverse. |
+| **NAT** | Network Address Translation. Maps private IPs to public IP. |
+
+### OSI Model (Simplified)
+
+```
+7. Application   HTTP, FTP, SMTP
+6. Presentation  Encryption, compression
+5. Session       Connections, sessions
+4. Transport     TCP, UDP (ports)
+3. Network       IP (routing, addressing)
+2. Data Link     Ethernet, MAC addresses
+1. Physical      Cables, signals
+```
+
 ## Related
 
 - [[Big O Notation]]
