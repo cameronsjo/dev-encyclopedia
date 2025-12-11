@@ -208,7 +208,12 @@ Task B ──┴────┴── Task B
 |------|------------|
 | **Serialization** | Converting object to byte stream for storage/transmission. |
 | **Deserialization** | Reconstructing object from byte stream. |
+| **Pickling** | Python's native serialization. Converts objects to byte stream; security risk with untrusted data. |
+| **Unpickling** | Python's deserialization. Reconstructs objects from pickled byte stream. |
 | **Marshalling** | Transforming data for transmission (includes serialization + metadata). |
+| **Unmarshalling** | Reverse of marshalling; reconstruct data on receiving end. |
+| **Hydration** | Populating an object with data (often from serialized form or database). |
+| **Dehydration** | Extracting data from object for storage/transmission. Opposite of hydration. |
 | **Endianness** | Byte order: big-endian (MSB first) vs little-endian (LSB first). |
 | **Two's Complement** | Standard signed integer representation. Negation: invert bits + 1. |
 | **IEEE 754** | Floating-point standard. Sign bit + exponent + mantissa. |
@@ -416,6 +421,54 @@ Prefer composition: more flexible, avoids deep hierarchies
 3. Network       IP (routing, addressing)
 2. Data Link     Ethernet, MAC addresses
 1. Physical      Cables, signals
+```
+
+## Programming Techniques
+
+| Term | Definition |
+|------|------------|
+| **Thunk** | Delayed computation wrapped in a zero-argument function. Enables lazy evaluation. |
+| **Trampolining** | Convert deep recursion to iteration using thunks. Avoids stack overflow. |
+| **Continuation** | Representation of "what to do next." Captures remaining computation. |
+| **CPS** | Continuation-Passing Style. Pass continuation as argument instead of returning. |
+| **Debouncing** | Delay execution until activity stops. Fire once after rapid events settle. |
+| **Throttling** | Limit execution rate. Fire at most once per time interval. |
+| **Polling** | Repeatedly check for condition/data at intervals. |
+| **Long Polling** | Server holds request open until data available or timeout. |
+| **Reflection** | Program inspects and modifies its own structure at runtime. |
+| **Introspection** | Examine types and properties at runtime (subset of reflection). |
+| **Metaprogramming** | Code that writes or manipulates other code. Macros, code generation. |
+| **Monkey Patching** | Modify classes/methods at runtime. Powerful but risky. |
+| **Boxing** | Wrap primitive in object. `int` → `Integer`. |
+| **Unboxing** | Extract primitive from wrapper object. `Integer` → `int`. |
+| **Autoboxing** | Automatic boxing/unboxing by compiler. |
+| **Hoisting** | Moving declarations to top of scope (JavaScript var, function declarations). |
+| **Coercion** | Implicit type conversion. `"5" + 3` → `"53"` in JavaScript. |
+| **Short-Circuit Evaluation** | Stop evaluating boolean expression when result is determined. `false && x` skips x. |
+| **Interning** | Reuse immutable objects. String interning, integer caching. |
+| **Memoization** | Cache function results to avoid redundant computation. |
+| **Dependency Injection** | Pass dependencies to object rather than having it create them. |
+| **Inversion of Control** | Framework calls your code, not vice versa. "Don't call us, we'll call you." |
+| **Duck Punching** | Modify built-in types at runtime. More aggressive than monkey patching. |
+| **Shim** | Code that intercepts API calls and provides compatibility layer. |
+| **Polyfill** | Code that implements modern API in older environments. |
+| **Coroutine** | Function that can pause and resume execution. Cooperative multitasking. |
+| **Generator** | Function that yields multiple values over time. Lazy sequences. |
+| **Yield** | Pause generator and return value; resume on next iteration. |
+| **Async/Await** | Syntactic sugar for working with promises/futures. Looks synchronous, runs async. |
+
+### Debounce vs Throttle
+
+```
+User typing: k-e-y-k-e-y-k-e-y
+
+Debounce (300ms):
+  Events:  k   e   y   k   e   y   k   e   y
+  Fires:                                   ↓ (once, after typing stops)
+
+Throttle (300ms):
+  Events:  k   e   y   k   e   y   k   e   y
+  Fires:   ↓           ↓           ↓       (at regular intervals)
 ```
 
 ## Related
