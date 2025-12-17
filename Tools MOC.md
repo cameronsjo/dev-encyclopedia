@@ -43,6 +43,14 @@ Development tools, libraries, and infrastructure across languages.
 - [[Package Managers]] — apt, dnf, pacman, brew, winget
 - [[Process Managers]] — systemd, launchd, supervisord, PM2
 
+### Hardware
+
+- [[Hardware/Mainframes|Mainframes]] — IBM z/Series enterprise systems
+- [[Hardware/Server Hardware|Server Hardware]] — Rack servers, blade systems
+- [[Hardware/CPU Architectures|CPU Architectures]] — x86, ARM, RISC-V
+- [[Hardware/GPUs|GPUs]] — Graphics and compute accelerators
+- [[Hardware/Storage Systems|Storage Systems]] — SAN, NAS, object storage
+
 ### Runtimes
 
 - [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
