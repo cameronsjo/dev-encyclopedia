@@ -71,6 +71,23 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 
 - [[Testing Strategies]] — Unit, integration, E2E, BDD, property-based
 
+### Testing
+
+- [[Computer Science/TDD and BDD|TDD and BDD]] — Test-driven and behavior-driven development
+- [[Computer Science/Property-Based Testing|Property-Based Testing]] — QuickCheck, Hypothesis, generative testing
+- [[Computer Science/Load Testing|Load Testing]] — Performance and stress testing
+
+### Developer Practices
+
+- [[Computer Science/Git Internals|Git Internals]] — Objects, refs, plumbing commands
+- [[Computer Science/Code Review|Code Review]] — PR reviews, feedback, best practices
+- [[Computer Science/Technical Writing|Technical Writing]] — Documentation, READMEs, API docs
+- [[Computer Science/Regex Reference|Regex Reference]] — Regular expression patterns
+
+### API Styles
+
+- [[Computer Science/REST vs GraphQL vs gRPC|REST vs GraphQL vs gRPC]] — API architectural comparison
+
 ### Reference
 
 - [[Technical Measurements]]
