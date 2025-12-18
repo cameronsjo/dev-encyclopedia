@@ -88,6 +88,13 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 
 - [[Computer Science/REST vs GraphQL vs gRPC|REST vs GraphQL vs gRPC]] — API architectural comparison
 
+### OS Development Basics
+
+- [[Computer Science/XDG Base Directory|XDG Base Directory]] — Linux config/data/cache paths
+- [[Computer Science/Windows Development Basics|Windows Development Basics]] — AppData, Registry, paths
+- [[Computer Science/macOS Development Basics|macOS Development Basics]] — Library folders, plist, Homebrew
+- [[Computer Science/Cross-Platform Development Paths|Cross-Platform Development Paths]] — Where to store files on any OS
+
 ### Reference
 
 - [[Technical Measurements]]

@@ -71,6 +71,11 @@ Development tools, libraries, and infrastructure across languages.
 - [[Container Tools]] — Portainer, Traefik, Watchtower, registries
 - [[Kubernetes]] — K8s, K3s, kind, minikube, Helm
 
+### Local Development
+
+- [[Tools/Local Kubernetes|Local Kubernetes]] — KIND, K3s, k3d, minikube
+- [[Tools/Local Observability|Local Observability]] — Grafana, Prometheus, Loki locally
+
 ### Infrastructure & Security
 
 - [[API Gateways]] — Traffic routing, rate limiting, auth
