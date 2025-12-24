@@ -34,6 +34,7 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Dynamic Programming]]
 - [[Greedy Algorithms]]
 - [[Divide & Conquer]]
+- [[Computer Science/Compression|Compression]] — gzip, zstd, LZ4, Brotli, how they work
 
 ### Complexity
 
