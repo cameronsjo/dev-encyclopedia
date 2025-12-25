@@ -46,6 +46,17 @@ Programming languages and their ecosystems.
 | [[Languages/Swift|Swift]] | Multi-paradigm | Apple platforms |
 | [[Languages/Dart|Dart]] | OOP | Flutter |
 
+### Legacy & Mainframe
+
+| Language | Paradigm | Use Cases |
+|----------|----------|-----------|
+| [[Languages/COBOL|COBOL]] | Procedural | Banking, insurance, government |
+| [[Languages/Fortran|Fortran]] | Array-oriented | Scientific computing, HPC |
+| [[Languages/JCL|JCL]] | Job control | Mainframe batch processing |
+| [[Languages/BASIC|BASIC]] | Procedural | Education, VBA, legacy apps |
+| [[Languages/Pascal|Pascal]] | Structured | Education, Delphi desktop |
+| [[Languages/Ada|Ada]] | Contract-based | Aerospace, defense, safety-critical |
+
 ---
 
 ## By Domain
@@ -57,6 +68,8 @@ Programming languages and their ecosystems.
 | [[Domains/Desktop Development|Desktop]] | C#, C++, Swift, Rust, TypeScript |
 | [[Domains/Game Development|Game]] | C#, C++, Rust |
 | [[Domains/Embedded & Systems|Systems]] | C++, Rust, C |
+| Legacy & Mainframe | COBOL, Fortran, JCL, Ada |
+| Scientific & HPC | Fortran, Python, C++ |
 
 ---
 
@@ -90,6 +103,6 @@ SORT file.name ASC
 
 ```dataview
 LIST
-FROM #comparison AND (#csharp OR #go OR #python OR #typescript OR #rust OR #java OR #kotlin OR #swift OR #cpp OR #dart OR #php OR #ruby)
+FROM #comparison AND (#csharp OR #go OR #python OR #typescript OR #rust OR #java OR #kotlin OR #swift OR #cpp OR #dart OR #php OR #ruby OR #legacy OR #mainframe OR #scientific)
 SORT file.name ASC
 ```
