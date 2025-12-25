@@ -1,1 +1,11 @@
-{}
+{
+  "cssTheme": "Cupertino",
+  "interfaceFontFamily": "Atkinson Hyperlegible",
+  "textFontFamily": "Atkinson Hyperlegible",
+  "accentColor": "",
+  "baseFontSize": 14,
+  "translucency": true,
+  "enabledCssSnippets": [
+    "ghostty"
+  ]
+}

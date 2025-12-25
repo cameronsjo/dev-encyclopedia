@@ -10,7 +10,6 @@ type: moc
 created: '2025-11-28'
 status: complete
 ---
-
 # Computer Science MOC
 
 Fundamental CS concepts, data structures, algorithms, and system design.

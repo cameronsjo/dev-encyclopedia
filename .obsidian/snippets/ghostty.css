@@ -1,0 +1,783 @@
+/*
+ * ============================================================================
+ * GHOSTTY TERMINAL COLOR THEME FOR OBSIDIAN
+ * ============================================================================
+ * Source: https://ghostty.org/
+ *
+ * This snippet applies Ghostty's terminal color palette to Obsidian.
+ * Enable it to overlay colors on your current theme (e.g., Cupertino).
+ *
+ * OFFICIAL GHOSTTY DEFAULT PALETTE:
+ * ┌──────────┬───────────┬───────────────┐
+ * │ Color    │ Standard  │ Bright        │
+ * ├──────────┼───────────┼───────────────┤
+ * │ Black    │ #1D1F21   │ #666666       │
+ * │ Red      │ #CC6666   │ #D54E53       │
+ * │ Green    │ #B5BD68   │ #B9CA4A       │
+ * │ Yellow   │ #F0C674   │ #E7C547       │
+ * │ Blue     │ #81A2BE   │ #7AA6DA       │
+ * │ Magenta  │ #B294BB   │ #C397D8       │
+ * │ Cyan     │ #8ABEB7   │ #70C0B1       │
+ * │ White    │ #C5C8C6   │ #EAEAEA       │
+ * └──────────┴───────────┴───────────────┘
+ */
+
+
+/* ╔═══════════════════════════════════════════════════════════════════════════╗
+   ║                              DARK MODE                                    ║
+   ║                        Official Ghostty Palette                           ║
+   ╚═══════════════════════════════════════════════════════════════════════════╝ */
+
+.theme-dark {
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Base Colors
+     Grayscale ramp from darkest (00) to lightest (100)
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-base-00: #292c33; /* Primary background - slightly lighter than Black */
+  --color-base-05: #232630; /* Deeper background variant */
+  --color-base-10: #1d1f21; /* Ghostty Black - secondary surfaces */
+  --color-base-20: #1d1f21; /* Card/panel backgrounds */
+  --color-base-25: #363a43; /* Elevated surfaces */
+  --color-base-30: #363a43; /* Borders, separators */
+  --color-base-35: #4a4f5a; /* Hover states */
+  --color-base-40: #5e6470; /* Disabled/inactive elements */
+  --color-base-50: #666666; /* Ghostty Bright Black - muted text */
+  --color-base-60: #8a8f9a; /* Secondary text */
+  --color-base-70: #c5c8c6; /* Ghostty White - primary text alt */
+  --color-base-100: #eaeaea; /* Ghostty Bright White - primary text */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Monochrome RGB Values
+     Used for rgba() calculations and opacity-based colors
+     ───────────────────────────────────────────────────────────────────────── */
+  --mono-rgb-0: 41, 44, 51;     /* Background RGB */
+  --mono-rgb-100: 234, 234, 234; /* Foreground RGB */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Accent Color (HSL)
+     Using Ghostty Bright Blue #7AA6DA as primary accent
+
+     ALTERNATIVE ACCENT OPTIONS:
+     - Violet 600:  #7c3aed → hsl(262, 83%, 58%) - vibrant, great all-rounder
+     - Violet 500:  #8b5cf6 → hsl(258, 90%, 66%) - softer, very readable
+     - Indigo 500:  #6366f1 → hsl(239, 84%, 67%) - balanced blue-purple
+     - Purple 500:  #a855f7 → hsl(271, 91%, 65%) - more magenta, pops on dark
+     - Indigo 600:  #4f46e5 → hsl(245, 75%, 59%) - deeper, professional
+     - Slate Blue:  #6A5ACD → hsl(248, 53%, 58%) - classic, muted
+     ───────────────────────────────────────────────────────────────────────── */
+  --accent-h: 212;  /* Hue */
+  --accent-s: 55%;  /* Saturation */
+  --accent-l: 67%;  /* Lightness */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Semantic Background Colors
+     Contextual surface colors for UI states
+     ───────────────────────────────────────────────────────────────────────── */
+  --background-primary: #292c33;           /* Main content area */
+  --background-primary-alt: #1d1f21;       /* Alternate content area */
+  --background-secondary: #1d1f21;         /* Sidebars, panels */
+  --background-secondary-alt: #1d1f21;     /* Nested panels */
+  --background-modifier-border: #363a43;            /* Default borders */
+  --background-modifier-border-hover: #4a4f5a;      /* Border hover state */
+  --background-modifier-border-focus: #7aa6da;      /* Border focus state (accent) */
+  --background-modifier-form-field: #363a43;        /* Input field backgrounds */
+  --background-modifier-hover: #4a4f5a;             /* General hover state */
+  --background-modifier-active-hover: #5e6470;      /* Active + hover state */
+  --background-modifier-error-rgb: 204, 102, 102;   /* Error RGB for rgba() */
+  --background-modifier-error: #cc6666;             /* Error state - Ghostty Red */
+  --background-modifier-error-hover: #d54e53;       /* Error hover - Bright Red */
+  --background-modifier-success-rgb: 181, 189, 104; /* Success RGB for rgba() */
+  --background-modifier-success: #b5bd68;           /* Success state - Ghostty Green */
+  --background-modifier-message: #363a43;           /* Message/notification bg */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Interactive Element Colors
+     Buttons, toggles, and clickable elements
+     ───────────────────────────────────────────────────────────────────────── */
+  --interactive-normal: #363a43;                /* Default state */
+  --interactive-hover: #4a4f5a;                 /* Hover state */
+  --interactive-accent: #7aa6da;                /* Accent color - Bright Blue */
+  --interactive-accent-hsl: 212, 55%, 67%;      /* HSL for calculations */
+  --interactive-accent-hover: #8bb4e4;          /* Accent hover (lightened) */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Text Colors
+     Typography and text states
+     ───────────────────────────────────────────────────────────────────────── */
+  --text-normal: #eaeaea;              /* Primary text - Bright White */
+  --text-muted: #c5c8c6;               /* Secondary text - White */
+  --text-faint: #666666;               /* Tertiary text - Bright Black */
+  --text-on-accent: #1d1f21;           /* Text on accent backgrounds */
+  --text-on-accent-inverted: #eaeaea;  /* Inverted accent text */
+  --text-success: #b5bd68;             /* Success text - Green */
+  --text-warning: #f0c674;             /* Warning text - Yellow */
+  --text-error: #cc6666;               /* Error text - Red */
+  --text-accent: #7aa6da;              /* Accent text - Bright Blue */
+  --text-accent-hover: #8bb4e4;        /* Accent text hover */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Cursor
+     ───────────────────────────────────────────────────────────────────────── */
+  --caret-color: #eaeaea; /* Text cursor color */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Extended Color Palette
+     Semantic colors mapped to Ghostty palette
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-red: #cc6666;            /* Ghostty Red */
+  --color-red-rgb: 204, 102, 102;
+  --color-orange: #d54e53;         /* Bright Red (no orange in Ghostty) */
+  --color-orange-rgb: 213, 78, 83;
+  --color-yellow: #f0c674;         /* Ghostty Yellow */
+  --color-yellow-rgb: 240, 198, 116;
+  --color-green: #b5bd68;          /* Ghostty Green */
+  --color-green-rgb: 181, 189, 104;
+  --color-cyan: #8abeb7;           /* Ghostty Cyan */
+  --color-cyan-rgb: 138, 190, 183;
+  --color-blue: #81a2be;           /* Ghostty Blue */
+  --color-blue-rgb: 129, 162, 190;
+  --color-purple: #b294bb;         /* Ghostty Magenta */
+  --color-purple-rgb: 178, 148, 187;
+  --color-pink: #c397d8;           /* Ghostty Bright Magenta */
+  --color-pink-rgb: 195, 151, 216;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Accent Color Aliases
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-accent: #7aa6da;    /* Primary accent */
+  --color-accent-1: #7aa6da;  /* Accent variant 1 */
+  --color-accent-2: #8bb4e4;  /* Accent variant 2 (lighter) */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Links
+     Internal, external, and unresolved link styling
+     ───────────────────────────────────────────────────────────────────────── */
+  --link-color: #81a2be;                        /* Internal links - Blue */
+  --link-color-hover: #7aa6da;                  /* Link hover - Bright Blue */
+  --link-decoration: none;                      /* No underline by default */
+  --link-decoration-hover: underline;           /* Underline on hover */
+  --link-decoration-thickness: 1px;
+  --link-external-color: #8abeb7;               /* External links - Cyan */
+  --link-external-color-hover: #70c0b1;         /* External hover - Bright Cyan */
+  --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
+  --link-unresolved-color: #cc6666;             /* Broken links - Red */
+  --link-unresolved-opacity: 0.8;
+  --link-unresolved-decoration-style: dashed;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Tags
+     Hashtag styling
+     ───────────────────────────────────────────────────────────────────────── */
+  --tag-color: #b294bb;             /* Tag text - Magenta */
+  --tag-color-hover: #c397d8;       /* Tag hover - Bright Magenta */
+  --tag-background: #363a43;        /* Tag background */
+  --tag-background-hover: #4a4f5a;  /* Tag background hover */
+  --tag-border-color: transparent;
+  --tag-border-color-hover: transparent;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Code & Syntax Highlighting
+     Code blocks and inline code
+     ───────────────────────────────────────────────────────────────────────── */
+  --code-normal: #eaeaea;       /* Default code text */
+  --code-background: #1d1f21;   /* Code block background */
+  --code-comment: #666666;      /* Comments - Bright Black */
+  --code-function: #81a2be;     /* Functions - Blue */
+  --code-important: #f0c674;    /* Important/annotations - Yellow */
+  --code-keyword: #b294bb;      /* Keywords - Magenta */
+  --code-operator: #8abeb7;     /* Operators - Cyan */
+  --code-property: #7aa6da;     /* Properties - Bright Blue */
+  --code-punctuation: #c5c8c6;  /* Punctuation - White */
+  --code-string: #b5bd68;       /* Strings - Green */
+  --code-tag: #cc6666;          /* Tags/elements - Red */
+  --code-value: #f0c674;        /* Values/numbers - Yellow */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Headings
+     H1-H6 colors using palette spectrum
+     ───────────────────────────────────────────────────────────────────────── */
+  --h1-color: #f0c674;  /* Yellow - most prominent */
+  --h2-color: #c397d8;  /* Bright Magenta */
+  --h3-color: #7aa6da;  /* Bright Blue */
+  --h4-color: #70c0b1;  /* Bright Cyan */
+  --h5-color: #b9ca4a;  /* Bright Green */
+  --h6-color: #c5c8c6;  /* White - least prominent */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Text Selection & Highlights
+     ───────────────────────────────────────────────────────────────────────── */
+  --text-highlight-bg: rgba(240, 198, 116, 0.3);  /* Yellow highlight */
+  --text-selection: rgba(122, 166, 218, 0.3);     /* Blue selection */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Blockquotes
+     ───────────────────────────────────────────────────────────────────────── */
+  --blockquote-background-color: rgba(54, 58, 67, 0.5);
+  --blockquote-border-color: #666666;    /* Bright Black */
+  --blockquote-border-thickness: 2px;
+  --blockquote-color: #c5c8c6;           /* White */
+  --blockquote-font-style: italic;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Checkboxes & Task Lists
+     ───────────────────────────────────────────────────────────────────────── */
+  --checkbox-color: #b5bd68;              /* Checked state - Green */
+  --checkbox-color-hover: #b9ca4a;        /* Hover - Bright Green */
+  --checkbox-marker-color: #1d1f21;       /* Checkmark color */
+  --checkbox-border-color: #666666;       /* Border - Bright Black */
+  --checkbox-border-color-hover: #b5bd68; /* Border hover - Green */
+  --checklist-done-color: #666666;        /* Completed task text */
+  --checklist-done-decoration: line-through;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENTS: Scrollbar
+     ───────────────────────────────────────────────────────────────────────── */
+  --scrollbar-bg: #1d1f21;            /* Track background */
+  --scrollbar-thumb-bg: #4a4f5a;      /* Thumb default */
+  --scrollbar-active-thumb-bg: #5e6470; /* Thumb active/hover */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Status Bar
+     Bottom status bar styling
+     ───────────────────────────────────────────────────────────────────────── */
+  --status-bar-background: #1d1f21;
+  --status-bar-border-color: #363a43;
+  --status-bar-text-color: #c5c8c6;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Embeds
+     Embedded/transcluded content
+     ───────────────────────────────────────────────────────────────────────── */
+  --embed-background: #1d1f21;
+  --embed-border-start: 2px solid #7aa6da;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Horizontal Rules / Dividers
+     ───────────────────────────────────────────────────────────────────────── */
+  --hr-color: #363a43;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     PLUGINS: Graph View
+     Node and connection colors
+     ───────────────────────────────────────────────────────────────────────── */
+  --graph-line: #4a4f5a;              /* Connection lines */
+  --graph-text: #eaeaea;              /* Node labels */
+  --graph-node: #7aa6da;              /* Regular nodes - Bright Blue */
+  --graph-node-unresolved: #cc6666;   /* Unresolved nodes - Red */
+  --graph-node-focused: #f0c674;      /* Focused node - Yellow */
+  --graph-node-tag: #b5bd68;          /* Tag nodes - Green */
+  --graph-node-attachment: #b294bb;   /* Attachment nodes - Magenta */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Titlebar / Window Frame
+     OS-level window chrome (when using Obsidian frame style)
+     ───────────────────────────────────────────────────────────────────────── */
+  --titlebar-background: #1d1f21;
+  --titlebar-background-focused: #1d1f21;
+  --titlebar-border-width: 0px;
+  --titlebar-border-color: #363a43;
+  --titlebar-text-color: #c5c8c6;         /* Unfocused window */
+  --titlebar-text-color-focused: #eaeaea; /* Focused window */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENTS: Tabs
+     Tab bar and individual tab styling
+     ───────────────────────────────────────────────────────────────────────── */
+  --tab-background-active: #292c33;               /* Active tab background */
+  --tab-text-color: #8a8f9a;                      /* Inactive tab text */
+  --tab-text-color-active: #eaeaea;               /* Active tab text */
+  --tab-text-color-focused: #c5c8c6;              /* Focused pane tabs */
+  --tab-text-color-focused-active: #eaeaea;       /* Focused + active */
+  --tab-text-color-focused-active-current: #eaeaea;
+  --tab-container-background: #1d1f21;            /* Tab bar background */
+  --tab-divider-color: #363a43;                   /* Between tabs */
+  --tab-outline-color: #363a43;                   /* Tab container border */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     PLUGINS: File Explorer / Navigation
+     Left sidebar file tree
+     ───────────────────────────────────────────────────────────────────────── */
+  --nav-item-color: #c5c8c6;                   /* File/folder text */
+  --nav-item-color-hover: #eaeaea;             /* Hover state */
+  --nav-item-color-active: #eaeaea;            /* Active/clicked */
+  --nav-item-color-selected: #eaeaea;          /* Selected item */
+  --nav-item-color-highlighted: #7aa6da;       /* Search match highlight */
+  --nav-item-background-hover: #363a43;        /* Item hover background */
+  --nav-item-background-active: #4a4f5a;       /* Item active background */
+  --nav-item-background-selected: #363a43;     /* Selected item background */
+  --nav-indentation-guide-color: #363a43;      /* Tree indent lines */
+  --nav-collapse-icon-color: #666666;          /* Expand/collapse arrows */
+  --nav-collapse-icon-color-collapsed: #8a8f9a;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Ribbon
+     Left icon sidebar
+     ───────────────────────────────────────────────────────────────────────── */
+  --ribbon-background: #1d1f21;
+  --ribbon-background-collapsed: #1d1f21;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Dividers / Resize Handles
+     Pane separators and drag handles
+     ───────────────────────────────────────────────────────────────────────── */
+  --divider-color: #363a43;
+  --divider-color-hover: #4a4f5a;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENTS: Modal Dialogs
+     Settings, command palette, etc.
+     ───────────────────────────────────────────────────────────────────────── */
+  --modal-background: #292c33;
+  --modal-border-color: #363a43;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Workspace
+     Main workspace area
+     ───────────────────────────────────────────────────────────────────────── */
+  --workspace-background-translucent: rgba(29, 31, 33, 0.9);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Callout Colors
+     Default colors for callout types (variables)
+     ───────────────────────────────────────────────────────────────────────── */
+  --callout-default: #81a2be;
+  --callout-note: #81a2be;       /* Blue - general notes */
+  --callout-abstract: #8abeb7;   /* Cyan - summaries */
+  --callout-summary: #8abeb7;
+  --callout-tldr: #8abeb7;
+  --callout-info: #7aa6da;       /* Bright Blue - information */
+  --callout-todo: #81a2be;
+  --callout-tip: #70c0b1;        /* Bright Cyan - tips/hints */
+  --callout-hint: #70c0b1;
+  --callout-important: #c397d8;  /* Bright Magenta - important */
+  --callout-success: #b5bd68;    /* Green - success/check */
+  --callout-check: #b5bd68;
+  --callout-done: #b9ca4a;       /* Bright Green */
+  --callout-question: #f0c674;   /* Yellow - questions */
+  --callout-help: #f0c674;
+  --callout-faq: #f0c674;
+  --callout-warning: #e7c547;    /* Bright Yellow - warnings */
+  --callout-caution: #e7c547;
+  --callout-attention: #e7c547;
+  --callout-failure: #cc6666;    /* Red - failure */
+  --callout-fail: #cc6666;
+  --callout-missing: #cc6666;
+  --callout-danger: #d54e53;     /* Bright Red - danger/error */
+  --callout-error: #d54e53;
+  --callout-bug: #d54e53;
+  --callout-example: #b294bb;    /* Magenta - examples */
+  --callout-quote: #8a8f9a;      /* Muted - quotes */
+  --callout-cite: #8a8f9a;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   EDITOR: Callout Styling Overrides (Dark Mode)
+   Custom callout appearance with semi-transparent backgrounds
+   ───────────────────────────────────────────────────────────────────────────── */
+.theme-dark .callout {
+  --callout-blend-mode: normal;
+  background-color: rgba(54, 58, 67, 0.5);
+  border-color: var(--callout-color);
+}
+
+/* Callout type color assignments */
+.theme-dark .callout[data-callout="note"] { --callout-color: #81a2be; }
+.theme-dark .callout[data-callout="abstract"],
+.theme-dark .callout[data-callout="summary"],
+.theme-dark .callout[data-callout="tldr"] { --callout-color: #8abeb7; }
+.theme-dark .callout[data-callout="info"] { --callout-color: #7aa6da; }
+.theme-dark .callout[data-callout="todo"] { --callout-color: #81a2be; }
+.theme-dark .callout[data-callout="tip"],
+.theme-dark .callout[data-callout="hint"] { --callout-color: #70c0b1; }
+.theme-dark .callout[data-callout="important"] { --callout-color: #c397d8; }
+.theme-dark .callout[data-callout="success"],
+.theme-dark .callout[data-callout="check"],
+.theme-dark .callout[data-callout="done"] { --callout-color: #b5bd68; }
+.theme-dark .callout[data-callout="question"],
+.theme-dark .callout[data-callout="help"],
+.theme-dark .callout[data-callout="faq"] { --callout-color: #f0c674; }
+.theme-dark .callout[data-callout="warning"],
+.theme-dark .callout[data-callout="caution"],
+.theme-dark .callout[data-callout="attention"] { --callout-color: #e7c547; }
+.theme-dark .callout[data-callout="failure"],
+.theme-dark .callout[data-callout="fail"],
+.theme-dark .callout[data-callout="missing"] { --callout-color: #cc6666; }
+.theme-dark .callout[data-callout="danger"],
+.theme-dark .callout[data-callout="error"] { --callout-color: #d54e53; }
+.theme-dark .callout[data-callout="bug"] { --callout-color: #d54e53; }
+.theme-dark .callout[data-callout="example"] { --callout-color: #b294bb; }
+.theme-dark .callout[data-callout="quote"],
+.theme-dark .callout[data-callout="cite"] { --callout-color: #8a8f9a; }
+
+
+/* ╔═══════════════════════════════════════════════════════════════════════════╗
+   ║                              LIGHT MODE                                   ║
+   ║              Warm, muted variant with darkened Ghostty colors             ║
+   ╚═══════════════════════════════════════════════════════════════════════════╝ */
+
+.theme-light {
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Base Colors
+     Warm cream/off-white palette - avoids harsh pure whites
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-base-00: #e8e6e3;  /* Primary background - warm off-white */
+  --color-base-05: #eceae7;  /* Lighter variant */
+  --color-base-10: #e0dedb;  /* Secondary surfaces */
+  --color-base-20: #d6d4d1;  /* Elevated surfaces */
+  --color-base-25: #cccac7;  /* Higher elevation */
+  --color-base-30: #c2c0bd;  /* Borders, separators */
+  --color-base-35: #a8a6a3;  /* Disabled elements */
+  --color-base-40: #8a8885;  /* Inactive elements */
+  --color-base-50: #666564;  /* Muted text */
+  --color-base-60: #4a4948;  /* Secondary text */
+  --color-base-70: #363534;  /* Primary text alt */
+  --color-base-100: #1d1c1b; /* Primary text - near black */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Monochrome RGB Values
+     ───────────────────────────────────────────────────────────────────────── */
+  --mono-rgb-0: 232, 230, 227;  /* Background RGB */
+  --mono-rgb-100: 29, 28, 27;   /* Foreground RGB */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Accent Color (HSL)
+     Ghostty Blue darkened for light background contrast
+
+     ALTERNATIVE ACCENT OPTIONS:
+     - Violet 600:  #7c3aed → hsl(262, 83%, 58%) - vibrant, great all-rounder
+     - Violet 500:  #8b5cf6 → hsl(258, 90%, 66%) - softer, very readable
+     - Indigo 500:  #6366f1 → hsl(239, 84%, 67%) - balanced blue-purple
+     - Purple 500:  #a855f7 → hsl(271, 91%, 65%) - more magenta
+     - Indigo 600:  #4f46e5 → hsl(245, 75%, 59%) - deeper, professional
+     ───────────────────────────────────────────────────────────────────────── */
+  --accent-h: 207;
+  --accent-s: 40%;
+  --accent-l: 42%;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Semantic Background Colors
+     Warm cohesive surfaces throughout
+     ───────────────────────────────────────────────────────────────────────── */
+  --background-primary: #e8e6e3;
+  --background-primary-alt: #e0dedb;
+  --background-secondary: #dfddd9;
+  --background-secondary-alt: #d6d4d1;
+  --background-modifier-border: #c2c0bd;
+  --background-modifier-border-hover: #b5b3b0;
+  --background-modifier-border-focus: #4a7fa0;
+  --background-modifier-form-field: #d6d4d1;
+  --background-modifier-hover: #d0cecc;
+  --background-modifier-active-hover: #c8c6c4;
+  --background-modifier-error-rgb: 163, 82, 80;
+  --background-modifier-error: #a35250;
+  --background-modifier-error-hover: #a34444;
+  --background-modifier-success-rgb: 120, 140, 60;
+  --background-modifier-success: #788c3c;
+  --background-modifier-message: #d6d4d1;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Interactive Element Colors
+     ───────────────────────────────────────────────────────────────────────── */
+  --interactive-normal: #d6d4d1;
+  --interactive-hover: #cccac7;
+  --interactive-accent: #4a7fa0;
+  --interactive-accent-hsl: 207, 40%, 42%;
+  --interactive-accent-hover: #3a6f90;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Text Colors
+     Good contrast on warm backgrounds
+     ───────────────────────────────────────────────────────────────────────── */
+  --text-normal: #1d1c1b;
+  --text-muted: #4a4948;
+  --text-faint: #7a7877;
+  --text-on-accent: #e8e6e3;
+  --text-on-accent-inverted: #1d1c1b;
+  --text-success: #5a7a30;
+  --text-warning: #8a7030;
+  --text-error: #a04040;
+  --text-accent: #4a7fa0;
+  --text-accent-hover: #3a6f90;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Cursor
+     ───────────────────────────────────────────────────────────────────────── */
+  --caret-color: #1d1c1b;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Extended Color Palette
+     Ghostty colors darkened for light background readability
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-red: #a04040;
+  --color-red-rgb: 160, 64, 64;
+  --color-orange: #b05030;
+  --color-orange-rgb: 176, 80, 48;
+  --color-yellow: #8a7030;
+  --color-yellow-rgb: 138, 112, 48;
+  --color-green: #5a7a30;
+  --color-green-rgb: 90, 122, 48;
+  --color-cyan: #3a7a70;
+  --color-cyan-rgb: 58, 122, 112;
+  --color-blue: #4a7fa0;
+  --color-blue-rgb: 74, 127, 160;
+  --color-purple: #7a5a88;
+  --color-purple-rgb: 122, 90, 136;
+  --color-pink: #8a5a98;
+  --color-pink-rgb: 138, 90, 152;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     FOUNDATIONS: Accent Color Aliases
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-accent: #4a7fa0;
+  --color-accent-1: #4a7fa0;
+  --color-accent-2: #3a6f90;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Links
+     ───────────────────────────────────────────────────────────────────────── */
+  --link-color: #4a7fa0;
+  --link-color-hover: #3a6f90;
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-decoration-thickness: 1px;
+  --link-external-color: #3a7a70;
+  --link-external-color-hover: #2a6a60;
+  --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
+  --link-unresolved-color: #a04040;
+  --link-unresolved-opacity: 0.8;
+  --link-unresolved-decoration-style: dashed;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Tags
+     ───────────────────────────────────────────────────────────────────────── */
+  --tag-color: #7a5a88;
+  --tag-color-hover: #8a5a98;
+  --tag-background: #d6d4d1;
+  --tag-background-hover: #cccac7;
+  --tag-border-color: transparent;
+  --tag-border-color-hover: transparent;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Code & Syntax Highlighting
+     ───────────────────────────────────────────────────────────────────────── */
+  --code-normal: #1d1c1b;
+  --code-background: #dfddd9;
+  --code-comment: #7a7877;
+  --code-function: #4a7fa0;
+  --code-important: #8a7030;
+  --code-keyword: #7a5a88;
+  --code-operator: #3a7a70;
+  --code-property: #3a6fa0;
+  --code-punctuation: #4a4948;
+  --code-string: #5a7a30;
+  --code-tag: #a04040;
+  --code-value: #8a7030;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Headings
+     Good contrast on warm background
+     ───────────────────────────────────────────────────────────────────────── */
+  --h1-color: #8a7030;
+  --h2-color: #8a5a98;
+  --h3-color: #3a6fa0;
+  --h4-color: #3a7a70;
+  --h5-color: #5a7a30;
+  --h6-color: #666564;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Text Selection & Highlights
+     ───────────────────────────────────────────────────────────────────────── */
+  --text-highlight-bg: rgba(138, 112, 48, 0.25);
+  --text-selection: rgba(74, 127, 160, 0.25);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Blockquotes
+     ───────────────────────────────────────────────────────────────────────── */
+  --blockquote-background-color: rgba(194, 192, 189, 0.4);
+  --blockquote-border-color: #a8a6a3;
+  --blockquote-border-thickness: 2px;
+  --blockquote-color: #4a4948;
+  --blockquote-font-style: italic;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Checkboxes & Task Lists
+     ───────────────────────────────────────────────────────────────────────── */
+  --checkbox-color: #5a7a30;
+  --checkbox-color-hover: #4a6a20;
+  --checkbox-marker-color: #e8e6e3;
+  --checkbox-border-color: #a8a6a3;
+  --checkbox-border-color-hover: #5a7a30;
+  --checklist-done-color: #a8a6a3;
+  --checklist-done-decoration: line-through;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENTS: Scrollbar
+     ───────────────────────────────────────────────────────────────────────── */
+  --scrollbar-bg: #e0dedb;
+  --scrollbar-thumb-bg: #c2c0bd;
+  --scrollbar-active-thumb-bg: #b5b3b0;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Status Bar
+     ───────────────────────────────────────────────────────────────────────── */
+  --status-bar-background: #dfddd9;
+  --status-bar-border-color: #c2c0bd;
+  --status-bar-text-color: #4a4948;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Embeds
+     ───────────────────────────────────────────────────────────────────────── */
+  --embed-background: #dfddd9;
+  --embed-border-start: 2px solid #4a7fa0;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Horizontal Rules / Dividers
+     ───────────────────────────────────────────────────────────────────────── */
+  --hr-color: #c2c0bd;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     PLUGINS: Graph View
+     ───────────────────────────────────────────────────────────────────────── */
+  --graph-line: #c2c0bd;
+  --graph-text: #1d1c1b;
+  --graph-node: #4a7fa0;
+  --graph-node-unresolved: #a04040;
+  --graph-node-focused: #8a7030;
+  --graph-node-tag: #5a7a30;
+  --graph-node-attachment: #7a5a88;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Titlebar / Window Frame
+     ───────────────────────────────────────────────────────────────────────── */
+  --titlebar-background: #dfddd9;
+  --titlebar-background-focused: #dfddd9;
+  --titlebar-border-width: 0px;
+  --titlebar-border-color: #c2c0bd;
+  --titlebar-text-color: #4a4948;
+  --titlebar-text-color-focused: #1d1c1b;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENTS: Tabs
+     ───────────────────────────────────────────────────────────────────────── */
+  --tab-background-active: #e8e6e3;
+  --tab-text-color: #7a7877;
+  --tab-text-color-active: #1d1c1b;
+  --tab-text-color-focused: #4a4948;
+  --tab-text-color-focused-active: #1d1c1b;
+  --tab-text-color-focused-active-current: #1d1c1b;
+  --tab-container-background: #dfddd9;
+  --tab-divider-color: #c2c0bd;
+  --tab-outline-color: #c2c0bd;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     PLUGINS: File Explorer / Navigation
+     ───────────────────────────────────────────────────────────────────────── */
+  --nav-item-color: #4a4948;
+  --nav-item-color-hover: #1d1c1b;
+  --nav-item-color-active: #1d1c1b;
+  --nav-item-color-selected: #1d1c1b;
+  --nav-item-color-highlighted: #4a7fa0;
+  --nav-item-background-hover: #d6d4d1;
+  --nav-item-background-active: #cccac7;
+  --nav-item-background-selected: #d6d4d1;
+  --nav-indentation-guide-color: #c2c0bd;
+  --nav-collapse-icon-color: #a8a6a3;
+  --nav-collapse-icon-color-collapsed: #7a7877;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Ribbon
+     ───────────────────────────────────────────────────────────────────────── */
+  --ribbon-background: #dfddd9;
+  --ribbon-background-collapsed: #dfddd9;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Dividers / Resize Handles
+     ───────────────────────────────────────────────────────────────────────── */
+  --divider-color: #c2c0bd;
+  --divider-color-hover: #b5b3b0;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     COMPONENTS: Modal Dialogs
+     ───────────────────────────────────────────────────────────────────────── */
+  --modal-background: #e8e6e3;
+  --modal-border-color: #c2c0bd;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     WINDOW: Workspace
+     ───────────────────────────────────────────────────────────────────────── */
+  --workspace-background-translucent: rgba(232, 230, 227, 0.9);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EDITOR: Callout Colors
+     ───────────────────────────────────────────────────────────────────────── */
+  --callout-default: #4a7fa0;
+  --callout-note: #4a7fa0;
+  --callout-abstract: #3a7a70;
+  --callout-summary: #3a7a70;
+  --callout-tldr: #3a7a70;
+  --callout-info: #3a6fa0;
+  --callout-todo: #4a7fa0;
+  --callout-tip: #3a7a70;
+  --callout-hint: #3a7a70;
+  --callout-important: #8a5a98;
+  --callout-success: #5a7a30;
+  --callout-check: #5a7a30;
+  --callout-done: #4a6a20;
+  --callout-question: #8a7030;
+  --callout-help: #8a7030;
+  --callout-faq: #8a7030;
+  --callout-warning: #9a6020;
+  --callout-caution: #9a6020;
+  --callout-attention: #9a6020;
+  --callout-failure: #a04040;
+  --callout-fail: #a04040;
+  --callout-missing: #a04040;
+  --callout-danger: #b03030;
+  --callout-error: #b03030;
+  --callout-bug: #b03030;
+  --callout-example: #7a5a88;
+  --callout-quote: #666564;
+  --callout-cite: #666564;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   EDITOR: Callout Styling Overrides (Light Mode)
+   ───────────────────────────────────────────────────────────────────────────── */
+.theme-light .callout {
+  --callout-blend-mode: normal;
+  background-color: rgba(194, 192, 189, 0.35);
+  border-color: var(--callout-color);
+}
+
+/* Callout type color assignments */
+.theme-light .callout[data-callout="note"] { --callout-color: #4a7fa0; }
+.theme-light .callout[data-callout="abstract"],
+.theme-light .callout[data-callout="summary"],
+.theme-light .callout[data-callout="tldr"] { --callout-color: #3a7a70; }
+.theme-light .callout[data-callout="info"] { --callout-color: #3a6fa0; }
+.theme-light .callout[data-callout="todo"] { --callout-color: #4a7fa0; }
+.theme-light .callout[data-callout="tip"],
+.theme-light .callout[data-callout="hint"] { --callout-color: #3a7a70; }
+.theme-light .callout[data-callout="important"] { --callout-color: #8a5a98; }
+.theme-light .callout[data-callout="success"],
+.theme-light .callout[data-callout="check"],
+.theme-light .callout[data-callout="done"] { --callout-color: #5a7a30; }
+.theme-light .callout[data-callout="question"],
+.theme-light .callout[data-callout="help"],
+.theme-light .callout[data-callout="faq"] { --callout-color: #8a7030; }
+.theme-light .callout[data-callout="warning"],
+.theme-light .callout[data-callout="caution"],
+.theme-light .callout[data-callout="attention"] { --callout-color: #9a6020; }
+.theme-light .callout[data-callout="failure"],
+.theme-light .callout[data-callout="fail"],
+.theme-light .callout[data-callout="missing"] { --callout-color: #a04040; }
+.theme-light .callout[data-callout="danger"],
+.theme-light .callout[data-callout="error"] { --callout-color: #b03030; }
+.theme-light .callout[data-callout="bug"] { --callout-color: #b03030; }
+.theme-light .callout[data-callout="example"] { --callout-color: #7a5a88; }
+.theme-light .callout[data-callout="quote"],
+.theme-light .callout[data-callout="cite"] { --callout-color: #666564; }

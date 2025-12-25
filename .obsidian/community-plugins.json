@@ -3,5 +3,6 @@
   "mcp-tools",
   "smart-connections",
   "dataview",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-git"
 ]
