@@ -31,10 +31,10 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Category | Languages |
 |----------|-----------|
-| Systems | [[Languages/C++|C++]], [[Rust]], [[Go]] |
-| Enterprise/JVM | [[Languages/Java|Java]], [[Languages/Kotlin|Kotlin]], [[C Sharp|C#]] |
-| Web/Scripting | [[TypeScript]], [[Python]], [[Languages/PHP|PHP]], [[Languages/Ruby|Ruby]] |
-| Mobile/UI | [[Languages/Swift|Swift]], [[Languages/Dart|Dart]] |
+| Systems | [[Languages/C++]], [[Rust]], [[Go]] |
+| Enterprise/JVM | [[Languages/Java]], [[Languages/Kotlin]], [[C Sharp]] |
+| Web/Scripting | [[TypeScript]], [[Python]], [[PHP]], [[Languages/Ruby]] |
+| Mobile/UI | [[Languages/Swift]], [[Languages/Dart]] |
 
 ---
 
@@ -42,11 +42,11 @@ A comprehensive reference covering programming languages, frameworks, tools, and
 
 | Domain | What's There |
 |--------|--------------|
-| [[Domains/Web Development|Web]] | Frontend frameworks, backend, full-stack |
-| [[Domains/Mobile Development|Mobile]] | iOS, Android, cross-platform (Flutter, RN) |
-| [[Domains/Desktop Development|Desktop]] | WPF, SwiftUI, Electron, Tauri, Qt |
-| [[Domains/Game Development|Game]] | Unity, Unreal, Godot, Bevy |
-| [[Domains/Embedded & Systems|Embedded]] | Bare metal, RTOS, systems programming |
+| [[Domains/Web Development]] | Frontend frameworks, backend, full-stack |
+| [[Domains/Mobile Development]] | iOS, Android, cross-platform (Flutter, RN) |
+| [[Domains/Desktop Development]] | WPF, SwiftUI, Electron, Tauri, Qt |
+| [[Domains/Game Development]] | Unity, Unreal, Godot, Bevy |
+| [[Embedded & Systems]] | Bare metal, RTOS, systems programming |
 
 ---
 
