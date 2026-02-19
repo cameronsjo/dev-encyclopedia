@@ -67,6 +67,7 @@ Development tools, libraries, and infrastructure across languages.
 - [[File Storage]] — Object, block, file, distributed storage
 - [[ORMs & Database Access]] — Data access patterns
 - [[Serialization]] — JSON, YAML, binary formats
+- [[File Formats]] — Binary structure, magic bytes, image/audio/video/document formats
 
 ### Observability
 

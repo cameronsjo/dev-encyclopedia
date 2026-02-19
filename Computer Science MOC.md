@@ -70,6 +70,15 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 
 - [[Testing Strategies]] — Unit, integration, E2E, BDD, property-based
 
+### File Formats & Media
+
+- [[File Formats]] — Binary structure, magic bytes, headers, and trailers
+- [[Image Formats]] — JPEG, PNG, GIF, WebP, AVIF internals
+- [[File Metadata]] — EXIF, GPS, XMP, ID3 metadata systems
+- [[Audio and Video Formats]] — Codecs, containers, streaming
+- [[Archive and Compression Formats]] — ZIP, tar, gzip, zstd, brotli
+- [[Document Formats]] — PDF, DOCX, EPUB internals
+
 ### Reference
 
 - [[Technical Measurements]]
