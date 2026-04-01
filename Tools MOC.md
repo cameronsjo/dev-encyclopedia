@@ -43,6 +43,22 @@ Development tools, libraries, and infrastructure across languages.
 - [[Package Managers]] — apt, dnf, pacman, brew, winget
 - [[Process Managers]] — systemd, launchd, supervisord, PM2
 
+### Hardware
+
+- [[Hardware/Mainframes|Mainframes]] — IBM z/Series enterprise systems
+- [[Hardware/Server Hardware|Server Hardware]] — Rack servers, blade systems
+- [[Hardware/CPU Architectures|CPU Architectures]] — x86, ARM, RISC-V
+- [[Hardware/GPUs|GPUs]] — Graphics and compute accelerators
+- [[Hardware/Storage Systems|Storage Systems]] — SAN, NAS, object storage
+- [[Hardware/Routers and Switches|Routers and Switches]] — Network infrastructure
+- [[Hardware/Firewalls|Firewalls]] — Network security devices
+- [[Hardware/Network Topologies|Network Topologies]] — Network design patterns
+
+### Virtualization
+
+- [[Hardware/Hypervisors|Hypervisors]] — VMware, Hyper-V, KVM, Xen
+- [[Hardware/Virtual Networking|Virtual Networking]] — SDN, VXLAN, overlay networks
+
 ### Runtimes
 
 - [[JavaScript Runtimes]] — Node.js vs Deno vs Bun
@@ -54,6 +70,11 @@ Development tools, libraries, and infrastructure across languages.
 - [[Container Runtimes]] — Docker, Podman, Colima, Rancher Desktop
 - [[Container Tools]] — Portainer, Traefik, Watchtower, registries
 - [[Kubernetes]] — K8s, K3s, kind, minikube, Helm
+
+### Local Development
+
+- [[Tools/Local Kubernetes|Local Kubernetes]] — KIND, K3s, k3d, minikube
+- [[Tools/Local Observability|Local Observability]] — Grafana, Prometheus, Loki locally
 
 ### Infrastructure & Security
 
@@ -68,6 +89,16 @@ Development tools, libraries, and infrastructure across languages.
 - [[ORMs & Database Access]] — Data access patterns
 - [[Serialization]] — JSON, YAML, binary formats
 
+### Database Deep-Dives
+
+- [[Tools/PostgreSQL|PostgreSQL]] — Advanced SQL features, extensions
+- [[Tools/MySQL|MySQL]] — InnoDB, replication, performance
+- [[Tools/SQLite|SQLite]] — Embedded database, zero-config
+- [[Tools/MongoDB|MongoDB]] — Document database, aggregation
+- [[Tools/Redis|Redis]] — In-memory data structures, caching
+- [[Tools/Elasticsearch|Elasticsearch]] — Full-text search, analytics
+- [[Tools/Database Indexing|Database Indexing]] — B-tree, hash, GIN indexes
+
 ### Observability
 
 - [[Observability Stack]] — Metrics, logs, traces comparison
@@ -76,6 +107,14 @@ Development tools, libraries, and infrastructure across languages.
 - [[OpenTelemetry]] — Unified telemetry collection
 - [[Prometheus]] — Metrics monitoring
 - [[Grafana]] — Visualization and dashboards
+
+### DevOps & SRE
+
+- [[Tools/SLOs and SLIs|SLOs and SLIs]] — Service level objectives, error budgets
+- [[Tools/Incident Management|Incident Management]] — On-call, postmortems, blameless culture
+- [[Tools/Chaos Engineering|Chaos Engineering]] — Failure injection, resilience testing
+- [[Tools/Runbooks|Runbooks]] — Operational procedures, automation
+- [[Tools/CICS|CICS]] — Mainframe transaction processing
 
 ### UI
 
