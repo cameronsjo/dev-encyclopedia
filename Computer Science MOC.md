@@ -71,6 +71,15 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 
 - [[Testing Strategies]] — Unit, integration, E2E, BDD, property-based
 
+### File Formats & Media
+
+- [[File Formats]] — Binary structure, magic bytes, headers, and trailers
+- [[Image Formats]] — JPEG, PNG, GIF, WebP, AVIF internals
+- [[File Metadata]] — EXIF, GPS, XMP, ID3 metadata systems
+- [[Audio and Video Formats]] — Codecs, containers, streaming
+- [[Archive and Compression Formats]] — ZIP, tar, gzip, zstd, brotli
+- [[Document Formats]] — PDF, DOCX, EPUB internals
+
 ### Testing
 
 - [[Computer Science/TDD and BDD|TDD and BDD]] — Test-driven and behavior-driven development
@@ -94,7 +103,6 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Computer Science/Windows Development Basics|Windows Development Basics]] — AppData, Registry, paths
 - [[Computer Science/macOS Development Basics|macOS Development Basics]] — Library folders, plist, Homebrew
 - [[Computer Science/Cross-Platform Development Paths|Cross-Platform Development Paths]] — Where to store files on any OS
-
 ### Reference
 
 - [[Technical Measurements]]
