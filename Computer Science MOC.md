@@ -103,6 +103,7 @@ Fundamental CS concepts, data structures, algorithms, and system design.
 - [[Computer Science/Windows Development Basics|Windows Development Basics]] — AppData, Registry, paths
 - [[Computer Science/macOS Development Basics|macOS Development Basics]] — Library folders, plist, Homebrew
 - [[Computer Science/Cross-Platform Development Paths|Cross-Platform Development Paths]] — Where to store files on any OS
+
 ### Reference
 
 - [[Technical Measurements]]

@@ -425,6 +425,7 @@ zstd -d --dict dict file.json.zst
 ```
 
 **Best for:**
+
 - Small similar files (API responses, configs)
 - Known structure (JSON schemas)
 - Protocol messages
